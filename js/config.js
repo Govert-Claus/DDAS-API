@@ -9,7 +9,7 @@ let respecConfig = {
   specType: "HL",
   
   // Zie de globale property 'localizationStrings/nl' voor de lijst met toegestane specificatie-statussen
-  specStatus: "WV",
+  specStatus: "IO",
   publishDate: "2024-07-2",
   publishVersion: "0.0.1",
 

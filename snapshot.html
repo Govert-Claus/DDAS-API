@@ -107,24 +107,6 @@ ul.index code{color:inherit}
 <meta name="description" content="Dit document bevat de koppelvlakspecificatie voor het de API waarmee schuldhulporganisaties gegevens beschikbaarstellen aan het CBS.
 Dit is een product van het [programma DDAS] (https://www.divosa.nl/projecten/data-delen-over-armoede-en-schulden). Het [informatie- en uitwisselmodel] (https://brienen.github.io/ddas/latest/) dat gebruikt wordt, is niet volledig opgenomen in deze specificatie. De OAS beschrijving van de API wordt binnenkort gepubliceerd.">
 <style>
-.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
-@media (prefers-color-scheme:dark){
-.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
-}
-.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
-.hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
-.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4;color:var(--hue-3,#a626a4)}
-.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;color:var(--hue-5,#ca4706);font-weight:700}
-.hljs-literal{color:#0b76c5;color:var(--hue-1,#0b76c5)}
-.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c;color:var(--hue-4,#42803c)}
-.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01;color:var(--hue-6-2,#9a6a01)}
-.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801;color:var(--hue-6,#986801)}
-.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3;color:var(--hue-2,#336ae3)}
-.hljs-emphasis{font-style:italic}
-.hljs-strong{font-weight:700}
-.hljs-link{text-decoration:underline}
-</style>
-<style>
 
   .sidelabel {
     position: fixed;
@@ -279,13 +261,13 @@ Dit is een product van het [programma DDAS] (https://www.divosa.nl/projecten/dat
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
 
-<body><h1 id="title" class="title">DDAS API Koppelvlakspecificatie</h1>
+<body class="toc-inline"><h1 id="title" class="title">DDAS API Koppelvlakspecificatie</h1>
   <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>Dit document bevat de koppelvlakspecificatie voor het de API waarmee schuldhulporganisaties gegevens beschikbaarstellen aan het CBS.
 Dit is een product van het [programma DDAS] (<a href="https://www.divosa.nl/projecten/data-delen-over-armoede-en-schulden">https://www.divosa.nl/projecten/data-delen-over-armoede-en-schulden</a>). Het [informatie- en uitwisselmodel] (<a href="https://brienen.github.io/ddas/latest/">https://brienen.github.io/ddas/latest/</a>) dat gebruikt wordt, is niet volledig opgenomen in deze specificatie. De OAS beschrijving van de API wordt binnenkort gepubliceerd.</p>
 <p>Naast de uitgangspunten en de technische specificatie bevat dit document een beschrijving van het beheer van de specificatie. Ook worden het aansluitprotocol (hoe kan een organisatie deelnemer worden), het aanleverprotocol (welke stappen worden doorlopen als gegevens opgehaald worden) en de non-functionele eisen (beschikbaarheid, performance) beschreven.</p>
 <p><em><strong>In de huidige versie staan nog diverse vraagstukken en de keuzes die gemaakt worden, moeten nog worden bevestigd. Het document dient daarom vooral als basis voor de discussie om tot een definitieve specificatie te komen, en er kunnen geen rechten aan dit document ontleend worden.</strong></em></p>
 </section>
-  <section id="sotd"></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#rm"><bdi class="secno">1. </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#kaders"><bdi class="secno">2. </bdi>Uitgangpunten</a></li><li class="tocline"><a class="tocxref" href="#beheer"><bdi class="secno">3. </bdi>Beheer van de specificatie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#indienen-wijzigingsverzoek"><bdi class="secno">3.1 </bdi>Indienen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#afhandelen-wijzigingsverzoek"><bdi class="secno">3.2 </bdi>Afhandelen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#releaseproces"><bdi class="secno">3.3 </bdi>Releaseproces</a></li><li class="tocline"><a class="tocxref" href="#releasenummering"><bdi class="secno">3.4 </bdi>Releasenummering</a></li><li class="tocline"><a class="tocxref" href="#vrijgaveprocedure-en-afwijkingsverzoeken"><bdi class="secno">3.5 </bdi>Vrijgaveprocedure en afwijkingsverzoeken</a></li><li class="tocline"><a class="tocxref" href="#noodprocedure"><bdi class="secno">3.6 </bdi>Noodprocedure</a></li><li class="tocline"><a class="tocxref" href="#escalatie"><bdi class="secno">3.7 </bdi>Escalatie</a></li></ol></li><li class="tocline"><a class="tocxref" href="#non-func"><bdi class="secno">4. </bdi>Niet functionele eisen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#beschikbaarheid"><bdi class="secno">4.1 </bdi>Beschikbaarheid</a></li><li class="tocline"><a class="tocxref" href="#performance"><bdi class="secno">4.2 </bdi>Performance</a></li><li class="tocline"><a class="tocxref" href="#monitoring"><bdi class="secno">4.3 </bdi>Monitoring</a></li></ol></li><li class="tocline"><a class="tocxref" href="#aanlever"><bdi class="secno">5. </bdi>Aanleverprotocol</a></li><li class="tocline"><a class="tocxref" href="#aansluit"><bdi class="secno">6. </bdi>Aansluitprotocol</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">7. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Begrippen gedefinieerd door deze specificatie</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Begrippen gedefinieerd door verwijzing</a></li></ol></li></ol></nav>
+  <section id="sotd"></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#rm"><bdi class="secno">1. </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#kaders"><bdi class="secno">2. </bdi>Uitgangpunten</a></li><li class="tocline"><a class="tocxref" href="#beheer"><bdi class="secno">3. </bdi>Beheer van de specificatie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#indienen-wijzigingsverzoek"><bdi class="secno">3.1 </bdi>Indienen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#afhandelen-wijzigingsverzoek"><bdi class="secno">3.2 </bdi>Afhandelen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#releaseproces"><bdi class="secno">3.3 </bdi>Releaseproces</a></li><li class="tocline"><a class="tocxref" href="#releasenummering"><bdi class="secno">3.4 </bdi>Releasenummering</a></li><li class="tocline"><a class="tocxref" href="#vrijgaveprocedure-en-afwijkingsverzoeken"><bdi class="secno">3.5 </bdi>Vrijgaveprocedure en afwijkingsverzoeken</a></li><li class="tocline"><a class="tocxref" href="#noodprocedure"><bdi class="secno">3.6 </bdi>Noodprocedure</a></li><li class="tocline"><a class="tocxref" href="#escalatie"><bdi class="secno">3.7 </bdi>Escalatie</a></li></ol></li><li class="tocline"><a class="tocxref" href="#transport"><bdi class="secno">4. </bdi>Transportlaag</a></li><li class="tocline"><a class="tocxref" href="#iam"><bdi class="secno">5. </bdi>Identificatie, Authenticatie en Autorisatie</a></li><li class="tocline"><a class="tocxref" href="#sign"><bdi class="secno">6. </bdi>Signing en Versleuteling</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#signing"><bdi class="secno">6.1 </bdi>Signing</a></li><li class="tocline"><a class="tocxref" href="#versleuteling-encryptie"><bdi class="secno">6.2 </bdi>Versleuteling (Encryptie)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#messages"><bdi class="secno">7. </bdi>Berichten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#vraagbericht-request"><bdi class="secno">7.1 </bdi>Vraagbericht (request)</a></li><li class="tocline"><a class="tocxref" href="#antwoordbericht-response"><bdi class="secno">7.2 </bdi>Antwoordbericht (response)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#non-func"><bdi class="secno">8. </bdi>Niet functionele eisen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#beschikbaarheid"><bdi class="secno">8.1 </bdi>Beschikbaarheid</a></li><li class="tocline"><a class="tocxref" href="#performance"><bdi class="secno">8.2 </bdi>Performance</a></li><li class="tocline"><a class="tocxref" href="#monitoring"><bdi class="secno">8.3 </bdi>Monitoring</a></li></ol></li><li class="tocline"><a class="tocxref" href="#aanlever"><bdi class="secno">9. </bdi>Aanleverprotocol</a></li><li class="tocline"><a class="tocxref" href="#aansluit"><bdi class="secno">10. </bdi>Aansluitprotocol</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">11. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Begrippen gedefinieerd door deze specificatie</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Begrippen gedefinieerd door verwijzing</a></li></ol></li></ol></nav>
   <section id="rm"><div class="header-wrapper"><h2 id="x1-inleiding"><bdi class="secno">1. </bdi>Inleiding</h2><a class="self-link" href="#rm" aria-label="Permalink for Section 1."></a></div>
 <p>Het einddoel van het project “Datadelen op Armoede en Schulden” is om de betrokken partners in het domein gezamenlijk regie te laten voeren op de informatievoorziening over schulden en armoede om op die manier hoge kwaliteit en beschikbaarheid van data te garanderen. Om dat te bereiken gaan we de uitvraag van schuldhulpdata bij gemeenten sterk vereenvoudigen, verbeteren en borgen.
 Eén van de middelen om de uitvraag te verbeteren is het ontwikkelen van een API-structuur en een API-werkwijze. Deze koppelvlakspecificatie geeft invulling aan de API-structuur en -werkwijze.
@@ -382,24 +364,70 @@ Deze specificatie wordt, na afstemming met de betrokken partijen, vastgesteld do
 </section><section id="escalatie"><div class="header-wrapper"><h3 id="x3-7-escalatie"><bdi class="secno">3.7 </bdi>Escalatie</h3><a class="self-link" href="#escalatie" aria-label="Permalink for Section 3.7"></a></div>
 <p>Als de partijen het niet eens worden, wordt het verzoek geëscaleerd naar de stuurgroep DDAS. Als het behandelen van het verzoek niet kan wachten tot het eerstvolgende overleg van de stuurgroep, worden de stuurgroepleden schriftelijk om hun oordeel gevraagd.</p>
 </section></section>
-  <section id="tech">
-
-
-<meta charset="utf-8">
-<title>Error</title>
-
-
-<pre aria-busy="false"><code class="hljs">Cannot GET /techniek.md</code></pre>
-
+  <section id="transport"><div class="header-wrapper"><h2 id="x4-transportlaag"><bdi class="secno">4. </bdi>Transportlaag</h2><a class="self-link" href="#transport" aria-label="Permalink for Section 4."></a></div>
+<p>Hoe ziet de technische uitwisseling van berichten eruit.&nbsp;</p>
+<p>Vragen:&nbsp;</p>
+<ul>
+<li><p>Gebruik van Diginetwerk? Kunnen alle organisaties die gegevens gaan leveren hierop aansluiten?&nbsp;Wordt waarschijnlijk niet mogelijk... Dan via “open” internet: vereist mogelijk extra maatregelen, zoals versleuteling van de gegevens. Dit hangt af van de DPIA.&nbsp;</p>
+</li>
+<li><p>Dubbelzijdig TLS (wordt voorgeschreven in Digikoppeling en FSC standaard)&nbsp;NB: Dit vereist een certificaat dat door alle betrokken partijen vertrouwd wordt.&nbsp;</p>
+</li>
+<li><p>Gebruik van PKIo certificaten voor authenticatie op basis van het <a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/">Nederlandse profiel van OAuth</a>?&nbsp;Het is de vraag of alle partijen een PKIo certificaat mogen aanvragen. Als dit niet mogelijk is, moet een “trust anchor” gevonden worden: de autoriteit die certificaten kan uitgeven, die door alle betrokken partijen vertrouwd worden.</p>
+</li>
+</ul>
 </section>
-  <section id="non-func"><div class="header-wrapper"><h2 id="x4-niet-functionele-eisen"><bdi class="secno">4. </bdi>Niet functionele eisen</h2><a class="self-link" href="#non-func" aria-label="Permalink for Section 4."></a></div>
-<section id="beschikbaarheid"><div class="header-wrapper"><h3 id="x4-1-beschikbaarheid"><bdi class="secno">4.1 </bdi>Beschikbaarheid</h3><a class="self-link" href="#beschikbaarheid" aria-label="Permalink for Section 4.1"></a></div>
+  <section id="iam"><div class="header-wrapper"><h2 id="x5-identificatie-authenticatie-en-autorisatie"><bdi class="secno">5. </bdi>Identificatie, Authenticatie en Autorisatie</h2><a class="self-link" href="#iam" aria-label="Permalink for Section 5."></a></div>
+<p>Hoe worden de schuldhulpverleners (gegevensleveranciers) geïdentificeerd? (o.b.v. (sub)OIN?) Als niet alle betrokken partijen een (sub)OIN kunnen krijgen, moet een systematiek gevonden worden om alle partijen uniek te kunnen identificeren.&nbsp;</p>
+<p>Hoe worden systemen geauthenticeerd? (obv PKIo certificaten? Als dat niet kan: wie wordt de “Trust Anchor” – de autoriteit die door alle partijen vertrouwd wordt?)&nbsp;</p>
+<p>Autorisatie lijkt niet heel spannend: er zal waarschijnlijk maar één service komen met een vaste set gegevens, waar maar één partij (CBS) toegang toe zal krijgen. Als fijnmaziger autorisatie nodig is, dan bestaat er een voorkeur voor PBAC (Policy Base Authorisation Control). De autorisatie wordt dan bepaald op basis van beleidsregels, zoals “organisatie X krijgt toegang tot gegeven G als de organisatie overeenkomst O getekend heeft en het gegeven is vrijgegeven door autoriteit A”. Dan is de vraag wie deze beleidsregels vaststelt en wie ze beheert.</p>
+</section>
+  <section id="sign"><div class="header-wrapper"><h2 id="x6-signing-en-versleuteling"><bdi class="secno">6. </bdi>Signing en Versleuteling</h2><a class="self-link" href="#sign" aria-label="Permalink for Section 6."></a></div>
+<p>NB: De Digikoppeling standaard voor REST-API heeft (nog) geen standaard voor signing en encryptie vastgesteld. Daarom voorstel om JWT te gebruiken en dus eerst een JWT aan te vragen, die daarna bij het request wordt meegestuurd. Eventueel kunnen hierbij protocollen van de FSC standaard toegepast worden.&nbsp;</p>
+<section id="signing"><div class="header-wrapper"><h3 id="x6-1-signing"><bdi class="secno">6.1 </bdi>Signing</h3><a class="self-link" href="#signing" aria-label="Permalink for Section 6.1"></a></div>
+<p>Voorstel: Signing op basis van JWS in een JWT conform de <a href="https://commonground.gitlab.io/standards/fsc/core/draft-fsc-core-00.html#signatures">FSC standaard</a>.&nbsp;</p>
+</section><section id="versleuteling-encryptie"><div class="header-wrapper"><h3 id="x6-2-versleuteling-encryptie"><bdi class="secno">6.2 </bdi>Versleuteling (Encryptie)</h3><a class="self-link" href="#versleuteling-encryptie" aria-label="Permalink for Section 6.2"></a></div>
+<p>Is versleuteling nodig? (zou uit DPIA moeten komen – ik vermoed dat het nodig is)&nbsp;</p>
+<p>Voorstel: Versleuteling op basis van JWE in een JWT met PKIo certificaten. NB: ook hier geldt dat als niet alle betrokken partijen PKIo certificaten kunnen aanvragen, er een Trust Anchor nodig is die vertrouwde certificaten kan uitgeven.</p>
+</section></section>
+  <section id="messages"><div class="header-wrapper"><h2 id="x7-berichten"><bdi class="secno">7. </bdi>Berichten</h2><a class="self-link" href="#messages" aria-label="Permalink for Section 7."></a></div>
+<section id="vraagbericht-request"><div class="header-wrapper"><h3 id="x7-1-vraagbericht-request"><bdi class="secno">7.1 </bdi>Vraagbericht (request)</h3><a class="self-link" href="#vraagbericht-request" aria-label="Permalink for Section 7.1"></a></div>
+<p>Request zoals dat door CBS naar de schuldhulpverlener gestuurd wordt. Alleen een GET&nbsp; en/ of POST request: alleen opvragen gegevens, geen mutaties. Bij GET zitten de parameters in de URL, waardoor mogelijk cache gegevens gebruikt worden, als de parameters niet wijzigen.&nbsp;</p>
+<p>NB: Met een JWT voor authenticatie, signen en versleutelen (als versleutelen nodig is – met een BSN in het bericht zou dat waarschijnlijk moeten). Mogelijk kan dit afgevangen worden door het FSC-concept van inward- en outward-services?&nbsp;</p>
+<p>Voorstel voor parameters die meegestuurd kunnen worden (allemaal optioneel):&nbsp;</p>
+<ul>
+<li><p>Startdatum (default vandaag)&nbsp;</p>
+</li>
+<li><p>Einddatum (default vandaag)&nbsp;</p>
+</li>
+<li><p>Gemeente (default alle – alleen relevant als over meer dan 1 gemeente gegevens aangeleverd worden)&nbsp;</p>
+</li>
+<li><p>BSN? (of ander gegeven waarmee een inwoner geïdentificeerd kan worden – default alle)&nbsp;</p>
+</li>
+<li><p>SHV-traject? (default alle)</p>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Technische uitwerking in OAS3 (YAML/ JSON bestand op Github?)&nbsp;</p>
+</section><section id="antwoordbericht-response"><div class="header-wrapper"><h3 id="x7-2-antwoordbericht-response"><bdi class="secno">7.2 </bdi>Antwoordbericht (response)</h3><a class="self-link" href="#antwoordbericht-response" aria-label="Permalink for Section 7.2"></a></div>
+<p>Response van de schuldhulpverlener met de gewenste gegevens in JSON formaat.&nbsp;</p>
+<p>Als versleutelen nodig is, in een JWE vorm (eventueel gezipt, versleuteld in een token).&nbsp;</p>
+<p>Payload zoals gedefinieerd door Arjen!&nbsp;</p>
+<p>Responses: opnemen in OAS3 beschrijving. Bv:&nbsp;</p>
+<ul>
+<li><p>200: bericht goed verwerkt (met payload)&nbsp;</p>
+</li>
+<li><p>Welke foutberichten? (FSC standaard volgen?)</p>
+</li>
+</ul>
+</section></section>
+  <section id="non-func"><div class="header-wrapper"><h2 id="x8-niet-functionele-eisen"><bdi class="secno">8. </bdi>Niet functionele eisen</h2><a class="self-link" href="#non-func" aria-label="Permalink for Section 8."></a></div>
+<section id="beschikbaarheid"><div class="header-wrapper"><h3 id="x8-1-beschikbaarheid"><bdi class="secno">8.1 </bdi>Beschikbaarheid</h3><a class="self-link" href="#beschikbaarheid" aria-label="Permalink for Section 8.1"></a></div>
 <p>Niet kritische toepassing: geen hoge beschikbaarheid vereist.&nbsp;</p>
 <p>Afstemmen met CBS: wanneer willen zij gegevens verzamelen? Dan zou de beschikbaarheid wat hoger moeten zijn. BV: tijdens kantooruren&nbsp;&nbsp;</p>
-</section><section id="performance"><div class="header-wrapper"><h3 id="x4-2-performance"><bdi class="secno">4.2 </bdi>Performance</h3><a class="self-link" href="#performance" aria-label="Permalink for Section 4.2"></a></div>
+</section><section id="performance"><div class="header-wrapper"><h3 id="x8-2-performance"><bdi class="secno">8.2 </bdi>Performance</h3><a class="self-link" href="#performance" aria-label="Permalink for Section 8.2"></a></div>
 <p>Geen afhankelijkheden in het primaire proces: geen hoge performance vereist.&nbsp;</p>
 <p>Wordt gebruik van cache toegestaan (volgens mij moet dat kunnen)? Onder welke voorwaarden?&nbsp;</p>
-</section><section id="monitoring"><div class="header-wrapper"><h3 id="x4-3-monitoring"><bdi class="secno">4.3 </bdi>Monitoring</h3><a class="self-link" href="#monitoring" aria-label="Permalink for Section 4.3"></a></div>
+</section><section id="monitoring"><div class="header-wrapper"><h3 id="x8-3-monitoring"><bdi class="secno">8.3 </bdi>Monitoring</h3><a class="self-link" href="#monitoring" aria-label="Permalink for Section 8.3"></a></div>
 <p>Verantwoordelijkheid voor monitoring ligt bij partij die verantwoording hierover moet afleggen. Welke verantwoording verwacht het programma of SZW?&nbsp;</p>
 <p>Voor gemeenten (suggestie):&nbsp;</p>
 <ul>
@@ -419,7 +447,7 @@ Deze specificatie wordt, na afstemming met de betrokken partijen, vastgesteld do
 </li>
 </ul>
 </section></section>
-  <section id="aanlever"><div class="header-wrapper"><h2 id="x5-aanleverprotocol"><bdi class="secno">5. </bdi>Aanleverprotocol</h2><a class="self-link" href="#aanlever" aria-label="Permalink for Section 5."></a></div>
+  <section id="aanlever"><div class="header-wrapper"><h2 id="x9-aanleverprotocol"><bdi class="secno">9. </bdi>Aanleverprotocol</h2><a class="self-link" href="#aanlever" aria-label="Permalink for Section 9."></a></div>
 <p>Stappen bij het aanleveren van gegevens:&nbsp;</p>
 <ul>
 <li><p>CBS roept systeem van schuldhulpverlener (gegevensleverancier) aan om JWT voor signing en encryptie te krijgen&nbsp;</p>
@@ -444,7 +472,7 @@ Deze specificatie wordt, na afstemming met de betrokken partijen, vastgesteld do
 <p>&nbsp;</p>
 <p>NB: Als er bij deze stappen algoritmen gebruikt worden, moeten deze voldoen aan de Europese AI-verordening (definitieve tekst nog niet gevonden) en aangemeld worden bij het <a href="https://algoritmes.overheid.nl/nl">Algoritmeregister van de Nederlandse overheid</a>.</p>
 </section>
-  <section id="aansluit"><div class="header-wrapper"><h2 id="x6-aansluitprotocol"><bdi class="secno">6. </bdi>Aansluitprotocol</h2><a class="self-link" href="#aansluit" aria-label="Permalink for Section 6."></a></div>
+  <section id="aansluit"><div class="header-wrapper"><h2 id="x10-aansluitprotocol"><bdi class="secno">10. </bdi>Aansluitprotocol</h2><a class="self-link" href="#aansluit" aria-label="Permalink for Section 10."></a></div>
 <p>Iedere schuldhulpverleningsorganisatie of gemeente (hierna: "deelnemer") die gegevens beschikbaar gaat stellen aan CBS, moet het aansluitprotocol doorlopen. Dit protocol valt onder verantwoordelijkheid van het programma DDAS. Voor vragen hierover kan altijd contact opgenomen worden met [contactadres].</p>
 <p>Het protocol kan aangepast worden als hiervoor aanleiding is. Na aanpassingen wordt de meest recente versie met versienummer en versiedatum gepubliceerd op [documentatiewebsite].</p>
 <p>De stappen die de deelnemer moet doorlopen, zijn:</p>
@@ -495,7 +523,7 @@ Deze specificatie wordt, na afstemming met de betrokken partijen, vastgesteld do
 
     document.getElementById("probl").insertAdjacentHTML('afterend', content);
   </script>
-  <section id="conformance"><div class="header-wrapper"><h2 id="x7-conformiteit"><bdi class="secno">7. </bdi>Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 7."></a></div><p>Naast onderdelen die als niet normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet normatief. Verder is alles in dit document normatief.</p></section>
+  <section id="conformance"><div class="header-wrapper"><h2 id="x11-conformiteit"><bdi class="secno">11. </bdi>Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 11."></a></div><p>Naast onderdelen die als niet normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet normatief. Verder is alles in dit document normatief.</p></section>
   <section id="tof"></section>
   <section id="index" class="appendix"><div class="header-wrapper"><h2 id="a-index"><bdi class="secno">A. </bdi>Index</h2><a class="self-link" href="#index" aria-label="Permalink for Appendix A."></a></div><section id="index-defined-here">
     <div class="header-wrapper"><h3 id="a-1-begrippen-gedefinieerd-door-deze-specificatie"><bdi class="secno">A.1 </bdi>Begrippen gedefinieerd door deze specificatie</h3><a class="self-link" href="#index-defined-here" aria-label="Permalink for Appendix A.1"></a></div>

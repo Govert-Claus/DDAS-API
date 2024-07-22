@@ -20,7 +20,7 @@ let respecConfig = {
   
   title: "DDAS API Koppelvlakspecificatie",
   subtitle: "Koppelvlakspecificatie voor het aanleveren van DDAS-gegevens aan het CBS",
-  content: {"mermaid": "", "ch01": "informative", "ch02": ""},
+//  content: {"mermaid": "", "ch01": "informative", "ch02": ""},
 //  authors:
 //    [
 //      {

@@ -9,17 +9,17 @@ let respecConfig = {
   specType: "HL",
   
   // Zie de globale property 'localizationStrings/nl' voor de lijst met toegestane specificatie-statussen
-  specStatus: "IO",
-  publishDate: "2024-05-16",
-  publishVersion: "0.2.0",
+  specStatus: "WV",
+  publishDate: "2024-07-2",
+  publishVersion: "0.0.1",
 
   // Zie de globale property 'localizationStrings/nl' voor de lijst met toegestane maturities
   //previousMaturity: "IO",
   //previousPublishDate: "2022-06-24",
   //previousPublishVersion: "0.0.4",
   
-  title: "Respec documentatie generatie",
-  subtitle: "Tevens een voorbeeld van een gegenereerd Respec document",
+  title: "DDAS API Koppelvlakspecificatie",
+  subtitle: "Koppelvlakspecificatie voor het aanleveren van DDAS-gegevens aan het CBS",
   content: {"mermaid": "", "ch01": "informative", "ch02": ""},
 //  authors:
 //    [
@@ -32,12 +32,12 @@ let respecConfig = {
   editors:
     [
       {
-        name: "Robert Melskens",
+        name: "Govert Claus",
         company: "VNG Realisatie",
         companyURL: "https://vng.nl/artikelen/vng-realisatie",
       }
     ],
-  github: "https://github.com/VNG-Realisatie/VNG-R-Respec-Template",
+  github: "https://github.com/Govert-Claus/DDAS-API",
 
   //  maxTocLevel: 2,
 
@@ -45,7 +45,7 @@ let respecConfig = {
   alternateFormats: [
       {
           label: "pdf",
-          uri: "Respec-bij-VNG-R.pdf",
+          uri: "DDAS-API-Koppelvlakspecificatie.pdf",
       },
     ],
   localBiblio: {

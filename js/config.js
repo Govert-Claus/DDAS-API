@@ -6,8 +6,8 @@ let respecConfig = {
   pubDomain: "hl",
 
   // Zie de globale property 'localizationStrings/nl' voor de lijst met toegestane specificatie-types
-  specType: "HL",
-  
+  specType: "ST",
+
   // Zie de globale property 'localizationStrings/nl' voor de lijst met toegestane specificatie-statussen
   specStatus: "IO",
   publishDate: "2024-07-22",
@@ -17,7 +17,7 @@ let respecConfig = {
   //previousMaturity: "IO",
   //previousPublishDate: "2022-06-24",
   //previousPublishVersion: "0.0.4",
-  
+
   title: "DDAS API Koppelvlakspecificatie",
   subtitle: "Koppelvlakspecificatie voor het aanleveren van DDAS-gegevens aan het CBS",
 //  content: {"mermaid": "", "ch01": "informative", "ch02": ""},

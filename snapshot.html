@@ -107,7 +107,7 @@ Dit is een product van het [programma DDAS] (https://www.divosa.nl/projecten/dat
     color: white;
     white-space: nowrap;
     z-index: 1;
-    background-color: Black;
+    background-color: #DC7633;
   }
 </style>
 <script type="text/javascript">
@@ -228,7 +228,7 @@ Dit is een product van het [programma DDAS] (https://www.divosa.nl/projecten/dat
   },
   "shortName": "Respec-template",
   "specType": "HL",
-  "specStatus": "WV",
+  "specStatus": "IO",
   "publishDate": "2024-07-2",
   "publishVersion": "0.0.1",
   "title": "DDAS API Koppelvlakspecificatie",
@@ -250,13 +250,62 @@ Dit is een product van het [programma DDAS] (https://www.divosa.nl/projecten/dat
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
 
-<body class="informative toc-inline"><h1 id="title" class="title">DDAS API Koppelvlakspecificatie</h1>
+<body class="h-entry informative toc-inline"><div class="head">
+    <a class="logo" href="https://www.vng.nl"><img alt="VNG-Realisatie" height="77" id="VNG-Realisatie" src="https://vng-realisatie.github.io/VNG-R-Respec-Organization-configurations/media/logo-VNG-Realisatie.jpg">
+  </a> <h1 id="title" class="title">DDAS API Koppelvlakspecificatie</h1>
+    <h2 id="subtitle" class="subtitle">Koppelvlakspecificatie voor het aanleveren van DDAS-gegevens aan het CBS</h2>
+    <h2>
+      VNG Realisatie Handleiding<br>
+      In Ontwikkeling versie
+      <time class="dt-published" datetime="2024-07-02">02 juli 2024</time>
+    </h2>
+    <dl>
+      <dt>Deze versie:</dt><dd class="status">
+              <a class="u-url status" href="https://vng-realisatie.github.io/publicatie/hl/respec-template/0.0.1">https://vng-realisatie.github.io/publicatie/hl/respec-template/0.0.1</a>
+            </dd>
+      <dt>Laatst gepubliceerde versie:</dt><dd>
+              <a href="https://vng-realisatie.github.io/publicatie/hl/respec-template">https://vng-realisatie.github.io/publicatie/hl/respec-template</a>
+            </dd>
+      <dt>Laatste werkversie:</dt><dd><a href="https://govert-claus.github.io/DDAS-API/">https://govert-claus.github.io/DDAS-API/</a></dd>
+      
+      
+      
+      
+      
+      <dt>Redacteur:</dt>
+      <dd class="editor p-author h-card vcard">
+    <span class="p-name fn">Govert Claus</span> (<a class="p-org org h-org" href="https://vng.nl/artikelen/vng-realisatie">VNG Realisatie</a>)
+  </dd>
+      
+      
+      <dt>Doe mee:</dt><dd>
+    <a href="https://github.com/Govert-Claus/DDAS-API/">GitHub Govert-Claus/DDAS-API</a>
+  </dd><dd>
+    <a href="https://github.com/Govert-Claus/DDAS-API/issues/">Dien een melding in</a>
+  </dd><dd>
+    <a href="https://github.com/Govert-Claus/DDAS-API/commits/">Revisiehistorie</a>
+  </dd><dd>
+    <a href="https://github.com/Govert-Claus/DDAS-API/pulls/">Pull requests</a>
+  </dd>
+    </dl>
+    
+    
+    <p>
+          Dit document is ook beschikbaar in dit niet-normatieve formaat:
+          <a rel="alternate" href="DDAS-API-Koppelvlakspecificatie.pdf">pdf</a>
+        </p>
+    <p class="copyright">
+          Dit document valt onder de volgende licentie: 
+          <a rel="license" href="https://eupl.eu/" class="subfoot"><img class="license" src="https://eupl.eu/eu.png" alt="Logo EUROPEAN UNION PUBLIC LICENCE v. 1.2"><br> EUROPEAN UNION PUBLIC LICENCE v. 1.2</a>
+        </p>
+    <hr title="Separator for header">
+  </div>
   <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>Dit document bevat de koppelvlakspecificatie voor het de API waarmee schuldhulporganisaties gegevens beschikbaarstellen aan het CBS.
 Dit is een product van het [programma DDAS] (<a href="https://www.divosa.nl/projecten/data-delen-over-armoede-en-schulden">https://www.divosa.nl/projecten/data-delen-over-armoede-en-schulden</a>). Het [informatie- en uitwisselmodel] (<a href="https://brienen.github.io/ddas/latest/">https://brienen.github.io/ddas/latest/</a>) dat gebruikt wordt, is niet volledig opgenomen in deze specificatie. De OAS beschrijving van de API wordt binnenkort gepubliceerd.</p>
 <p>Naast de uitgangspunten en de technische specificatie bevat dit document een beschrijving van de niet-functionele eisen (beschikbaarheid, performance). Ook worden het aanleverprotocol (welke stappen worden doorlopen als gegevens opgehaald worden) en het aansluitprotocol (hoe kan een organisatie deelnemer worden) beschreven. Ten slotte wordt het beheer van de specificatie zelf beschreven.</p>
 <p><em><strong>In de huidige versie staan nog diverse vraagstukken en de keuzes die gemaakt worden, moeten nog worden bevestigd. Het document dient daarom vooral als basis voor de discussie om tot een definitieve specificatie te komen, en er kunnen geen rechten aan dit document ontleend worden.</strong></em></p>
 </section>
-  <section id="sotd"></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#rm"><bdi class="secno">1. </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#kaders"><bdi class="secno">2. </bdi>Uitgangpunten</a></li><li class="tocline"><a class="tocxref" href="#transport"><bdi class="secno">3. </bdi>Transportlaag</a></li><li class="tocline"><a class="tocxref" href="#iam"><bdi class="secno">4. </bdi>Identificatie, Authenticatie en Autorisatie</a></li><li class="tocline"><a class="tocxref" href="#sign"><bdi class="secno">5. </bdi>Signing en Versleuteling</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#signing"><bdi class="secno">5.1 </bdi>Signing</a></li><li class="tocline"><a class="tocxref" href="#versleuteling-encryptie"><bdi class="secno">5.2 </bdi>Versleuteling (Encryptie)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#messages"><bdi class="secno">6. </bdi>Berichten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#vraagbericht-request"><bdi class="secno">6.1 </bdi>Vraagbericht (request)</a></li><li class="tocline"><a class="tocxref" href="#antwoordbericht-response"><bdi class="secno">6.2 </bdi>Antwoordbericht (response)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#non-func"><bdi class="secno">7. </bdi>Niet functionele eisen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#beschikbaarheid"><bdi class="secno">7.1 </bdi>Beschikbaarheid</a></li><li class="tocline"><a class="tocxref" href="#performance"><bdi class="secno">7.2 </bdi>Performance</a></li><li class="tocline"><a class="tocxref" href="#monitoring"><bdi class="secno">7.3 </bdi>Monitoring</a></li></ol></li><li class="tocline"><a class="tocxref" href="#aanlever"><bdi class="secno">8. </bdi>Aanleverprotocol</a></li><li class="tocline"><a class="tocxref" href="#aansluit"><bdi class="secno">9. </bdi>Aansluitprotocol</a></li><li class="tocline"><a class="tocxref" href="#beheer"><bdi class="secno">10. </bdi>Beheer van de specificatie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#indienen-wijzigingsverzoek"><bdi class="secno">10.1 </bdi>Indienen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#afhandelen-wijzigingsverzoek"><bdi class="secno">10.2 </bdi>Afhandelen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#releaseproces"><bdi class="secno">10.3 </bdi>Releaseproces</a></li><li class="tocline"><a class="tocxref" href="#releasenummering"><bdi class="secno">10.4 </bdi>Releasenummering</a></li><li class="tocline"><a class="tocxref" href="#vrijgaveprocedure-en-afwijkingsverzoeken"><bdi class="secno">10.5 </bdi>Vrijgaveprocedure en afwijkingsverzoeken</a></li><li class="tocline"><a class="tocxref" href="#noodprocedure"><bdi class="secno">10.6 </bdi>Noodprocedure</a></li><li class="tocline"><a class="tocxref" href="#escalatie"><bdi class="secno">10.7 </bdi>Escalatie</a></li></ol></li></ol></nav>
+  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit document is nog 'In Ontwikkeling'.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#rm"><bdi class="secno">1. </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#kaders"><bdi class="secno">2. </bdi>Uitgangpunten</a></li><li class="tocline"><a class="tocxref" href="#transport"><bdi class="secno">3. </bdi>Transportlaag</a></li><li class="tocline"><a class="tocxref" href="#iam"><bdi class="secno">4. </bdi>Identificatie, Authenticatie en Autorisatie</a></li><li class="tocline"><a class="tocxref" href="#sign"><bdi class="secno">5. </bdi>Signing en Versleuteling</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#signing"><bdi class="secno">5.1 </bdi>Signing</a></li><li class="tocline"><a class="tocxref" href="#versleuteling-encryptie"><bdi class="secno">5.2 </bdi>Versleuteling (Encryptie)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#messages"><bdi class="secno">6. </bdi>Berichten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#vraagbericht-request"><bdi class="secno">6.1 </bdi>Vraagbericht (request)</a></li><li class="tocline"><a class="tocxref" href="#antwoordbericht-response"><bdi class="secno">6.2 </bdi>Antwoordbericht (response)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#non-func"><bdi class="secno">7. </bdi>Niet functionele eisen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#beschikbaarheid"><bdi class="secno">7.1 </bdi>Beschikbaarheid</a></li><li class="tocline"><a class="tocxref" href="#performance"><bdi class="secno">7.2 </bdi>Performance</a></li><li class="tocline"><a class="tocxref" href="#monitoring"><bdi class="secno">7.3 </bdi>Monitoring</a></li></ol></li><li class="tocline"><a class="tocxref" href="#aanlever"><bdi class="secno">8. </bdi>Aanleverprotocol</a></li><li class="tocline"><a class="tocxref" href="#aansluit"><bdi class="secno">9. </bdi>Aansluitprotocol</a></li><li class="tocline"><a class="tocxref" href="#beheer"><bdi class="secno">10. </bdi>Beheer van de specificatie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#indienen-wijzigingsverzoek"><bdi class="secno">10.1 </bdi>Indienen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#afhandelen-wijzigingsverzoek"><bdi class="secno">10.2 </bdi>Afhandelen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#releaseproces"><bdi class="secno">10.3 </bdi>Releaseproces</a></li><li class="tocline"><a class="tocxref" href="#releasenummering"><bdi class="secno">10.4 </bdi>Releasenummering</a></li><li class="tocline"><a class="tocxref" href="#vrijgaveprocedure-en-afwijkingsverzoeken"><bdi class="secno">10.5 </bdi>Vrijgaveprocedure en afwijkingsverzoeken</a></li><li class="tocline"><a class="tocxref" href="#noodprocedure"><bdi class="secno">10.6 </bdi>Noodprocedure</a></li><li class="tocline"><a class="tocxref" href="#escalatie"><bdi class="secno">10.7 </bdi>Escalatie</a></li></ol></li></ol></nav>
   <section id="rm"><div class="header-wrapper"><h2 id="x1-inleiding"><bdi class="secno">1. </bdi>Inleiding</h2><a class="self-link" href="#rm" aria-label="Permalink for Section 1."></a></div>
 <p>Het einddoel van het project “Datadelen op Armoede en Schulden” is om de betrokken partners in het domein gezamenlijk regie te laten voeren op de informatievoorziening over schulden en armoede om op die manier hoge kwaliteit en beschikbaarheid van data te garanderen. Om dat te bereiken gaan we de uitvraag van schuldhulpdata bij gemeenten sterk vereenvoudigen, verbeteren en borgen.
 Eén van de middelen om de uitvraag te verbeteren is het ontwikkelen van een API-structuur en een API-werkwijze. Deze koppelvlakspecificatie geeft invulling aan de API-structuur en -werkwijze.
@@ -743,4 +792,4 @@ function hidePanel(panel) {
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><div class="sidelabel">VNG Realisatie undefined - undefined</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
+})()</script><div class="sidelabel">VNG Realisatie Handleiding - In Ontwikkeling versie</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>

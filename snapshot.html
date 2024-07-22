@@ -43,7 +43,7 @@ dfn{cursor:pointer}
   
   
 <script>document.title = respecConfig.title</script>
-<title>Respec documentatie generatie</title>
+<title>DDAS API Koppelvlakspecificatie</title>
   
 <title>Default</title>
   
@@ -148,7 +148,7 @@ ul.index code{color:inherit}
     color: white;
     white-space: nowrap;
     z-index: 1;
-    background-color: #DC7633;
+    background-color: Black;
   }
 </style>
 <script type="text/javascript">
@@ -271,11 +271,11 @@ ul.index code{color:inherit}
   },
   "shortName": "Respec-template",
   "specType": "HL",
-  "specStatus": "IO",
-  "publishDate": "2024-05-16",
-  "publishVersion": "0.2.0",
-  "title": "Respec documentatie generatie",
-  "subtitle": "Tevens een voorbeeld van een gegenereerd Respec document",
+  "specStatus": "WV",
+  "publishDate": "2024-07-2",
+  "publishVersion": "0.0.1",
+  "title": "DDAS API Koppelvlakspecificatie",
+  "subtitle": "Koppelvlakspecificatie voor het aanleveren van DDAS-gegevens aan het CBS",
   "content": {
     "mermaid": "",
     "ch01": "informative",
@@ -283,71 +283,22 @@ ul.index code{color:inherit}
   },
   "editors": [
     {
-      "name": "Robert Melskens",
+      "name": "Govert Claus",
       "company": "VNG Realisatie",
       "companyURL": "https://vng.nl/artikelen/vng-realisatie"
     }
   ],
-  "github": "https://github.com/VNG-Realisatie/VNG-R-Respec-Template",
+  "github": "https://github.com/Govert-Claus/DDAS-API",
   "alternateFormats": [
     {
       "label": "pdf",
-      "uri": "Respec-bij-VNG-R.pdf"
+      "uri": "DDAS-API-Koppelvlakspecificatie.pdf"
     }
   ]
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
 
-<body class="h-entry toc-inline"><div class="head">
-    <a class="logo" href="https://www.vng.nl"><img alt="VNG-Realisatie" height="77" id="VNG-Realisatie" src="https://vng-realisatie.github.io/VNG-R-Respec-Organization-configurations/media/logo-VNG-Realisatie.jpg">
-  </a> <h1 id="title" class="title">Respec documentatie generatie</h1>
-    <h2 id="subtitle" class="subtitle">Tevens een voorbeeld van een gegenereerd Respec document</h2>
-    <h2>
-      VNG Realisatie Handleiding<br>
-      In Ontwikkeling versie
-      <time class="dt-published" datetime="2024-05-16">16 mei 2024</time>
-    </h2>
-    <dl>
-      <dt>Deze versie:</dt><dd class="status">
-              <a class="u-url status" href="https://vng-realisatie.github.io/publicatie/hl/respec-template/0.2.0">https://vng-realisatie.github.io/publicatie/hl/respec-template/0.2.0</a>
-            </dd>
-      <dt>Laatst gepubliceerde versie:</dt><dd>
-              <a href="https://vng-realisatie.github.io/publicatie/hl/respec-template">https://vng-realisatie.github.io/publicatie/hl/respec-template</a>
-            </dd>
-      <dt>Laatste werkversie:</dt><dd><a href="https://vng-realisatie.github.io/VNG-R-Respec-Template/">https://vng-realisatie.github.io/VNG-R-Respec-Template/</a></dd>
-      
-      
-      
-      
-      
-      <dt>Redacteur:</dt>
-      <dd class="editor p-author h-card vcard">
-    <span class="p-name fn">Robert Melskens</span> (<a class="p-org org h-org" href="https://vng.nl/artikelen/vng-realisatie">VNG Realisatie</a>)
-  </dd>
-      
-      
-      <dt>Doe mee:</dt><dd>
-    <a href="https://github.com/VNG-Realisatie/VNG-R-Respec-Template/">GitHub VNG-Realisatie/VNG-R-Respec-Template</a>
-  </dd><dd>
-    <a href="https://github.com/VNG-Realisatie/VNG-R-Respec-Template/issues/">Dien een melding in</a>
-  </dd><dd>
-    <a href="https://github.com/VNG-Realisatie/VNG-R-Respec-Template/commits/">Revisiehistorie</a>
-  </dd><dd>
-    <a href="https://github.com/VNG-Realisatie/VNG-R-Respec-Template/pulls/">Pull requests</a>
-  </dd>
-    </dl>
-    
-    
-    <p>
-          Dit document is ook beschikbaar in dit niet-normatieve formaat:
-          <a rel="alternate" href="Respec-bij-VNG-R.pdf">pdf</a>
-        </p>
-    <p class="copyright">
-          Dit document valt onder de volgende licentie: 
-          <a rel="license" href="https://eupl.eu/" class="subfoot"><img class="license" src="https://eupl.eu/eu.png" alt="Logo EUROPEAN UNION PUBLIC LICENCE v. 1.2"><br> EUROPEAN UNION PUBLIC LICENCE v. 1.2</a>
-        </p>
-    <hr title="Separator for header">
-  </div>
+<body class="toc-inline"><h1 id="title" class="title">DDAS API Koppelvlakspecificatie</h1>
   <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>Dit document bevat een uitleg van de toepassing van Respec documentatie binnen VNG Realisatie. </p>
 <ul>
 <li>In hoofdstuk 1 wordt de werking van het template uitgelegd. Hoe je het kunt gebruiken voor je eigen specificatie, wat er precies gebeurd als je er mee aan de gang gaat en waar je daarbij op moet letten.</li>
@@ -358,7 +309,7 @@ ul.index code{color:inherit}
 <li>De hoofdstukken volgend op hoofdstuk 5 hebben slechts een illustratieve functie. Op basis daarvan moet je, samen met de uitleg in hoofdstuk 3, in staat zijn de getoonde functionaliteit te gebruiken.</li>
 </ul>
 </section>
-  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit document is nog 'In Ontwikkeling'.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#rm"><bdi class="secno">1. </bdi>ReSpec template instructies</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#vereiste-voor-gebruik"><bdi class="secno">1.1 </bdi>Vereiste voor gebruik</a></li><li class="tocline"><a class="tocxref" href="#gebruikersinstructie"><bdi class="secno">1.2 </bdi>Gebruikersinstructie</a></li><li class="tocline"><a class="tocxref" href="#rendering-automatische-controles-en-publicatie"><bdi class="secno">1.3 </bdi>Rendering, automatische controles en publicatie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#rendering"><bdi class="secno">1.3.1 </bdi>Rendering</a></li><li class="tocline"><a class="tocxref" href="#checken"><bdi class="secno">1.3.2 </bdi>Checken</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#gen"><bdi class="secno">2. </bdi>Respec m.b.v. Imvertor</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#documentatie-generatie"><bdi class="secno">2.1 </bdi>Documentatie generatie</a></li><li class="tocline"><a class="tocxref" href="#diagrammen-als-clickable-images"><bdi class="secno">2.2 </bdi>Diagrammen als clickable images</a></li></ol></li><li class="tocline"><a class="tocxref" href="#assembl"><bdi class="secno">3. </bdi>Samenstellen Respec documentatie in GitHub (under construction)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#door-administrator-uit-te-voeren-acties"><bdi class="secno">3.1 </bdi>Door administrator uit te voeren acties</a></li><li class="tocline"><a class="tocxref" href="#door-repository-eigenaar-uit-te-voeren-acties"><bdi class="secno">3.2 </bdi>Door repository eigenaar uit te voeren acties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#imvertor-resultaat-plaatsen"><bdi class="secno">3.2.1 </bdi>Imvertor resultaat plaatsen</a></li><li class="tocline"><a class="tocxref" href="#de-content-van-het-respec-document-aanpassen"><bdi class="secno">3.2.2 </bdi>De content van het Respec document aanpassen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#content-methode"><bdi class="secno">3.2.2.1 </bdi>Content methode</a></li><li class="tocline"><a class="tocxref" href="#sectie-methode"><bdi class="secno">3.2.2.2 </bdi>Sectie methode</a></li><li class="tocline"><a class="tocxref" href="#secties-met-id-attribuutwaarde-sotd"><bdi class="secno">3.2.2.3 </bdi>Secties met 'id' attribuutwaarde 'sotd'</a></li><li class="tocline"><a class="tocxref" href="#secties-met-id-attribuutwaarde-abstract"><bdi class="secno">3.2.2.4 </bdi>Secties met 'id' attribuutwaarde 'abstract'</a></li><li class="tocline"><a class="tocxref" href="#secties-met-id-attribuutwaarde-conformance"><bdi class="secno">3.2.2.5 </bdi>Secties met 'id' attribuutwaarde 'conformance'</a></li><li class="tocline"><a class="tocxref" href="#secties-met-id-attribuutwaarde-tof"><bdi class="secno">3.2.2.6 </bdi>Secties met 'id' attribuutwaarde 'tof'</a></li><li class="tocline"><a class="tocxref" href="#secties-met-id-attribuutwaarde-index"><bdi class="secno">3.2.2.7 </bdi>Secties met 'id' attribuutwaarde 'index'</a></li><li class="tocline"><a class="tocxref" href="#secties-met-een-andere-id-attribuutwaarde"><bdi class="secno">3.2.2.8 </bdi>Secties met een andere 'id' attribuutwaarde</a></li><li class="tocline"><a class="tocxref" href="#secties-met-data-include-format-html"><bdi class="secno">3.2.2.9 </bdi>Secties met <code>data-include-format="html"</code></a></li><li class="tocline"><a class="tocxref" href="#andersoortige-secties"><bdi class="secno">3.2.2.10 </bdi>Andersoortige secties</a></li></ol></li><li class="tocline"><a class="tocxref" href="#bijlage-n-referenties"><bdi class="secno">3.2.3 </bdi>Bijlage N Referenties</a></li><li class="tocline"><a class="tocxref" href="#images-in-de-documentatie"><bdi class="secno">3.2.4 </bdi>Images in de documentatie</a></li></ol></li><li class="tocline"><a class="tocxref" href="#lokale-respec-configuratie-properties"><bdi class="secno">3.3 </bdi>Lokale Respec configuratie properties</a></li><li class="tocline"><a class="tocxref" href="#functie-respec-configuratie-properties"><bdi class="secno">3.4 </bdi>Functie Respec configuratie properties</a></li></ol></li><li class="tocline"><a class="tocxref" href="#publ"><bdi class="secno">4. </bdi>Publiceren Respec documentatie (under construction)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inrichten-publicatie-repository"><bdi class="secno">4.1 </bdi>Inrichten publicatie repository</a></li><li class="tocline"><a class="tocxref" href="#publiceren-van-documenten"><bdi class="secno">4.2 </bdi>Publiceren van documenten</a></li></ol></li><li class="tocline"><a class="tocxref" href="#probl"><bdi class="secno">5. </bdi>Foutoplossing</a></li><li class="tocline"><a class="tocxref" href="#het-vng-r-respec-proces"><bdi class="secno">6. </bdi>Het VNG-R Respec proces</a></li><li class="tocline"><a class="tocxref" href="#niet-normatieve-deel"><bdi class="secno">7. </bdi>Niet-normatieve deel</a></li><li class="tocline"><a class="tocxref" href="#meer-inhoud"><bdi class="secno">8. </bdi>Meer inhoud</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#definities"><bdi class="secno">8.1 </bdi>Definities</a></li><li class="tocline"><a class="tocxref" href="#afbeeldingen"><bdi class="secno">8.2 </bdi>Afbeeldingen</a></li><li class="tocline"><a class="tocxref" href="#referenties"><bdi class="secno">8.3 </bdi>Referenties</a></li><li class="tocline"><a class="tocxref" href="#optioneel"><bdi class="secno">8.4 </bdi>Optioneel</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">9. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">10. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Begrippen gedefinieerd door deze specificatie</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Begrippen gedefinieerd door verwijzing</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">B.1 </bdi>Normatieve referenties</a></li></ol></li></ol></nav>
+  <section id="sotd"></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#rm"><bdi class="secno">1. </bdi>ReSpec template instructies</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#vereiste-voor-gebruik"><bdi class="secno">1.1 </bdi>Vereiste voor gebruik</a></li><li class="tocline"><a class="tocxref" href="#gebruikersinstructie"><bdi class="secno">1.2 </bdi>Gebruikersinstructie</a></li><li class="tocline"><a class="tocxref" href="#rendering-automatische-controles-en-publicatie"><bdi class="secno">1.3 </bdi>Rendering, automatische controles en publicatie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#rendering"><bdi class="secno">1.3.1 </bdi>Rendering</a></li><li class="tocline"><a class="tocxref" href="#checken"><bdi class="secno">1.3.2 </bdi>Checken</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#gen"><bdi class="secno">2. </bdi>Respec m.b.v. Imvertor</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#documentatie-generatie"><bdi class="secno">2.1 </bdi>Documentatie generatie</a></li><li class="tocline"><a class="tocxref" href="#diagrammen-als-clickable-images"><bdi class="secno">2.2 </bdi>Diagrammen als clickable images</a></li></ol></li><li class="tocline"><a class="tocxref" href="#assembl"><bdi class="secno">3. </bdi>Samenstellen Respec documentatie in GitHub (under construction)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#door-administrator-uit-te-voeren-acties"><bdi class="secno">3.1 </bdi>Door administrator uit te voeren acties</a></li><li class="tocline"><a class="tocxref" href="#door-repository-eigenaar-uit-te-voeren-acties"><bdi class="secno">3.2 </bdi>Door repository eigenaar uit te voeren acties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#imvertor-resultaat-plaatsen"><bdi class="secno">3.2.1 </bdi>Imvertor resultaat plaatsen</a></li><li class="tocline"><a class="tocxref" href="#de-content-van-het-respec-document-aanpassen"><bdi class="secno">3.2.2 </bdi>De content van het Respec document aanpassen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#content-methode"><bdi class="secno">3.2.2.1 </bdi>Content methode</a></li><li class="tocline"><a class="tocxref" href="#sectie-methode"><bdi class="secno">3.2.2.2 </bdi>Sectie methode</a></li><li class="tocline"><a class="tocxref" href="#secties-met-id-attribuutwaarde-sotd"><bdi class="secno">3.2.2.3 </bdi>Secties met 'id' attribuutwaarde 'sotd'</a></li><li class="tocline"><a class="tocxref" href="#secties-met-id-attribuutwaarde-abstract"><bdi class="secno">3.2.2.4 </bdi>Secties met 'id' attribuutwaarde 'abstract'</a></li><li class="tocline"><a class="tocxref" href="#secties-met-id-attribuutwaarde-conformance"><bdi class="secno">3.2.2.5 </bdi>Secties met 'id' attribuutwaarde 'conformance'</a></li><li class="tocline"><a class="tocxref" href="#secties-met-id-attribuutwaarde-tof"><bdi class="secno">3.2.2.6 </bdi>Secties met 'id' attribuutwaarde 'tof'</a></li><li class="tocline"><a class="tocxref" href="#secties-met-id-attribuutwaarde-index"><bdi class="secno">3.2.2.7 </bdi>Secties met 'id' attribuutwaarde 'index'</a></li><li class="tocline"><a class="tocxref" href="#secties-met-een-andere-id-attribuutwaarde"><bdi class="secno">3.2.2.8 </bdi>Secties met een andere 'id' attribuutwaarde</a></li><li class="tocline"><a class="tocxref" href="#secties-met-data-include-format-html"><bdi class="secno">3.2.2.9 </bdi>Secties met <code>data-include-format="html"</code></a></li><li class="tocline"><a class="tocxref" href="#andersoortige-secties"><bdi class="secno">3.2.2.10 </bdi>Andersoortige secties</a></li></ol></li><li class="tocline"><a class="tocxref" href="#bijlage-n-referenties"><bdi class="secno">3.2.3 </bdi>Bijlage N Referenties</a></li><li class="tocline"><a class="tocxref" href="#images-in-de-documentatie"><bdi class="secno">3.2.4 </bdi>Images in de documentatie</a></li></ol></li><li class="tocline"><a class="tocxref" href="#lokale-respec-configuratie-properties"><bdi class="secno">3.3 </bdi>Lokale Respec configuratie properties</a></li><li class="tocline"><a class="tocxref" href="#functie-respec-configuratie-properties"><bdi class="secno">3.4 </bdi>Functie Respec configuratie properties</a></li></ol></li><li class="tocline"><a class="tocxref" href="#publ"><bdi class="secno">4. </bdi>Publiceren Respec documentatie (under construction)</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#inrichten-publicatie-repository"><bdi class="secno">4.1 </bdi>Inrichten publicatie repository</a></li><li class="tocline"><a class="tocxref" href="#publiceren-van-documenten"><bdi class="secno">4.2 </bdi>Publiceren van documenten</a></li></ol></li><li class="tocline"><a class="tocxref" href="#probl"><bdi class="secno">5. </bdi>Foutoplossing</a></li><li class="tocline"><a class="tocxref" href="#het-vng-r-respec-proces"><bdi class="secno">6. </bdi>Het VNG-R Respec proces</a></li><li class="tocline"><a class="tocxref" href="#niet-normatieve-deel"><bdi class="secno">7. </bdi>Niet-normatieve deel</a></li><li class="tocline"><a class="tocxref" href="#meer-inhoud"><bdi class="secno">8. </bdi>Meer inhoud</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#definities"><bdi class="secno">8.1 </bdi>Definities</a></li><li class="tocline"><a class="tocxref" href="#afbeeldingen"><bdi class="secno">8.2 </bdi>Afbeeldingen</a></li><li class="tocline"><a class="tocxref" href="#referenties"><bdi class="secno">8.3 </bdi>Referenties</a></li><li class="tocline"><a class="tocxref" href="#optioneel"><bdi class="secno">8.4 </bdi>Optioneel</a></li></ol></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">9. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">10. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Begrippen gedefinieerd door deze specificatie</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Begrippen gedefinieerd door verwijzing</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">B.1 </bdi>Normatieve referenties</a></li></ol></li></ol></nav>
   <section id="rm"><div class="header-wrapper"><h2 id="x1-respec-template-instructies"><bdi class="secno">1. </bdi>ReSpec template instructies</h2><a class="self-link" href="#rm" aria-label="Permalink for Section 1."></a></div>
 <p>ReSpec is een tool om html en pdf documenten te genereren op basis van markdown en html content.</p>
 <p>Organisatie administrators dienen de knop <a href="https://github.com/vng-realisatie/VNG-R-Respec-Template/generate"><em>Use this template</em></a> te gebruiken om een kopie van de template repository aan te maken. Deze kan daarna door jouzelf aangepast en uitgebreid worden.
@@ -1607,4 +1558,4 @@ function hidePanel(panel) {
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><div class="sidelabel">VNG Realisatie Handleiding - In Ontwikkeling versie</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
+})()</script><div class="sidelabel">VNG Realisatie undefined - undefined</div><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>

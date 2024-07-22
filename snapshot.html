@@ -93,17 +93,6 @@ dd{margin-left:0}
 <style id="respec-nlgov">
 img.license{float:left;padding-right:5px}
 </style>
-<style>
-ul.index{columns:30ch;column-gap:1.5em}
-ul.index li{list-style:inherit}
-ul.index li span{color:inherit;cursor:pointer;white-space:normal}
-#index-defined-here ul.index li{font-size:.9rem}
-ul.index code{color:inherit}
-#index-defined-here .print-only{display:none}
-@media print{
-#index-defined-here .print-only{display:initial}
-}
-</style>
 <meta name="description" content="Dit document bevat de koppelvlakspecificatie voor het de API waarmee schuldhulporganisaties gegevens beschikbaarstellen aan het CBS.
 Dit is een product van het [programma DDAS] (https://www.divosa.nl/projecten/data-delen-over-armoede-en-schulden). Het [informatie- en uitwisselmodel] (https://brienen.github.io/ddas/latest/) dat gebruikt wordt, is niet volledig opgenomen in deze specificatie. De OAS beschrijving van de API wordt binnenkort gepubliceerd.">
 <style>
@@ -261,13 +250,13 @@ Dit is een product van het [programma DDAS] (https://www.divosa.nl/projecten/dat
 }</script>
 <link rel="stylesheet" href="https://gitdocumentatie.logius.nl/publicatie/respec/style/base.css"></head>
 
-<body class="toc-inline"><h1 id="title" class="title">DDAS API Koppelvlakspecificatie</h1>
+<body class="informative toc-inline"><h1 id="title" class="title">DDAS API Koppelvlakspecificatie</h1>
   <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>Dit document bevat de koppelvlakspecificatie voor het de API waarmee schuldhulporganisaties gegevens beschikbaarstellen aan het CBS.
 Dit is een product van het [programma DDAS] (<a href="https://www.divosa.nl/projecten/data-delen-over-armoede-en-schulden">https://www.divosa.nl/projecten/data-delen-over-armoede-en-schulden</a>). Het [informatie- en uitwisselmodel] (<a href="https://brienen.github.io/ddas/latest/">https://brienen.github.io/ddas/latest/</a>) dat gebruikt wordt, is niet volledig opgenomen in deze specificatie. De OAS beschrijving van de API wordt binnenkort gepubliceerd.</p>
 <p>Naast de uitgangspunten en de technische specificatie bevat dit document een beschrijving van het beheer van de specificatie. Ook worden het aansluitprotocol (hoe kan een organisatie deelnemer worden), het aanleverprotocol (welke stappen worden doorlopen als gegevens opgehaald worden) en de non-functionele eisen (beschikbaarheid, performance) beschreven.</p>
 <p><em><strong>In de huidige versie staan nog diverse vraagstukken en de keuzes die gemaakt worden, moeten nog worden bevestigd. Het document dient daarom vooral als basis voor de discussie om tot een definitieve specificatie te komen, en er kunnen geen rechten aan dit document ontleend worden.</strong></em></p>
 </section>
-  <section id="sotd"></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#rm"><bdi class="secno">1. </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#kaders"><bdi class="secno">2. </bdi>Uitgangpunten</a></li><li class="tocline"><a class="tocxref" href="#beheer"><bdi class="secno">3. </bdi>Beheer van de specificatie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#indienen-wijzigingsverzoek"><bdi class="secno">3.1 </bdi>Indienen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#afhandelen-wijzigingsverzoek"><bdi class="secno">3.2 </bdi>Afhandelen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#releaseproces"><bdi class="secno">3.3 </bdi>Releaseproces</a></li><li class="tocline"><a class="tocxref" href="#releasenummering"><bdi class="secno">3.4 </bdi>Releasenummering</a></li><li class="tocline"><a class="tocxref" href="#vrijgaveprocedure-en-afwijkingsverzoeken"><bdi class="secno">3.5 </bdi>Vrijgaveprocedure en afwijkingsverzoeken</a></li><li class="tocline"><a class="tocxref" href="#noodprocedure"><bdi class="secno">3.6 </bdi>Noodprocedure</a></li><li class="tocline"><a class="tocxref" href="#escalatie"><bdi class="secno">3.7 </bdi>Escalatie</a></li></ol></li><li class="tocline"><a class="tocxref" href="#transport"><bdi class="secno">4. </bdi>Transportlaag</a></li><li class="tocline"><a class="tocxref" href="#iam"><bdi class="secno">5. </bdi>Identificatie, Authenticatie en Autorisatie</a></li><li class="tocline"><a class="tocxref" href="#sign"><bdi class="secno">6. </bdi>Signing en Versleuteling</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#signing"><bdi class="secno">6.1 </bdi>Signing</a></li><li class="tocline"><a class="tocxref" href="#versleuteling-encryptie"><bdi class="secno">6.2 </bdi>Versleuteling (Encryptie)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#messages"><bdi class="secno">7. </bdi>Berichten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#vraagbericht-request"><bdi class="secno">7.1 </bdi>Vraagbericht (request)</a></li><li class="tocline"><a class="tocxref" href="#antwoordbericht-response"><bdi class="secno">7.2 </bdi>Antwoordbericht (response)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#non-func"><bdi class="secno">8. </bdi>Niet functionele eisen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#beschikbaarheid"><bdi class="secno">8.1 </bdi>Beschikbaarheid</a></li><li class="tocline"><a class="tocxref" href="#performance"><bdi class="secno">8.2 </bdi>Performance</a></li><li class="tocline"><a class="tocxref" href="#monitoring"><bdi class="secno">8.3 </bdi>Monitoring</a></li></ol></li><li class="tocline"><a class="tocxref" href="#aanlever"><bdi class="secno">9. </bdi>Aanleverprotocol</a></li><li class="tocline"><a class="tocxref" href="#aansluit"><bdi class="secno">10. </bdi>Aansluitprotocol</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">11. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Begrippen gedefinieerd door deze specificatie</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Begrippen gedefinieerd door verwijzing</a></li></ol></li></ol></nav>
+  <section id="sotd"></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#rm"><bdi class="secno">1. </bdi>Inleiding</a></li><li class="tocline"><a class="tocxref" href="#kaders"><bdi class="secno">2. </bdi>Uitgangpunten</a></li><li class="tocline"><a class="tocxref" href="#transport"><bdi class="secno">3. </bdi>Transportlaag</a></li><li class="tocline"><a class="tocxref" href="#iam"><bdi class="secno">4. </bdi>Identificatie, Authenticatie en Autorisatie</a></li><li class="tocline"><a class="tocxref" href="#sign"><bdi class="secno">5. </bdi>Signing en Versleuteling</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#signing"><bdi class="secno">5.1 </bdi>Signing</a></li><li class="tocline"><a class="tocxref" href="#versleuteling-encryptie"><bdi class="secno">5.2 </bdi>Versleuteling (Encryptie)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#messages"><bdi class="secno">6. </bdi>Berichten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#vraagbericht-request"><bdi class="secno">6.1 </bdi>Vraagbericht (request)</a></li><li class="tocline"><a class="tocxref" href="#antwoordbericht-response"><bdi class="secno">6.2 </bdi>Antwoordbericht (response)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#non-func"><bdi class="secno">7. </bdi>Niet functionele eisen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#beschikbaarheid"><bdi class="secno">7.1 </bdi>Beschikbaarheid</a></li><li class="tocline"><a class="tocxref" href="#performance"><bdi class="secno">7.2 </bdi>Performance</a></li><li class="tocline"><a class="tocxref" href="#monitoring"><bdi class="secno">7.3 </bdi>Monitoring</a></li></ol></li><li class="tocline"><a class="tocxref" href="#aanlever"><bdi class="secno">8. </bdi>Aanleverprotocol</a></li><li class="tocline"><a class="tocxref" href="#aansluit"><bdi class="secno">9. </bdi>Aansluitprotocol</a></li><li class="tocline"><a class="tocxref" href="#beheer"><bdi class="secno">10. </bdi>Beheer van de specificatie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#indienen-wijzigingsverzoek"><bdi class="secno">10.1 </bdi>Indienen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#afhandelen-wijzigingsverzoek"><bdi class="secno">10.2 </bdi>Afhandelen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#releaseproces"><bdi class="secno">10.3 </bdi>Releaseproces</a></li><li class="tocline"><a class="tocxref" href="#releasenummering"><bdi class="secno">10.4 </bdi>Releasenummering</a></li><li class="tocline"><a class="tocxref" href="#vrijgaveprocedure-en-afwijkingsverzoeken"><bdi class="secno">10.5 </bdi>Vrijgaveprocedure en afwijkingsverzoeken</a></li><li class="tocline"><a class="tocxref" href="#noodprocedure"><bdi class="secno">10.6 </bdi>Noodprocedure</a></li><li class="tocline"><a class="tocxref" href="#escalatie"><bdi class="secno">10.7 </bdi>Escalatie</a></li></ol></li></ol></nav>
   <section id="rm"><div class="header-wrapper"><h2 id="x1-inleiding"><bdi class="secno">1. </bdi>Inleiding</h2><a class="self-link" href="#rm" aria-label="Permalink for Section 1."></a></div>
 <p>Het einddoel van het project “Datadelen op Armoede en Schulden” is om de betrokken partners in het domein gezamenlijk regie te laten voeren op de informatievoorziening over schulden en armoede om op die manier hoge kwaliteit en beschikbaarheid van data te garanderen. Om dat te bereiken gaan we de uitvraag van schuldhulpdata bij gemeenten sterk vereenvoudigen, verbeteren en borgen.
 Eén van de middelen om de uitvraag te verbeteren is het ontwikkelen van een API-structuur en een API-werkwijze. Deze koppelvlakspecificatie geeft invulling aan de API-structuur en -werkwijze.
@@ -315,56 +304,7 @@ Deze specificatie wordt, na afstemming met de betrokken partijen, vastgesteld do
 </li>
 </ul>
 </section>
-  <section id="beheer"><div class="header-wrapper"><h2 id="x3-beheer-van-de-specificatie"><bdi class="secno">3. </bdi>Beheer van de specificatie</h2><a class="self-link" href="#beheer" aria-label="Permalink for Section 3."></a></div>
-<p>De koppelvlakspecificatie is onderhevig aan wijzigingen: de technologie ontwikkelt zich, er zijn mogelijk andere gegevens nodig, de samenwerking tussen de betrokken partijen kan wijzigen, etc. Om deze wijzigingen op een betrouwbare en juiste manier te verwerken in de specificatie, is een wijzigingsproces ingericht. Dit wijzigingsproces valt onder verantwoordelijkheid van de stuurgroep DDAS en wordt uitgevoerd door het programma DDAS, zolang het programma DDAS actief is. Daarna wordt het overgedragen aan een nog aan te wijzen organisatie.&nbsp;Voor het beoordelen van wijzigingsverzoeken wordt een beheeroverleg samengesteld, met afgevaardigden van de betrokken partijen, onder voorzitterschap van het programma DDAS. Dit beheeroverleg komt periodiek bijeen om wijzigingsverzoeken te beoordelen en eventueel verder uit te werken.</p>
-<p>Het streven is om maximaal eenmaal per jaar een nieuw release van de koppelvlakspecificatie uit te brengen.</p>
-<section id="indienen-wijzigingsverzoek"><div class="header-wrapper"><h3 id="x3-1-indienen-wijzigingsverzoek"><bdi class="secno">3.1 </bdi>Indienen wijzigingsverzoek</h3><a class="self-link" href="#indienen-wijzigingsverzoek" aria-label="Permalink for Section 3.1"></a></div>
-<p>Wijzigingsverzoeken worden verzameld via [nog in te vullen]. Alle betrokken partijen mogen wijzigingsverzoeken indienen. Er is geen template voor het indienen van een wijzigingsverzoek, maar het verzoek moet in elk geval de volgende informatie bevatten:&nbsp;</p>
-<ul>
-<li><p>Indiener (inclusief contactgegevens)&nbsp;</p>
-</li>
-<li><p>Datum indienen&nbsp;</p>
-</li>
-<li><p>Beschrijving gewenste wijziging (bondig, maar voldoende specifiek om in te kunnen schatten wat de impact is)&nbsp;</p>
-</li>
-<li><p>Onderbouwing/ aanleiding gewenste wijziging&nbsp;</p>
-</li>
-<li><p>Prioriteit volgens de indiener (hoe snel moet de wijziging doorgevoerd worden)</p>
-</li>
-</ul>
-<p>&nbsp;</p>
-<p>Als het aantal wijzigingsverzoeken groot wordt of de afhandeling daarvan complex, dan wordt een systeem gebruikt om een en ander in te administreren.&nbsp;</p>
-<p>Dit systeem moet zo openbaar mogelijk zijn, om zo transparant mogelijk te zijn over de afhandeling van verzoeken en om te voorkomen dat dezelfde wijzigingsverzoeken meerdere malen ingediend worden.</p>
-</section><section id="afhandelen-wijzigingsverzoek"><div class="header-wrapper"><h3 id="x3-2-afhandelen-wijzigingsverzoek"><bdi class="secno">3.2 </bdi>Afhandelen wijzigingsverzoek</h3><a class="self-link" href="#afhandelen-wijzigingsverzoek" aria-label="Permalink for Section 3.2"></a></div>
-<p>Het wijzigingsverzoek wordt door het programma DDAS geanalyseerd, waarbij vastgesteld wordt welke onderdelen van de specificatie geraakt worden en wat de geschatte impact is op de specificatie, de techniek, de processen en de betrokken partijen. Tevens wordt ingeschat wat de randvoorwaarden, kosten en doorlooptijd van de gewenste wijziging zouden zijn. Dit leidt tot een voorstel voor de verdere afhandeling: of, hoe en wanneer dit wijzigingsverzoek doorgevoerd wordt.&nbsp;</p>
-<p>Het wijzigingsverzoek met de analyse van het programma DDAS worden besproken in het (nog in te richten) beheeroverleg DDAS. Als alle betrokken partijen akkoord gaan met de voorgestelde afhandeling, wordt deze afhandeling gevolgd (d.w.z. inplannen voor een release, via noodprocedure eerder doorvoeren, of afwijzen van het verzoek).&nbsp;</p>
-</section><section id="releaseproces"><div class="header-wrapper"><h3 id="x3-3-releaseproces"><bdi class="secno">3.3 </bdi>Releaseproces</h3><a class="self-link" href="#releaseproces" aria-label="Permalink for Section 3.3"></a></div>
-<p>Wijzigingen die doorgevoerd moeten worden, worden zoveel mogelijk via een release in productie gebracht. Het streven is om maximaal eenmaal per jaar een release door te voeren. De stappen die hiervoor doorlopen worden zijn:</p>
-<ul>
-<li><p>Vaststellen scope van de release door de stuurgroep DDAS, op basis van advies van beheeroverleg [6 maanden voor productiedatum]</p>
-</li>
-<li><p>Publiceren aangepaste specificatie door programma DDAS [5 maanden voor productiedatum]</p>
-</li>
-<li><p>Doorvoeren noodzakelijke wijzigingen in de testomgeving door deelnemers (gegevensleveranciers en CBS) [tot 1 maand voor productiedatum]</p>
-</li>
-<li><p>Testen nieuwe release in testomgeving [in laatste maand voor productiedatum]</p>
-</li>
-<li><p>Livegang nieuwe release</p>
-</li>
-</ul>
-</section><section id="releasenummering"><div class="header-wrapper"><h3 id="x3-4-releasenummering"><bdi class="secno">3.4 </bdi>Releasenummering</h3><a class="self-link" href="#releasenummering" aria-label="Permalink for Section 3.4"></a></div>
-<p>Ieder release wordt aangeduid met een releasenummer. Deze krijgt de vorm X.Y, waarbij X het "major" nummer is en Y het "minor" nummer. Voor testreleases kan een derde nummer toegevoegd worden; het zogenaamde "patch" nummer. In de productieomgeving wordt geen patch nummer gebruikt.</p>
-<p>Als een release via het reguliere releaseproces naar productie gaat, dan krijgt deze een nieuw major nummer en het minor nummer 0 (bv. "1.0"). Als er via de noodprocedure een release doorgevoerd wordt, dan blijft het major nummer hetzelfde, maar wordt het minor nummer opgehoogd (bv. "1.1").</p>
-</section><section id="vrijgaveprocedure-en-afwijkingsverzoeken"><div class="header-wrapper"><h3 id="x3-5-vrijgaveprocedure-en-afwijkingsverzoeken"><bdi class="secno">3.5 </bdi>Vrijgaveprocedure en afwijkingsverzoeken</h3><a class="self-link" href="#vrijgaveprocedure-en-afwijkingsverzoeken" aria-label="Permalink for Section 3.5"></a></div>
-<p>Er is geen "vrijgave" van deelnemers voor een release nodig. Als de specificatie complexer wordt kan de stuurgroep DDAS besluiten om een vrijgaveprocedure in te richten. De deelnemer moet dan aan de hand van een set testscenario's aantonen te voldoen aan de nieuwe specificaties. Als dit succesvol is, dan krijgt de deelnemer vrijgave voor de nieuwe release. Als dit niet succesvol is, dan kan de deelnemer een afwijkingsverzoek indienen bij het programma DDAS en toch gegevens blijven aanbieden. Een afwijkingsverzoek wordt alleen geaccepteerd als dit de rapporten van CBS niet compromitteert. In het afwijkingsverzoek wordt altijd aangegeven hoe lang de afwijking geldig mag blijven.</p>
-</section><section id="noodprocedure"><div class="header-wrapper"><h3 id="x3-6-noodprocedure"><bdi class="secno">3.6 </bdi>Noodprocedure</h3><a class="self-link" href="#noodprocedure" aria-label="Permalink for Section 3.6"></a></div>
-<p>Het kan gebeuren dat een wijziging niet kan wachten op een gepland release, maar sneller doorgevoerd moet worden. De stuurgoep DDAS kan dan op advies van het beheeroverleg, een noodprocedure aanroepen.</p>
-<p>Het beheeroverleg adviseert de stuurgroep welke stappen genomen moeten worden en in welk tempo deze doorlopen moeten worden. Als de stuurgroep hiermee akkoord gaat, voert het programma DDAS de regie op de uitvoering van de stappen.</p>
-<p>De release die hiermee ontstaat krijgt geen nieuw "major" versienummer, maar een nieuw "minor" nummer (zie ook "releasenummering").</p>
-</section><section id="escalatie"><div class="header-wrapper"><h3 id="x3-7-escalatie"><bdi class="secno">3.7 </bdi>Escalatie</h3><a class="self-link" href="#escalatie" aria-label="Permalink for Section 3.7"></a></div>
-<p>Als de partijen het niet eens worden, wordt het verzoek geëscaleerd naar de stuurgroep DDAS. Als het behandelen van het verzoek niet kan wachten tot het eerstvolgende overleg van de stuurgroep, worden de stuurgroepleden schriftelijk om hun oordeel gevraagd.</p>
-</section></section>
-  <section id="transport"><div class="header-wrapper"><h2 id="x4-transportlaag"><bdi class="secno">4. </bdi>Transportlaag</h2><a class="self-link" href="#transport" aria-label="Permalink for Section 4."></a></div>
+  <section id="transport"><div class="header-wrapper"><h2 id="x3-transportlaag"><bdi class="secno">3. </bdi>Transportlaag</h2><a class="self-link" href="#transport" aria-label="Permalink for Section 3."></a></div>
 <p>Hoe ziet de technische uitwisseling van berichten eruit.&nbsp;</p>
 <p>Vragen:&nbsp;</p>
 <ul>
@@ -376,21 +316,21 @@ Deze specificatie wordt, na afstemming met de betrokken partijen, vastgesteld do
 </li>
 </ul>
 </section>
-  <section id="iam"><div class="header-wrapper"><h2 id="x5-identificatie-authenticatie-en-autorisatie"><bdi class="secno">5. </bdi>Identificatie, Authenticatie en Autorisatie</h2><a class="self-link" href="#iam" aria-label="Permalink for Section 5."></a></div>
+  <section id="iam"><div class="header-wrapper"><h2 id="x4-identificatie-authenticatie-en-autorisatie"><bdi class="secno">4. </bdi>Identificatie, Authenticatie en Autorisatie</h2><a class="self-link" href="#iam" aria-label="Permalink for Section 4."></a></div>
 <p>Hoe worden de schuldhulpverleners (gegevensleveranciers) geïdentificeerd? (o.b.v. (sub)OIN?) Als niet alle betrokken partijen een (sub)OIN kunnen krijgen, moet een systematiek gevonden worden om alle partijen uniek te kunnen identificeren.&nbsp;</p>
 <p>Hoe worden systemen geauthenticeerd? (obv PKIo certificaten? Als dat niet kan: wie wordt de “Trust Anchor” – de autoriteit die door alle partijen vertrouwd wordt?)&nbsp;</p>
 <p>Autorisatie lijkt niet heel spannend: er zal waarschijnlijk maar één service komen met een vaste set gegevens, waar maar één partij (CBS) toegang toe zal krijgen. Als fijnmaziger autorisatie nodig is, dan bestaat er een voorkeur voor PBAC (Policy Base Authorisation Control). De autorisatie wordt dan bepaald op basis van beleidsregels, zoals “organisatie X krijgt toegang tot gegeven G als de organisatie overeenkomst O getekend heeft en het gegeven is vrijgegeven door autoriteit A”. Dan is de vraag wie deze beleidsregels vaststelt en wie ze beheert.</p>
 </section>
-  <section id="sign"><div class="header-wrapper"><h2 id="x6-signing-en-versleuteling"><bdi class="secno">6. </bdi>Signing en Versleuteling</h2><a class="self-link" href="#sign" aria-label="Permalink for Section 6."></a></div>
+  <section id="sign"><div class="header-wrapper"><h2 id="x5-signing-en-versleuteling"><bdi class="secno">5. </bdi>Signing en Versleuteling</h2><a class="self-link" href="#sign" aria-label="Permalink for Section 5."></a></div>
 <p>NB: De Digikoppeling standaard voor REST-API heeft (nog) geen standaard voor signing en encryptie vastgesteld. Daarom voorstel om JWT te gebruiken en dus eerst een JWT aan te vragen, die daarna bij het request wordt meegestuurd. Eventueel kunnen hierbij protocollen van de FSC standaard toegepast worden.&nbsp;</p>
-<section id="signing"><div class="header-wrapper"><h3 id="x6-1-signing"><bdi class="secno">6.1 </bdi>Signing</h3><a class="self-link" href="#signing" aria-label="Permalink for Section 6.1"></a></div>
+<section id="signing"><div class="header-wrapper"><h3 id="x5-1-signing"><bdi class="secno">5.1 </bdi>Signing</h3><a class="self-link" href="#signing" aria-label="Permalink for Section 5.1"></a></div>
 <p>Voorstel: Signing op basis van JWS in een JWT conform de <a href="https://commonground.gitlab.io/standards/fsc/core/draft-fsc-core-00.html#signatures">FSC standaard</a>.&nbsp;</p>
-</section><section id="versleuteling-encryptie"><div class="header-wrapper"><h3 id="x6-2-versleuteling-encryptie"><bdi class="secno">6.2 </bdi>Versleuteling (Encryptie)</h3><a class="self-link" href="#versleuteling-encryptie" aria-label="Permalink for Section 6.2"></a></div>
+</section><section id="versleuteling-encryptie"><div class="header-wrapper"><h3 id="x5-2-versleuteling-encryptie"><bdi class="secno">5.2 </bdi>Versleuteling (Encryptie)</h3><a class="self-link" href="#versleuteling-encryptie" aria-label="Permalink for Section 5.2"></a></div>
 <p>Is versleuteling nodig? (zou uit DPIA moeten komen – ik vermoed dat het nodig is)&nbsp;</p>
 <p>Voorstel: Versleuteling op basis van JWE in een JWT met PKIo certificaten. NB: ook hier geldt dat als niet alle betrokken partijen PKIo certificaten kunnen aanvragen, er een Trust Anchor nodig is die vertrouwde certificaten kan uitgeven.</p>
 </section></section>
-  <section id="messages"><div class="header-wrapper"><h2 id="x7-berichten"><bdi class="secno">7. </bdi>Berichten</h2><a class="self-link" href="#messages" aria-label="Permalink for Section 7."></a></div>
-<section id="vraagbericht-request"><div class="header-wrapper"><h3 id="x7-1-vraagbericht-request"><bdi class="secno">7.1 </bdi>Vraagbericht (request)</h3><a class="self-link" href="#vraagbericht-request" aria-label="Permalink for Section 7.1"></a></div>
+  <section id="messages"><div class="header-wrapper"><h2 id="x6-berichten"><bdi class="secno">6. </bdi>Berichten</h2><a class="self-link" href="#messages" aria-label="Permalink for Section 6."></a></div>
+<section id="vraagbericht-request"><div class="header-wrapper"><h3 id="x6-1-vraagbericht-request"><bdi class="secno">6.1 </bdi>Vraagbericht (request)</h3><a class="self-link" href="#vraagbericht-request" aria-label="Permalink for Section 6.1"></a></div>
 <p>Request zoals dat door CBS naar de schuldhulpverlener gestuurd wordt. Alleen een GET&nbsp; en/ of POST request: alleen opvragen gegevens, geen mutaties. Bij GET zitten de parameters in de URL, waardoor mogelijk cache gegevens gebruikt worden, als de parameters niet wijzigen.&nbsp;</p>
 <p>NB: Met een JWT voor authenticatie, signen en versleutelen (als versleutelen nodig is – met een BSN in het bericht zou dat waarschijnlijk moeten). Mogelijk kan dit afgevangen worden door het FSC-concept van inward- en outward-services?&nbsp;</p>
 <p>Voorstel voor parameters die meegestuurd kunnen worden (allemaal optioneel):&nbsp;</p>
@@ -408,7 +348,7 @@ Deze specificatie wordt, na afstemming met de betrokken partijen, vastgesteld do
 </ul>
 <p>&nbsp;</p>
 <p>Technische uitwerking in OAS3 (YAML/ JSON bestand op Github?)&nbsp;</p>
-</section><section id="antwoordbericht-response"><div class="header-wrapper"><h3 id="x7-2-antwoordbericht-response"><bdi class="secno">7.2 </bdi>Antwoordbericht (response)</h3><a class="self-link" href="#antwoordbericht-response" aria-label="Permalink for Section 7.2"></a></div>
+</section><section id="antwoordbericht-response"><div class="header-wrapper"><h3 id="x6-2-antwoordbericht-response"><bdi class="secno">6.2 </bdi>Antwoordbericht (response)</h3><a class="self-link" href="#antwoordbericht-response" aria-label="Permalink for Section 6.2"></a></div>
 <p>Response van de schuldhulpverlener met de gewenste gegevens in JSON formaat.&nbsp;</p>
 <p>Als versleutelen nodig is, in een JWE vorm (eventueel gezipt, versleuteld in een token).&nbsp;</p>
 <p>Payload zoals gedefinieerd door Arjen!&nbsp;</p>
@@ -420,14 +360,14 @@ Deze specificatie wordt, na afstemming met de betrokken partijen, vastgesteld do
 </li>
 </ul>
 </section></section>
-  <section id="non-func"><div class="header-wrapper"><h2 id="x8-niet-functionele-eisen"><bdi class="secno">8. </bdi>Niet functionele eisen</h2><a class="self-link" href="#non-func" aria-label="Permalink for Section 8."></a></div>
-<section id="beschikbaarheid"><div class="header-wrapper"><h3 id="x8-1-beschikbaarheid"><bdi class="secno">8.1 </bdi>Beschikbaarheid</h3><a class="self-link" href="#beschikbaarheid" aria-label="Permalink for Section 8.1"></a></div>
+  <section id="non-func"><div class="header-wrapper"><h2 id="x7-niet-functionele-eisen"><bdi class="secno">7. </bdi>Niet functionele eisen</h2><a class="self-link" href="#non-func" aria-label="Permalink for Section 7."></a></div>
+<section id="beschikbaarheid"><div class="header-wrapper"><h3 id="x7-1-beschikbaarheid"><bdi class="secno">7.1 </bdi>Beschikbaarheid</h3><a class="self-link" href="#beschikbaarheid" aria-label="Permalink for Section 7.1"></a></div>
 <p>Niet kritische toepassing: geen hoge beschikbaarheid vereist.&nbsp;</p>
 <p>Afstemmen met CBS: wanneer willen zij gegevens verzamelen? Dan zou de beschikbaarheid wat hoger moeten zijn. BV: tijdens kantooruren&nbsp;&nbsp;</p>
-</section><section id="performance"><div class="header-wrapper"><h3 id="x8-2-performance"><bdi class="secno">8.2 </bdi>Performance</h3><a class="self-link" href="#performance" aria-label="Permalink for Section 8.2"></a></div>
+</section><section id="performance"><div class="header-wrapper"><h3 id="x7-2-performance"><bdi class="secno">7.2 </bdi>Performance</h3><a class="self-link" href="#performance" aria-label="Permalink for Section 7.2"></a></div>
 <p>Geen afhankelijkheden in het primaire proces: geen hoge performance vereist.&nbsp;</p>
 <p>Wordt gebruik van cache toegestaan (volgens mij moet dat kunnen)? Onder welke voorwaarden?&nbsp;</p>
-</section><section id="monitoring"><div class="header-wrapper"><h3 id="x8-3-monitoring"><bdi class="secno">8.3 </bdi>Monitoring</h3><a class="self-link" href="#monitoring" aria-label="Permalink for Section 8.3"></a></div>
+</section><section id="monitoring"><div class="header-wrapper"><h3 id="x7-3-monitoring"><bdi class="secno">7.3 </bdi>Monitoring</h3><a class="self-link" href="#monitoring" aria-label="Permalink for Section 7.3"></a></div>
 <p>Verantwoordelijkheid voor monitoring ligt bij partij die verantwoording hierover moet afleggen. Welke verantwoording verwacht het programma of SZW?&nbsp;</p>
 <p>Voor gemeenten (suggestie):&nbsp;</p>
 <ul>
@@ -447,7 +387,7 @@ Deze specificatie wordt, na afstemming met de betrokken partijen, vastgesteld do
 </li>
 </ul>
 </section></section>
-  <section id="aanlever"><div class="header-wrapper"><h2 id="x9-aanleverprotocol"><bdi class="secno">9. </bdi>Aanleverprotocol</h2><a class="self-link" href="#aanlever" aria-label="Permalink for Section 9."></a></div>
+  <section id="aanlever"><div class="header-wrapper"><h2 id="x8-aanleverprotocol"><bdi class="secno">8. </bdi>Aanleverprotocol</h2><a class="self-link" href="#aanlever" aria-label="Permalink for Section 8."></a></div>
 <p>Stappen bij het aanleveren van gegevens:&nbsp;</p>
 <ul>
 <li><p>CBS roept systeem van schuldhulpverlener (gegevensleverancier) aan om JWT voor signing en encryptie te krijgen&nbsp;</p>
@@ -472,7 +412,7 @@ Deze specificatie wordt, na afstemming met de betrokken partijen, vastgesteld do
 <p>&nbsp;</p>
 <p>NB: Als er bij deze stappen algoritmen gebruikt worden, moeten deze voldoen aan de Europese AI-verordening (definitieve tekst nog niet gevonden) en aangemeld worden bij het <a href="https://algoritmes.overheid.nl/nl">Algoritmeregister van de Nederlandse overheid</a>.</p>
 </section>
-  <section id="aansluit"><div class="header-wrapper"><h2 id="x10-aansluitprotocol"><bdi class="secno">10. </bdi>Aansluitprotocol</h2><a class="self-link" href="#aansluit" aria-label="Permalink for Section 10."></a></div>
+  <section id="aansluit"><div class="header-wrapper"><h2 id="x9-aansluitprotocol"><bdi class="secno">9. </bdi>Aansluitprotocol</h2><a class="self-link" href="#aansluit" aria-label="Permalink for Section 9."></a></div>
 <p>Iedere schuldhulpverleningsorganisatie of gemeente (hierna: "deelnemer") die gegevens beschikbaar gaat stellen aan CBS, moet het aansluitprotocol doorlopen. Dit protocol valt onder verantwoordelijkheid van het programma DDAS. Voor vragen hierover kan altijd contact opgenomen worden met [contactadres].</p>
 <p>Het protocol kan aangepast worden als hiervoor aanleiding is. Na aanpassingen wordt de meest recente versie met versienummer en versiedatum gepubliceerd op [documentatiewebsite].</p>
 <p>De stappen die de deelnemer moet doorlopen, zijn:</p>
@@ -510,6 +450,55 @@ Deze specificatie wordt, na afstemming met de betrokken partijen, vastgesteld do
 <p>Ten behoeve van de testen stelt DDAS een set testgegevens beschikbaar [wie maakt deze set? waar komt dit te staan?].</p>
 <p>Voor ondersteuning bij de aansluiting is een referentie implementatie en documentatie beschikbaar [waar?] en kan contact opgenomen worden met [contactadres]. Als er bij de aansluiting bevindingen zijn, die niet door de deelnemer opgelost kunnen worden, kan een wijzigingsverzoek ingediend worden.</p>
 </section>
+  <section id="beheer"><div class="header-wrapper"><h2 id="x10-beheer-van-de-specificatie"><bdi class="secno">10. </bdi>Beheer van de specificatie</h2><a class="self-link" href="#beheer" aria-label="Permalink for Section 10."></a></div>
+<p>De koppelvlakspecificatie is onderhevig aan wijzigingen: de technologie ontwikkelt zich, er zijn mogelijk andere gegevens nodig, de samenwerking tussen de betrokken partijen kan wijzigen, etc. Om deze wijzigingen op een betrouwbare en juiste manier te verwerken in de specificatie, is een wijzigingsproces ingericht. Dit wijzigingsproces valt onder verantwoordelijkheid van de stuurgroep DDAS en wordt uitgevoerd door het programma DDAS, zolang het programma DDAS actief is. Daarna wordt het overgedragen aan een nog aan te wijzen organisatie.&nbsp;Voor het beoordelen van wijzigingsverzoeken wordt een beheeroverleg samengesteld, met afgevaardigden van de betrokken partijen, onder voorzitterschap van het programma DDAS. Dit beheeroverleg komt periodiek bijeen om wijzigingsverzoeken te beoordelen en eventueel verder uit te werken.</p>
+<p>Het streven is om maximaal eenmaal per jaar een nieuw release van de koppelvlakspecificatie uit te brengen.</p>
+<section id="indienen-wijzigingsverzoek"><div class="header-wrapper"><h3 id="x10-1-indienen-wijzigingsverzoek"><bdi class="secno">10.1 </bdi>Indienen wijzigingsverzoek</h3><a class="self-link" href="#indienen-wijzigingsverzoek" aria-label="Permalink for Section 10.1"></a></div>
+<p>Wijzigingsverzoeken worden verzameld via [nog in te vullen]. Alle betrokken partijen mogen wijzigingsverzoeken indienen. Er is geen template voor het indienen van een wijzigingsverzoek, maar het verzoek moet in elk geval de volgende informatie bevatten:&nbsp;</p>
+<ul>
+<li><p>Indiener (inclusief contactgegevens)&nbsp;</p>
+</li>
+<li><p>Datum indienen&nbsp;</p>
+</li>
+<li><p>Beschrijving gewenste wijziging (bondig, maar voldoende specifiek om in te kunnen schatten wat de impact is)&nbsp;</p>
+</li>
+<li><p>Onderbouwing/ aanleiding gewenste wijziging&nbsp;</p>
+</li>
+<li><p>Prioriteit volgens de indiener (hoe snel moet de wijziging doorgevoerd worden)</p>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>Als het aantal wijzigingsverzoeken groot wordt of de afhandeling daarvan complex, dan wordt een systeem gebruikt om een en ander in te administreren.&nbsp;</p>
+<p>Dit systeem moet zo openbaar mogelijk zijn, om zo transparant mogelijk te zijn over de afhandeling van verzoeken en om te voorkomen dat dezelfde wijzigingsverzoeken meerdere malen ingediend worden.</p>
+</section><section id="afhandelen-wijzigingsverzoek"><div class="header-wrapper"><h3 id="x10-2-afhandelen-wijzigingsverzoek"><bdi class="secno">10.2 </bdi>Afhandelen wijzigingsverzoek</h3><a class="self-link" href="#afhandelen-wijzigingsverzoek" aria-label="Permalink for Section 10.2"></a></div>
+<p>Het wijzigingsverzoek wordt door het programma DDAS geanalyseerd, waarbij vastgesteld wordt welke onderdelen van de specificatie geraakt worden en wat de geschatte impact is op de specificatie, de techniek, de processen en de betrokken partijen. Tevens wordt ingeschat wat de randvoorwaarden, kosten en doorlooptijd van de gewenste wijziging zouden zijn. Dit leidt tot een voorstel voor de verdere afhandeling: of, hoe en wanneer dit wijzigingsverzoek doorgevoerd wordt.&nbsp;</p>
+<p>Het wijzigingsverzoek met de analyse van het programma DDAS worden besproken in het (nog in te richten) beheeroverleg DDAS. Als alle betrokken partijen akkoord gaan met de voorgestelde afhandeling, wordt deze afhandeling gevolgd (d.w.z. inplannen voor een release, via noodprocedure eerder doorvoeren, of afwijzen van het verzoek).&nbsp;</p>
+</section><section id="releaseproces"><div class="header-wrapper"><h3 id="x10-3-releaseproces"><bdi class="secno">10.3 </bdi>Releaseproces</h3><a class="self-link" href="#releaseproces" aria-label="Permalink for Section 10.3"></a></div>
+<p>Wijzigingen die doorgevoerd moeten worden, worden zoveel mogelijk via een release in productie gebracht. Het streven is om maximaal eenmaal per jaar een release door te voeren. De stappen die hiervoor doorlopen worden zijn:</p>
+<ul>
+<li><p>Vaststellen scope van de release door de stuurgroep DDAS, op basis van advies van beheeroverleg [6 maanden voor productiedatum]</p>
+</li>
+<li><p>Publiceren aangepaste specificatie door programma DDAS [5 maanden voor productiedatum]</p>
+</li>
+<li><p>Doorvoeren noodzakelijke wijzigingen in de testomgeving door deelnemers (gegevensleveranciers en CBS) [tot 1 maand voor productiedatum]</p>
+</li>
+<li><p>Testen nieuwe release in testomgeving [in laatste maand voor productiedatum]</p>
+</li>
+<li><p>Livegang nieuwe release</p>
+</li>
+</ul>
+</section><section id="releasenummering"><div class="header-wrapper"><h3 id="x10-4-releasenummering"><bdi class="secno">10.4 </bdi>Releasenummering</h3><a class="self-link" href="#releasenummering" aria-label="Permalink for Section 10.4"></a></div>
+<p>Ieder release wordt aangeduid met een releasenummer. Deze krijgt de vorm X.Y, waarbij X het "major" nummer is en Y het "minor" nummer. Voor testreleases kan een derde nummer toegevoegd worden; het zogenaamde "patch" nummer. In de productieomgeving wordt geen patch nummer gebruikt.</p>
+<p>Als een release via het reguliere releaseproces naar productie gaat, dan krijgt deze een nieuw major nummer en het minor nummer 0 (bv. "1.0"). Als er via de noodprocedure een release doorgevoerd wordt, dan blijft het major nummer hetzelfde, maar wordt het minor nummer opgehoogd (bv. "1.1").</p>
+</section><section id="vrijgaveprocedure-en-afwijkingsverzoeken"><div class="header-wrapper"><h3 id="x10-5-vrijgaveprocedure-en-afwijkingsverzoeken"><bdi class="secno">10.5 </bdi>Vrijgaveprocedure en afwijkingsverzoeken</h3><a class="self-link" href="#vrijgaveprocedure-en-afwijkingsverzoeken" aria-label="Permalink for Section 10.5"></a></div>
+<p>Er is geen "vrijgave" van deelnemers voor een release nodig. Als de specificatie complexer wordt kan de stuurgroep DDAS besluiten om een vrijgaveprocedure in te richten. De deelnemer moet dan aan de hand van een set testscenario's aantonen te voldoen aan de nieuwe specificaties. Als dit succesvol is, dan krijgt de deelnemer vrijgave voor de nieuwe release. Als dit niet succesvol is, dan kan de deelnemer een afwijkingsverzoek indienen bij het programma DDAS en toch gegevens blijven aanbieden. Een afwijkingsverzoek wordt alleen geaccepteerd als dit de rapporten van CBS niet compromitteert. In het afwijkingsverzoek wordt altijd aangegeven hoe lang de afwijking geldig mag blijven.</p>
+</section><section id="noodprocedure"><div class="header-wrapper"><h3 id="x10-6-noodprocedure"><bdi class="secno">10.6 </bdi>Noodprocedure</h3><a class="self-link" href="#noodprocedure" aria-label="Permalink for Section 10.6"></a></div>
+<p>Het kan gebeuren dat een wijziging niet kan wachten op een gepland release, maar sneller doorgevoerd moet worden. De stuurgoep DDAS kan dan op advies van het beheeroverleg, een noodprocedure aanroepen.</p>
+<p>Het beheeroverleg adviseert de stuurgroep welke stappen genomen moeten worden en in welk tempo deze doorlopen moeten worden. Als de stuurgroep hiermee akkoord gaat, voert het programma DDAS de regie op de uitvoering van de stappen.</p>
+<p>De release die hiermee ontstaat krijgt geen nieuw "major" versienummer, maar een nieuw "minor" nummer (zie ook "releasenummering").</p>
+</section><section id="escalatie"><div class="header-wrapper"><h3 id="x10-7-escalatie"><bdi class="secno">10.7 </bdi>Escalatie</h3><a class="self-link" href="#escalatie" aria-label="Permalink for Section 10.7"></a></div>
+<p>Als de partijen het niet eens worden, wordt het verzoek geëscaleerd naar de stuurgroep DDAS. Als het behandelen van het verzoek niet kan wachten tot het eerstvolgende overleg van de stuurgroep, worden de stuurgroepleden schriftelijk om hun oordeel gevraagd.</p>
+</section></section>
   <script>
     let content = "";
 
@@ -523,19 +512,9 @@ Deze specificatie wordt, na afstemming met de betrokken partijen, vastgesteld do
 
     document.getElementById("probl").insertAdjacentHTML('afterend', content);
   </script>
-  <section id="conformance"><div class="header-wrapper"><h2 id="x11-conformiteit"><bdi class="secno">11. </bdi>Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 11."></a></div><p>Naast onderdelen die als niet normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet normatief. Verder is alles in dit document normatief.</p></section>
+
   <section id="tof"></section>
-  <section id="index" class="appendix"><div class="header-wrapper"><h2 id="a-index"><bdi class="secno">A. </bdi>Index</h2><a class="self-link" href="#index" aria-label="Permalink for Appendix A."></a></div><section id="index-defined-here">
-    <div class="header-wrapper"><h3 id="a-1-begrippen-gedefinieerd-door-deze-specificatie"><bdi class="secno">A.1 </bdi>Begrippen gedefinieerd door deze specificatie</h3><a class="self-link" href="#index-defined-here" aria-label="Permalink for Appendix A.1"></a></div>
-    <ul class="index">
-    
-  </ul>
-  </section><section id="index-defined-elsewhere">
-    <div class="header-wrapper"><h3 id="a-2-begrippen-gedefinieerd-door-verwijzing"><bdi class="secno">A.2 </bdi>Begrippen gedefinieerd door verwijzing</h3><a class="self-link" href="#index-defined-elsewhere" aria-label="Permalink for Appendix A.2"></a></div>
-    <ul class="index">
-    
-  </ul>
-  </section></section>
+
 
 
 

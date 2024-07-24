@@ -10,7 +10,7 @@ extra:
   version: 0.0.1
 
 nav:
-  - Home: abstract.md
+  - Home: index.md
   - Uitgangspunten: uitgangspunten.md
   - Transportlaag: transport.md
   - Identificatie & Authenticatie: iam.md

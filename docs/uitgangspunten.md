@@ -6,7 +6,7 @@ Het koppelvlak moet voldoen aan de volgende wetten, afspraken en standaarden: 
 
 - [NORA](https://www.noraonline.nl/wiki/NORA_online) 
 
-- [BIO](https://www.bio-overheid.nl/media/13kduqsi/bio-versie-104zv_def.pdf)
+- [BIO](https://www.bio-overheid.nl/)
 
 - [Digikoppeling – REST-API profiel](https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-REST-API/) 
 

@@ -1,18 +1,18 @@
-## Niet functionele eisen
+# Niet functionele eisen
 
-### Beschikbaarheid
+## Beschikbaarheid
 
 Niet kritische toepassing: geen hoge beschikbaarheid vereist. 
 
 Afstemmen met CBS: wanneer willen zij gegevens verzamelen? Dan zou de beschikbaarheid wat hoger moeten zijn. BV: tijdens kantooruren  
 
-### Performance
+## Performance
 
 Geen afhankelijkheden in het primaire proces: geen hoge performance vereist. 
 
 Wordt gebruik van cache toegestaan (volgens mij moet dat kunnen)? Onder welke voorwaarden? 
 
-### Monitoring
+## Monitoring
 
 Verantwoordelijkheid voor monitoring ligt bij partij die verantwoording hierover moet afleggen. Welke verantwoording verwacht het programma of SZW? 
 

@@ -1,4 +1,4 @@
-## Aansluitprotocol
+# Aansluitprotocol
 
 Iedere schuldhulpverleningsorganisatie of gemeente (hierna: "deelnemer") die gegevens beschikbaar gaat stellen aan CBS, moet het aansluitprotocol doorlopen. Dit protocol valt onder verantwoordelijkheid van het programma DDAS. Voor vragen hierover kan altijd contact opgenomen worden met [contactadres].
 
@@ -7,17 +7,17 @@ Het protocol kan aangepast worden als hiervoor aanleiding is. Na aanpassingen wo
 De stappen die de deelnemer moet doorlopen, zijn:
 
 - De deelnemer meldt zich bij de stelselbeheerder (CBS of DDAS?) via het aanmeldformulier [waar staat dit? wie beheert dit?], waarin in elk geval het volgende ingevuld:
-  
+
   - Naam van de deelnemer + contactgegevens
-  
+
   - Naam van de gegevensleverancier + contactgegevens
-  
+
   - Endpoint waar de productiegegevens beschikbaar komen
-  
+
   - Endpoint waar de testgegevens beschikbaar komen
-  
+
   - Akkoord met de aansluitvoorwaarden, waaronder de verwerkersovereenkomst met CBS
-  
+
   - Eventuele verzoeken om de aansluiting tot stand te krijgen, zoals een gewenste publicatiedatum, specifieke testdata of specifieke beschikbaarheid
 
 - *Indien PKIo certificaten niet mogelijk zijn: de stelselbeheerder (DDAS of CBS?) genereert een certificaat voor de TLS verbinding, signing en encryptie, en levert deze aan de deelnemer.*
@@ -30,7 +30,7 @@ De stappen die de deelnemer moet doorlopen, zijn:
 
 - Indien er geen blokkerende bevindingen zijn, krijgt de deelnemer vrijgave van de stelselbeheer (DDAS of CBS?) en wordt de API in de productieomgeving ingericht en beschikbaar gesteld.
 
-- 
+-
 
 - CBS voert de deelnemer op in de management module van FSC, zodat de API bevraagd wordt bij het ophalen van alle gegevens.
 

@@ -1,4 +1,4 @@
-## Inleiding
+# Inleiding
 
 Het einddoel van het project “Datadelen op Armoede en Schulden” is om de betrokken partners in het domein gezamenlijk regie te laten voeren op de informatievoorziening over schulden en armoede om op die manier hoge kwaliteit en beschikbaarheid van data te garanderen. Om dat te bereiken gaan we de uitvraag van schuldhulpdata bij gemeenten sterk vereenvoudigen, verbeteren en borgen.
 Eén van de middelen om de uitvraag te verbeteren is het ontwikkelen van een API-structuur en een API-werkwijze. Deze koppelvlakspecificatie geeft invulling aan de API-structuur en -werkwijze.

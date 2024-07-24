@@ -1,4 +1,4 @@
-## Identificatie, Authenticatie en Autorisatie
+# Identificatie, Authenticatie en Autorisatie
 
 Hoe worden de schuldhulpverleners (gegevensleveranciers) geïdentificeerd? (o.b.v. (sub)OIN?) Als niet alle betrokken partijen een (sub)OIN kunnen krijgen, moet een systematiek gevonden worden om alle partijen uniek te kunnen identificeren. 
 

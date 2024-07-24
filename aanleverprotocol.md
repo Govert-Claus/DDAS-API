@@ -1,4 +1,4 @@
-## Aanleverprotocol
+# Aanleverprotocol
 
 Stappen bij het aanleveren van gegevens: 
 

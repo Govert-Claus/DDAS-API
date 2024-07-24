@@ -1,4 +1,6 @@
-## Uitgangpunten
+# Uitgangpunten
+
+## Kaders
 
 Het koppelvlak moet voldoen aan de volgende wetten, afspraken en standaarden: 
 
@@ -17,6 +19,8 @@ Het koppelvlak moet voldoen aan de volgende wetten, afspraken en standaarden: 
 - [Wet op het Centraal Bureau voor de Statistiek](https://wetten.overheid.nl/BWBR0015926/2022-03-02) 
 
 - [FSC](https://docs.fsc.nlx.io/introduction) 
+
+## Keuzes
 
 De volgende keuzes zijn gemaakt: 
 

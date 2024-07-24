@@ -1,6 +1,6 @@
-## Berichten
+# Berichten
 
-### Vraagbericht (request)
+## Vraagbericht (request)
 
 Request zoals dat door CBS naar de schuldhulpverlener gestuurd wordt. Alleen een GET  en/ of POST request: alleen opvragen gegevens, geen mutaties. Bij GET zitten de parameters in de URL, waardoor mogelijk cache gegevens gebruikt worden, als de parameters niet wijzigen. 
 
@@ -14,13 +14,11 @@ Voorstel voor parameters die meegestuurd kunnen worden (allemaal optioneel): 
 
 - Gemeente (default alle – alleen relevant als over meer dan 1 gemeente gegevens aangeleverd worden) 
 
-- BSN? (of ander gegeven waarmee een inwoner geïdentificeerd kan worden – default alle) 
-
 - SHV-traject? (default alle) 
 
 Technische uitwerking in OAS3 (YAML/ JSON bestand op Github?) 
 
-### Antwoordbericht (response)
+## Antwoordbericht (response)
 
 Response van de schuldhulpverlener met de gewenste gegevens in JSON formaat. 
 

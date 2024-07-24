@@ -94,7 +94,7 @@ dd{margin-left:0}
 img.license{float:left;padding-right:5px}
 </style>
 <meta name="description" content="Dit document bevat de koppelvlakspecificatie voor het de API waarmee schuldhulporganisaties gegevens beschikbaarstellen aan het CBS.
-Dit is een product van het [programma DDAS] (https://www.divosa.nl/projecten/data-delen-over-armoede-en-schulden). Het [informatie- en uitwisselmodel] (https://brienen.github.io/ddas/latest/) dat gebruikt wordt, is niet volledig opgenomen in deze specificatie. De OAS beschrijving van de API wordt binnenkort gepubliceerd.">
+Dit is een product van het programma DDAS. Het informatie- en uitwisselmodel dat gebruikt wordt, is niet volledig opgenomen in deze specificatie. De OAS beschrijving van de API wordt binnenkort gepubliceerd.">
 <style>
 
   .sidelabel {
@@ -230,7 +230,7 @@ Dit is een product van het [programma DDAS] (https://www.divosa.nl/projecten/dat
   "specType": "ST",
   "specStatus": "IO",
   "publishDate": "2024-07-22",
-  "publishVersion": "0.0.1",
+  "publishVersion": "",
   "title": "DDAS API Koppelvlakspecificatie",
   "subtitle": "Koppelvlakspecificatie voor het aanleveren van DDAS-gegevens aan het CBS",
   "editors": [
@@ -260,9 +260,7 @@ Dit is een product van het [programma DDAS] (https://www.divosa.nl/projecten/dat
       <time class="dt-published" datetime="2024-07-22">22 juli 2024</time>
     </h2>
     <dl>
-      <dt>Deze versie:</dt><dd class="status">
-              <a class="u-url status" href="https://vng-realisatie.github.io/publicatie/hl/respec-template/0.0.1">https://vng-realisatie.github.io/publicatie/hl/respec-template/0.0.1</a>
-            </dd>
+      
       <dt>Laatst gepubliceerde versie:</dt><dd>
               <a href="https://vng-realisatie.github.io/publicatie/hl/respec-template">https://vng-realisatie.github.io/publicatie/hl/respec-template</a>
             </dd>
@@ -301,7 +299,7 @@ Dit is een product van het [programma DDAS] (https://www.divosa.nl/projecten/dat
     <hr title="Separator for header">
   </div>
   <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>Dit document bevat de koppelvlakspecificatie voor het de API waarmee schuldhulporganisaties gegevens beschikbaarstellen aan het CBS.
-Dit is een product van het [programma DDAS] (<a href="https://www.divosa.nl/projecten/data-delen-over-armoede-en-schulden">https://www.divosa.nl/projecten/data-delen-over-armoede-en-schulden</a>). Het [informatie- en uitwisselmodel] (<a href="https://brienen.github.io/ddas/latest/">https://brienen.github.io/ddas/latest/</a>) dat gebruikt wordt, is niet volledig opgenomen in deze specificatie. De OAS beschrijving van de API wordt binnenkort gepubliceerd.</p>
+Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-over-armoede-en-schulden">programma DDAS</a>. Het <a href="https://brienen.github.io/ddas/latest/">informatie- en uitwisselmodel</a> dat gebruikt wordt, is niet volledig opgenomen in deze specificatie. De OAS beschrijving van de API wordt binnenkort gepubliceerd.</p>
 <p>Naast de uitgangspunten en de technische specificatie bevat dit document een beschrijving van de niet-functionele eisen (beschikbaarheid, performance). Ook worden het aanleverprotocol (welke stappen worden doorlopen als gegevens opgehaald worden) en het aansluitprotocol (hoe kan een organisatie deelnemer worden) beschreven. Ten slotte wordt het beheer van de specificatie zelf beschreven.</p>
 <p><em><strong>In de huidige versie staan nog diverse vraagstukken en de keuzes die gemaakt worden, moeten nog worden bevestigd. Het document dient daarom vooral als basis voor de discussie om tot een definitieve specificatie te komen, en er kunnen geen rechten aan dit document ontleend worden.</strong></em></p>
 </section>
@@ -320,7 +318,7 @@ Deze specificatie wordt, na afstemming met de betrokken partijen, vastgesteld do
 <ul>
 <li><p><a href="https://www.noraonline.nl/wiki/NORA_online">NORA</a>&nbsp;</p>
 </li>
-<li><p><a href="https://www.bio-overheid.nl/media/13kduqsi/bio-versie-104zv_def.pdf">BIO</a></p>
+<li><p><a href="https://www.bio-overheid.nl/">BIO</a></p>
 </li>
 <li><p><a href="https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-REST-API/">Digikoppeling – REST-API profiel</a>&nbsp;</p>
 </li>
@@ -396,7 +394,7 @@ Deze specificatie wordt, na afstemming met de betrokken partijen, vastgesteld do
 </li>
 </ul>
 <p>&nbsp;</p>
-<p>Technische uitwerking in OAS3 (YAML/ JSON bestand op Github?)&nbsp;</p>
+<p>Technische uitwerking in OAS3 komt beschikbaar in een <a href="https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1/DDAS_opzetje_v0.0.2.yaml">YAML bestand op Github</a>.</p>
 </section><section id="antwoordbericht-response"><div class="header-wrapper"><h3 id="x6-2-antwoordbericht-response"><bdi class="secno">6.2 </bdi>Antwoordbericht (response)</h3><a class="self-link" href="#antwoordbericht-response" aria-label="Permalink for Section 6.2"></a></div>
 <p>Response van de schuldhulpverlener met de gewenste gegevens in JSON formaat.&nbsp;</p>
 <p>Als versleutelen nodig is, in een JWE vorm (eventueel gezipt, versleuteld in een token).&nbsp;</p>

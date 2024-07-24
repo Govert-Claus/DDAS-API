@@ -1,0 +1,362 @@
+openapi: 3.0.0
+info:
+  title: Schuldhulpverlening API
+  description: API voor het beschikbaar stellen van gegevens rond schuldhulptrajecten aan het CBS.
+  version: 1.0.0
+  contact:
+    name: API Support
+    email: support@example.com
+servers:
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/Govert-Claus/DDAS/1.0.0
+  - url: https://api.schuldhulpverlening.nl/v1
+    description: Productie server
+  - url: https://sandbox.schuldhulpverlening.nl/v1
+    description: Sandbox server
+paths:
+  /gegevens:
+    post:
+      summary: Gegevens beschikbaar stellen
+      description: Dit endpoint ontvangt een periode en eventueel een schuldhulporganisatie en retourneert schuldhulpverleningsgegevens over die periode en schuldhulporganisatie.
+      security:
+        - OAuth2: [read_gegevens]
+      requestBody:
+        required: true
+        content:
+          application/jose:
+            schema:
+              type: object
+              description: |
+                Versleutelde payload in JWE formaat.
+                Verwachte structuur:
+                ```json
+                {
+                  "aanleverperiodeStartdatum": "YYYY-MM-DD",
+                  "aanleverperiodeEinddatum": "YYYY-MM-DD",
+                  "aanleverende_organisatie": "string"
+                }
+                ```
+              properties:
+                aanleverperiodeStartdatum:
+                  $ref: '#/components/schemas/datum'
+                aanleverperiodeEinddatum:
+                  $ref: '#/components/schemas/datum'
+                aanleverende_organisatie:
+                  type: string
+              required:
+                - aanleverperiodeStartdatum
+                - aanleverperiodeEinddatum
+      responses:
+        '200':
+          description: Gegevens succesvol ontvangen
+          content:
+            application/jose:
+              schema:
+                description: |
+                  Versleutelde payload in JWE formaat.
+                  Verwachte structuur:
+                  ```json
+                  {
+                    "aanleverperiodeStartdatum": "YYYY-MM-DD",
+                    "aanleverperiodeEinddatum": "YYYY-MM-DD",
+                    "aanleverende_organisatie": {
+                      "naam": "string",
+                      "contactpersonen": [
+                        {
+                          "email": "string",
+                          "naam": "string",
+                          "telefoonnummer": "string"
+                        }
+                      ]
+                    },
+                    "schuldhulptrajecten": [ ... ]
+                  }
+                  ```
+                $ref: '#/components/schemas/DDAS-gegevens'
+        '400':
+          description: Ongeldige invoer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+security:
+  - OAuth2: []
+components:
+  schemas:
+    DDAS-gegevens:
+      type: object
+      description: De DDAS-gegevens zijn de gegevens die door schuldhulpverleners beschikbaar gesteld worden aan het CBS.
+      properties:
+        aanleverperiodeStartdatum:
+          $ref: '#/components/schemas/datum'
+        aanleverperiodeEinddatum:
+          $ref: '#/components/schemas/datum'
+        aanleverende_organisatie:
+          type: object
+          description: Een schuldhulporganisatie is een instantie die individuen en gezinnen helpt met het beheren, verminderen en oplossen van hun schulden door middel van advies, begeleiding en bemiddeling.
+          properties:
+            naam:
+              type: string
+            contactpersonen:
+              type: array
+              items:
+                type: object
+                description: Contactpersoon van een organisatie
+                properties:
+                  email:
+                    $ref: '#/components/schemas/email'
+                  naam:
+                    type: string
+                    example: "C. Persoon"
+                  telefoonnummer:
+                    type: string
+                    example: "06 1234 56 78"
+        schuldhulptrajecten:
+          type: array
+          items:
+            type: object
+            description: Samenstel van achtereenvolgens uit te voeren en onderling samenhangende deelhandelingen of van opeenvolgende stadia in een proces, voorgesteld als een route die via opeenvolgende bestemmingen naar de eindbestemming voert.
+            properties:
+              einddatum:
+                $ref: "#/components/schemas/datum"
+              naam:
+                type: string
+                example: "Zaaknummer SHV-44092"
+              omschrijving:
+                type: string
+                example: "Schuldhulpverlening familie A. (let op: meervoudige problematiek)"
+              startdatum:
+                $ref: "#/components/schemas/datum"
+              toekenningsdatum:
+                $ref: "#/components/schemas/datum"
+              totaalSchuldbedragBijAanvangSchuld:
+                $ref: "#/components/schemas/bedrag"
+              aanmelding:
+                type: object
+                description: 'Moment dat een persoon met een hulpvraag komt rondom (dreigende) schulden. Dit kan een persoonlijke, schriftelijke, digitale of telefonische vraag zijn.'
+                properties:
+                  crisisinterventie:
+                    type: boolean
+                  einddatum:
+                    $ref: "#/components/schemas/datum"
+                  startdatum:
+                    $ref: "#/components/schemas/datum"
+              begeleiding:
+                type: array
+                items:
+                  type: object
+                  description: |
+                    Begeleiding voor cliënten in het kader van schuldhulpdienstverlening, die kan bestaan uit:
+                    1. budgetbeheer
+                    2. beschermingsbewind
+                    3. budgetcoaching
+                  properties:
+                    einddatum:
+                      $ref: "#/components/schemas/datum"
+                    soort:
+                      $ref: "#/components/schemas/EnumBegeleidingssoort"
+                    startdatum:
+                      $ref: "#/components/schemas/datum"
+                    begeleidingssoort:
+                      type: object
+                      description: Soort begeleiding in het kader van schuldhulpverlening
+                      properties:
+                        soort:
+                          type: string
+                          example: "Financiële coaching"
+              client:
+                type: array
+                items:
+                  type: object
+                  description: Een ingeschreven persoon die gebruik maakt van producten en diensten van de gemeente binnen het sociaal domein.
+                  properties:
+                    gezagsdragerbekend:
+                      type: boolean
+                    ondernemer:
+                      type: boolean
+                    bsn:
+                      type: string
+                      example: "999997737"
+                    postcode:
+                      type: string
+                      example: "1234AB"
+                    geboortedatum:
+                      $ref: "#/components/schemas/datum"
+                    geslacht:
+                      type: string
+                      example: "v"
+                    leefsituatie:
+                      type: array
+                      items:
+                        type: object
+                        description: Leefsituatie is de combinatie van factoren zoals schulden, ondernemerschap, aanwezigheid van een partner, en inkomen, die samen de sociale en economische omstandigheden van een individu bepalen. Deze wordt in het kader van schuldhulpverlening gebruikt om alle relevante zaken van cliënten aan te koppelen.
+                        properties:
+                          datumGeldigTot:
+                            $ref: "#/components/schemas/datum"
+                          datumGeldigVanaf:
+                            $ref: "#/components/schemas/datum"
+                          inkomen:
+                            type: array
+                            items:
+                              type: object
+                              description: 'Inkomen dat door een persoon wordt verworven uit verschillende mogelijke inkomstenbronnen: inkomen uit arbeid, inkomen uit eigen onderneming, uitkering inkomensverzekeringen en uitkering sociale voorzieningen (m.u.v. kinderbijslag en kindgebonden budget). Premies inkomensverzekeringen (m.u.v. premies voor volksverzekeringen) zijn hierop in mindering gebracht.'
+                              properties:
+                                brutoBedrag:
+                                  $ref: "#/components/schemas/bedrag"
+                                einddatum:
+                                  $ref: "#/components/schemas/datum"
+                                inkomenscategorie:
+                                  type: integer
+                                inkomstenbron:
+                                  type: integer
+                                nettoBedrag:
+                                  $ref: "#/components/schemas/bedrag"
+                                startdatum:
+                                  $ref: "#/components/schemas/datum"
+                          koopwoning:
+                            type: array
+                            items:
+                              type: object
+                              description: Een koopwoning is een woning die eigendom is van een individu of een entiteit, die het heeft gekocht en waarvoor meestal een hypotheek is afgesloten.
+                              properties:
+                                einddatum:
+                                  $ref: "#/components/schemas/datum"
+                                startdatum:
+                                  $ref: "#/components/schemas/datum"
+                                waarde:
+                                  $ref: "#/components/schemas/bedrag"
+                          partner:
+                            type: array
+                            items:
+                              type: object
+                              description: Een partner is een persoon met wie iemand een romantische en vaak langdurige relatie heeft, gebaseerd op wederzijdse liefde, steun en commitment.
+                              properties:
+                                datumTot:
+                                  $ref: "#/components/schemas/datum"
+                                datumVanaf:
+                                  $ref: "#/components/schemas/datum"
+                                getrouwdOfGeregistreerdPartner:
+                                  type: boolean
+                                samenwonend:
+                                  type: boolean
+                          schulden:
+                            type: array
+                            items:
+                              type: object
+                              description: Een financiële schuld is een verplichting waarbij een individu, bedrijf of instelling een geldbedrag verschuldigd is aan een ander partij en dit bedrag op een later tijdstip moet terugbetalen.
+                              properties:
+                                bedrag:
+                                  $ref: "#/components/schemas/bedrag"
+                                einddatum:
+                                  $ref: "#/components/schemas/datum"
+                                schuldcategorie:
+                                  type: integer
+                                schuldeiser:
+                                  type: string
+                                  example: "Belastingdienst"
+                                startdatum:
+                                  $ref: "#/components/schemas/datum"
+                          kinderen:
+                            type: array
+                            items:
+                              type: object
+                              description: 'Kinderen (jonger dan 18 jaar) die tot het huishouden behoren, onderscheiden in inwonende kinderen van de pleegkinderen en adoptiekinderen en kinderen van de partner. '
+                              properties:
+                                datumGeboorte:
+                                  $ref: "#/components/schemas/datum"
+                                datumInschrijving:
+                                  $ref: "#/components/schemas/datum"
+                                leeftijd:
+                                  type: integer
+                                verblijfplaats:
+                                  type: string
+                                  example: "Lutjebroek"
+                          uitkeringen:
+                            type: array
+                            items:
+                              type: object
+                              description: 'Een uitkering is een financiële ondersteuning die door de overheid wordt verstrekt aan personen die voldoen aan bepaalde voorwaarden, zoals werkloosheid, arbeidsongeschiktheid of pensioengerechtigdheid.'
+                              properties:
+                                einddatum:
+                                  $ref: "#/components/schemas/datum"
+                                startdatum:
+                                  $ref: "#/components/schemas/datum"
+                                soort:
+                                  $ref: "#/components/schemas/EnumUitkeringssoort"
+              doorverwijzingen:
+                type: array
+                items:
+                  type: object
+                  description: Doorverwijzingen naar andere instanties of hulpverleners voor verdere ondersteuning.
+                  properties:
+                    einddatum:
+                      $ref: "#/components/schemas/datum"
+                    startdatum:
+                      $ref: "#/components/schemas/datum"
+                    soort:
+                      $ref: "#/components/schemas/EnumDoorverwijzingssoort"
+              ondersteuningen:
+                type: array
+                items:
+                  type: object
+                  description: Ondersteuning in de vorm van advies en hulp bij financiële problemen.
+                  properties:
+                    einddatum:
+                      $ref: "#/components/schemas/datum"
+                    soort:
+                      $ref: "#/components/schemas/EnumOndersteuningssoort"
+                    startdatum:
+                      $ref: "#/components/schemas/datum"
+    datum:
+      type: string
+      format: date
+    bedrag:
+      type: number
+      format: double
+      example: 1000.00
+    email:
+      type: string
+      format: email
+      example: "naam@domein.nl"
+    EnumBegeleidingssoort:
+      type: string
+      enum:
+        - Budgetbeheer
+        - Beschermingsbewind
+        - Budgetcoaching
+    EnumUitkeringssoort:
+      type: string
+      enum:
+        - Werkloosheidsuitkering
+        - Arbeidsongeschiktheidsuitkering
+        - Pensioen
+        - Bijstand
+    EnumDoorverwijzingssoort:
+      type: string
+      enum:
+        - Schuldhulpverlening
+        - Sociaal werker
+        - Psychologische hulp
+    EnumOndersteuningssoort:
+      type: string
+      enum:
+        - Advies
+        - Hulp bij schulden
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://authorization-server.com/auth
+          tokenUrl: https://authorization-server.com/token
+          scopes:
+            read_gegevens: "Lezen van gegevens"

@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: Schuldhulpverlening API
   description: API voor het beschikbaar stellen van gegevens rond schuldhulptrajecten aan het CBS.
-  version: 1.0.0
+  version: 0.0.3
   contact:
     name: API Support
     email: support@example.com

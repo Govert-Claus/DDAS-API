@@ -335,77 +335,105 @@ Deze specificatie wordt, na afstemming met de betrokken partijen, vastgesteld do
 </section><section id="keuzes"><div class="header-wrapper"><h3 id="x2-2-keuzes"><bdi class="secno">2.2 </bdi>Keuzes</h3><a class="self-link" href="#keuzes" aria-label="Permalink for Section 2.2"></a></div>
 <p>De volgende keuzes zijn gemaakt:&nbsp;</p>
 <ul>
-<li><p>Gebruik Digikoppeling REST profiel
-Rationale:</p>
+<li><p>Gebruik Digikoppeling REST profiel</p>
+<p>Rationale:</p>
 <ul>
-<li>Dit profiel is het minst complexe profiel voor API's en past het beste bij een stelsel waar veel partijen aan deelnemen en in eigen tempo kunnen aansluiten.
-Implicaties:</li>
-<li>Alle leverende deelnemers dienen een API conform het REST profiel beschikbaar te stellen.</li>
-<li>Omdat het Digikoppeling REST profiel nog geen keuze heeft gemaakt voor signing en encryptie, moet hier expliciet een keuze in gemaakt worden.</li>
+<li><p>Dit profiel is het minst complexe profiel voor API's en past het beste bij een stelsel waar veel partijen aan deelnemen en in eigen tempo kunnen aansluiten.
+Implicaties:</p>
+</li>
+<li><p>Alle leverende deelnemers dienen een API conform het REST profiel beschikbaar te stellen.</p>
+</li>
+<li><p>Omdat het Digikoppeling REST profiel nog geen keuze heeft gemaakt voor signing en encryptie, moet hier expliciet een keuze in gemaakt worden.</p>
+</li>
 </ul>
 </li>
-<li><p>Gebruik JWS voor signen
-Rationale:</p>
+<li><p>Gebruik JWS voor signen</p>
+<p>Rationale:</p>
 <ul>
-<li>Omdat het REST profiel van Digikopeling (nog) geen standaard voor signen heeft vastgesteld, moet er eentje gekozen worden.</li>
-<li>JWS is een breed gebruikte standaard met een grote community die het onderhoud ervan verzekert.</li>
-<li>De Digikoppeling standaard noemt <a href="https://gitdocumentatie.logius.nl/publicatie/dk/restapi/#bijlage-gebruik-van-signing-encryptie-in-de-context-van-http-rest-api">JWS als mogelijke optie</a> (JSON Web Signature).
-Implicaties:</li>
+<li><p>Omdat het REST profiel van Digikopeling (nog) geen standaard voor signen heeft vastgesteld, moet er eentje gekozen worden.</p>
+</li>
+<li><p>JWS is een breed gebruikte standaard met een grote community die het onderhoud ervan verzekert.</p>
+</li>
+<li><p>De Digikoppeling standaard noemt <a href="https://gitdocumentatie.logius.nl/publicatie/dk/restapi/#bijlage-gebruik-van-signing-encryptie-in-de-context-van-http-rest-api">JWS als mogelijke optie</a> (JSON Web Signature).</p>
+</li>
+</ul>
+<p>Implicaties:</p>
+<ul>
 <li><em>Alle deelnemers moeten een JWT service inrichten, waar andere deelnemers een <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a> kunnen ophalen om het bericht te signen.</em></li>
 </ul>
 </li>
-<li><p>Gebruik JWE voor encryptie&nbsp;(NB: als encryptie vereist is - DPIA is nog in wording)
-Rationale:</p>
+<li><p>Gebruik JWE voor encryptie&nbsp;(NB: als encryptie vereist is - DPIA is nog in wording)</p>
+<p>Rationale:</p>
 <ul>
-<li>Omdat het REST profiel van Digikopeling (nog) geen standaard voor encryptie heeft vastgesteld, moet er eentje gekozen worden.</li>
-<li>JWE is een breed gebruikte standaard met een grote community die het onderhoud ervan verzekert.</li>
-<li>De Digikoppeling standaard noemt <a href="https://gitdocumentatie.logius.nl/publicatie/dk/restapi/#bijlage-gebruik-van-signing-encryptie-in-de-context-van-http-rest-api">JWE als mogelijke optie</a>.
-Implicaties:</li>
+<li><p>Omdat het REST profiel van Digikopeling (nog) geen standaard voor encryptie heeft vastgesteld, moet er eentje gekozen worden.</p>
+</li>
+<li><p>JWE is een breed gebruikte standaard met een grote community die het onderhoud ervan verzekert.</p>
+</li>
+<li><p>De Digikoppeling standaard noemt <a href="https://gitdocumentatie.logius.nl/publicatie/dk/restapi/#bijlage-gebruik-van-signing-encryptie-in-de-context-van-http-rest-api">JWE als mogelijke optie</a>.</p>
+</li>
+</ul>
+<p>Implicaties:</p>
+<ul>
 <li><em>Alle deelnemers moeten een JWT service inrichten, waar andere deelnemers een <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a> kunnen ophalen om het bericht te versleutelen.</em></li>
 </ul>
 </li>
-<li><p>Federatieve Services Communicatie voor de architectuur - <a href="https://docs.fsc.nlx.io/introduction">FSC</a>
-Rationale:</p>
+<li><p>Federatieve Services Communicatie voor de architectuur - <a href="https://docs.fsc.nlx.io/introduction">FSC</a></p>
+<p>Rationale:</p>
 <ul>
-<li>Deze architectuur is de standaard voor 1-op-1 koppelingen voor gemeenten. Hoewel de standaard nog niet heel breed gebruikt wordt, is dit wel de standaard voor de toekomst.</li>
-<li>Er bestaat een referentie implementatie die het ontwikkelen van de API sterk vereenvoudigd. Verder is er bij VNG Realisatie (waar de standaard is ontwikkeld) kennis die gebruikt kan worden.
-Implicaties:</li>
+<li><p>Deze architectuur is de standaard voor 1-op-1 koppelingen voor gemeenten. Hoewel de standaard nog niet heel breed gebruikt wordt, is dit wel de standaard voor de toekomst.</p>
+</li>
+<li><p>Er bestaat een referentie implementatie die het ontwikkelen van de API sterk vereenvoudigd. Verder is er bij VNG Realisatie (waar de standaard is ontwikkeld) kennis die gebruikt kan worden.</p>
+</li>
+</ul>
+<p>Implicaties:</p>
+<ul>
 <li>Alle deelnemers dienen de FSC componenten te installeren en in te richten. Er bestaat een algemene referentie implementatie, maar om de inrichting verder te vereenvoudigen is het aan te raden om een specifieke referentie implementatie aan te bieden voor DDAS.</li>
 </ul>
 </li>
-<li><p>JSON formaat voor berichten&nbsp;
-Rationale:</p>
+<li><p>JSON formaat voor berichten&nbsp;</p>
+<p>Rationale:</p>
 <ul>
-<li>Het informatiemodel en het uitwisselmodel voor DDAS zijn in het JSON formaat ontwikkeld. Het is het eenvoudigst als de berichten dan ook in JSON formaat uitgewisseld worden.</li>
-<li>JSON is goed leesbaar voor mensen, maar toch voldoende klein om ook grotere berichten uit te kunnen wisselen.
-Implicaties:</li>
-<li>De gegevens moeten in JSON formaat uitgewisseld worden.</li>
+<li><p>Het informatiemodel en het uitwisselmodel voor DDAS zijn in het JSON formaat ontwikkeld. Het is het eenvoudigst als de berichten dan ook in JSON formaat uitgewisseld worden.</p>
+</li>
+<li><p>JSON is goed leesbaar voor mensen, maar toch voldoende klein om ook grotere berichten uit te kunnen wisselen.
+Implicaties:</p>
+</li>
+<li><p>De gegevens moeten in JSON formaat uitgewisseld worden.</p>
+</li>
 </ul>
 </li>
-<li><p>Gebruik Diginetwerk voor transport&nbsp;
-Rationale:</p>
+<li><p>Gebruik Diginetwerk voor transport</p>
+<p>Rationale:</p>
 <ul>
-<li>Het Diginetwerk is een gesloten netwerk waar alleen overheidsorganisaties toegang toe hebben. Dit beperkt de risico's van onbevoegde toegang tot de gegevens enorm.
-Implicaties:</li>
-<li>Alle deelnemers moeten toegang tot het Diginetwerk hebben of krijgen. Dit vereist toegang via een <a href="https://www.logius.nl/domeinen/infrastructuur/diginetwerk/aansluiten">koppelnetwerkaanbieder</a>.</li>
+<li><p>Het Diginetwerk is een gesloten netwerk waar alleen overheidsorganisaties toegang toe hebben. Dit beperkt de risico's van onbevoegde toegang tot de gegevens enorm.
+Implicaties:</p>
+</li>
+<li><p>Alle deelnemers moeten toegang tot het Diginetwerk hebben of krijgen. Dit vereist toegang via een <a href="https://www.logius.nl/domeinen/infrastructuur/diginetwerk/aansluiten">koppelnetwerkaanbieder</a>.</p>
+</li>
 </ul>
 </li>
-<li><p>Gebruik <a href="https://www.logius.nl/domeinen/toegang/pkioverheid">PKIoverheid certificaten</a>&nbsp;voor authenticatie, signing en encryptie
-Rationale:</p>
+<li><p>Gebruik <a href="https://www.logius.nl/domeinen/toegang/pkioverheid">PKIoverheid certificaten</a>&nbsp;voor authenticatie, signing en encryptie</p>
+<p>Rationale:</p>
 <ul>
-<li>Voor identicatie, authenticatie, signen en encryptie is een middel nodig dat door het stelsel vertrouwd wordt (de "Trusted Third Party"). PKIoverheid certificaten worden door de Nederlandse overheid uitgegeven, die daarmee de Trusted Third Party voor DDAS wordt.</li>
-<li>PKIoverheid certificaten worden door Logius (namens de rijksoverheid) uitgegeven en beheerd. Er is daarom geen organisatie nodig om certificaten voor het DDAS stelsel te beheren.</li>
-<li>PKIoverheid certificaten kunnen voor veel  diensten binnen de overheid gebruikt worden. De investering is daarom niet alleen voor DDAS, maar ook voor eventuele andere diensten die de deelnemer afneemt.
-Implicaties:</li>
-<li>Alle deelnemers moeten een PKIoverheid certificaat hebben of krijgen. NB: Het is niet altijd mogelijk om een PKIoverheid certificaat dat al in gebruik is, te hergebruiken.</li>
+<li><p>Voor identicatie, authenticatie, signen en encryptie is een middel nodig dat door het stelsel vertrouwd wordt (de "Trusted Third Party"). PKIoverheid certificaten worden door de Nederlandse overheid uitgegeven, die daarmee de Trusted Third Party voor DDAS wordt.</p>
+</li>
+<li><p>PKIoverheid certificaten worden door Logius (namens de rijksoverheid) uitgegeven en beheerd. Er is daarom geen organisatie nodig om certificaten voor het DDAS stelsel te beheren.</p>
+</li>
+<li><p>PKIoverheid certificaten kunnen voor veel  diensten binnen de overheid gebruikt worden. De investering is daarom niet alleen voor DDAS, maar ook voor eventuele andere diensten die de deelnemer afneemt.
+Implicaties:</p>
+</li>
+<li><p>Alle deelnemers moeten een PKIoverheid certificaat hebben of krijgen. NB: Het is niet altijd mogelijk om een PKIoverheid certificaat dat al in gebruik is, te hergebruiken.</p>
+</li>
 </ul>
 </li>
-<li><p>Beveiligingsniveau BBN2 (NB: DPIA is nog in wording)&nbsp;
-Rationale:</p>
+<li><p>Beveiligingsniveau BBN2 (NB: DPIA is nog in wording)&nbsp;</p>
+<p>Rationale:</p>
 <ul>
-<li>In de DPIA wordt dit vereist.
-Implicaties:</li>
-<li>De BIO maatregelen moeten gericht zijn op het behalen van het beveiligingsniveau BBN2.</li>
+<li><p>In de DPIA wordt dit vereist.
+Implicaties:</p>
+</li>
+<li><p>De BIO maatregelen moeten gericht zijn op het behalen van het beveiligingsniveau BBN2.</p>
+</li>
 </ul>
 </li>
 </ul>

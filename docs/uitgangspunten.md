@@ -27,6 +27,7 @@ De volgende keuzes zijn gemaakt: 
   Rationale:
 
   - Dit profiel is het minst complexe profiel voor API's en past het beste bij een stelsel waar veel partijen aan deelnemen en in eigen tempo kunnen aansluiten.
+
   Implicaties:
 
   - Alle leverende deelnemers dienen een API conform het REST profiel beschikbaar te stellen.

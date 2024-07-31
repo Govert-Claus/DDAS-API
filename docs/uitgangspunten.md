@@ -85,6 +85,7 @@ De volgende keuzes zijn gemaakt: 
   - Het informatiemodel en het uitwisselmodel voor DDAS zijn in het JSON formaat ontwikkeld. Het is het eenvoudigst als de berichten dan ook in JSON formaat uitgewisseld worden.
 
   - JSON is goed leesbaar voor mensen, maar toch voldoende klein om ook grotere berichten uit te kunnen wisselen.
+
   Implicaties:
 
   - De gegevens moeten in JSON formaat uitgewisseld worden.
@@ -95,6 +96,7 @@ De volgende keuzes zijn gemaakt: 
   Rationale:
 
   - Het Diginetwerk is een gesloten netwerk waar alleen overheidsorganisaties toegang toe hebben. Dit beperkt de risico's van onbevoegde toegang tot de gegevens enorm.
+
   Implicaties:
 
   - Alle deelnemers moeten toegang tot het Diginetwerk hebben of krijgen. Dit vereist toegang via een [koppelnetwerkaanbieder](https://www.logius.nl/domeinen/infrastructuur/diginetwerk/aansluiten).
@@ -109,6 +111,7 @@ De volgende keuzes zijn gemaakt: 
   - PKIoverheid certificaten worden door Logius (namens de rijksoverheid) uitgegeven en beheerd. Er is daarom geen organisatie nodig om certificaten voor het DDAS stelsel te beheren.
 
   - PKIoverheid certificaten kunnen voor veel  diensten binnen de overheid gebruikt worden. De investering is daarom niet alleen voor DDAS, maar ook voor eventuele andere diensten die de deelnemer afneemt.
+
   Implicaties:
 
   - Alle deelnemers moeten een PKIoverheid certificaat hebben of krijgen. NB: Het is niet altijd mogelijk om een PKIoverheid certificaat dat al in gebruik is, te hergebruiken.
@@ -119,6 +122,7 @@ De volgende keuzes zijn gemaakt: 
   Rationale:
 
   - In de DPIA wordt dit vereist.
+
   Implicaties:
 
   - De BIO maatregelen moeten gericht zijn op het behalen van het beveiligingsniveau BBN2.

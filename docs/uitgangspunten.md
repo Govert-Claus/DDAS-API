@@ -47,10 +47,10 @@ De volgende keuzes zijn gemaakt: 
 
   Implicaties:
 
-  - *Alle deelnemers moeten een JWT service inrichten, waar andere deelnemers een [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token) kunnen ophalen om het bericht te signen.*
+  - *Alle deelnemers moeten een JWT service inrichten, waar andere deelnemers een [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token) kunnen ophalen om het bericht te signen. (nog uitzoeken)*
 
 
-- Gebruik JWE voor encryptie (NB: als encryptie vereist is - DPIA is nog in wording)
+- Gebruik JWE voor encryptie *(NB: als encryptie vereist is - DPIA is nog in wording)*
 
   Rationale:
 
@@ -62,7 +62,7 @@ De volgende keuzes zijn gemaakt: 
 
   Implicaties:
 
-  - *Alle deelnemers moeten een JWT service inrichten, waar andere deelnemers een [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token) kunnen ophalen om het bericht te versleutelen.*
+  - *Alle deelnemers moeten een JWT service inrichten, waar andere deelnemers een [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token) kunnen ophalen om het bericht te versleutelen. (nog uitzoeken)*
 
 
 - Federatieve Services Communicatie voor de architectuur - [FSC](https://docs.fsc.nlx.io/introduction)

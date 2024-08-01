@@ -338,9 +338,10 @@ Deze specificatie wordt, na afstemming met de betrokken partijen, vastgesteld do
 <li><p>Gebruik Digikoppeling REST profiel</p>
 <p>Rationale:</p>
 <ul>
-<li><p>Dit profiel is het minst complexe profiel voor API's en past het beste bij een stelsel waar veel partijen aan deelnemen en in eigen tempo kunnen aansluiten.
-Implicaties:</p>
-</li>
+<li>Dit profiel is het minst complexe profiel voor API's en past het beste bij een stelsel waar veel partijen aan deelnemen en in eigen tempo kunnen aansluiten.</li>
+</ul>
+<p>Implicaties:</p>
+<ul>
 <li><p>Alle leverende deelnemers dienen een API conform het REST profiel beschikbaar te stellen.</p>
 </li>
 <li><p>Omdat het Digikoppeling REST profiel nog geen keuze heeft gemaakt voor signing en encryptie, moet hier expliciet een keuze in gemaakt worden.</p>
@@ -359,10 +360,10 @@ Implicaties:</p>
 </ul>
 <p>Implicaties:</p>
 <ul>
-<li><em>Alle deelnemers moeten een JWT service inrichten, waar andere deelnemers een <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a> kunnen ophalen om het bericht te signen.</em></li>
+<li><em>Alle deelnemers moeten een JWT service inrichten, waar andere deelnemers een <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a> kunnen ophalen om het bericht te signen. (nog uitzoeken)</em></li>
 </ul>
 </li>
-<li><p>Gebruik JWE voor encryptie&nbsp;(NB: als encryptie vereist is - DPIA is nog in wording)</p>
+<li><p>Gebruik JWE voor encryptie&nbsp;<em>(NB: als encryptie vereist is - DPIA is nog in wording)</em></p>
 <p>Rationale:</p>
 <ul>
 <li><p>Omdat het REST profiel van Digikopeling (nog) geen standaard voor encryptie heeft vastgesteld, moet er eentje gekozen worden.</p>
@@ -374,7 +375,7 @@ Implicaties:</p>
 </ul>
 <p>Implicaties:</p>
 <ul>
-<li><em>Alle deelnemers moeten een JWT service inrichten, waar andere deelnemers een <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a> kunnen ophalen om het bericht te versleutelen.</em></li>
+<li><em>Alle deelnemers moeten een JWT service inrichten, waar andere deelnemers een <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a> kunnen ophalen om het bericht te versleutelen. (nog uitzoeken)</em></li>
 </ul>
 </li>
 <li><p>Federatieve Services Communicatie voor de architectuur - <a href="https://docs.fsc.nlx.io/introduction">FSC</a></p>
@@ -395,21 +396,22 @@ Implicaties:</p>
 <ul>
 <li><p>Het informatiemodel en het uitwisselmodel voor DDAS zijn in het JSON formaat ontwikkeld. Het is het eenvoudigst als de berichten dan ook in JSON formaat uitgewisseld worden.</p>
 </li>
-<li><p>JSON is goed leesbaar voor mensen, maar toch voldoende klein om ook grotere berichten uit te kunnen wisselen.
-Implicaties:</p>
+<li><p>JSON is goed leesbaar voor mensen, maar toch voldoende klein om ook grotere berichten uit te kunnen wisselen.</p>
 </li>
-<li><p>De gegevens moeten in JSON formaat uitgewisseld worden.</p>
-</li>
+</ul>
+<p>Implicaties:</p>
+<ul>
+<li>De gegevens moeten in JSON formaat uitgewisseld worden.</li>
 </ul>
 </li>
 <li><p>Gebruik Diginetwerk voor transport</p>
 <p>Rationale:</p>
 <ul>
-<li><p>Het Diginetwerk is een gesloten netwerk waar alleen overheidsorganisaties toegang toe hebben. Dit beperkt de risico's van onbevoegde toegang tot de gegevens enorm.
-Implicaties:</p>
-</li>
-<li><p>Alle deelnemers moeten toegang tot het Diginetwerk hebben of krijgen. Dit vereist toegang via een <a href="https://www.logius.nl/domeinen/infrastructuur/diginetwerk/aansluiten">koppelnetwerkaanbieder</a>.</p>
-</li>
+<li>Het Diginetwerk is een gesloten netwerk waar alleen overheidsorganisaties toegang toe hebben. Dit beperkt de risico's van onbevoegde toegang tot de gegevens enorm.</li>
+</ul>
+<p>Implicaties:</p>
+<ul>
+<li>Alle deelnemers moeten toegang tot het Diginetwerk hebben of krijgen. Dit vereist toegang via een <a href="https://www.logius.nl/domeinen/infrastructuur/diginetwerk/aansluiten">koppelnetwerkaanbieder</a>.</li>
 </ul>
 </li>
 <li><p>Gebruik <a href="https://www.logius.nl/domeinen/toegang/pkioverheid">PKIoverheid certificaten</a>&nbsp;voor authenticatie, signing en encryptie</p>
@@ -419,21 +421,22 @@ Implicaties:</p>
 </li>
 <li><p>PKIoverheid certificaten worden door Logius (namens de rijksoverheid) uitgegeven en beheerd. Er is daarom geen organisatie nodig om certificaten voor het DDAS stelsel te beheren.</p>
 </li>
-<li><p>PKIoverheid certificaten kunnen voor veel  diensten binnen de overheid gebruikt worden. De investering is daarom niet alleen voor DDAS, maar ook voor eventuele andere diensten die de deelnemer afneemt.
-Implicaties:</p>
+<li><p>PKIoverheid certificaten kunnen voor veel  diensten binnen de overheid gebruikt worden. De investering is daarom niet alleen voor DDAS, maar ook voor eventuele andere diensten die de deelnemer afneemt.</p>
 </li>
-<li><p>Alle deelnemers moeten een PKIoverheid certificaat hebben of krijgen. NB: Het is niet altijd mogelijk om een PKIoverheid certificaat dat al in gebruik is, te hergebruiken.</p>
-</li>
+</ul>
+<p>Implicaties:</p>
+<ul>
+<li>Alle deelnemers moeten een PKIoverheid certificaat hebben of krijgen. NB: Het is niet altijd mogelijk om een PKIoverheid certificaat dat al in gebruik is, te hergebruiken.</li>
 </ul>
 </li>
 <li><p>Beveiligingsniveau BBN2 (NB: DPIA is nog in wording)&nbsp;</p>
 <p>Rationale:</p>
 <ul>
-<li><p>In de DPIA wordt dit vereist.
-Implicaties:</p>
-</li>
-<li><p>De BIO maatregelen moeten gericht zijn op het behalen van het beveiligingsniveau BBN2.</p>
-</li>
+<li>In de DPIA wordt dit vereist.</li>
+</ul>
+<p>Implicaties:</p>
+<ul>
+<li>De BIO maatregelen moeten gericht zijn op het behalen van het beveiligingsniveau BBN2.</li>
 </ul>
 </li>
 </ul>

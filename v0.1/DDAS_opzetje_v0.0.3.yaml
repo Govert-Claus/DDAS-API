@@ -1,12 +1,15 @@
 openapi: 3.0.0
 info:
-  title: DDAS API
-  description: API voor het beschikbaar stellen van gegevens rond schuldhulptrajecten aan het CBS - gebaseerd op de uitwisselspecificatie (https://brienen.github.io/ddas/latest/uitwisselspecificatie/)
-  version: 0.0.3
+  title: Schuldhulpverlening API
+  description: API voor het beschikbaar stellen van gegevens rond schuldhulptrajecten aan het CBS.
+  version: 1.0.0
   contact:
     name: API Support
     email: support@example.com
 servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/GOVERTCLAUS/DDAS/1.0.0
   - description: SwaggerHub API Auto Mocking
     url: https://virtserver.swaggerhub.com/Govert-Claus/DDAS/1.0.0
   - url: https://api.schuldhulpverlening.nl/v1
@@ -82,19 +85,36 @@ paths:
 security:
   - OAuth2: []
 components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://authorization-server.com/auth
+          tokenUrl: https://authorization-server.com/token
+          scopes:
+            read_gegevens: 'Lezen van gegevens'
   schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: string
     DDAS-gegevens:
-      title: Uitwisselmodel
       type: object
       description: Het uitwisselmodel is een model dat de gegevens bevat die uitgewisseld
         worden tussen de verschillende partijen.
       properties:
         startdatumLevering:
-          $ref: '#/$defs/datum'
+          $ref: "#/components/schemas/datum"
         einddatumLevering:
-          $ref: '#/$defs/datum'
+          $ref: "#/components/schemas/datum"
         aanleverdatumEnTijd:
-          $ref: '#/$defs/datum-tijd'
+          $ref: "#/components/schemas/datum-tijd"
         leveringen:
           type: array
           items:
@@ -111,7 +131,7 @@ components:
                   gezinnen helpt met het beheren, verminderen en oplossen van hun schulden
                   door middel van advies, begeleiding en bemiddeling.
                 properties:
-                  '(Statutaire) Naam':
+                  "(Statutaire) Naam":
                     description: Naam van de niet-natuurlijke persoon zoals deze is vastgelegd
                       in de statuten (rechtspersoon) of in de vennootschapsovereenkomst
                       is overeengekomen (Vennootschap onder firma of Commanditaire vennootschap).
@@ -134,7 +154,7 @@ components:
                       description: Contactpersoon van een organisatie
                       properties:
                         email:
-                          $ref: '#/$defs/email'
+                          $ref: "#/components/schemas/email"
                         naam:
                           type: string
                         telefoonnummer:
@@ -149,18 +169,18 @@ components:
                     eindbestemming voert.
                   properties:
                     einddatum:
-                      $ref: '#/$defs/datum'
+                      $ref: "#/components/schemas/datum"
                     omschrijving:
                       type: string
                     startdatum:
-                      $ref: '#/$defs/datum'
+                      $ref: "#/components/schemas/datum"
                     toekenningsdatum:
-                      $ref: '#/$defs/datum'
+                      $ref: "#/components/schemas/datum"
                     totaalSchuldbedragBijAanvangSchuld:
-                      description: Bedrag in hele euros nauwkeurig voor elke schuld die
+                      description: Bedrag in hele euro's nauwkeurig voor elke schuld die
                         meegaat in de schuldregeling. Per schuldeiser kunnen er meerdere
                         openstaande schulden zijn. Deze afzonderlijk meenemen.
-                      $ref: '#/$defs/bedrag'
+                      $ref: "#/components/schemas/bedrag"
                     gemeentecode:
                       description: De gemeentecode van de gemeente onder wiens verantwoordelijkheid
                         het schuldhulptraject wordt uitgevoerd.
@@ -173,7 +193,7 @@ components:
                       properties:
                         crisisinterventie:
                           description: |-
-                            Is er sprake van een crisisinterventie? Indicator crisisinterventie. Het afwenden van een crisis- of dreigende situatie om zo de mogelijkheid te cre&#235;ren om de klant te helpen via de reguliere schuldhulpverlening.
+                            Is er sprake van een crisisinterventie? Indicator crisisinterventie. "Het afwenden van een crisis- of dreigende situatie om zo de mogelijkheid te cre&#235;ren om de klant te helpen via de reguliere schuldhulpverlening.
                             Volgens de Wgs gaat het in elk geval om de volgende situaties:
                             ■ gedwongen woningontruiming;
                             ■ be&#235;indiging van de levering van gas, water, elektriciteit of stadsverwarming;
@@ -184,15 +204,15 @@ components:
                             ■ een faillissementsaanvraag.
                             En voor ondernemers:
                             ■ beslag op (on)roerende zaken dat het voortbestaan van de onderneming bedreigt;
-                            ■ opzegging van het bankkrediet.
+                            ■ opzegging van het bankkrediet."
                           type: boolean
                         einddatum:
-                          $ref: '#/$defs/datum'
+                          $ref: "#/components/schemas/datum"
                         startdatum:
                           description: 'Datum waarop een persoon met een hulpvraag komt
                             rondom (dreigende) schulden. Dit kan een persoonlijke, schriftelijke,
                             digitale of telefonische vraag zijn. '
-                          $ref: '#/$defs/datum'
+                          $ref: "#/components/schemas/datum"
                     begeleiding:
                       type: array
                       items:
@@ -204,11 +224,11 @@ components:
                           3. budgetcoaching
                         properties:
                           einddatum:
-                            $ref: '#/$defs/datum'
+                            $ref: "#/components/schemas/datum"
                           soort:
-                            $ref: '#/$defs/EnumBegeleidingssoort'
+                            $ref: "#/components/schemas/EnumBegeleidingssoort"
                           startdatum:
-                            $ref: '#/$defs/datum'
+                            $ref: "#/components/schemas/datum"
                     client:
                       type: array
                       items:
@@ -244,9 +264,9 @@ components:
                                 gebruikt om alle relevante zaken van clienten aan te koppelen.
                               properties:
                                 datumGeldigTot:
-                                  $ref: '#/$defs/datum'
+                                  $ref: "#/components/schemas/datum"
                                 datumGeldigVanaf:
-                                  $ref: '#/$defs/datum'
+                                  $ref: "#/components/schemas/datum"
                                 schulden:
                                   type: array
                                   items:
@@ -255,17 +275,17 @@ components:
                                       waarbij een persoon nu of in de toekomst een bedrag
                                       moet betalen aan een derde. In het kader van schuldhulpverlening
                                       wordt over een schuld gesproken als de persoon niet
-                                      aan deze verplichting kan voldoen.'
+                                      aan deze verplichting kan voldoen. . '
                                     properties:
                                       bedrag:
                                         description: Bedrag in hele euro's nauwkeurig
-                                        $ref: '#/$defs/bedrag'
+                                        $ref: "#/components/schemas/bedrag"
                                       peildatum:
                                         description: Peildatum dat de schuld is vastgesteld.
-                                        $ref: '#/$defs/datum'
+                                        $ref: "#/components/schemas/datum"
                                       soort:
                                         description: De soort schuld
-                                        $ref: '#/$defs/EnumSchuldensoort'
+                                        $ref: "#/components/schemas/EnumSchuldensoort"
                                       zakelijkeSchuld:
                                         description: Betreft het een zakelijke schuld
                                         type: boolean
@@ -311,9 +331,9 @@ components:
                           ■ opzegging van het bankkrediet.
                         properties:
                           einddatum:
-                            $ref: '#/$defs/datum'
+                            $ref: "#/components/schemas/datum"
                           startdatum:
-                            $ref: '#/$defs/datum'
+                            $ref: "#/components/schemas/datum"
                     intake:
                       type: object
                       description: |-
@@ -323,21 +343,21 @@ components:
                       properties:
                         einddatum:
                           description: 'De datum van afronding van de intake. Een klant
-                            ontvangt een gemotiveerde afwijzing of een toelatingsbeschikking.'
-                          $ref: '#/$defs/datum'
+                            ontvangt een gemotiveerde afwijzing of een toelatingsbeschikking. '
+                          $ref: "#/components/schemas/datum"
                         startdatum:
-                          description: 'Het gesprek dat plaatsvindt na aanmelding of na
+                          description: "Het gesprek dat plaatsvindt na aanmelding of na
                             ontvangst hulpvraag (bijv. bij doorverwijzing vanuit vroegsignalering).
                             Doel van dit gesprek is om de hulpvraag vast te stellen en te
                             beoordelen welke instrumenten, ondersteuning, activiteiten en
                             gegevens nodig zijn om een persoon te helpen om een duurzaam
-                            financieel evenwicht te bereiken.'
-                          $ref: '#/$defs/datum'
+                            financieel evenwicht te bereiken. \n\n"
+                          $ref: "#/components/schemas/datum"
                         toelatingsbeschikking:
                           description: |-
                             Een beschikking met het besluit over de toegang tot schuldhulpverlening. Een toelatingsbeschikking is voorzien van een Plan van Aanpak op hoofdlijnen.
                             Van de toelatingsbeschikking wordt de datum dat deze is afgegeven vastgelegd.
-                          $ref: '#/$defs/datum'
+                          $ref: "#/components/schemas/datum"
                     moratoria:
                       type: array
                       items:
@@ -355,13 +375,13 @@ components:
                           Het moratorium duurt maximaal zes maanden.
                         properties:
                           datumAanvraag:
-                            $ref: '#/$defs/datum'
+                            $ref: "#/components/schemas/datum"
                           datumGoedkeuring:
-                            $ref: '#/$defs/datum'
+                            $ref: "#/components/schemas/datum"
                           einddatum:
-                            $ref: '#/$defs/datum'
+                            $ref: "#/components/schemas/datum"
                           startdatum:
-                            $ref: '#/$defs/datum'
+                            $ref: "#/components/schemas/datum"
                     nazorg:
                       type: object
                       description: 'Ondersteuning die een persoon ontvangt n&#225; een schuldregelingstraject,
@@ -369,30 +389,30 @@ components:
                         te bevorderen &#233;n recidive (terugval) te voorkomen. '
                       properties:
                         einddatum:
-                          $ref: '#/$defs/datum'
+                          $ref: "#/components/schemas/datum"
                         startdatum:
-                          $ref: '#/$defs/datum'
+                          $ref: "#/components/schemas/datum"
                     oplossing:
                       type: object
-                      description: 'De Oplossing beschrijft in 4 submodules wat de schuldhulpverlener
+                      description: "De Oplossing beschrijft in 4 submodules wat de schuldhulpverlener
                         doet om een oplossing te realiseren, en kent de volgende submodules:
                         \n- submodule Herfinanciering;\n- submodule Betalingsregeling;\n-
                         submodule Saneringskrediet;\n- submodule Schuldbemiddeling.\n\nHet
-                        kan ook gaan om een 0%-aanbod'
+                        kan ook gaan om een 0%-aanbod"
                       properties:
                         einddatum:
                           description: Het gaat om het moment dat een schuldregeling (saneringskrediet/schuldbemiddeling)
                             of volledige afbetalingsregeling (betalingsregeling/herfinanciering)
                             daadwerkelijk eindigt. Dit kan zijn na de formele afgesproken
                             periode of een voortijdige beeindiging.
-                          $ref: '#/$defs/datum'
+                          $ref: "#/components/schemas/datum"
                         soort:
-                          $ref: '#/$defs/EnumOplossingssoort'
+                          $ref: "#/components/schemas/EnumOplossingssoort"
                         startdatum:
                           description: Het gaat om het moment dat een schuldregeling (saneringskrediet/schuldbemiddeling)
                             of volledige afbetalingsregeling (betalingsregeling/herfinanciering)
                             daadwerkelijk start na goedkeuring van de aanvraag.
-                          $ref: '#/$defs/datum'
+                          $ref: "#/components/schemas/datum"
                     planVanAanpak:
                       type: object
                       description: |-
@@ -405,7 +425,7 @@ components:
                         De hoogte van beslagvrije voet voor de persoon (zie artikel 4a:5 van de Wgs) moet in acht worden genomen.
                       properties:
                         datumAfronding:
-                          $ref: '#/$defs/datum'
+                          $ref: "#/components/schemas/datum"
                     schuldregeling:
                       type: object
                       description: De schuldregeling heeft als doel een overeenkomst te
@@ -424,39 +444,39 @@ components:
                         tot de Wsnp.
                       properties:
                         afgewezen:
-                          description: 'Datum waarop afwijzingheeft plaatgevonden. Leeg
-                            betekent: (nog) geen afwijzing plaatgevonden \n'
-                          $ref: '#/$defs/datum'
+                          description: "Datum waarop afwijzingheeft plaatgevonden. Leeg
+                            betekent: (nog) geen afwijzing plaatgevonden \n"
+                          $ref: "#/components/schemas/datum"
                         datum:
                           description: Datum dat schuldregeling is ingediend.
-                          $ref: '#/$defs/datum'
+                          $ref: "#/components/schemas/datum"
                         datumVerzoekDwangakkoord:
-                          $ref: '#/$defs/datum'
+                          $ref: "#/components/schemas/datum"
                         dwangakkoord:
                           description: Een vervolgstap die mogelijk is als een of meer schuldeisers
                             blijven weigeren in te stemmen met de minnelijke schuldregelingaanvragen.
                             Dit verzoek wordt ingediend bij de rechtbank (artikel 287a Fw).
                           type: boolean
                         ingetrokken:
-                          description: 'Datum waarop schuldregeling is ingetrokken. Leeg
-                            betekent: (nog) geen intrekking plaatgevonden \n'
-                          $ref: '#/$defs/datum'
+                          description: "Datum waarop schuldregeling is ingetrokken. Leeg
+                            betekent: (nog) geen intrekking plaatgevonden \n"
+                          $ref: "#/components/schemas/datum"
                         toegekend:
                           description: 'Datum waarop toekenning heeft plaatgevonden. Leeg
                             betekent: (nog) geen toekenning plaatgevonden '
-                          $ref: '#/$defs/datum'
+                          $ref: "#/components/schemas/datum"
                     uitstroom:
                       type: object
                       description: Motivatie voor uitstroom
                       properties:
                         datum:
-                          $ref: '#/$defs/datum'
+                          $ref: "#/components/schemas/datum"
                         omschrijving:
                           type: string
                         reden:
                           description: 'Reden dat de hulpverlening op enig moment na aanmelding
                             bij schuldhulpverlening eindigt.  '
-                          $ref: '#/$defs/EnumUitstroomreden'
+                          $ref: "#/components/schemas/EnumUitstroomreden"
                     stabilisatie:
                       type: object
                       description: |-
@@ -464,103 +484,84 @@ components:
                         werkzaamheden uit het integrale plan van aanpak. Als stabilisatie bereikt is kan een betalingsregeling, herfinanciering of schuldregeling worden opgezet. Een belangrijk tweede doel is om de hulpvrager hierbij schuldenrust te bieden: stress wegnemen en tijd maken voor oplossingen naar een schuldenzorgvrije toekomst. In de stabilisatiefase kan een schuldhulpverlener andere instrumenten, activiteiten of ondersteuning inzetten, die bijdragen aan de duurzame oplossing van het financi&#235;le probleem, zoals budgetcoaching, budgetbeheer, beschermingsbewind of flankerende hulp.
                       properties:
                         einddatum:
-                          $ref: '#/$defs/datum'
+                          $ref: "#/components/schemas/datum"
                         startdatum:
-                          $ref: '#/$defs/datum'
+                          $ref: "#/components/schemas/datum"
                   required:
                   - gemeentecode
                   additionalProperties: false
             required:
             - teller
             additionalProperties: false
-      '$defs':
-        datum:
-          type: string
-          format: date
-          description: Een datum in het formaat YYYY-MM-DD.
-        email:
-          type: string
-          format: email
-          description: Een emailadres.
-        tijd:
-          type: string
-          format: time
-          description: De tijd in het formaat HH:MM:SS (ISO 8601).
-        datum-tijd:
-          type: string
-          format: date-time
-          description: Datum en tijd in het formaat YYYY-MM-DDTHH:MM:SSZ (ISO 8601).
-        bedrag:
-          type: integer
-          description: Een geldbedrag in hele euros nauwkweurig.
-        EnumSchuldensoort:
-          type: string
-          enum:
-          - Zorg
-          - Publiek
-          - Nuts
-          - Overig
-        EnumOplossingssoort:
-          type: string
-          enum:
-          - Betalingsregeling
-          - Herfinanciering
-          - Saneringskrediet
-          - Schuldbemiddeling
-          - 0%-aanbod
-        EnumHuishoudenssoort:
-          type: string
-          enum:
-          - Particulier Huishouden
-          - Instituuttioneel Huishouden
-        geslacht:
-          type: string
-          enum:
-          - Man
-          - Vrouw
-          - Onbekend
-          - Leeg
-        EnumUitstroomreden:
-          type: string
-          enum:
-          - Overleden
-          - Verhuisd
-          - Nietverschenen
-          - Ingetrokken
-          - Niet passend
-          - Overig
-          - Voldoet niet
-          - Afgerond
-          - Zelf
-        EnumBegeleidingssoort:
-          type: string
-          enum:
-          - Budgetcoaching
-          - Budgetbeheer
-          - Beschermingsbewind
-          - Lange Termijn Begeleiding (DFD)
-        EnumWoningbezit:
-          type: string
-          enum:
-          - Eigen Woning
-          - Huurwoning
-          - Huurwoning geen huurtoeslag
-          - Huurwoning wel huurtoeslag
-          ErrorResponse:
-            type: object
-            properties:
-              message:
-                type: string
-              details:
-                type: array
-                items:
-                  type: string
-  securitySchemes:
-    OAuth2:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: https://authorization-server.com/auth
-          tokenUrl: https://authorization-server.com/token
-          scopes:
-            read_gegevens: 'Lezen van gegevens'
+    datum:
+      type: string
+      format: date
+      description: Een datum in het formaat YYYY-MM-DD.
+    email:
+      type: string
+      format: email
+      description: Een emailadres.
+    tijd:
+      type: string
+      format: time
+      description: De tijd in het formaat HH:MM:SS (ISO 8601).
+    datum-tijd:
+      type: string
+      format: date-time
+      description: Datum en tijd in het formaat YYYY-MM-DDTHH:MM:SSZ (ISO 8601).
+    bedrag:
+      type: integer
+      description: Een geldbedrag in hele euros nauwkweurig.
+    EnumSchuldensoort:
+      type: string
+      enum:
+      - Zorg
+      - Publiek
+      - Nuts
+      - Overig
+    EnumOplossingssoort:
+      type: string
+      enum:
+      - Betalingsregeling
+      - Herfinanciering
+      - Saneringskrediet
+      - Schuldbemiddeling
+      - 0%-aanbod
+    EnumHuishoudenssoort:
+      type: string
+      enum:
+      - Particulier Huishouden
+      - Instituuttioneel Huishouden
+    geslacht:
+      type: string
+      enum:
+      - Man
+      - Vrouw
+      - Onbekend
+      - Leeg
+    EnumUitstroomreden:
+      type: string
+      enum:
+      - Overleden
+      - Verhuisd
+      - Nietverschenen
+      - Ingetrokken
+      - Niet passend
+      - Overig
+      - Voldoet niet
+      - Afgerond
+      - Zelf
+    EnumBegeleidingssoort:
+      type: string
+      enum:
+      - Budgetcoaching
+      - Budgetbeheer
+      - Beschermingsbewind
+      - Lange Termijn Begeleiding (DFD)
+    EnumWoningbezit:
+      type: string
+      enum:
+      - Eigen Woning
+      - Huurwoning
+      - Huurwoning geen huurtoeslag
+      - Huurwoning wel huurtoeslag

@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  title: Schuldhulpverlening API
-  description: API voor het beschikbaar stellen van gegevens rond schuldhulptrajecten aan het CBS.
+  title: DDAS API
+  description: API voor het beschikbaar stellen van gegevens rond schuldhulptrajecten aan het CBS - gebaseerd op de uitwisselspecificatie (https://brienen.github.io/ddas/latest/uitwisselspecificatie/)
   version: 0.0.3
   contact:
     name: API Support

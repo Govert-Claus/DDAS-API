@@ -16,7 +16,7 @@ Voorstel voor parameters die meegestuurd kunnen worden (allemaal optioneel): 
 
 - SHV-traject? (default alle) 
 
-Technische uitwerking in OAS3 komt beschikbaar in een [YAML bestand op Github](https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1/DDAS_opzetje_v0.0.3.yaml).
+De technische uitwerking in OAS3 komt beschikbaar in een [YAML bestand op Github](https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1/DDAS_opzetje_v0.0.3.yaml).
 
 ## Antwoordbericht (response)
 

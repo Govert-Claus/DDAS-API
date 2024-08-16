@@ -96,6 +96,24 @@ img.license{float:left;padding-right:5px}
 <meta name="description" content="Dit is de koppelvlakspecificatie voor de API waarmee schuldhulporganisaties gegevens beschikbaarstellen aan het CBS.
 Dit is een product van het programma DDAS. De API is gebaseerd op het informatie- en uitwisselmodel en de OAS beschrijving van de API is op Github gepubliceerd.">
 <style>
+.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+@media (prefers-color-scheme:dark){
+.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
+}
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
+.hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4;color:var(--hue-3,#a626a4)}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;color:var(--hue-5,#ca4706);font-weight:700}
+.hljs-literal{color:#0b76c5;color:var(--hue-1,#0b76c5)}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c;color:var(--hue-4,#42803c)}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01;color:var(--hue-6-2,#9a6a01)}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801;color:var(--hue-6,#986801)}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3;color:var(--hue-2,#336ae3)}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
+</style>
+<style>
 
   .sidelabel {
     position: fixed;
@@ -303,7 +321,7 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <p>Naast de uitgangspunten en de technische specificatie bevat dit document een beschrijving van de niet-functionele eisen (beschikbaarheid, performance). Ook worden het aanleverprotocol (welke stappen worden doorlopen als gegevens opgehaald worden) en het aansluitprotocol (hoe kan een organisatie deelnemer worden) beschreven. Ten slotte wordt het beheer van de specificatie zelf beschreven.</p>
 <p><em><strong>In de huidige versie staan nog diverse vraagstukken en de keuzes die gemaakt worden, moeten nog worden bevestigd. Het document dient daarom vooral als basis voor de discussie om tot een definitieve specificatie te komen, en er kunnen geen rechten aan dit document ontleend worden.</strong></em></p>
 </section>
-  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit document is nog 'In Ontwikkeling'.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#kaders"><bdi class="secno">1. </bdi>Uitgangpunten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#kaders-0"><bdi class="secno">1.1 </bdi>Kaders</a></li><li class="tocline"><a class="tocxref" href="#keuzes"><bdi class="secno">1.2 </bdi>Keuzes</a></li></ol></li><li class="tocline"><a class="tocxref" href="#transport"><bdi class="secno">2. </bdi>Transportlaag</a></li><li class="tocline"><a class="tocxref" href="#iam"><bdi class="secno">3. </bdi>Identificatie, Authenticatie en Autorisatie</a></li><li class="tocline"><a class="tocxref" href="#sign"><bdi class="secno">4. </bdi>Signing en Versleuteling</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#signing"><bdi class="secno">4.1 </bdi>Signing</a></li><li class="tocline"><a class="tocxref" href="#versleuteling-encryptie"><bdi class="secno">4.2 </bdi>Versleuteling (Encryptie)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#messages"><bdi class="secno">5. </bdi>Berichten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#vraagbericht-request"><bdi class="secno">5.1 </bdi>Vraagbericht (request)</a></li><li class="tocline"><a class="tocxref" href="#antwoordbericht-response"><bdi class="secno">5.2 </bdi>Antwoordbericht (response)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#non-func"><bdi class="secno">6. </bdi>Niet functionele eisen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#beschikbaarheid"><bdi class="secno">6.1 </bdi>Beschikbaarheid</a></li><li class="tocline"><a class="tocxref" href="#performance"><bdi class="secno">6.2 </bdi>Performance</a></li><li class="tocline"><a class="tocxref" href="#monitoring"><bdi class="secno">6.3 </bdi>Monitoring</a></li></ol></li><li class="tocline"><a class="tocxref" href="#aanlever"><bdi class="secno">7. </bdi>Aanleverprotocol</a></li><li class="tocline"><a class="tocxref" href="#aansluit"><bdi class="secno">8. </bdi>Aansluitprotocol</a></li><li class="tocline"><a class="tocxref" href="#beheer"><bdi class="secno">9. </bdi>Beheer van de specificatie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#indienen-wijzigingsverzoek"><bdi class="secno">9.1 </bdi>Indienen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#afhandelen-wijzigingsverzoek"><bdi class="secno">9.2 </bdi>Afhandelen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#releaseproces"><bdi class="secno">9.3 </bdi>Releaseproces</a></li><li class="tocline"><a class="tocxref" href="#releasenummering"><bdi class="secno">9.4 </bdi>Releasenummering</a></li><li class="tocline"><a class="tocxref" href="#vrijgaveprocedure-en-afwijkingsverzoeken"><bdi class="secno">9.5 </bdi>Vrijgaveprocedure en afwijkingsverzoeken</a></li><li class="tocline"><a class="tocxref" href="#noodprocedure"><bdi class="secno">9.6 </bdi>Noodprocedure</a></li><li class="tocline"><a class="tocxref" href="#escalatie"><bdi class="secno">9.7 </bdi>Escalatie</a></li></ol></li></ol></nav>
+  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit document is nog 'In Ontwikkeling'.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#kaders"><bdi class="secno">1. </bdi>Uitgangpunten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#kaders-0"><bdi class="secno">1.1 </bdi>Kaders</a></li><li class="tocline"><a class="tocxref" href="#keuzes"><bdi class="secno">1.2 </bdi>Keuzes</a></li></ol></li><li class="tocline"><a class="tocxref" href="#transport"><bdi class="secno">2. </bdi>Transportlaag</a></li><li class="tocline"><a class="tocxref" href="#iam"><bdi class="secno">3. </bdi>Identificatie, Authenticatie en Autorisatie</a></li><li class="tocline"><a class="tocxref" href="#sign"><bdi class="secno">4. </bdi>Signing en Versleuteling</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#signing"><bdi class="secno">4.1 </bdi>Signing</a></li><li class="tocline"><a class="tocxref" href="#versleuteling-encryptie"><bdi class="secno">4.2 </bdi>Versleuteling (Encryptie)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#messages"><bdi class="secno">5. </bdi>Berichten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#vraagbericht-request"><bdi class="secno">5.1 </bdi>Vraagbericht (request)</a></li><li class="tocline"><a class="tocxref" href="#antwoordbericht-response"><bdi class="secno">5.2 </bdi>Antwoordbericht (response)</a></li><li class="tocline"><a class="tocxref" href="#berichten"><bdi class="secno">5.3 </bdi>Berichten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#vraagbericht-request-0"><bdi class="secno">5.3.1 </bdi>Vraagbericht (request)</a></li><li class="tocline"><a class="tocxref" href="#antwoordbericht-response-0"><bdi class="secno">5.3.2 </bdi>Antwoordbericht (response)</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#non-func"><bdi class="secno">6. </bdi>Niet functionele eisen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#beschikbaarheid"><bdi class="secno">6.1 </bdi>Beschikbaarheid</a></li><li class="tocline"><a class="tocxref" href="#performance"><bdi class="secno">6.2 </bdi>Performance</a></li><li class="tocline"><a class="tocxref" href="#monitoring"><bdi class="secno">6.3 </bdi>Monitoring</a></li></ol></li><li class="tocline"><a class="tocxref" href="#aanlever"><bdi class="secno">7. </bdi>Aanleverprotocol</a></li><li class="tocline"><a class="tocxref" href="#aansluit"><bdi class="secno">8. </bdi>Aansluitprotocol</a></li><li class="tocline"><a class="tocxref" href="#beheer"><bdi class="secno">9. </bdi>Beheer van de specificatie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#indienen-wijzigingsverzoek"><bdi class="secno">9.1 </bdi>Indienen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#afhandelen-wijzigingsverzoek"><bdi class="secno">9.2 </bdi>Afhandelen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#releaseproces"><bdi class="secno">9.3 </bdi>Releaseproces</a></li><li class="tocline"><a class="tocxref" href="#releasenummering"><bdi class="secno">9.4 </bdi>Releasenummering</a></li><li class="tocline"><a class="tocxref" href="#vrijgaveprocedure-en-afwijkingsverzoeken"><bdi class="secno">9.5 </bdi>Vrijgaveprocedure en afwijkingsverzoeken</a></li><li class="tocline"><a class="tocxref" href="#noodprocedure"><bdi class="secno">9.6 </bdi>Noodprocedure</a></li><li class="tocline"><a class="tocxref" href="#escalatie"><bdi class="secno">9.7 </bdi>Escalatie</a></li></ol></li></ol></nav>
   <section id="kaders"><div class="header-wrapper"><h2 id="x1-uitgangpunten"><bdi class="secno">1. </bdi>Uitgangpunten</h2><a class="self-link" href="#kaders" aria-label="Permalink for Section 1."></a></div>
 <section id="kaders-0"><div class="header-wrapper"><h3 id="x1-1-kaders"><bdi class="secno">1.1 </bdi>Kaders</h3><a class="self-link" href="#kaders-0" aria-label="Permalink for Section 1.1"></a></div>
 <p>Het koppelvlak moet voldoen aan de volgende wetten, afspraken en standaarden:&nbsp;</p>
@@ -449,7 +467,35 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <p>Voorstel: Versleuteling op basis van JWE in een JWT met PKIo certificaten. NB: ook hier geldt dat als niet alle betrokken partijen PKIo certificaten kunnen aanvragen, er een Trust Anchor nodig is die vertrouwde certificaten kan uitgeven.</p>
 </section></section>
   <section id="messages"><div class="header-wrapper"><h2 id="x5-berichten"><bdi class="secno">5. </bdi>Berichten</h2><a class="self-link" href="#messages" aria-label="Permalink for Section 5."></a></div>
+<p>De technische beschrijving van de API is het volgende OAS3-bestand beschreven. Hiervan is ook een <a href="https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1/DDAS_opzetje_v0.0.3.yaml">downloadbare versie</a> van.</p>
+<pre><code aria-busy="false" class="hljs">{!../API-v0.0.3/DDAS_opzetje_v0.0.3.yaml!}
+</code></pre>
+<p>Hieronder worden de berichten die daar technisch beschreven zijn, toegelicht.</p>
 <section id="vraagbericht-request"><div class="header-wrapper"><h3 id="x5-1-vraagbericht-request"><bdi class="secno">5.1 </bdi>Vraagbericht (request)</h3><a class="self-link" href="#vraagbericht-request" aria-label="Permalink for Section 5.1"></a></div>
+<p>Dit is het vraagbericht zoals dat door CBS naar de schuldhulpverlener gestuurd wordt. Alleen een POST request: alleen opvragen gegevens, geen mutaties. Bij GET zitten de parameters in de URL, waardoor mogelijk cache gegevens gebruikt worden, als de parameters niet wijzigen - daarom liever een POST.</p>
+<p>NB: Dit bericht wordt in een JWT verwerkt, voor signen en versleutelen (als versleutelen nodig is – met een BSN in het bericht zou dat waarschijnlijk moeten).</p>
+<p>Voorstel voor parameters die meegestuurd kunnen worden (allemaal optioneel):</p>
+<ul>
+<li><p>Startdatum (default leeg - deelnemer bepaalt dan startdatum)</p>
+</li>
+<li><p>Einddatum (default leeg - deelnemer bepaalt dan einddatum)</p>
+</li>
+<li><p>Gemeente (default alle – alleen relevant als over meer dan 1 gemeente gegevens aangeleverd worden)</p>
+</li>
+</ul>
+</section><section id="antwoordbericht-response"><div class="header-wrapper"><h3 id="x5-2-antwoordbericht-response"><bdi class="secno">5.2 </bdi>Antwoordbericht (response)</h3><a class="self-link" href="#antwoordbericht-response" aria-label="Permalink for Section 5.2"></a></div>
+<p>Dit is het antwoordbericht van de schuldhulpverlener met de gewenste gegevens in JSON formaat.</p>
+<p>Als versleutelen nodig is, in een JWT vorm (versleuteld conform JWE).</p>
+<p>Payload is gebaseerd op <a href="https://brienen.github.io/ddas/latest/uitwisselspecificatie/">uitwisselspecificatie</a>!</p>
+<p>Mogelijke responses:</p>
+<ul>
+<li><p>200: bericht goed verwerkt (met payload)</p>
+</li>
+<li><p>Foutberichten moeten nog bepaald worden - waarschijnlijk 401 (unauthorized), 404 (not found), 500 (internal server error) en 503 (service unavailable)</p>
+</li>
+</ul>
+</section><section id="berichten"><div class="header-wrapper"><h3 id="x5-3-berichten"><bdi class="secno">5.3 </bdi>Berichten</h3><a class="self-link" href="#berichten" aria-label="Permalink for Section 5.3"></a></div>
+<section id="vraagbericht-request-0"><div class="header-wrapper"><h4 id="x5-3-1-vraagbericht-request"><bdi class="secno">5.3.1 </bdi>Vraagbericht (request)</h4><a class="self-link" href="#vraagbericht-request-0" aria-label="Permalink for Section 5.3.1"></a></div>
 <p>Request zoals dat door CBS naar de schuldhulpverlener gestuurd wordt. Alleen een GET&nbsp; en/ of POST request: alleen opvragen gegevens, geen mutaties. Bij GET zitten de parameters in de URL, waardoor mogelijk cache gegevens gebruikt worden, als de parameters niet wijzigen.&nbsp;</p>
 <p>NB: Met een JWT voor authenticatie, signen en versleutelen (als versleutelen nodig is – met een BSN in het bericht zou dat waarschijnlijk moeten). Mogelijk kan dit afgevangen worden door het FSC-concept van inward- en outward-services?&nbsp;</p>
 <p>Voorstel voor parameters die meegestuurd kunnen worden (allemaal optioneel):&nbsp;</p>
@@ -465,7 +511,7 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 </ul>
 <p>&nbsp;</p>
 <p>De technische uitwerking in OAS3 komt beschikbaar in een <a href="https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1/DDAS_opzetje_v0.0.3.yaml">YAML bestand op Github</a>.</p>
-</section><section id="antwoordbericht-response"><div class="header-wrapper"><h3 id="x5-2-antwoordbericht-response"><bdi class="secno">5.2 </bdi>Antwoordbericht (response)</h3><a class="self-link" href="#antwoordbericht-response" aria-label="Permalink for Section 5.2"></a></div>
+</section><section id="antwoordbericht-response-0"><div class="header-wrapper"><h4 id="x5-3-2-antwoordbericht-response"><bdi class="secno">5.3.2 </bdi>Antwoordbericht (response)</h4><a class="self-link" href="#antwoordbericht-response-0" aria-label="Permalink for Section 5.3.2"></a></div>
 <p>Response van de schuldhulpverlener met de gewenste gegevens in JSON formaat.&nbsp;</p>
 <p>Als versleutelen nodig is, in een JWE vorm (eventueel gezipt, versleuteld in een token).&nbsp;</p>
 <p>Payload zoals gedefinieerd door Arjen!&nbsp;</p>
@@ -476,7 +522,7 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <li><p>Welke foutberichten? (FSC standaard volgen?)</p>
 </li>
 </ul>
-</section></section>
+</section></section></section>
   <section id="non-func"><div class="header-wrapper"><h2 id="x6-niet-functionele-eisen"><bdi class="secno">6. </bdi>Niet functionele eisen</h2><a class="self-link" href="#non-func" aria-label="Permalink for Section 6."></a></div>
 <section id="beschikbaarheid"><div class="header-wrapper"><h3 id="x6-1-beschikbaarheid"><bdi class="secno">6.1 </bdi>Beschikbaarheid</h3><a class="self-link" href="#beschikbaarheid" aria-label="Permalink for Section 6.1"></a></div>
 <p>Niet kritische toepassing: geen hoge beschikbaarheid vereist.&nbsp;</p>

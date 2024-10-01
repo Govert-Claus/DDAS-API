@@ -35,34 +35,36 @@ De volgende keuzes zijn gemaakt: 
   - Omdat het Digikoppeling REST profiel nog geen keuze heeft gemaakt voor signing en encryptie, moet hier expliciet een keuze in gemaakt worden.
 
 
-**Gebruik JWS voor signen**
+**Gebruik [JAdES](https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/) voor signen**
 
   *Rationale*
 
   - Omdat het REST profiel van Digikopeling (nog) geen standaard voor signen heeft vastgesteld, moet er eentje gekozen worden.
 
-  - JWS is een breed gebruikte standaard met een grote community die het onderhoud ervan verzekert.
+  - JAdES is als standaard voorgesteld door het [Kennisplatform API's](https://www.geonovum.nl/themas/kennisplatform-apis).
 
-  - De Digikoppeling standaard noemt [JWS als mogelijke optie](https://gitdocumentatie.logius.nl/publicatie/dk/restapi/#bijlage-gebruik-van-signing-encryptie-in-de-context-van-http-rest-api) (JSON Web Signature).
+  - JAdES is gebaseerd op [JWS](https://datatracker.ietf.org/doc/html/rfc7515), de standaard voor signing van REST/JSON berichten die wereldwijd breed toegepast wordt.
+
+  - JAdES plaatst het signen "naast" het bericht, zodat het bericht zelf niet beïnvloed wordt en ook zonder de signing gebruikt kan worden.
 
   *Implicaties*
 
-  - *nog uitzoeken (ook hoe FSC hiermee omgaat)*
+  - *nog uitwerken*
 
 
-**Gebruik JWE voor encryptie *(NB: als encryptie vereist is - DPIA is nog in wording)***
+**Gebruik [ADR-HTTP Payload encryption](https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/) voor encryptie *(NB: als encryptie vereist is - DPIA is nog in wording)***
 
   *Rationale*
 
   - Omdat het REST profiel van Digikopeling (nog) geen standaard voor encryptie heeft vastgesteld, moet er eentje gekozen worden.
 
-  - JWE is een breed gebruikte standaard met een grote community die het onderhoud ervan verzekert.
+  - De "payload encryption" is als standaard voorgesteld door het [Kennisplatform API's](https://www.geonovum.nl/themas/kennisplatform-apis).
 
-  - De Digikoppeling standaard noemt [JWE als mogelijke optie](https://gitdocumentatie.logius.nl/publicatie/dk/restapi/#bijlage-gebruik-van-signing-encryptie-in-de-context-van-http-rest-api).
+  - De "payload encryption" standaard is gebaseerd op [JWE](https://datatracker.ietf.org/doc/html/rfc7516), de internationale standaard voor encryptie die breed toegepast wordt.
 
   *Implicaties*
 
-  - *nog uitzoeken (ook hoe FSC hiermee omgaat)*
+  - *nog uitwerken*
 
 
 **Federatieve Services Connectiviteit voor de architectuur - [FSC](https://docs.fsc.nlx.io/introduction)**
@@ -78,7 +80,7 @@ De volgende keuzes zijn gemaakt: 
   - Alle deelnemers dienen de FSC componenten te installeren en in te richten. Er bestaat een algemene referentie implementatie, maar om de inrichting verder te vereenvoudigen is het aan te raden om een specifieke referentie implementatie aan te bieden voor DDAS.
 
 
-**JSON formaat voor berichten**
+**[JSON formaat](https://json-schema.org/draft/2020-12/json-schema-validation) voor berichten**
 
   *Rationale*
 
@@ -86,12 +88,14 @@ De volgende keuzes zijn gemaakt: 
 
   - JSON is goed leesbaar voor mensen, maar toch voldoende klein om ook grotere berichten uit te kunnen wisselen.
 
+  - Vrijwel alle moderne informatiesystemen kunnen goed overweg met JSON berichten, wat de inrichting en het beheer vereenvoudigd.
+
   *Implicaties*
 
   - De gegevens moeten in JSON formaat uitgewisseld worden.
 
 
-**Gebruik Diginetwerk voor transport**
+**Gebruik [Diginetwerk](https://www.logius.nl/domeinen/infrastructuur/diginetwerk) voor transport**
 
   *Rationale*
 

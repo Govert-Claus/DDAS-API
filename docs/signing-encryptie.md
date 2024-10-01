@@ -4,10 +4,10 @@ NB: De Digikoppeling standaard voor REST-API heeft (nog) geen standaard voor sig
 
 ## Signing
 
-Voorstel: Signing op basis van JWS in een JWT conform de [FSC standaard](https://commonground.gitlab.io/standards/fsc/core/draft-fsc-core-00.html#signatures). 
+Voorstel: Signing op basis van [ADR-HTTP Message and payload signing with JAdES](https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/). 
 
 ## Versleuteling (Encryptie)
 
 Is versleuteling nodig? (zou uit DPIA moeten komen – ik vermoed dat het nodig is) 
 
-Voorstel: Versleuteling op basis van JWE in een JWT met PKIo certificaten. NB: ook hier geldt dat als niet alle betrokken partijen PKIo certificaten kunnen aanvragen, er een Trust Anchor nodig is die vertrouwde certificaten kan uitgeven. 
+Voorstel: Versleuteling op basis van [ADR-HTTP Payload encryption](https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/). 

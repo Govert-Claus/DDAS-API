@@ -356,33 +356,35 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <li><p>Omdat het Digikoppeling REST profiel nog geen keuze heeft gemaakt voor signing en encryptie, moet hier expliciet een keuze in gemaakt worden.</p>
 </li>
 </ul>
-<p><strong>Gebruik JWS voor signen</strong></p>
+<p><strong>Gebruik <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/">JAdES</a> voor signen</strong></p>
 <p>  <em>Rationale</em></p>
 <ul>
 <li><p>Omdat het REST profiel van Digikopeling (nog) geen standaard voor signen heeft vastgesteld, moet er eentje gekozen worden.</p>
 </li>
-<li><p>JWS is een breed gebruikte standaard met een grote community die het onderhoud ervan verzekert.</p>
+<li><p>JAdES is als standaard voorgesteld door het <a href="https://www.geonovum.nl/themas/kennisplatform-apis">Kennisplatform API's</a>.</p>
 </li>
-<li><p>De Digikoppeling standaard noemt <a href="https://gitdocumentatie.logius.nl/publicatie/dk/restapi/#bijlage-gebruik-van-signing-encryptie-in-de-context-van-http-rest-api">JWS als mogelijke optie</a> (JSON Web Signature).</p>
+<li><p>JAdES is gebaseerd op <a href="https://datatracker.ietf.org/doc/html/rfc7515">JWS</a>, de standaard voor signing van REST/JSON berichten die wereldwijd breed toegepast wordt.</p>
+</li>
+<li><p>JAdES plaatst het signen "naast" het bericht, zodat het bericht zelf niet beïnvloed wordt en ook zonder de signing gebruikt kan worden.</p>
 </li>
 </ul>
 <p>  <em>Implicaties</em></p>
 <ul>
-<li><em>nog uitzoeken (ook hoe FSC hiermee omgaat)</em></li>
+<li><em>nog uitwerken</em></li>
 </ul>
-<p><strong>Gebruik JWE voor encryptie&nbsp;<em>(NB: als encryptie vereist is - DPIA is nog in wording)</em></strong></p>
+<p><strong>Gebruik <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a> voor encryptie&nbsp;<em>(NB: als encryptie vereist is - DPIA is nog in wording)</em></strong></p>
 <p>  <em>Rationale</em></p>
 <ul>
 <li><p>Omdat het REST profiel van Digikopeling (nog) geen standaard voor encryptie heeft vastgesteld, moet er eentje gekozen worden.</p>
 </li>
-<li><p>JWE is een breed gebruikte standaard met een grote community die het onderhoud ervan verzekert.</p>
+<li><p>De "payload encryption" is als standaard voorgesteld door het <a href="https://www.geonovum.nl/themas/kennisplatform-apis">Kennisplatform API's</a>.</p>
 </li>
-<li><p>De Digikoppeling standaard noemt <a href="https://gitdocumentatie.logius.nl/publicatie/dk/restapi/#bijlage-gebruik-van-signing-encryptie-in-de-context-van-http-rest-api">JWE als mogelijke optie</a>.</p>
+<li><p>De "payload encryption" standaard is gebaseerd op <a href="https://datatracker.ietf.org/doc/html/rfc7516">JWE</a>, de internationale standaard voor encryptie die breed toegepast wordt.</p>
 </li>
 </ul>
 <p>  <em>Implicaties</em></p>
 <ul>
-<li><em>nog uitzoeken (ook hoe FSC hiermee omgaat)</em></li>
+<li><em>nog uitwerken</em></li>
 </ul>
 <p><strong>Federatieve Services Connectiviteit voor de architectuur - <a href="https://docs.fsc.nlx.io/introduction">FSC</a></strong></p>
 <p>  <em>Rationale</em></p>
@@ -396,19 +398,21 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <ul>
 <li>Alle deelnemers dienen de FSC componenten te installeren en in te richten. Er bestaat een algemene referentie implementatie, maar om de inrichting verder te vereenvoudigen is het aan te raden om een specifieke referentie implementatie aan te bieden voor DDAS.</li>
 </ul>
-<p><strong>JSON formaat voor berichten</strong></p>
+<p><strong><a href="https://json-schema.org/draft/2020-12/json-schema-validation">JSON formaat</a> voor berichten</strong></p>
 <p>  <em>Rationale</em></p>
 <ul>
 <li><p>Het informatiemodel en het uitwisselmodel voor DDAS zijn in het JSON formaat ontwikkeld. Het is het eenvoudigst als de berichten dan ook in JSON formaat uitgewisseld worden.</p>
 </li>
 <li><p>JSON is goed leesbaar voor mensen, maar toch voldoende klein om ook grotere berichten uit te kunnen wisselen.</p>
 </li>
+<li><p>Vrijwel alle moderne informatiesystemen kunnen goed overweg met JSON berichten, wat de inrichting en het beheer vereenvoudigd.</p>
+</li>
 </ul>
 <p>  <em>Implicaties</em></p>
 <ul>
 <li>De gegevens moeten in JSON formaat uitgewisseld worden.</li>
 </ul>
-<p><strong>Gebruik Diginetwerk voor transport</strong></p>
+<p><strong>Gebruik <a href="https://www.logius.nl/domeinen/infrastructuur/diginetwerk">Diginetwerk</a> voor transport</strong></p>
 <p>  <em>Rationale</em></p>
 <ul>
 <li>Het Diginetwerk is een gesloten netwerk waar alleen overheidsorganisaties toegang toe hebben. Dit beperkt de risico's van onbevoegde toegang tot de gegevens enorm.</li>

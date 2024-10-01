@@ -22,7 +22,7 @@ Het koppelvlak moet voldoen aan de volgende wetten, afspraken en standaarden: 
 
 De volgende keuzes zijn gemaakt: 
 
-**Gebruik Digikoppeling REST profiel**
+**Gebruik [Digikoppeling](https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling) REST profiel**
 
   *Rationale*
 

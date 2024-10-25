@@ -1,0 +1,63 @@
+openapi: 3.1.0
+info:
+  title: Gegevens Uitwissel API
+  description: API om DDAS-gegevens beschikbaar te stellen aan CBS, beveiligd met OAuth2.0 en berichten gesigned met JAdES.
+  version: 0.1.1
+servers:
+  - url: https://api.gegevensuitwissel.com/v1
+    description: Productieomgeving
+security:
+  - OAuth2:
+      - read
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.gegevensuitwissel.com/token
+          scopes:
+            read: Toegang om gegevens op te halen
+  schemas:
+    Uitwisselmodel:
+      $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/ddas/main/v1.0/json_schema_Uitwisselmodel.json'
+paths:
+  /gegevens:
+    post:
+      summary: Verstrek gegevens aan vragende partij
+      operationId: postGegevens
+      security:
+        - OAuth2: []
+      requestBody:
+        description: Vraag naar gegevens met optionele filters voor de aanleverperiode en de aanleverende organisatie, gesigned met JAdES
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                aanleverperiodeStartdatum:
+                  type: string
+                  format: date
+                  description: Startdatum van de aanleverperiode (optioneel)
+                aanleverperiodeEinddatum:
+                  type: string
+                  format: date
+                  description: Einddatum van de aanleverperiode (optioneel)
+                aanleverende_organisatie:
+                  type: string
+                  description: De naam van de organisatie die de gegevens aanlevert (optioneel)
+      responses:
+        '200':
+          description: Succesvolle gegevensverstrekking, inclusief JAdES-handtekening
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  gegevens:
+                    $ref: '#/components/schemas/Uitwisselmodel'
+        '401':
+          description: Ongeautoriseerd, OAuth2-token vereist
+        '400':
+          description: Ongeldig verzoek

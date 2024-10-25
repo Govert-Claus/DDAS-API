@@ -447,12 +447,12 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 </section></section>
   <section id="overzicht"><div class="header-wrapper"><h2 id="x2-overzicht-api-stelsel"><bdi class="secno">2. </bdi>Overzicht API stelsel</h2><a class="self-link" href="#overzicht" aria-label="Permalink for Section 2."></a></div>
 <p>In de onderstaande figuur staan de componenten geschetst die in het API berichtenverkeer een rol spelen.</p>
-<p><img src="./API-componenten.png" alt="overzicht API componenten">
-In deze figuur betekent:
-FDS: [<a href="https://realisatieibds.nl/page/view/564cc96c-115e-4e81-b5e6-01c99b1814ec/de-ontwikkeling-van-het-federatief-datastelsel%5D">https://realisatieibds.nl/page/view/564cc96c-115e-4e81-b5e6-01c99b1814ec/de-ontwikkeling-van-het-federatief-datastelsel]</a>(Federatief Datastelsel) (hier niet relevant, maar dit schema is daaraan ontleend en geeft aan dat DDAS past in een Federatief Datastelsel)
+<p><img src="./docs/API-componenten.png" alt="overzicht API componenten"></p>
+<p>In deze figuur betekent:
+FDS: <a href="https://realisatieibds.nl/page/view/564cc96c-115e-4e81-b5e6-01c99b1814ec/de-ontwikkeling-van-het-federatief-datastelsel">Federatief Datastelsel</a> (hier niet relevant, maar dit schema is daaraan ontleend en geeft aan dat DDAS past in een Federatief Datastelsel)
 Afnemer: CBS
 Aanbieder: de schuldhulpverlenende organisatie of de gegevensleverancier hiervan
-PKI: [<a href="https://nl.wikipedia.org/wiki/Public_key_infrastructure%5D">https://nl.wikipedia.org/wiki/Public_key_infrastructure]</a>(Public Key Infrastructure) - systeem voor het uitgeven en beheren van digitale certificaten
+PKI: <a href="https://nl.wikipedia.org/wiki/Public_key_infrastructure">Public Key Infrastructure</a> - systeem voor het uitgeven en beheren van digitale certificaten
 FSC: [<a href="https://commonground.nl/page/view/736309a1-739a-47fc-abfd-67e71f1d9e59/consultatie-fsc%5D">https://commonground.nl/page/view/736309a1-739a-47fc-abfd-67e71f1d9e59/consultatie-fsc]</a>(Federatieve Services Connectiviteit) - standaard voor het leggen van koppelingen m.b.v. API's
 FTV: [<a href="https://digilab.overheid.nl/projecten/toegangsverleningmethodiek-api/%5D">https://digilab.overheid.nl/projecten/toegangsverleningmethodiek-api/]</a>(Federatieve Toegangsverlening) - een standaard voor het inrichten en beheren van gecontroleerde toegang tot gegevensdiensten in een stelsel
 Log: logging</p>
@@ -495,8 +495,8 @@ Het signeren van het bericht gebeurt met de privé sleutel van de verzender van 
 De versleuteling gebeurt met de publieke sleutel van de ontvanger (in dit geval CBS), zodat alleen de ontvanger het bericht kan ontsleutelen.</p>
 </section></section>
   <section id="messages"><div class="header-wrapper"><h2 id="x6-berichten"><bdi class="secno">6. </bdi>Berichten</h2><a class="self-link" href="#messages" aria-label="Permalink for Section 6."></a></div>
-<p>De technische beschrijving van de API is het volgende OAS3-bestand beschreven. Hiervan is ook een <a href="https://github.com/Govert-Claus/DDAS-API/blob/main/v0.0.3/DDAS_opzetje_v0.0.3.yaml">downloadbare versie</a> van.</p>
-<pre><code aria-busy="false" class="hljs">{!../v0.0.3/DDAS_opzetje_v0.0.3.yaml!}
+<p>De technische beschrijving van de API is het volgende OAS3-bestand beschreven. Hiervan is ook een <a href="https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1.0/DDAS-API_v0.1.2.yaml">downloadbare versie</a> van.</p>
+<pre><code aria-busy="false" class="hljs">{!../v0.0.3/DDAS-API_v0.1.2.yaml!}
 </code></pre>
 <p>Hieronder worden de berichten die daar technisch beschreven zijn, toegelicht.</p>
 <section id="encoding"><div class="header-wrapper"><h3 id="x6-1-encoding"><bdi class="secno">6.1 </bdi>Encoding</h3><a class="self-link" href="#encoding" aria-label="Permalink for Section 6.1"></a></div>
@@ -512,17 +512,18 @@ De versleuteling gebeurt met de publieke sleutel van de ontvanger (in dit geval 
 <li><p>Gemeente (default alle – alleen relevant als over meer dan 1 gemeente gegevens aangeleverd worden)</p>
 </li>
 </ul>
-<p>Het bericht wordt met <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/">JAdES</a> ondertekend met de publieke sleutel van de ontvanger waar het vraagbericht naartoe gaat. Versleuteling van het vraagbericht is niet nodig (NB: nog ter discussie)</p>
+<p>Het bericht wordt met <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/">JAdES</a> ondertekend met de private sleutel van de verzender van het vraagbericht.</p>
 </section><section id="antwoordbericht-response"><div class="header-wrapper"><h3 id="x6-3-antwoordbericht-response"><bdi class="secno">6.3 </bdi>Antwoordbericht (response)</h3><a class="self-link" href="#antwoordbericht-response" aria-label="Permalink for Section 6.3"></a></div>
 <p>Dit is het antwoordbericht van de schuldhulpverlener met de gewenste gegevens in JSON formaat.</p>
 <p>Als versleutelen nodig is, is het bericht conform <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a> versleuteld met de publieke sleutel van de afnemer waar het antwoordbericht naartoe gaat (in dit geval altijd CBS).
-Eventueel kan het bericht ondertekend worden met <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/">JAdES</a>. Als er geen versleuteling plaatsvindt, denk ik dat ondertekenen gewenst is, maar als er al versleuteld is, lijkt het me niet nodig.</p>
+Eventueel kan het bericht ondertekend worden met <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/">JAdES</a> met gebruik van de eigen private sleutel. Dit is nog ter discussie.
+Beide handelingen zijn nu opgenomen in de OAS3.1 specificatie.</p>
 <p>Payload is gebaseerd op <a href="https://vng-realisatie.github.io/ddas/v1.0/uitwisselspecificatie/">uitwisselspecificatie</a>!</p>
 <p>Mogelijke responses:</p>
 <ul>
-<li><p>200: bericht goed verwerkt (met payload)</p>
+<li><p>200: bericht goed verwerkt (met versleutelde payload)</p>
 </li>
-<li><p>Foutberichten moeten nog bepaald worden - waarschijnlijk 401 (unauthorized), 404 (not found), 500 (internal server error) en 503 (service unavailable)</p>
+<li><p>Foutberichten moeten nog bepaald worden - nu zijn 400 (ongeldig verzoek) en 401 (Ongeautoriseerd, OAuth2-token vereist) opgenomen</p>
 </li>
 </ul>
 </section></section>

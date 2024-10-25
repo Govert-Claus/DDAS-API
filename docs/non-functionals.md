@@ -12,9 +12,10 @@ Geen afhankelijkheden in het primaire proces: geen hoge performance vereist. 
 
 Wordt gebruik van cache toegestaan (volgens mij moet dat kunnen)? Onder welke voorwaarden? 
 
-## Monitoring
+## Logging en Monitoring
 
-Verantwoordelijkheid voor monitoring ligt bij partij die verantwoording hierover moet afleggen. Welke verantwoording verwacht het programma of SZW? 
+Verantwoordelijkheid voor monitoring ligt bij partij die verantwoording hierover moet afleggen. Omdat er persoonsgegevens verwerkt worden, moet in elk geval rekening gehouden worden met de AVG. Daarom moet gelogd worden welke BSN's met wie uitgewisseld worden.
+Welke verantwoording verwacht het programma of SZW? 
 
 Voor gemeenten (suggestie): 
 
@@ -24,8 +25,10 @@ Voor gemeenten (suggestie): 
 
 - Aantal en soort meegestuurde parameters 
 
+- Uitgewisselde BSN's met afnemer (altijd CBS?), zodat een burger inzicht kan krijgen in wie wanneer zijn gegevens heeft opgevraagd
+
 Voor CBS: 
 
 - Aantal bevragingen naar datum en schuldhulpverlener 
 
-- Aantal en soort responses
+- Aantal en soort (evt foutcodes) responses

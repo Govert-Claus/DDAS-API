@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: Gegevens Uitwissel API
+  title: DDAS Gegevens Uitwissel API
   description: API om DDAS-gegevens beschikbaar te stellen aan CBS, beveiligd met OAuth2.0 en berichten gesigned met JAdES en versleuteld met JWE.
   version: 0.1.2
 servers:

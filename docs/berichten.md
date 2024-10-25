@@ -1,8 +1,8 @@
 # Berichten
 
-De technische beschrijving van de API is het volgende OAS3-bestand beschreven. Hiervan is ook een [downloadbare versie](https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1.0/DDAS-API_v0.1.2.yaml) van.
+De technische beschrijving van de API is het volgende OAS3-bestand beschreven. Hiervan is ook een [downloadbare versie](https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1/DDAS-API_v0.1.2.yaml) van.
 ```
-{!../v0.0.3/DDAS-API_v0.1.2.yaml!}
+{!../v0.1/DDAS-API_v0.1.2.yaml!}
 
 ```
 Hieronder worden de berichten die daar technisch beschreven zijn, toegelicht.

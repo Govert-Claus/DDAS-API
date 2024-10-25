@@ -14,11 +14,11 @@ Aanbieder: de schuldhulpverlenende organisatie of de gegevensleverancier hiervan
 
 PKI: [Public Key Infrastructure](https://nl.wikipedia.org/wiki/Public_key_infrastructure) - systeem voor het uitgeven en beheren van digitale certificaten
 
-FSC: [https://commonground.nl/page/view/736309a1-739a-47fc-abfd-67e71f1d9e59/consultatie-fsc](Federatieve Services Connectiviteit) - standaard voor het leggen van koppelingen m.b.v. API's
+FSC: [Federatieve Services Connectiviteit](https://commonground.nl/page/view/736309a1-739a-47fc-abfd-67e71f1d9e59/consultatie-fsc) - standaard voor het leggen van koppelingen m.b.v. API's
 
-FTV: [https://digilab.overheid.nl/projecten/toegangsverleningmethodiek-api/](Federatieve Toegangsverlening) - een standaard voor het inrichten en beheren van gecontroleerde toegang tot gegevensdiensten in een stelsel
+FTV: [Federatieve Toegangsverlening](https://digilab.overheid.nl/projecten/toegangsverleningmethodiek-api/) - een standaard voor het inrichten en beheren van gecontroleerde toegang tot gegevensdiensten in een stelsel
 
-Log: logging
+Log: Logging t.b.v. monitoring en verantwoording
 
 
 Deze specificatie richt zich primair op de beschrijving van de API (rechtsboven in de figuur bij de aanbieder van gegevens), maar ook de andere componenten worden benoemd.

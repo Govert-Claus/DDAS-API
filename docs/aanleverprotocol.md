@@ -4,7 +4,9 @@ Stappen bij het aanleveren van gegevens: 
 
 - CBS roept via FSC de API van de gegevensleverancier aan (eventueel met parameters) met requestbericht dat gesigneerd is met privé sleutel van CBS
 
-- API van gegevensleverancier stuurt gegevens in responsebericht dat gesigneerd is met eigen privé sleutel en versleuteld is met publieke sleutel CBS
+- De gegevensleverancier controleert de signatuur met de publieke sleutel van CBS
+
+- Indien OK, dan stuurt de gegevensleverancier de gegevens in het responsebericht dat gesigneerd is met eigen privé sleutel en versleuteld is met publieke sleutel CBS
 
 - CBS ontsleutelt het bericht met eigen privé sleutel en controleert response technisch (signing, berichtformaat, viruscontrole)
 

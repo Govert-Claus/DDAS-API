@@ -1,11 +1,12 @@
 # Berichten
 
-De technische beschrijving van de API is het volgende OAS3-bestand beschreven. Hiervan is ook een [downloadbare versie](https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1/DDAS-API_v0.1.2.yaml) van.
+De technische beschrijving van de API is het volgende OAS3-bestand beschreven.
 ```
 {!../v0.1/DDAS-API_v0.1.2.yaml!}
-
 ```
-Hieronder worden de berichten die daar technisch beschreven zijn, toegelicht.
+Hiervan is ook een [downloadbare versie](https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1/DDAS-API_v0.1.2.yaml) van.
+
+Hieronder worden de berichten die in het OAS-bestand technisch beschreven zijn, toegelicht.
 
 
 ## Encoding
@@ -32,14 +33,17 @@ Het bericht wordt met [JAdES](https://geonovum.github.io/KP-APIs/API-strategie-m
 
 Dit is het antwoordbericht van de schuldhulpverlener met de gewenste gegevens in JSON formaat.
 
-Als versleutelen nodig is, is het bericht conform [ADR-HTTP Payload encryption](https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/) versleuteld met de publieke sleutel van de afnemer waar het antwoordbericht naartoe gaat (in dit geval altijd CBS).
-Eventueel kan het bericht ondertekend worden met [JAdES](https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/) met gebruik van de eigen private sleutel. Dit is nog ter discussie.
+Ook dit bericht wordt ondertekend met [JAdES](https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/) met gebruik van de eigen private sleutel.
+
+Als versleutelen nodig is, wordt het bericht versleuteld conform [ADR-HTTP Payload encryption](https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/) met de publieke sleutel van de afnemer waar het antwoordbericht naartoe gaat (in dit geval altijd CBS). Of dit noodzakelijk is, is nog een punt van dicussie.
+
+
 Beide handelingen zijn nu opgenomen in de OAS3.1 specificatie.
 
 Payload is gebaseerd op [uitwisselspecificatie](https://vng-realisatie.github.io/ddas/v1.0/uitwisselspecificatie/)!
 
 Mogelijke responses:
 
-- 200: bericht goed verwerkt (met versleutelde payload)
+- 200: bericht goed verwerkt (met versleutelde en gesigneerde payload)
 
 - Foutberichten moeten nog bepaald worden - nu zijn 400 (ongeldig verzoek) en 401 (Ongeautoriseerd, OAuth2-token vereist) opgenomen

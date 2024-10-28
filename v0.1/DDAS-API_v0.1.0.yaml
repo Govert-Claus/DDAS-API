@@ -1,8 +1,8 @@
 openapi: 3.1.0
 info:
   title: DDAS Gegevens Uitwissel API
-  description: API om DDAS-gegevens beschikbaar te stellen aan CBS, beveiligd met OAuth2.0 en berichten gesigned met JAdES.
-  version: 0.1.1
+  description: API om DDAS-gegevens beschikbaar te stellen aan CBS, beveiligd met OAuth2.0.
+  version: 0.1.0
 servers:
   - url: https://api.gegevensuitwissel.com/v1
     description: Productieomgeving
@@ -24,7 +24,7 @@ components:
 paths:
   /gegevens:
     post:
-      summary: Verstrek gegevens aan vragende partij
+      summary: Verstrek DDAS-gegevens aan CBS
       operationId: postGegevens
       security:
         - OAuth2: []
@@ -49,7 +49,7 @@ paths:
                   description: De naam van de organisatie die de gegevens aanlevert (optioneel)
       responses:
         '200':
-          description: Succesvolle gegevensverstrekking, inclusief JAdES-handtekening
+          description: Succesvolle gegevensverstrekking
           content:
             application/json:
               schema:

@@ -31,10 +31,19 @@ components:
         jwe:
           type: string
           description: Het versleutelde JWE-bericht
+          # verwachte structuur:
+          #      Uitwisselmodel:
+          #       $ref: 'https://raw.githubusercontent.com/VNG-Realisatie/ddas/main/v1.0/json_schema_Uitwisselmodel.json'
+          #      JAdESSignature:
+          #       type: object
+          #       properties:
+          #         signature:
+          #         type: string
+          #         description: De JAdES-handtekening van het bericht
 paths:
   /gegevens:
     post:
-      summary: Verstrek gegevens aan vragende partij
+      summary: Verstrek DDAS-gegevens aan CBS
       operationId: postGegevens
       security:
         - OAuth2: []
@@ -61,7 +70,7 @@ paths:
                   $ref: '#/components/schemas/JAdESSignature'
       responses:
         '200':
-          description: Succesvolle gegevensverstrekking, gesigned met JAdES met eigen prive-sleutel en versleuteld met JWE met publieke sleutel ontvanger
+          description: Succesvolle gegevensverstrekking, gesigned met JAdES en versleuteld met JWE
           content:
             application/jwe:
               schema:

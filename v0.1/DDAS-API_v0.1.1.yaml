@@ -30,7 +30,7 @@ components:
 paths:
   /gegevens:
     post:
-      summary: Verstrek gegevens aan vragende partij
+      summary: Verstrek DDAS-gegevens aan CBS
       operationId: postGegevens
       security:
         - OAuth2: []

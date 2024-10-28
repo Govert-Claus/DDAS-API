@@ -2,7 +2,12 @@
 
 In de onderstaande figuur staan de componenten geschetst die in het API berichtenverkeer een rol spelen.
 
+<!--- NB: bij MKDocs wordt dit
+![overzicht API componenten](API-componenten.png)
+--->
+<!--- NB: bij Respec wordt dit --->
 ![overzicht API componenten](./docs/API-componenten.png)
+<!--- --->
 
 In deze figuur betekent:
 

@@ -447,7 +447,11 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 </section></section>
   <section id="overzicht"><div class="header-wrapper"><h2 id="x2-overzicht-api-stelsel"><bdi class="secno">2. </bdi>Overzicht API stelsel</h2><a class="self-link" href="#overzicht" aria-label="Permalink for Section 2."></a></div>
 <p>In de onderstaande figuur staan de componenten geschetst die in het API berichtenverkeer een rol spelen.</p>
+
+
 <p><img src="./docs/API-componenten.png" alt="overzicht API componenten"></p>
+
+
 <p>In deze figuur betekent:</p>
 <p>FDS: <a href="https://realisatieibds.nl/page/view/564cc96c-115e-4e81-b5e6-01c99b1814ec/de-ontwikkeling-van-het-federatief-datastelsel">Federatief Datastelsel</a> (hier niet relevant, maar dit schema is daaraan ontleend en geeft aan dat DDAS past in een Federatief Datastelsel)</p>
 <p>Afnemer: CBS</p>
@@ -495,10 +499,11 @@ Het signeren van het bericht gebeurt met de privé sleutel van de verzender van 
 De versleuteling gebeurt met de publieke sleutel van de ontvanger (in dit geval CBS), zodat alleen de ontvanger het bericht kan ontsleutelen.</p>
 </section></section>
   <section id="messages"><div class="header-wrapper"><h2 id="x6-berichten"><bdi class="secno">6. </bdi>Berichten</h2><a class="self-link" href="#messages" aria-label="Permalink for Section 6."></a></div>
-<p>De technische beschrijving van de API is het volgende OAS3-bestand beschreven. Hiervan is ook een <a href="https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1/DDAS-API_v0.1.2.yaml">downloadbare versie</a> van.</p>
+<p>De technische beschrijving van de API is het volgende OAS3-bestand beschreven.</p>
 <pre><code aria-busy="false" class="hljs">{!../v0.1/DDAS-API_v0.1.2.yaml!}
 </code></pre>
-<p>Hieronder worden de berichten die daar technisch beschreven zijn, toegelicht.</p>
+<p>Hiervan is ook een <a href="https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1/DDAS-API_v0.1.2.yaml">downloadbare versie</a> van.</p>
+<p>Hieronder worden de berichten die in het OAS-bestand technisch beschreven zijn, toegelicht.</p>
 <section id="encoding"><div class="header-wrapper"><h3 id="x6-1-encoding"><bdi class="secno">6.1 </bdi>Encoding</h3><a class="self-link" href="#encoding" aria-label="Permalink for Section 6.1"></a></div>
 <p>Conform de <a href="https://vng-realisatie.github.io/ddas/v1.0/uitwisselspecificatie/">uitwisselspecificatie</a> die voor de bestandsuitwisseling gebruikt wordt, is de encoding van de berichten UTF-8.</p>
 </section><section id="vraagbericht-request"><div class="header-wrapper"><h3 id="x6-2-vraagbericht-request"><bdi class="secno">6.2 </bdi>Vraagbericht (request)</h3><a class="self-link" href="#vraagbericht-request" aria-label="Permalink for Section 6.2"></a></div>
@@ -515,13 +520,13 @@ De versleuteling gebeurt met de publieke sleutel van de ontvanger (in dit geval 
 <p>Het bericht wordt met <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/">JAdES</a> ondertekend met de private sleutel van de verzender van het vraagbericht.</p>
 </section><section id="antwoordbericht-response"><div class="header-wrapper"><h3 id="x6-3-antwoordbericht-response"><bdi class="secno">6.3 </bdi>Antwoordbericht (response)</h3><a class="self-link" href="#antwoordbericht-response" aria-label="Permalink for Section 6.3"></a></div>
 <p>Dit is het antwoordbericht van de schuldhulpverlener met de gewenste gegevens in JSON formaat.</p>
-<p>Als versleutelen nodig is, is het bericht conform <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a> versleuteld met de publieke sleutel van de afnemer waar het antwoordbericht naartoe gaat (in dit geval altijd CBS).
-Eventueel kan het bericht ondertekend worden met <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/">JAdES</a> met gebruik van de eigen private sleutel. Dit is nog ter discussie.
-Beide handelingen zijn nu opgenomen in de OAS3.1 specificatie.</p>
+<p>Ook dit bericht wordt ondertekend met <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/">JAdES</a> met gebruik van de eigen private sleutel.</p>
+<p>Als versleutelen nodig is, wordt het bericht versleuteld conform <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a> met de publieke sleutel van de afnemer waar het antwoordbericht naartoe gaat (in dit geval altijd CBS). Of dit noodzakelijk is, is nog een punt van dicussie.</p>
+<p>Beide handelingen zijn nu opgenomen in de OAS3.1 specificatie.</p>
 <p>Payload is gebaseerd op <a href="https://vng-realisatie.github.io/ddas/v1.0/uitwisselspecificatie/">uitwisselspecificatie</a>!</p>
 <p>Mogelijke responses:</p>
 <ul>
-<li><p>200: bericht goed verwerkt (met versleutelde payload)</p>
+<li><p>200: bericht goed verwerkt (met versleutelde en gesigneerde payload)</p>
 </li>
 <li><p>Foutberichten moeten nog bepaald worden - nu zijn 400 (ongeldig verzoek) en 401 (Ongeautoriseerd, OAuth2-token vereist) opgenomen</p>
 </li>
@@ -561,7 +566,9 @@ Welke verantwoording verwacht het programma of SZW?&nbsp;</p>
 <ul>
 <li><p>CBS roept via FSC de API van de gegevensleverancier aan (eventueel met parameters)&nbsp;met requestbericht dat gesigneerd is met privé sleutel van CBS</p>
 </li>
-<li><p>API van gegevensleverancier stuurt gegevens in responsebericht dat gesigneerd is met eigen privé sleutel en versleuteld is met publieke sleutel CBS</p>
+<li><p>De gegevensleverancier controleert de signatuur met de publieke sleutel van CBS</p>
+</li>
+<li><p>Indien OK, dan stuurt de gegevensleverancier de gegevens in het responsebericht dat gesigneerd is met eigen privé sleutel en versleuteld is met publieke sleutel CBS</p>
 </li>
 <li><p>CBS ontsleutelt het bericht met eigen privé sleutel en controleert response technisch (signing, berichtformaat, viruscontrole)</p>
 </li>

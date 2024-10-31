@@ -10,7 +10,7 @@ let respecConfig = {
 
   // Zie de globale property 'localizationStrings/nl' voor de lijst met toegestane specificatie-statussen
   specStatus: "IO",
-  publishDate: "2024-10-28",
+  publishDate: "2024-10-31",
   publishVersion: "",
 
   // Zie de globale property 'localizationStrings/nl' voor de lijst met toegestane maturities
@@ -19,7 +19,7 @@ let respecConfig = {
   //previousPublishVersion: "0.0.4",
 
   title: "DDAS API Koppelvlakspecificatie",
-  subtitle: "Koppelvlakspecificatie voor het bschikbaarstellen van DDAS-gegevens aan het CBS",
+  subtitle: "Koppelvlakspecificatie voor het beschikbaarstellen van DDAS-gegevens aan het CBS",
 //  content: {"mermaid": "", "ch01": "informative", "ch02": ""},
 //  authors:
 //    [
@@ -32,7 +32,7 @@ let respecConfig = {
   editors:
     [
       {
-        name: "Govert Claus (VNG Realisatie)",
+        name: "Govert Claus",
         company: "Programma DDAS",
         companyURL: "https://www.divosa.nl/projecten/data-delen-armoede-en-schulden",
       }

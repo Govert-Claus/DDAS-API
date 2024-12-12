@@ -52,7 +52,7 @@ De volgende keuzes zijn gemaakt: 
   - *nog uitwerken*
 
 
-**Gebruik [ADR-HTTP Payload encryption](https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/) voor encryptie *(NB: als encryptie vereist is - DPIA is nog in wording)***
+**Gebruik [ADR-HTTP Payload encryption](https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/) voor encryptie *(NB: als encryptie vereist is - de verwachting is dat dit NIET nodig is)***
 
   *Rationale*
 
@@ -77,7 +77,7 @@ De volgende keuzes zijn gemaakt: 
 
   *Implicaties*
 
-  - Alle deelnemers dienen de FSC componenten te installeren en in te richten. Er bestaat een algemene referentie implementatie, maar om de inrichting verder te vereenvoudigen is het aan te raden om een specifieke referentie implementatie aan te bieden voor DDAS.
+  - Alle deelnemers dienen de FSC componenten te installeren en in te richten. Er bestaat een algemene referentie implementatie, die waarschijnlijk zo ingezet kan worden. Als deze niet voldoet, kan overwogen worden om een specifieke referentie implementatie voor DDAS beschikbaar te stellen.
 
 
 **[JSON formaat](https://json-schema.org/draft/2020-12/json-schema-validation) voor berichten**
@@ -88,7 +88,7 @@ De volgende keuzes zijn gemaakt: 
 
   - JSON is goed leesbaar voor mensen, maar toch voldoende klein om ook grotere berichten uit te kunnen wisselen.
 
-  - Vrijwel alle moderne informatiesystemen kunnen goed overweg met JSON berichten, wat de inrichting en het beheer vereenvoudigd.
+  - Vrijwel alle moderne informatiesystemen kunnen goed overweg met JSON berichten, wat de inrichting en het beheer vereenvoudigt.
 
   *Implicaties*
 
@@ -96,6 +96,8 @@ De volgende keuzes zijn gemaakt: 
 
 
 **Gebruik [Diginetwerk](https://www.logius.nl/domeinen/infrastructuur/diginetwerk) voor transport**
+
+NB: Het is de vraag of alle betrokken partijen toegang hebben of kunnen krijgen tot Diginetwerk. Als dit niet mogelijk is of onevenredig veel inspanning vergt, dan wordt het openbare internet gebruikt voor transport. Mogelijk zijn dan aanvullende maatregelen nodig om kwetsbaarheden te voorkomen.
 
   *Rationale*
 

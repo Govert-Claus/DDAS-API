@@ -372,7 +372,7 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <ul>
 <li><em>nog uitwerken</em></li>
 </ul>
-<p><strong>Gebruik <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a> voor encryptie&nbsp;<em>(NB: als encryptie vereist is - DPIA is nog in wording)</em></strong></p>
+<p><strong>Gebruik <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a> voor encryptie&nbsp;<em>(NB: als encryptie vereist is - de verwachting is dat dit NIET nodig is)</em></strong></p>
 <p>  <em>Rationale</em></p>
 <ul>
 <li><p>Omdat het REST profiel van Digikopeling (nog) geen standaard voor encryptie heeft vastgesteld, moet er eentje gekozen worden.</p>
@@ -396,7 +396,7 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 </ul>
 <p>  <em>Implicaties</em></p>
 <ul>
-<li>Alle deelnemers dienen de FSC componenten te installeren en in te richten. Er bestaat een algemene referentie implementatie, maar om de inrichting verder te vereenvoudigen is het aan te raden om een specifieke referentie implementatie aan te bieden voor DDAS.</li>
+<li>Alle deelnemers dienen de FSC componenten te installeren en in te richten. Er bestaat een algemene referentie implementatie, die waarschijnlijk zo ingezet kan worden. Als deze niet voldoet, kan overwogen worden om een specifieke referentie implementatie voor DDAS beschikbaar te stellen.</li>
 </ul>
 <p><strong><a href="https://json-schema.org/draft/2020-12/json-schema-validation">JSON formaat</a> voor berichten</strong></p>
 <p>  <em>Rationale</em></p>
@@ -405,7 +405,7 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 </li>
 <li><p>JSON is goed leesbaar voor mensen, maar toch voldoende klein om ook grotere berichten uit te kunnen wisselen.</p>
 </li>
-<li><p>Vrijwel alle moderne informatiesystemen kunnen goed overweg met JSON berichten, wat de inrichting en het beheer vereenvoudigd.</p>
+<li><p>Vrijwel alle moderne informatiesystemen kunnen goed overweg met JSON berichten, wat de inrichting en het beheer vereenvoudigt.</p>
 </li>
 </ul>
 <p>  <em>Implicaties</em></p>
@@ -413,6 +413,7 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <li>De gegevens moeten in JSON formaat uitgewisseld worden.</li>
 </ul>
 <p><strong>Gebruik <a href="https://www.logius.nl/domeinen/infrastructuur/diginetwerk">Diginetwerk</a> voor transport</strong></p>
+<p>NB: Het is de vraag of alle betrokken partijen toegang hebben of kunnen krijgen tot Diginetwerk. Als dit niet mogelijk is of onevenredig veel inspanning vergt, dan wordt het openbare internet gebruikt voor transport. Mogelijk zijn dan aanvullende maatregelen nodig om kwetsbaarheden te voorkomen.</p>
 <p>  <em>Rationale</em></p>
 <ul>
 <li>Het Diginetwerk is een gesloten netwerk waar alleen overheidsorganisaties toegang toe hebben. Dit beperkt de risico's van onbevoegde toegang tot de gegevens enorm.</li>

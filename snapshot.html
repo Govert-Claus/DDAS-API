@@ -496,8 +496,8 @@ Als fijnmaziger autorisatie nodig is, dan bestaat er een voorkeur voor PBAC (Pol
 Het signeren van het bericht gebeurt met de privé sleutel van de verzender van het bericht, zodat het de controle met de publieke sleutel van de verzender kan gebeuren en in principe iedereen de handtekening kan controleren.</p>
 </section><section id="versleuteling-encryptie"><div class="header-wrapper"><h3 id="x5-2-versleuteling-encryptie"><bdi class="secno">5.2 </bdi>Versleuteling (Encryptie)</h3><a class="self-link" href="#versleuteling-encryptie" aria-label="Permalink for Section 5.2"></a></div>
 <p>Is versleuteling nodig? Er lijken geen routeervoorzieningen nodig te zijn waar berichten mogelijk gelezen kunnen worden, en als het kan gaan de berichten over het Diginetwerk van de overheid. Maar het is nog niet bekend of dit inderdaad kan en om voorbereid te zijn op eventuele toepassingen met routeervoorzieningen, is versleuteling nog een discussiepunt.</p>
-<p>Voorstel: Versleuteling op basis van <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a>.&nbsp;
-De versleuteling gebeurt met de publieke sleutel van de ontvanger (in dit geval CBS), zodat alleen de ontvanger het bericht kan ontsleutelen.</p>
+<p>Voorstel: Geen versleuteling.
+Als dit toch vereist wordt, dan versleuteling op basis van <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a>. De versleuteling gebeurt met de publieke sleutel van de ontvanger (in dit geval CBS), zodat alleen de ontvanger het bericht kan ontsleutelen.</p>
 </section></section>
   <section id="messages"><div class="header-wrapper"><h2 id="x6-berichten"><bdi class="secno">6. </bdi>Berichten</h2><a class="self-link" href="#messages" aria-label="Permalink for Section 6."></a></div>
 <p>De technische beschrijving van de API is het volgende OAS3-bestand beschreven.</p>

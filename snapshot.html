@@ -595,11 +595,11 @@ Welke verantwoording verwacht het programma of SZW?&nbsp;</p>
 <p>NB: Als er bij deze stappen algoritmen gebruikt worden, moeten deze voldoen aan de Europese AI-verordening (definitieve tekst nog niet gevonden) en aangemeld worden bij het <a href="https://algoritmes.overheid.nl/nl">Algoritmeregister van de Nederlandse overheid</a>.</p>
 </section>
   <section id="aansluit"><div class="header-wrapper"><h2 id="x9-aansluitprotocol"><bdi class="secno">9. </bdi>Aansluitprotocol</h2><a class="self-link" href="#aansluit" aria-label="Permalink for Section 9."></a></div>
-<p>Iedere schuldhulpverleningsorganisatie of gemeente (hierna: "deelnemer") die gegevens beschikbaar gaat stellen aan CBS, moet het aansluitprotocol doorlopen. Dit protocol valt onder verantwoordelijkheid van het programma DDAS. Voor vragen hierover kan altijd contact opgenomen worden met [contactadres].</p>
-<p>Het protocol kan aangepast worden als hiervoor aanleiding is. Na aanpassingen wordt de meest recente versie met versienummer en versiedatum gepubliceerd op [documentatiewebsite].</p>
+<p>Iedere schuldhulpverleningsorganisatie of gemeente, eventueel via een gegevensleverancier (hierna: "deelnemer") die gegevens beschikbaar gaat stellen aan CBS, moet het aansluitprotocol doorlopen. Dit protocol valt onder verantwoordelijkheid van het programma DDAS. Voor vragen hierover kan altijd contact opgenomen worden met <em>[contactadres]</em>.</p>
+<p>Het protocol kan aangepast worden als hiervoor aanleiding is. Na aanpassingen wordt de meest recente versie met versienummer en versiedatum gepubliceerd op <em>[documentatiewebsite]</em>.</p>
 <p>De stappen die de deelnemer moet doorlopen, zijn:</p>
 <ul>
-<li><p>De deelnemer meldt zich bij de stelselbeheerder (CBS of DDAS?) via het aanmeldformulier [waar staat dit? wie beheert dit?], waarin in elk geval het volgende ingevuld:</p>
+<li><p>De deelnemer meldt zich bij de stelselbeheerder (CBS of DDAS?) via het aanmeldformulier <em>[waar staat dit? wie beheert dit?]</em>, waarin in elk geval het volgende ingevuld:</p>
 <ul>
 <li><p>Naam van de deelnemer + contactgegevens</p>
 </li>
@@ -609,7 +609,7 @@ Welke verantwoording verwacht het programma of SZW?&nbsp;</p>
 </li>
 <li><p>Endpoint waar de testgegevens beschikbaar komen</p>
 </li>
-<li><p>Akkoord met de aansluitvoorwaarden, waaronder de verwerkersovereenkomst met CBS</p>
+<li><p>Akkoord met de aansluitvoorwaarden*, waaronder de verwerkersovereenkomst met CBS?*</p>
 </li>
 <li><p>Eventuele verzoeken om de aansluiting tot stand te krijgen, zoals een gewenste publicatiedatum, specifieke testdata of specifieke beschikbaarheid</p>
 </li>
@@ -617,20 +617,19 @@ Welke verantwoording verwacht het programma of SZW?&nbsp;</p>
 </li>
 <li><p><em>Indien PKIo certificaten niet mogelijk zijn: de stelselbeheerder (DDAS of CBS?) genereert een certificaat voor de TLS verbinding, signing en encryptie, en levert deze aan de deelnemer.</em></p>
 </li>
-<li><p>De deelnemer richt in de testomgeving de API, conform de AOS documentatie [yaml-bestand, nog toe te voegen] in. Voor de installatie van FSC komt een handleiding en een referentie implementatie beschikbaar.</p>
+<li><p>De deelnemer richt in de testomgeving de API, conform de <a href="../v0.1/DDAS-API_v0.1.1.yaml">AOS documentatie</a> in. Voor de installatie van FSC komt een handleiding en een referentie implementatie beschikbaar.</p>
 </li>
 <li><p>De deelnemer voert CBS op in de management module van FSC, om toegang te verlenen.</p>
 </li>
 <li><p>CBS voert enkele bevragingen uit in de testomgeving en beoordeelt de kwaliteit van de gegevens. Op basis van de bevindingen wordt de API aangepast.</p>
 </li>
-<li><p>Indien er geen blokkerende bevindingen zijn, krijgt de deelnemer vrijgave van de stelselbeheer (DDAS of CBS?) en wordt de API in de productieomgeving ingericht en beschikbaar gesteld.</p>
+<li><p>Indien er geen blokkerende bevindingen zijn, krijgt de deelnemer vrijgave van de stelselbeheer (DDAS?) en wordt de API in de productieomgeving ingericht en beschikbaar gesteld.</p>
 </li>
-<li></li>
-<li><p>CBS voert de deelnemer op in de management module van FSC, zodat de API bevraagd wordt bij het ophalen van alle gegevens.</p>
+<li><p>CBS voert de deelnemer op in de management module van FSC, zodat de API beschikbaar komt in het stelsel en bevraagd kan worden bij het ophalen van alle gegevens.</p>
 </li>
 </ul>
-<p>Ten behoeve van de testen stelt DDAS een set testgegevens beschikbaar [wie maakt deze set? waar komt dit te staan?].</p>
-<p>Voor ondersteuning bij de aansluiting is een referentie implementatie en documentatie beschikbaar [waar?] en kan contact opgenomen worden met [contactadres]. Als er bij de aansluiting bevindingen zijn, die niet door de deelnemer opgelost kunnen worden, kan een wijzigingsverzoek ingediend worden.</p>
+<p>Ten behoeve van de testen stelt DDAS een set testgegevens beschikbaar <em>[wie maakt deze set? waar komt dit te staan?]</em>.</p>
+<p>Voor ondersteuning bij de aansluiting is een referentie implementatie en documentatie beschikbaar <em>[waar?]</em> en kan contact opgenomen worden met <em>[contactadres]</em>. Als er bij de aansluiting bevindingen zijn, die niet door de deelnemer opgelost kunnen worden, kan een wijzigingsverzoek ingediend worden.</p>
 </section>
   <section id="beheer"><div class="header-wrapper"><h2 id="x10-beheer-van-de-specificatie"><bdi class="secno">10. </bdi>Beheer van de specificatie</h2><a class="self-link" href="#beheer" aria-label="Permalink for Section 10."></a></div>
 <p>De koppelvlakspecificatie is onderhevig aan wijzigingen: de technologie ontwikkelt zich, er zijn mogelijk andere gegevens nodig, de samenwerking tussen de betrokken partijen kan wijzigen, etc. Om deze wijzigingen op een betrouwbare en juiste manier te verwerken in de specificatie, is een wijzigingsproces ingericht. Dit wijzigingsproces valt onder verantwoordelijkheid van de stuurgroep DDAS en wordt uitgevoerd door het programma DDAS, zolang het programma DDAS actief is. Daarna wordt het overgedragen aan een nog aan te wijzen organisatie.&nbsp;Voor het beoordelen van wijzigingsverzoeken wordt een beheeroverleg samengesteld, met afgevaardigden van de betrokken partijen, onder voorzitterschap van het programma DDAS. Dit beheeroverleg komt periodiek bijeen om wijzigingsverzoeken te beoordelen en eventueel verder uit te werken.</p>

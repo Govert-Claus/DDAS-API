@@ -22,6 +22,7 @@ Het koppelvlak moet voldoen aan de volgende wetten, afspraken en standaarden: 
 
 De volgende keuzes zijn gemaakt: 
 
+
 **Gebruik [Digikoppeling](https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling) REST profiel**
 
   *Rationale*
@@ -33,6 +34,7 @@ De volgende keuzes zijn gemaakt: 
   - Alle leverende deelnemers dienen een API conform het REST profiel beschikbaar te stellen.
 
   - Omdat het Digikoppeling REST profiel nog geen keuze heeft gemaakt voor signing en encryptie, moet hier expliciet een keuze in gemaakt worden.
+
 
 
 **Gebruik [JAdES](https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/) voor signen**
@@ -49,7 +51,10 @@ De volgende keuzes zijn gemaakt: 
 
   *Implicaties*
 
-  - *nog uitwerken*
+  - Alle berichten krijgen een ondertekening door de partij die het bericht verstuurd.
+
+  - Voor ondertekenen is een certificaat nodig; alle deelnemers moeten een certificaat hebben dat vertrouwd wordt.
+
 
 
 **Gebruik [ADR-HTTP Payload encryption](https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/) voor encryptie *(NB: als encryptie vereist is - de verwachting is dat dit NIET nodig is)***
@@ -67,17 +72,19 @@ De volgende keuzes zijn gemaakt: 
   - *nog uitwerken*
 
 
+
 **Federatieve Services Connectiviteit voor de architectuur - [FSC](https://docs.fsc.nlx.io/introduction)**
 
   *Rationale*
 
   - Deze architectuur is de standaard voor 1-op-1 koppelingen voor gemeenten. Hoewel de standaard nog niet heel breed gebruikt wordt, is dit wel de standaard voor de toekomst.
 
-  - Er bestaat een referentie implementatie die het ontwikkelen van de API sterk vereenvoudigd. Verder is er bij VNG Realisatie (waar de standaard is ontwikkeld) kennis die gebruikt kan worden.
+  - Er bestaat een referentie implementatie die de inrichting en het gebruik van de API sterk vereenvoudigd. Verder is er bij VNG Realisatie (waar de standaard is ontwikkeld) kennis die gebruikt kan worden.
 
   *Implicaties*
 
   - Alle deelnemers dienen de FSC componenten te installeren en in te richten. Er bestaat een algemene referentie implementatie, die waarschijnlijk zo ingezet kan worden. Als deze niet voldoet, kan overwogen worden om een specifieke referentie implementatie voor DDAS beschikbaar te stellen.
+
 
 
 **[JSON formaat](https://json-schema.org/draft/2020-12/json-schema-validation) voor berichten**
@@ -95,6 +102,7 @@ De volgende keuzes zijn gemaakt: 
   - De gegevens moeten in JSON formaat uitgewisseld worden.
 
 
+
 **Gebruik [Diginetwerk](https://www.logius.nl/domeinen/infrastructuur/diginetwerk) voor transport**
 
 NB: Het is de vraag of alle betrokken partijen toegang hebben of kunnen krijgen tot Diginetwerk. Als dit niet mogelijk is of onevenredig veel inspanning vergt, dan wordt het openbare internet gebruikt voor transport. Mogelijk zijn dan aanvullende maatregelen nodig om kwetsbaarheden te voorkomen.
@@ -106,6 +114,7 @@ NB: Het is de vraag of alle betrokken partijen toegang hebben of kunnen krijgen 
   *Implicaties*
 
   - Alle deelnemers moeten toegang tot het Diginetwerk hebben of krijgen. Dit vereist toegang via een [koppelnetwerkaanbieder](https://www.logius.nl/domeinen/infrastructuur/diginetwerk/aansluiten).
+
 
 
 **Gebruik [PKIoverheid certificaten](https://www.logius.nl/domeinen/toegang/pkioverheid) voor authenticatie, signing en encryptie**
@@ -120,14 +129,15 @@ NB: Het is de vraag of alle betrokken partijen toegang hebben of kunnen krijgen 
 
   *Implicaties*
 
-  - Alle deelnemers moeten een PKIoverheid certificaat hebben of krijgen. NB: Het is niet altijd mogelijk om een PKIoverheid certificaat dat al in gebruik is, te hergebruiken.
+  - Alle deelnemers moeten een PKIoverheid certificaat hebben of krijgen. NB: Het is niet altijd mogelijk om een PKIoverheid certificaat dat al in gebruik is, te hergebruiken. Zo moet voor versleutelen een ander certificaat gebruikt worden dan voor ondertekenen van een bericht.
 
 
-**Beveiligingsniveau BBN2** (NB: DPIA is nog in wording) 
+
+**Beveiligingsniveau BBN2**
 
   *Rationale*
 
-  - In de DPIA wordt dit vereist.
+  - BBN2 is het niveau dat volgens GEMMA geldt voor gegevensverwerkingen in de schuldhulpverlening.
 
   *Implicaties*
 

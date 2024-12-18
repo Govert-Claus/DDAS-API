@@ -370,7 +370,10 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 </ul>
 <p>  <em>Implicaties</em></p>
 <ul>
-<li><em>nog uitwerken</em></li>
+<li><p>Alle berichten krijgen een ondertekening door de partij die het bericht verstuurd.</p>
+</li>
+<li><p>Voor ondertekenen is een certificaat nodig; alle deelnemers moeten een certificaat hebben dat vertrouwd wordt.</p>
+</li>
 </ul>
 <p><strong>Gebruik <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a> voor encryptie&nbsp;<em>(NB: als encryptie vereist is - de verwachting is dat dit NIET nodig is)</em></strong></p>
 <p>  <em>Rationale</em></p>
@@ -391,7 +394,7 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <ul>
 <li><p>Deze architectuur is de standaard voor 1-op-1 koppelingen voor gemeenten. Hoewel de standaard nog niet heel breed gebruikt wordt, is dit wel de standaard voor de toekomst.</p>
 </li>
-<li><p>Er bestaat een referentie implementatie die het ontwikkelen van de API sterk vereenvoudigd. Verder is er bij VNG Realisatie (waar de standaard is ontwikkeld) kennis die gebruikt kan worden.</p>
+<li><p>Er bestaat een referentie implementatie die de inrichting en het gebruik van de API sterk vereenvoudigd. Verder is er bij VNG Realisatie (waar de standaard is ontwikkeld) kennis die gebruikt kan worden.</p>
 </li>
 </ul>
 <p>  <em>Implicaties</em></p>
@@ -434,12 +437,12 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 </ul>
 <p>  <em>Implicaties</em></p>
 <ul>
-<li>Alle deelnemers moeten een PKIoverheid certificaat hebben of krijgen. NB: Het is niet altijd mogelijk om een PKIoverheid certificaat dat al in gebruik is, te hergebruiken.</li>
+<li>Alle deelnemers moeten een PKIoverheid certificaat hebben of krijgen. NB: Het is niet altijd mogelijk om een PKIoverheid certificaat dat al in gebruik is, te hergebruiken. Zo moet voor versleutelen een ander certificaat gebruikt worden dan voor ondertekenen van een bericht.</li>
 </ul>
-<p><strong>Beveiligingsniveau BBN2</strong> (NB: DPIA is nog in wording)&nbsp;</p>
+<p><strong>Beveiligingsniveau BBN2</strong></p>
 <p>  <em>Rationale</em></p>
 <ul>
-<li>In de DPIA wordt dit vereist.</li>
+<li>BBN2 is het niveau dat volgens GEMMA geldt voor gegevensverwerkingen in de schuldhulpverlening.</li>
 </ul>
 <p>  <em>Implicaties</em></p>
 <ul>

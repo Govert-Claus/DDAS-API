@@ -501,29 +501,29 @@ De versleuteling gebeurt met de publieke sleutel van de ontvanger (in dit geval 
 </section></section>
   <section id="messages"><div class="header-wrapper"><h2 id="x6-berichten"><bdi class="secno">6. </bdi>Berichten</h2><a class="self-link" href="#messages" aria-label="Permalink for Section 6."></a></div>
 <p>De technische beschrijving van de API is het volgende OAS3-bestand beschreven.</p>
-<pre><code aria-busy="false" class="hljs">{!../v0.1/DDAS-API_v0.1.2.yaml!}
+<pre><code aria-busy="false" class="hljs">{!../v0.1/DDAS-API_v0.1.1.yaml!}
 </code></pre>
-<p>Hiervan is ook een <a href="https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1/DDAS-API_v0.1.2.yaml">downloadbare versie</a> van.</p>
+<p>Hiervan is ook een <a href="https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1/DDAS-API_v0.1.1.yaml">downloadbare versie</a> van.</p>
 <p>Hieronder worden de berichten die in het OAS-bestand technisch beschreven zijn, toegelicht.</p>
 <section id="encoding"><div class="header-wrapper"><h3 id="x6-1-encoding"><bdi class="secno">6.1 </bdi>Encoding</h3><a class="self-link" href="#encoding" aria-label="Permalink for Section 6.1"></a></div>
 <p>Conform de <a href="https://vng-realisatie.github.io/ddas/v1.0/uitwisselspecificatie/">uitwisselspecificatie</a> die voor de bestandsuitwisseling gebruikt wordt, is de encoding van de berichten UTF-8.</p>
 </section><section id="vraagbericht-request"><div class="header-wrapper"><h3 id="x6-2-vraagbericht-request"><bdi class="secno">6.2 </bdi>Vraagbericht (request)</h3><a class="self-link" href="#vraagbericht-request" aria-label="Permalink for Section 6.2"></a></div>
-<p>Dit is het vraagbericht zoals dat door CBS naar de schuldhulpverlener gestuurd wordt. Alleen een POST request: alleen opvragen gegevens, geen mutaties. Bij GET zitten de parameters in de URL, waardoor mogelijk cache gegevens gebruikt worden, als de parameters niet wijzigen - daarom liever een POST.</p>
+<p>Dit is het vraagbericht zoals dat door CBS naar de schuldhulpverlener gestuurd wordt. Alleen een POST request: alleen opvragen gegevens, geen mutaties. Bij GET zitten de parameters in de URL, waardoor mogelijk cache gegevens gebruikt worden, als de parameters niet wijzigen - daarom alleen een POST.</p>
 <p>Voorstel voor parameters die meegestuurd kunnen worden (allemaal optioneel):</p>
 <ul>
-<li><p>Startdatum (default leeg - deelnemer bepaalt dan startdatum)</p>
+<li><p>Startdatum (date, default leeg - deelnemer bepaalt dan startdatum)</p>
 </li>
-<li><p>Einddatum (default leeg - deelnemer bepaalt dan einddatum)</p>
+<li><p>Einddatum (date, default leeg - deelnemer bepaalt dan einddatum)</p>
 </li>
-<li><p>Gemeente (default alle – alleen relevant als over meer dan 1 gemeente gegevens aangeleverd worden)</p>
+<li><p>Aanleverende_organisatie (string, default alle – alleen relevant als over meer dan 1 organisatie (gemeente/ schuldhulpverlener) gegevens aangeleverd worden)</p>
 </li>
 </ul>
 <p>Het bericht wordt met <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/">JAdES</a> ondertekend met de private sleutel van de verzender van het vraagbericht.</p>
 </section><section id="antwoordbericht-response"><div class="header-wrapper"><h3 id="x6-3-antwoordbericht-response"><bdi class="secno">6.3 </bdi>Antwoordbericht (response)</h3><a class="self-link" href="#antwoordbericht-response" aria-label="Permalink for Section 6.3"></a></div>
-<p>Dit is het antwoordbericht van de schuldhulpverlener met de gewenste gegevens in JSON formaat.</p>
+<p>Dit is het antwoordbericht van de gegevensbeheerder (systeem dat de bron beheert) met de gewenste gegevens in JSON formaat.</p>
 <p>Ook dit bericht wordt ondertekend met <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/">JAdES</a> met gebruik van de eigen private sleutel.</p>
-<p>Als versleutelen nodig is, wordt het bericht versleuteld conform <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a> met de publieke sleutel van de afnemer waar het antwoordbericht naartoe gaat (in dit geval altijd CBS). Of dit noodzakelijk is, is nog een punt van dicussie.</p>
-<p>Beide handelingen zijn nu opgenomen in de OAS3.1 specificatie.</p>
+<p>Als versleutelen nodig is, wordt het bericht versleuteld conform <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a> met de publieke sleutel van de afnemer waar het antwoordbericht naartoe gaat (in dit geval altijd CBS). Of dit noodzakelijk is, is nog een punt van dicussie - vooralsnog wordt ervan uitgegaan dat dit niet nodig is.
+In de OAS3.1 specificatie is alleen signing opgenomen, geen versleuteling. Mocht versleutelen vereist zijn, dan wordt de API als volgt beschreven: <a href="https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1/DDAS-API_v0.1.2.yaml">OAS3.1 specificatie met versleuteling</a>.</p>
 <p>Payload is gebaseerd op <a href="https://vng-realisatie.github.io/ddas/v1.0/uitwisselspecificatie/">uitwisselspecificatie</a>!</p>
 <p>Mogelijke responses:</p>
 <ul>

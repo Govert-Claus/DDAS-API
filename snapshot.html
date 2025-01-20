@@ -370,9 +370,12 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 </ul>
 <p>  <em>Implicaties</em></p>
 <ul>
-<li><em>nog uitwerken</em></li>
+<li><p>Alle berichten krijgen een ondertekening door de partij die het bericht verstuurd.</p>
+</li>
+<li><p>Voor ondertekenen is een certificaat nodig; alle deelnemers moeten een certificaat hebben dat vertrouwd wordt.</p>
+</li>
 </ul>
-<p><strong>Gebruik <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a> voor encryptie&nbsp;<em>(NB: als encryptie vereist is - DPIA is nog in wording)</em></strong></p>
+<p><strong>Gebruik <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a> voor encryptie&nbsp;<em>(NB: als encryptie vereist is - de verwachting is dat dit NIET nodig is)</em></strong></p>
 <p>  <em>Rationale</em></p>
 <ul>
 <li><p>Omdat het REST profiel van Digikopeling (nog) geen standaard voor encryptie heeft vastgesteld, moet er eentje gekozen worden.</p>
@@ -391,12 +394,12 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <ul>
 <li><p>Deze architectuur is de standaard voor 1-op-1 koppelingen voor gemeenten. Hoewel de standaard nog niet heel breed gebruikt wordt, is dit wel de standaard voor de toekomst.</p>
 </li>
-<li><p>Er bestaat een referentie implementatie die het ontwikkelen van de API sterk vereenvoudigd. Verder is er bij VNG Realisatie (waar de standaard is ontwikkeld) kennis die gebruikt kan worden.</p>
+<li><p>Er bestaat een referentie implementatie die de inrichting en het gebruik van de API sterk vereenvoudigd. Verder is er bij VNG Realisatie (waar de standaard is ontwikkeld) kennis die gebruikt kan worden.</p>
 </li>
 </ul>
 <p>  <em>Implicaties</em></p>
 <ul>
-<li>Alle deelnemers dienen de FSC componenten te installeren en in te richten. Er bestaat een algemene referentie implementatie, maar om de inrichting verder te vereenvoudigen is het aan te raden om een specifieke referentie implementatie aan te bieden voor DDAS.</li>
+<li>Alle deelnemers dienen de FSC componenten te installeren en in te richten. Er bestaat een algemene referentie implementatie, die waarschijnlijk zo ingezet kan worden. Als deze niet voldoet, kan overwogen worden om een specifieke referentie implementatie voor DDAS beschikbaar te stellen.</li>
 </ul>
 <p><strong><a href="https://json-schema.org/draft/2020-12/json-schema-validation">JSON formaat</a> voor berichten</strong></p>
 <p>  <em>Rationale</em></p>
@@ -405,7 +408,7 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 </li>
 <li><p>JSON is goed leesbaar voor mensen, maar toch voldoende klein om ook grotere berichten uit te kunnen wisselen.</p>
 </li>
-<li><p>Vrijwel alle moderne informatiesystemen kunnen goed overweg met JSON berichten, wat de inrichting en het beheer vereenvoudigd.</p>
+<li><p>Vrijwel alle moderne informatiesystemen kunnen goed overweg met JSON berichten, wat de inrichting en het beheer vereenvoudigt.</p>
 </li>
 </ul>
 <p>  <em>Implicaties</em></p>
@@ -413,6 +416,7 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <li>De gegevens moeten in JSON formaat uitgewisseld worden.</li>
 </ul>
 <p><strong>Gebruik <a href="https://www.logius.nl/domeinen/infrastructuur/diginetwerk">Diginetwerk</a> voor transport</strong></p>
+<p>NB: Het is de vraag of alle betrokken partijen toegang hebben of kunnen krijgen tot Diginetwerk. Als dit niet mogelijk is of onevenredig veel inspanning vergt, dan wordt het openbare internet gebruikt voor transport. Mogelijk zijn dan aanvullende maatregelen nodig om kwetsbaarheden te voorkomen.</p>
 <p>  <em>Rationale</em></p>
 <ul>
 <li>Het Diginetwerk is een gesloten netwerk waar alleen overheidsorganisaties toegang toe hebben. Dit beperkt de risico's van onbevoegde toegang tot de gegevens enorm.</li>
@@ -433,12 +437,12 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 </ul>
 <p>  <em>Implicaties</em></p>
 <ul>
-<li>Alle deelnemers moeten een PKIoverheid certificaat hebben of krijgen. NB: Het is niet altijd mogelijk om een PKIoverheid certificaat dat al in gebruik is, te hergebruiken.</li>
+<li>Alle deelnemers moeten een PKIoverheid certificaat hebben of krijgen. NB: Het is niet altijd mogelijk om een PKIoverheid certificaat dat al in gebruik is, te hergebruiken. Zo moet voor versleutelen een ander certificaat gebruikt worden dan voor ondertekenen van een bericht.</li>
 </ul>
-<p><strong>Beveiligingsniveau BBN2</strong> (NB: DPIA is nog in wording)&nbsp;</p>
+<p><strong>Beveiligingsniveau BBN2</strong></p>
 <p>  <em>Rationale</em></p>
 <ul>
-<li>In de DPIA wordt dit vereist.</li>
+<li>BBN2 is het niveau dat volgens GEMMA geldt voor gegevensverwerkingen in de schuldhulpverlening.</li>
 </ul>
 <p>  <em>Implicaties</em></p>
 <ul>
@@ -495,34 +499,34 @@ Als fijnmaziger autorisatie nodig is, dan bestaat er een voorkeur voor PBAC (Pol
 Het signeren van het bericht gebeurt met de privé sleutel van de verzender van het bericht, zodat het de controle met de publieke sleutel van de verzender kan gebeuren en in principe iedereen de handtekening kan controleren.</p>
 </section><section id="versleuteling-encryptie"><div class="header-wrapper"><h3 id="x5-2-versleuteling-encryptie"><bdi class="secno">5.2 </bdi>Versleuteling (Encryptie)</h3><a class="self-link" href="#versleuteling-encryptie" aria-label="Permalink for Section 5.2"></a></div>
 <p>Is versleuteling nodig? Er lijken geen routeervoorzieningen nodig te zijn waar berichten mogelijk gelezen kunnen worden, en als het kan gaan de berichten over het Diginetwerk van de overheid. Maar het is nog niet bekend of dit inderdaad kan en om voorbereid te zijn op eventuele toepassingen met routeervoorzieningen, is versleuteling nog een discussiepunt.</p>
-<p>Voorstel: Versleuteling op basis van <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a>.&nbsp;
-De versleuteling gebeurt met de publieke sleutel van de ontvanger (in dit geval CBS), zodat alleen de ontvanger het bericht kan ontsleutelen.</p>
+<p>Voorstel: Geen versleuteling.
+Als dit toch vereist wordt, dan versleuteling op basis van <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a>. De versleuteling gebeurt met de publieke sleutel van de ontvanger (in dit geval CBS), zodat alleen de ontvanger het bericht kan ontsleutelen.</p>
 </section></section>
   <section id="messages"><div class="header-wrapper"><h2 id="x6-berichten"><bdi class="secno">6. </bdi>Berichten</h2><a class="self-link" href="#messages" aria-label="Permalink for Section 6."></a></div>
 <p>De technische beschrijving van de API is het volgende OAS3-bestand beschreven.</p>
-<pre><code aria-busy="false" class="hljs">{!../v0.1/DDAS-API_v0.1.2.yaml!}
+<pre><code aria-busy="false" class="hljs">{!../v0.1/DDAS-API_v0.1.1.yaml!}
 </code></pre>
-<p>Hiervan is ook een <a href="https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1/DDAS-API_v0.1.2.yaml">downloadbare versie</a> van.</p>
+<p>Hiervan is ook een <a href="https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1/DDAS-API_v0.1.1.yaml">downloadbare versie</a> van.</p>
 <p>Hieronder worden de berichten die in het OAS-bestand technisch beschreven zijn, toegelicht.</p>
 <section id="encoding"><div class="header-wrapper"><h3 id="x6-1-encoding"><bdi class="secno">6.1 </bdi>Encoding</h3><a class="self-link" href="#encoding" aria-label="Permalink for Section 6.1"></a></div>
 <p>Conform de <a href="https://vng-realisatie.github.io/ddas/v1.0/uitwisselspecificatie/">uitwisselspecificatie</a> die voor de bestandsuitwisseling gebruikt wordt, is de encoding van de berichten UTF-8.</p>
 </section><section id="vraagbericht-request"><div class="header-wrapper"><h3 id="x6-2-vraagbericht-request"><bdi class="secno">6.2 </bdi>Vraagbericht (request)</h3><a class="self-link" href="#vraagbericht-request" aria-label="Permalink for Section 6.2"></a></div>
-<p>Dit is het vraagbericht zoals dat door CBS naar de schuldhulpverlener gestuurd wordt. Alleen een POST request: alleen opvragen gegevens, geen mutaties. Bij GET zitten de parameters in de URL, waardoor mogelijk cache gegevens gebruikt worden, als de parameters niet wijzigen - daarom liever een POST.</p>
+<p>Dit is het vraagbericht zoals dat door CBS naar de schuldhulpverlener gestuurd wordt. Alleen een POST request: alleen opvragen gegevens, geen mutaties. Bij GET zitten de parameters in de URL, waardoor mogelijk cache gegevens gebruikt worden, als de parameters niet wijzigen - daarom alleen een POST.</p>
 <p>Voorstel voor parameters die meegestuurd kunnen worden (allemaal optioneel):</p>
 <ul>
-<li><p>Startdatum (default leeg - deelnemer bepaalt dan startdatum)</p>
+<li><p>Startdatum (date, default leeg - deelnemer bepaalt dan startdatum)</p>
 </li>
-<li><p>Einddatum (default leeg - deelnemer bepaalt dan einddatum)</p>
+<li><p>Einddatum (date, default leeg - deelnemer bepaalt dan einddatum)</p>
 </li>
-<li><p>Gemeente (default alle – alleen relevant als over meer dan 1 gemeente gegevens aangeleverd worden)</p>
+<li><p>Aanleverende_organisatie (string, default alle – alleen relevant als over meer dan 1 organisatie (gemeente/ schuldhulpverlener) gegevens aangeleverd worden)</p>
 </li>
 </ul>
 <p>Het bericht wordt met <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/">JAdES</a> ondertekend met de private sleutel van de verzender van het vraagbericht.</p>
 </section><section id="antwoordbericht-response"><div class="header-wrapper"><h3 id="x6-3-antwoordbericht-response"><bdi class="secno">6.3 </bdi>Antwoordbericht (response)</h3><a class="self-link" href="#antwoordbericht-response" aria-label="Permalink for Section 6.3"></a></div>
-<p>Dit is het antwoordbericht van de schuldhulpverlener met de gewenste gegevens in JSON formaat.</p>
+<p>Dit is het antwoordbericht van de gegevensbeheerder (systeem dat de bron beheert) met de gewenste gegevens in JSON formaat.</p>
 <p>Ook dit bericht wordt ondertekend met <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/">JAdES</a> met gebruik van de eigen private sleutel.</p>
-<p>Als versleutelen nodig is, wordt het bericht versleuteld conform <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a> met de publieke sleutel van de afnemer waar het antwoordbericht naartoe gaat (in dit geval altijd CBS). Of dit noodzakelijk is, is nog een punt van dicussie.</p>
-<p>Beide handelingen zijn nu opgenomen in de OAS3.1 specificatie.</p>
+<p>Als versleutelen nodig is, wordt het bericht versleuteld conform <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a> met de publieke sleutel van de afnemer waar het antwoordbericht naartoe gaat (in dit geval altijd CBS). Of dit noodzakelijk is, is nog een punt van dicussie - vooralsnog wordt ervan uitgegaan dat dit niet nodig is.
+In de OAS3.1 specificatie is alleen signing opgenomen, geen versleuteling. Mocht versleutelen vereist zijn, dan wordt de API als volgt beschreven: <a href="https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1/DDAS-API_v0.1.2.yaml">OAS3.1 specificatie met versleuteling</a>.</p>
 <p>Payload is gebaseerd op <a href="https://vng-realisatie.github.io/ddas/v1.0/uitwisselspecificatie/">uitwisselspecificatie</a>!</p>
 <p>Mogelijke responses:</p>
 <ul>
@@ -568,15 +572,15 @@ Welke verantwoording verwacht het programma of SZW?&nbsp;</p>
 </li>
 <li><p>De gegevensleverancier controleert de signatuur met de publieke sleutel van CBS</p>
 </li>
-<li><p>Indien OK, dan stuurt de gegevensleverancier de gegevens in het responsebericht dat gesigneerd is met eigen privé sleutel en versleuteld is met publieke sleutel CBS</p>
+<li><p>Indien OK, dan stuurt de gegevensleverancier de gegevens in het responsebericht dat gesigneerd is met eigen privé sleutel</p>
 </li>
-<li><p>CBS ontsleutelt het bericht met eigen privé sleutel en controleert response technisch (signing, berichtformaat, viruscontrole)</p>
+<li><p>CBS controleert response technisch (signing, berichtformaat, viruscontrole)</p>
 </li>
-<li><p>CBS controleert response functioneel (verplichte velden, vreemde waarden, etc.)</p>
+<li><p>CBS controleert response functioneel/ inhoudelijk (relatie tussen velden, vreemde waarden, etc.)</p>
 </li>
-<li><p>CBS stuurt een verwerkingsverslag naar de gegevensleverancier [nog ter discussie hoe dit het beste kan]</p>
+<li><p>CBS stuurt een verwerkingsverslag ("op orde bericht") naar de gegevensleverancier [nog ter discussie hoe dit het beste kan]</p>
 </li>
-<li><p>Indien OK, dan worden de gegevens ingelezen in de database&nbsp;</p>
+<li><p>Indien OK, dan worden de gegevens bij CBS ingelezen in de database&nbsp;</p>
 </li>
 <li><p>CBS loopt alle gerapporteerde trajecten af en combineert trajecten van dezelfde BSN tot één “traject”</p>
 </li>
@@ -587,18 +591,18 @@ Welke verantwoording verwacht het programma of SZW?&nbsp;</p>
 <li><p>Bij het combineren wordt de volledigheid en kwaliteit van de gegevens gecontroleerd – op basis daarvan krijgt het traject een "betrouwbaarheidsindicator""&nbsp;
 ]</p>
 </li>
-<li><p>CBS genereert de gewenste rapporten</p>
+<li><p>CBS genereert de gewenste statistieken</p>
 </li>
 </ul>
 <p>&nbsp;</p>
 <p>NB: Als er bij deze stappen algoritmen gebruikt worden, moeten deze voldoen aan de Europese AI-verordening (definitieve tekst nog niet gevonden) en aangemeld worden bij het <a href="https://algoritmes.overheid.nl/nl">Algoritmeregister van de Nederlandse overheid</a>.</p>
 </section>
   <section id="aansluit"><div class="header-wrapper"><h2 id="x9-aansluitprotocol"><bdi class="secno">9. </bdi>Aansluitprotocol</h2><a class="self-link" href="#aansluit" aria-label="Permalink for Section 9."></a></div>
-<p>Iedere schuldhulpverleningsorganisatie of gemeente (hierna: "deelnemer") die gegevens beschikbaar gaat stellen aan CBS, moet het aansluitprotocol doorlopen. Dit protocol valt onder verantwoordelijkheid van het programma DDAS. Voor vragen hierover kan altijd contact opgenomen worden met [contactadres].</p>
-<p>Het protocol kan aangepast worden als hiervoor aanleiding is. Na aanpassingen wordt de meest recente versie met versienummer en versiedatum gepubliceerd op [documentatiewebsite].</p>
+<p>Iedere schuldhulpverleningsorganisatie of gemeente, eventueel via een gegevensleverancier (hierna: "deelnemer") die gegevens beschikbaar gaat stellen aan CBS, moet het aansluitprotocol doorlopen. Dit protocol valt onder verantwoordelijkheid van het programma DDAS. Voor vragen hierover kan altijd contact opgenomen worden met <em>[contactadres]</em>.</p>
+<p>Het protocol kan aangepast worden als hiervoor aanleiding is. Na aanpassingen wordt de meest recente versie met versienummer en versiedatum gepubliceerd op <em>[documentatiewebsite]</em>.</p>
 <p>De stappen die de deelnemer moet doorlopen, zijn:</p>
 <ul>
-<li><p>De deelnemer meldt zich bij de stelselbeheerder (CBS of DDAS?) via het aanmeldformulier [waar staat dit? wie beheert dit?], waarin in elk geval het volgende ingevuld:</p>
+<li><p>De deelnemer meldt zich bij de stelselbeheerder (CBS of DDAS?) via het aanmeldformulier <em>[waar staat dit? wie beheert dit?]</em>, waarin in elk geval het volgende ingevuld:</p>
 <ul>
 <li><p>Naam van de deelnemer + contactgegevens</p>
 </li>
@@ -608,7 +612,7 @@ Welke verantwoording verwacht het programma of SZW?&nbsp;</p>
 </li>
 <li><p>Endpoint waar de testgegevens beschikbaar komen</p>
 </li>
-<li><p>Akkoord met de aansluitvoorwaarden, waaronder de verwerkersovereenkomst met CBS</p>
+<li><p>Akkoord met de aansluitvoorwaarden*, waaronder de verwerkersovereenkomst met CBS?*</p>
 </li>
 <li><p>Eventuele verzoeken om de aansluiting tot stand te krijgen, zoals een gewenste publicatiedatum, specifieke testdata of specifieke beschikbaarheid</p>
 </li>
@@ -616,20 +620,19 @@ Welke verantwoording verwacht het programma of SZW?&nbsp;</p>
 </li>
 <li><p><em>Indien PKIo certificaten niet mogelijk zijn: de stelselbeheerder (DDAS of CBS?) genereert een certificaat voor de TLS verbinding, signing en encryptie, en levert deze aan de deelnemer.</em></p>
 </li>
-<li><p>De deelnemer richt in de testomgeving de API, conform de AOS documentatie [yaml-bestand, nog toe te voegen] in. Voor de installatie van FSC komt een handleiding en een referentie implementatie beschikbaar.</p>
+<li><p>De deelnemer richt in de testomgeving de API, conform de <a href="../v0.1/DDAS-API_v0.1.1.yaml">AOS documentatie</a> in. Voor de installatie van FSC komt een handleiding en een referentie implementatie beschikbaar.</p>
 </li>
 <li><p>De deelnemer voert CBS op in de management module van FSC, om toegang te verlenen.</p>
 </li>
 <li><p>CBS voert enkele bevragingen uit in de testomgeving en beoordeelt de kwaliteit van de gegevens. Op basis van de bevindingen wordt de API aangepast.</p>
 </li>
-<li><p>Indien er geen blokkerende bevindingen zijn, krijgt de deelnemer vrijgave van de stelselbeheer (DDAS of CBS?) en wordt de API in de productieomgeving ingericht en beschikbaar gesteld.</p>
+<li><p>Indien er geen blokkerende bevindingen zijn, krijgt de deelnemer vrijgave van de stelselbeheer (DDAS?) en wordt de API in de productieomgeving ingericht en beschikbaar gesteld.</p>
 </li>
-<li></li>
-<li><p>CBS voert de deelnemer op in de management module van FSC, zodat de API bevraagd wordt bij het ophalen van alle gegevens.</p>
+<li><p>CBS voert de deelnemer op in de management module van FSC, zodat de API beschikbaar komt in het stelsel en bevraagd kan worden bij het ophalen van alle gegevens.</p>
 </li>
 </ul>
-<p>Ten behoeve van de testen stelt DDAS een set testgegevens beschikbaar [wie maakt deze set? waar komt dit te staan?].</p>
-<p>Voor ondersteuning bij de aansluiting is een referentie implementatie en documentatie beschikbaar [waar?] en kan contact opgenomen worden met [contactadres]. Als er bij de aansluiting bevindingen zijn, die niet door de deelnemer opgelost kunnen worden, kan een wijzigingsverzoek ingediend worden.</p>
+<p>Ten behoeve van de testen stelt DDAS een set testgegevens beschikbaar <em>[wie maakt deze set? waar komt dit te staan?]</em>.</p>
+<p>Voor ondersteuning bij de aansluiting is een referentie implementatie en documentatie beschikbaar <em>[waar?]</em> en kan contact opgenomen worden met <em>[contactadres]</em>. Als er bij de aansluiting bevindingen zijn, die niet door de deelnemer opgelost kunnen worden, kan een wijzigingsverzoek ingediend worden.</p>
 </section>
   <section id="beheer"><div class="header-wrapper"><h2 id="x10-beheer-van-de-specificatie"><bdi class="secno">10. </bdi>Beheer van de specificatie</h2><a class="self-link" href="#beheer" aria-label="Permalink for Section 10."></a></div>
 <p>De koppelvlakspecificatie is onderhevig aan wijzigingen: de technologie ontwikkelt zich, er zijn mogelijk andere gegevens nodig, de samenwerking tussen de betrokken partijen kan wijzigen, etc. Om deze wijzigingen op een betrouwbare en juiste manier te verwerken in de specificatie, is een wijzigingsproces ingericht. Dit wijzigingsproces valt onder verantwoordelijkheid van de stuurgroep DDAS en wordt uitgevoerd door het programma DDAS, zolang het programma DDAS actief is. Daarna wordt het overgedragen aan een nog aan te wijzen organisatie.&nbsp;Voor het beoordelen van wijzigingsverzoeken wordt een beheeroverleg samengesteld, met afgevaardigden van de betrokken partijen, onder voorzitterschap van het programma DDAS. Dit beheeroverleg komt periodiek bijeen om wijzigingsverzoeken te beoordelen en eventueel verder uit te werken.</p>

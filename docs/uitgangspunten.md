@@ -53,7 +53,7 @@ De volgende keuzes zijn gemaakt: 
 
   - Alle berichten krijgen een ondertekening door de partij die het bericht verstuurd.
 
-  - Voor ondertekenen is een certificaat nodig; alle deelnemers moeten een certificaat hebben dat vertrouwd wordt.
+  - Voor ondertekenen is een certificaat nodig; alle deelnemers moeten een certificaat hebben dat vertrouwd wordt. NB: dit moet een ander certificaat zijn dan diegene die nodig is voor dubbelzijdig versleuteld transport (TLS).
 
 
 
@@ -67,9 +67,13 @@ De volgende keuzes zijn gemaakt: 
 
   - De "payload encryption" standaard is gebaseerd op [JWE](https://datatracker.ietf.org/doc/html/rfc7516), de internationale standaard voor encryptie die breed toegepast wordt.
 
+  - Als versleutelen nodig is, hoeven alleen de berichten waarin persoonsgegevens zitten versleuteld te worden. Dat zijn de responses van de gegevensleveranciers.
+
   *Implicaties*
 
-  - *nog uitwerken*
+  - Alle berichten worden versleuteld door de partij die het bericht verstuurd.
+
+  - Voor ondertekenen is een tweede certificaat nodig; dit moet een ander certificaat zijn dan het certificaat dat voor het ondertekenen gebruikt wordt. Omdat alleen de responses versleuteld worden, volstaat één extra certificaat bij CBS: het bericht wordt versleuteld met de publieke sleutel van de ontvanger (zie ook "Signing en Versleuteling").
 
 
 
@@ -84,6 +88,8 @@ De volgende keuzes zijn gemaakt: 
   *Implicaties*
 
   - Alle deelnemers dienen de FSC componenten te installeren en in te richten. Er bestaat een algemene referentie implementatie, die waarschijnlijk zo ingezet kan worden. Als deze niet voldoet, kan overwogen worden om een specifieke referentie implementatie voor DDAS beschikbaar te stellen.
+
+  - FSC gaat uit van dubbelzijdig versleuteld transport (TLS). Hiervoor hebben alle deelnemers van het DDAS-stelsel een certificaat nodig dat vertrouwd wordt. Het voorstel
 
 
 
@@ -103,17 +109,25 @@ De volgende keuzes zijn gemaakt: 
 
 
 
-**Gebruik [Diginetwerk](https://www.logius.nl/domeinen/infrastructuur/diginetwerk) voor transport**
-
-NB: Het is de vraag of alle betrokken partijen toegang hebben of kunnen krijgen tot Diginetwerk. Als dit niet mogelijk is of onevenredig veel inspanning vergt, dan wordt het openbare internet gebruikt voor transport. Mogelijk zijn dan aanvullende maatregelen nodig om kwetsbaarheden te voorkomen.
+**Gebruik "open" internet voor transport**
 
   *Rationale*
 
-  - Het Diginetwerk is een gesloten netwerk waar alleen overheidsorganisaties toegang toe hebben. Dit beperkt de risico's van onbevoegde toegang tot de gegevens enorm.
+  - Een (groot) aantal deelnemers in het DDAS-stelsel heeft geen toegang tot [Diginetwerk](https://www.logius.nl/domeinen/infrastructuur/diginetwerk) en aansluiten via een [koppelnetwerkaanbieder](https://www.logius.nl/domeinen/infrastructuur/diginetwerk/aansluiten) zal onevenredig veel inspanning, doorlooptijd en kosten met zich meebrengen.
+
+  - Er zijn geen routeervoorzieningen of andere "tussenstations" in het stelsel voorzien, waardoor "Man in the Middle" aanvallen onwaarschijnlijk zijn.
+
+  - Het transport wordt met dubbelzijdig TLS versleuteld, wat voldoende beveiliging geeft.
+
+  - Middels de directory van FSC worden alleen vertrouwde endpoints aangeroepen.
 
   *Implicaties*
 
-  - Alle deelnemers moeten toegang tot het Diginetwerk hebben of krijgen. Dit vereist toegang via een [koppelnetwerkaanbieder](https://www.logius.nl/domeinen/infrastructuur/diginetwerk/aansluiten).
+  - Aansluiten op het stelsel vereist geen toegang tot een gesloten netwerk.
+
+  - Het transport moet met dubbelzijdig TLS beveiligd worden.
+
+  - Alleen endpoints die in de directory van FSC zijn vastgelegd, worden bevraagd.
 
 
 
@@ -123,13 +137,13 @@ NB: Het is de vraag of alle betrokken partijen toegang hebben of kunnen krijgen 
 
   - Voor identicatie, authenticatie, signen en encryptie is een middel nodig dat door het stelsel vertrouwd wordt. PKIoverheid certificaten worden door de Nederlandse overheid uitgegeven, die daarmee de "Trust Anchor" voor DDAS wordt.
 
-  - PKIoverheid certificaten worden door Logius (namens de rijksoverheid) uitgegeven en beheerd. Er is daarom geen organisatie nodig om certificaten voor het DDAS stelsel te beheren.
-
-  - PKIoverheid certificaten kunnen voor veel diensten binnen de overheid gebruikt worden. De investering is daarom niet alleen voor DDAS, maar ook voor eventuele andere diensten die de deelnemer afneemt.
+  - PKIoverheid certificaten worden door Logius (namens de rijksoverheid) uitgegeven en beheerd. Er is daarom geen organisatie nodig om certificaten voor het DDAS-stelsel te beheren.
 
   *Implicaties*
 
-  - Alle deelnemers moeten een PKIoverheid certificaat hebben of krijgen. NB: Het is niet altijd mogelijk om een PKIoverheid certificaat dat al in gebruik is, te hergebruiken. Zo moet voor versleutelen een ander certificaat gebruikt worden dan voor ondertekenen van een bericht.
+  - Alle deelnemers moeten PKIoverheid certificaten hebben of krijgen.
+  NB: voor de transportlaag is een certificaat nodig en voor het ondertekenen van berichten is nog een certificaat nodig (dit mag niet hetzelfde certificaat zijn). Mogelijk kunnen bestaande certificaten hergebruikt worden, maar hier moet voorzichtig mee omgegaan worden om beveiligingsniveaus gescheiden te houden.
+  Als berichten met gevoelige gegevens ook versleuteld moeten worden, is een extra certificaat bij CBS vereist. De gegevensleveranciers gebruiken dan de publieke sleutel van dat certificaat om de berichten te versleutelen.
 
 
 

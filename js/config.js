@@ -10,7 +10,7 @@ let respecConfig = {
 
   // Zie de globale property 'localizationStrings/nl' voor de lijst met toegestane specificatie-statussen
   specStatus: "IO",
-  publishDate: "2024-10-31",
+  publishDate: "2025-01-20",
   publishVersion: "",
 
   // Zie de globale property 'localizationStrings/nl' voor de lijst met toegestane maturities

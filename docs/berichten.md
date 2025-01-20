@@ -35,7 +35,7 @@ Dit is het antwoordbericht van de gegevensbeheerder (systeem dat de bron beheert
 
 Ook dit bericht wordt ondertekend met [JAdES](https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/) met gebruik van de eigen private sleutel.
 
-Als versleutelen nodig is, wordt het bericht versleuteld conform [ADR-HTTP Payload encryption](https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/) met de publieke sleutel van de afnemer waar het antwoordbericht naartoe gaat (in dit geval altijd CBS). Of dit noodzakelijk is, is nog een punt van dicussie - vooralsnog wordt ervan uitgegaan dat dit niet nodig is.
+Als versleutelen nodig is (vooralsnog wordt ervan uitgegaan dat dit niet nodig is), wordt het bericht versleuteld conform [ADR-HTTP Payload encryption](https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/) met de publieke sleutel van de afnemer waar het antwoordbericht naartoe gaat (in dit geval altijd CBS). Of dit noodzakelijk is, is nog een punt van dicussie - vooralsnog wordt ervan uitgegaan dat dit niet nodig is.
 In de OAS3.1 specificatie is alleen signing opgenomen, geen versleuteling. Mocht versleutelen vereist zijn, dan wordt de API als volgt beschreven: [OAS3.1 specificatie met versleuteling](https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1/DDAS-API_v0.1.2.yaml).
 
 Payload is gebaseerd op [uitwisselspecificatie](https://vng-realisatie.github.io/ddas/v1.0/uitwisselspecificatie/)!

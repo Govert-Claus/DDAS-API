@@ -22,6 +22,20 @@ Het koppelvlak moet voldoen aan de volgende wetten, afspraken en standaarden: 
 
 De volgende keuzes zijn gemaakt: 
 
+**Gegevensleveranciers bieden een API aan die rechtstreeks door CBS wordt bevraagd**
+
+  *Rationale*
+
+  - Dit uitwisselpatroon past het best bij het [Federatief Datastelsel](https://realisatieibds.nl/page/view/564cc96c-115e-4e81-b5e6-01c99b1814ec/de-ontwikkeling-van-het-federatief-datastelsel).
+
+  - Gegevens blijven in de bron en worden bevraagd als ze nodig.
+
+  - De API waarmee gegevens beschikbaar gesteld worden, kan hergebruikt worden voor andere toepassingen.
+
+  *Implicaties*
+
+  - Alle gegevensleveranciers moeten een API beschikbaar stellen waar de DDAS-gegevens opgevraagd kunnen worden.
+
 
 **Gebruik [Digikoppeling](https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling) REST profiel**
 
@@ -41,7 +55,7 @@ De volgende keuzes zijn gemaakt: 
 
   *Rationale*
 
-  - Omdat het REST profiel van Digikopeling (nog) geen standaard voor signen heeft vastgesteld, moet er eentje gekozen worden.
+  - Omdat het REST profiel van Digikopeling (nog) geen standaard voor signen heeft vastgesteld, moet er een gekozen worden.
 
   - JAdES is als standaard voorgesteld door het [Kennisplatform API's](https://www.geonovum.nl/themas/kennisplatform-apis).
 
@@ -77,19 +91,19 @@ De volgende keuzes zijn gemaakt: 
 
 
 
-**Federatieve Services Connectiviteit voor de architectuur - [FSC](https://docs.fsc.nlx.io/introduction)**
+**Federatieve Services Connectiviteit voor de connectiviteit - [FSC](https://docs.fsc.nlx.io/introduction)**
 
   *Rationale*
 
   - Deze architectuur is de standaard voor 1-op-1 koppelingen voor gemeenten. Hoewel de standaard nog niet heel breed gebruikt wordt, is dit wel de standaard voor de toekomst.
 
-  - Er bestaat een referentie implementatie die de inrichting en het gebruik van de API sterk vereenvoudigd. Verder is er bij VNG Realisatie (waar de standaard is ontwikkeld) kennis die gebruikt kan worden.
+  - Er bestaat een referentie implementatie die de inrichting en het gebruik van de API sterk vereenvoudigt. Verder is er bij VNG Realisatie (waar de standaard is ontwikkeld) kennis die gebruikt kan worden.
 
   *Implicaties*
 
   - Alle deelnemers dienen de FSC componenten te installeren en in te richten. Er bestaat een algemene referentie implementatie, die waarschijnlijk zo ingezet kan worden. Als deze niet voldoet, kan overwogen worden om een specifieke referentie implementatie voor DDAS beschikbaar te stellen.
 
-  - FSC gaat uit van dubbelzijdig versleuteld transport (TLS). Hiervoor hebben alle deelnemers van het DDAS-stelsel een certificaat nodig dat vertrouwd wordt. Het voorstel
+  - FSC gaat uit van dubbelzijdig versleuteld transport (TLS). Hiervoor hebben alle deelnemers van het DDAS-stelsel een certificaat nodig dat vertrouwd wordt.
 
 
 
@@ -135,14 +149,14 @@ De volgende keuzes zijn gemaakt: 
 
   *Rationale*
 
-  - Voor identicatie, authenticatie, signen en encryptie is een middel nodig dat door het stelsel vertrouwd wordt. PKIoverheid certificaten worden door de Nederlandse overheid uitgegeven, die daarmee de "Trust Anchor" voor DDAS wordt.
+  - Voor identicatie, authenticatie, signen en encryptie is een middel nodig dat door het stelsel vertrouwd wordt. PKIoverheid certificaten worden door de Nederlandse overheid uitgegeven, die daarmee de "Trust Anchor" voor het DDAS-stelsel wordt.
 
-  - PKIoverheid certificaten worden door Logius (namens de rijksoverheid) uitgegeven en beheerd. Er is daarom geen organisatie nodig om certificaten voor het DDAS-stelsel te beheren.
+  - PKIoverheid certificaten worden door Logius (namens de rijksoverheid) via [Logius geautoriseerde aanbieders](https://www.logius.nl/domeinen/toegang/pkioverheid/pkioverheidcertificaat-aanvragen) uitgegeven en beheerd. Er is daarom geen organisatie nodig om certificaten voor het DDAS-stelsel te beheren.
 
   *Implicaties*
 
   - Alle deelnemers moeten PKIoverheid certificaten hebben of krijgen.
-  NB: voor de transportlaag is een certificaat nodig en voor het ondertekenen van berichten is nog een certificaat nodig (dit mag niet hetzelfde certificaat zijn). Mogelijk kunnen bestaande certificaten hergebruikt worden, maar hier moet voorzichtig mee omgegaan worden om beveiligingsniveaus gescheiden te houden.
+  NB: er zijn certificaten nodig voor de transportlaag en het ondertekenen van berichten (hiervoor mag niet hetzelfde certificaat gebruikt worden). Mogelijk kunnen bestaande certificaten hergebruikt worden, maar hier moet voorzichtig mee omgegaan worden om beveiligingsniveaus gescheiden te houden.
   Als berichten met gevoelige gegevens ook versleuteld moeten worden, is een extra certificaat bij CBS vereist. De gegevensleveranciers gebruiken dan de publieke sleutel van dat certificaat om de berichten te versleutelen.
 
 

@@ -19,7 +19,7 @@ Aanbieder: de schuldhulpverlenende organisatie of de gegevensleverancier hiervan
 
 PKI: [Public Key Infrastructure](https://nl.wikipedia.org/wiki/Public_key_infrastructure) - systeem voor het uitgeven en beheren van digitale certificaten
 
-FSC: [Federatieve Services Connectiviteit](https://commonground.nl/page/view/736309a1-739a-47fc-abfd-67e71f1d9e59/consultatie-fsc) - standaard voor het leggen van koppelingen m.b.v. API's
+FSC: [Federatieve Services Connectiviteit](https://fsc-standaard.nl/) - standaard voor het leggen van koppelingen m.b.v. API's
 
 FTV: [Federatieve Toegangsverlening](https://digilab.overheid.nl/projecten/toegangsverleningmethodiek-api/) - een standaard voor het inrichten en beheren van gecontroleerde toegang tot gegevensdiensten in een stelsel
 

@@ -247,8 +247,8 @@ Dit is een product van het programma DDAS. De API is gebaseerd op het informatie
   "shortName": "Respec-template",
   "specType": "ST",
   "specStatus": "IO",
-  "publishDate": "2024-10-31",
-  "publishVersion": "",
+  "publishDate": "2025-01-24",
+  "publishVersion": "0.2",
   "title": "DDAS API Koppelvlakspecificatie",
   "subtitle": "Koppelvlakspecificatie voor het beschikbaarstellen van DDAS-gegevens aan het CBS",
   "editors": [
@@ -275,10 +275,12 @@ Dit is een product van het programma DDAS. De API is gebaseerd op het informatie
     <h2>
       VNG Realisatie Standaard<br>
       In Ontwikkeling versie
-      <time class="dt-published" datetime="2024-10-31">31 oktober 2024</time>
+      <time class="dt-published" datetime="2025-01-24">24 januari 2025</time>
     </h2>
     <dl>
-      
+      <dt>Deze versie:</dt><dd class="status">
+              <a class="u-url status" href="https://vng-realisatie.github.io/publicatie/hl/respec-template/0.2">https://vng-realisatie.github.io/publicatie/hl/respec-template/0.2</a>
+            </dd>
       <dt>Laatst gepubliceerde versie:</dt><dd>
               <a href="https://vng-realisatie.github.io/publicatie/hl/respec-template">https://vng-realisatie.github.io/publicatie/hl/respec-template</a>
             </dd>
@@ -321,7 +323,7 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <p>Naast de uitgangspunten en de technische specificatie bevat dit document een beschrijving van de niet-functionele eisen (beschikbaarheid, performance). Ook worden het aanleverprotocol (welke stappen worden doorlopen als gegevens opgehaald worden) en het aansluitprotocol (hoe kan een organisatie deelnemer worden) beschreven. Ten slotte wordt het beheer van de specificatie zelf beschreven.</p>
 <p><em><strong>In de huidige versie staan nog diverse vraagstukken en de keuzes die gemaakt worden, moeten nog worden bevestigd. Het document dient daarom vooral als basis voor de discussie om tot een definitieve specificatie te komen, en er kunnen geen rechten aan dit document ontleend worden.</strong></em></p>
 </section>
-  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit document is nog 'In Ontwikkeling'.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#kaders"><bdi class="secno">1. </bdi>Uitgangpunten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#kaders-0"><bdi class="secno">1.1 </bdi>Kaders</a></li><li class="tocline"><a class="tocxref" href="#keuzes"><bdi class="secno">1.2 </bdi>Keuzes</a></li></ol></li><li class="tocline"><a class="tocxref" href="#overzicht"><bdi class="secno">2. </bdi>Overzicht API stelsel</a></li><li class="tocline"><a class="tocxref" href="#transport"><bdi class="secno">3. </bdi>Transportlaag</a></li><li class="tocline"><a class="tocxref" href="#iam"><bdi class="secno">4. </bdi>Identificatie, Authenticatie en Autorisatie</a></li><li class="tocline"><a class="tocxref" href="#sign"><bdi class="secno">5. </bdi>Signing en Versleuteling</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#signeren-signing"><bdi class="secno">5.1 </bdi>Signeren (Signing)</a></li><li class="tocline"><a class="tocxref" href="#versleuteling-encryptie"><bdi class="secno">5.2 </bdi>Versleuteling (Encryptie)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#messages"><bdi class="secno">6. </bdi>Berichten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#encoding"><bdi class="secno">6.1 </bdi>Encoding</a></li><li class="tocline"><a class="tocxref" href="#vraagbericht-request"><bdi class="secno">6.2 </bdi>Vraagbericht (request)</a></li><li class="tocline"><a class="tocxref" href="#antwoordbericht-response"><bdi class="secno">6.3 </bdi>Antwoordbericht (response)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#non-func"><bdi class="secno">7. </bdi>Niet functionele eisen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#beschikbaarheid"><bdi class="secno">7.1 </bdi>Beschikbaarheid</a></li><li class="tocline"><a class="tocxref" href="#performance"><bdi class="secno">7.2 </bdi>Performance</a></li><li class="tocline"><a class="tocxref" href="#logging-en-monitoring"><bdi class="secno">7.3 </bdi>Logging en Monitoring</a></li></ol></li><li class="tocline"><a class="tocxref" href="#aanlever"><bdi class="secno">8. </bdi>Aanleverprotocol</a></li><li class="tocline"><a class="tocxref" href="#aansluit"><bdi class="secno">9. </bdi>Aansluitprotocol</a></li><li class="tocline"><a class="tocxref" href="#beheer"><bdi class="secno">10. </bdi>Beheer van de specificatie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#indienen-wijzigingsverzoek"><bdi class="secno">10.1 </bdi>Indienen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#afhandelen-wijzigingsverzoek"><bdi class="secno">10.2 </bdi>Afhandelen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#releaseproces"><bdi class="secno">10.3 </bdi>Releaseproces</a></li><li class="tocline"><a class="tocxref" href="#releasenummering"><bdi class="secno">10.4 </bdi>Releasenummering</a></li><li class="tocline"><a class="tocxref" href="#vrijgaveprocedure-en-afwijkingsverzoeken"><bdi class="secno">10.5 </bdi>Vrijgaveprocedure en afwijkingsverzoeken</a></li><li class="tocline"><a class="tocxref" href="#noodprocedure"><bdi class="secno">10.6 </bdi>Noodprocedure</a></li><li class="tocline"><a class="tocxref" href="#escalatie"><bdi class="secno">10.7 </bdi>Escalatie</a></li></ol></li></ol></nav>
+  <section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit document is nog 'In Ontwikkeling'.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#kaders"><bdi class="secno">1. </bdi>Uitgangpunten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#kaders-0"><bdi class="secno">1.1 </bdi>Kaders</a></li><li class="tocline"><a class="tocxref" href="#keuzes"><bdi class="secno">1.2 </bdi>Keuzes</a></li></ol></li><li class="tocline"><a class="tocxref" href="#overzicht"><bdi class="secno">2. </bdi>Overzicht API stelsel</a></li><li class="tocline"><a class="tocxref" href="#transport"><bdi class="secno">3. </bdi>Transportlaag</a></li><li class="tocline"><a class="tocxref" href="#iam"><bdi class="secno">4. </bdi>Identificatie, Authenticatie en Autorisatie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#identificatie"><bdi class="secno">4.1 </bdi>Identificatie</a></li><li class="tocline"><a class="tocxref" href="#authenticatie"><bdi class="secno">4.2 </bdi>Authenticatie</a></li><li class="tocline"><a class="tocxref" href="#autorisatie"><bdi class="secno">4.3 </bdi>Autorisatie</a></li></ol></li><li class="tocline"><a class="tocxref" href="#sign"><bdi class="secno">5. </bdi>Signing en Versleuteling</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#signeren-signing"><bdi class="secno">5.1 </bdi>Signeren (Signing)</a></li><li class="tocline"><a class="tocxref" href="#versleuteling-encryptie"><bdi class="secno">5.2 </bdi>Versleuteling (Encryptie)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#messages"><bdi class="secno">6. </bdi>Berichten</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#encoding"><bdi class="secno">6.1 </bdi>Encoding</a></li><li class="tocline"><a class="tocxref" href="#vraagbericht-request"><bdi class="secno">6.2 </bdi>Vraagbericht (request)</a></li><li class="tocline"><a class="tocxref" href="#antwoordbericht-response"><bdi class="secno">6.3 </bdi>Antwoordbericht (response)</a></li></ol></li><li class="tocline"><a class="tocxref" href="#non-func"><bdi class="secno">7. </bdi>Niet functionele eisen</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#beschikbaarheid"><bdi class="secno">7.1 </bdi>Beschikbaarheid</a></li><li class="tocline"><a class="tocxref" href="#performance"><bdi class="secno">7.2 </bdi>Performance</a></li><li class="tocline"><a class="tocxref" href="#logging-en-monitoring"><bdi class="secno">7.3 </bdi>Logging en Monitoring</a></li></ol></li><li class="tocline"><a class="tocxref" href="#aanlever"><bdi class="secno">8. </bdi>Aanleverprotocol</a></li><li class="tocline"><a class="tocxref" href="#aansluit"><bdi class="secno">9. </bdi>Aansluitprotocol</a></li><li class="tocline"><a class="tocxref" href="#beheer"><bdi class="secno">10. </bdi>Beheer van de specificatie</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#indienen-wijzigingsverzoek"><bdi class="secno">10.1 </bdi>Indienen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#afhandelen-wijzigingsverzoek"><bdi class="secno">10.2 </bdi>Afhandelen wijzigingsverzoek</a></li><li class="tocline"><a class="tocxref" href="#releaseproces"><bdi class="secno">10.3 </bdi>Releaseproces</a></li><li class="tocline"><a class="tocxref" href="#releasenummering"><bdi class="secno">10.4 </bdi>Releasenummering</a></li><li class="tocline"><a class="tocxref" href="#vrijgaveprocedure-en-afwijkingsverzoeken"><bdi class="secno">10.5 </bdi>Vrijgaveprocedure en afwijkingsverzoeken</a></li><li class="tocline"><a class="tocxref" href="#noodprocedure"><bdi class="secno">10.6 </bdi>Noodprocedure</a></li><li class="tocline"><a class="tocxref" href="#escalatie"><bdi class="secno">10.7 </bdi>Escalatie</a></li></ol></li></ol></nav>
   <section id="kaders"><div class="header-wrapper"><h2 id="x1-uitgangpunten"><bdi class="secno">1. </bdi>Uitgangpunten</h2><a class="self-link" href="#kaders" aria-label="Permalink for Section 1."></a></div>
 <section id="kaders-0"><div class="header-wrapper"><h3 id="x1-1-kaders"><bdi class="secno">1.1 </bdi>Kaders</h3><a class="self-link" href="#kaders-0" aria-label="Permalink for Section 1.1"></a></div>
 <p>Het koppelvlak moet voldoen aan de volgende wetten, afspraken en standaarden:&nbsp;</p>
@@ -344,6 +346,20 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <p>&nbsp;</p>
 </section><section id="keuzes"><div class="header-wrapper"><h3 id="x1-2-keuzes"><bdi class="secno">1.2 </bdi>Keuzes</h3><a class="self-link" href="#keuzes" aria-label="Permalink for Section 1.2"></a></div>
 <p>De volgende keuzes zijn gemaakt:&nbsp;</p>
+<p><strong>Gegevensleveranciers bieden een API aan die rechtstreeks door CBS wordt bevraagd</strong></p>
+<p>  <em>Rationale</em></p>
+<ul>
+<li><p>Dit uitwisselpatroon past het best bij het <a href="https://realisatieibds.nl/page/view/564cc96c-115e-4e81-b5e6-01c99b1814ec/de-ontwikkeling-van-het-federatief-datastelsel">Federatief Datastelsel</a>.</p>
+</li>
+<li><p>Gegevens blijven in de bron en worden bevraagd als ze nodig.</p>
+</li>
+<li><p>De API waarmee gegevens beschikbaar gesteld worden, kan hergebruikt worden voor andere toepassingen.</p>
+</li>
+</ul>
+<p>  <em>Implicaties</em></p>
+<ul>
+<li>Alle gegevensleveranciers moeten een API beschikbaar stellen waar de DDAS-gegevens opgevraagd kunnen worden.</li>
+</ul>
 <p><strong>Gebruik <a href="https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling">Digikoppeling</a> REST profiel</strong></p>
 <p>  <em>Rationale</em></p>
 <ul>
@@ -359,7 +375,7 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <p><strong>Gebruik <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/">JAdES</a> voor signen</strong></p>
 <p>  <em>Rationale</em></p>
 <ul>
-<li><p>Omdat het REST profiel van Digikopeling (nog) geen standaard voor signen heeft vastgesteld, moet er eentje gekozen worden.</p>
+<li><p>Omdat het REST profiel van Digikopeling (nog) geen standaard voor signen heeft vastgesteld, moet er een gekozen worden.</p>
 </li>
 <li><p>JAdES is als standaard voorgesteld door het <a href="https://www.geonovum.nl/themas/kennisplatform-apis">Kennisplatform API's</a>.</p>
 </li>
@@ -372,7 +388,7 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <ul>
 <li><p>Alle berichten krijgen een ondertekening door de partij die het bericht verstuurd.</p>
 </li>
-<li><p>Voor ondertekenen is een certificaat nodig; alle deelnemers moeten een certificaat hebben dat vertrouwd wordt.</p>
+<li><p>Voor ondertekenen is een certificaat nodig; alle deelnemers moeten een certificaat hebben dat vertrouwd wordt. NB: dit moet een ander certificaat zijn dan diegene die nodig is voor dubbelzijdig versleuteld transport (TLS).</p>
 </li>
 </ul>
 <p><strong>Gebruik <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a> voor encryptie&nbsp;<em>(NB: als encryptie vereist is - de verwachting is dat dit NIET nodig is)</em></strong></p>
@@ -384,22 +400,30 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 </li>
 <li><p>De "payload encryption" standaard is gebaseerd op <a href="https://datatracker.ietf.org/doc/html/rfc7516">JWE</a>, de internationale standaard voor encryptie die breed toegepast wordt.</p>
 </li>
+<li><p>Als versleutelen nodig is, hoeven alleen de berichten waarin persoonsgegevens zitten versleuteld te worden. Dat zijn de responses van de gegevensleveranciers.</p>
+</li>
 </ul>
 <p>  <em>Implicaties</em></p>
 <ul>
-<li><em>nog uitwerken</em></li>
+<li><p>Alle berichten worden versleuteld door de partij die het bericht verstuurd.</p>
+</li>
+<li><p>Voor ondertekenen is een tweede certificaat nodig; dit moet een ander certificaat zijn dan het certificaat dat voor het ondertekenen gebruikt wordt. Omdat alleen de responses versleuteld worden, volstaat één extra certificaat bij CBS: het bericht wordt versleuteld met de publieke sleutel van de ontvanger (zie ook "Signing en Versleuteling").</p>
+</li>
 </ul>
-<p><strong>Federatieve Services Connectiviteit voor de architectuur - <a href="https://docs.fsc.nlx.io/introduction">FSC</a></strong></p>
+<p><strong>Federatieve Services Connectiviteit voor de connectiviteit - <a href="https://docs.fsc.nlx.io/introduction">FSC</a></strong></p>
 <p>  <em>Rationale</em></p>
 <ul>
 <li><p>Deze architectuur is de standaard voor 1-op-1 koppelingen voor gemeenten. Hoewel de standaard nog niet heel breed gebruikt wordt, is dit wel de standaard voor de toekomst.</p>
 </li>
-<li><p>Er bestaat een referentie implementatie die de inrichting en het gebruik van de API sterk vereenvoudigd. Verder is er bij VNG Realisatie (waar de standaard is ontwikkeld) kennis die gebruikt kan worden.</p>
+<li><p>Er bestaat een referentie implementatie die de inrichting en het gebruik van de API sterk vereenvoudigt. Verder is er bij VNG Realisatie (waar de standaard is ontwikkeld) kennis die gebruikt kan worden.</p>
 </li>
 </ul>
 <p>  <em>Implicaties</em></p>
 <ul>
-<li>Alle deelnemers dienen de FSC componenten te installeren en in te richten. Er bestaat een algemene referentie implementatie, die waarschijnlijk zo ingezet kan worden. Als deze niet voldoet, kan overwogen worden om een specifieke referentie implementatie voor DDAS beschikbaar te stellen.</li>
+<li><p>Alle deelnemers dienen de FSC componenten te installeren en in te richten. Er bestaat een algemene referentie implementatie, die waarschijnlijk zo ingezet kan worden. Als deze niet voldoet, kan overwogen worden om een specifieke referentie implementatie voor DDAS beschikbaar te stellen.</p>
+</li>
+<li><p>FSC gaat uit van dubbelzijdig versleuteld transport (TLS). Hiervoor hebben alle deelnemers van het DDAS-stelsel een certificaat nodig dat vertrouwd wordt.</p>
+</li>
 </ul>
 <p><strong><a href="https://json-schema.org/draft/2020-12/json-schema-validation">JSON formaat</a> voor berichten</strong></p>
 <p>  <em>Rationale</em></p>
@@ -415,29 +439,40 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <ul>
 <li>De gegevens moeten in JSON formaat uitgewisseld worden.</li>
 </ul>
-<p><strong>Gebruik <a href="https://www.logius.nl/domeinen/infrastructuur/diginetwerk">Diginetwerk</a> voor transport</strong></p>
-<p>NB: Het is de vraag of alle betrokken partijen toegang hebben of kunnen krijgen tot Diginetwerk. Als dit niet mogelijk is of onevenredig veel inspanning vergt, dan wordt het openbare internet gebruikt voor transport. Mogelijk zijn dan aanvullende maatregelen nodig om kwetsbaarheden te voorkomen.</p>
+<p><strong>Gebruik "open" internet voor transport</strong></p>
 <p>  <em>Rationale</em></p>
 <ul>
-<li>Het Diginetwerk is een gesloten netwerk waar alleen overheidsorganisaties toegang toe hebben. Dit beperkt de risico's van onbevoegde toegang tot de gegevens enorm.</li>
+<li><p>Een (groot) aantal deelnemers in het DDAS-stelsel heeft geen toegang tot <a href="https://www.logius.nl/domeinen/infrastructuur/diginetwerk">Diginetwerk</a> en aansluiten via een <a href="https://www.logius.nl/domeinen/infrastructuur/diginetwerk/aansluiten">koppelnetwerkaanbieder</a> zal onevenredig veel inspanning, doorlooptijd en kosten met zich meebrengen.</p>
+</li>
+<li><p>Er zijn geen routeervoorzieningen of andere "tussenstations" in het stelsel voorzien, waardoor "Man in the Middle" aanvallen onwaarschijnlijk zijn.</p>
+</li>
+<li><p>Het transport wordt met dubbelzijdig TLS versleuteld, wat voldoende beveiliging geeft.</p>
+</li>
+<li><p>Middels de directory van FSC worden alleen vertrouwde endpoints aangeroepen.</p>
+</li>
 </ul>
 <p>  <em>Implicaties</em></p>
 <ul>
-<li>Alle deelnemers moeten toegang tot het Diginetwerk hebben of krijgen. Dit vereist toegang via een <a href="https://www.logius.nl/domeinen/infrastructuur/diginetwerk/aansluiten">koppelnetwerkaanbieder</a>.</li>
+<li><p>Aansluiten op het stelsel vereist geen toegang tot een gesloten netwerk.</p>
+</li>
+<li><p>Het transport moet met dubbelzijdig TLS beveiligd worden.</p>
+</li>
+<li><p>Alleen endpoints die in de directory van FSC zijn vastgelegd, worden bevraagd.</p>
+</li>
 </ul>
 <p><strong>Gebruik <a href="https://www.logius.nl/domeinen/toegang/pkioverheid">PKIoverheid certificaten</a>&nbsp;voor authenticatie, signing en encryptie</strong></p>
 <p>  <em>Rationale</em></p>
 <ul>
-<li><p>Voor identicatie, authenticatie, signen en encryptie is een middel nodig dat door het stelsel vertrouwd wordt. PKIoverheid certificaten worden door de Nederlandse overheid uitgegeven, die daarmee de "Trust Anchor" voor DDAS wordt.</p>
+<li><p>Voor identicatie, authenticatie, signen en encryptie is een middel nodig dat door het stelsel vertrouwd wordt. PKIoverheid certificaten worden door de Nederlandse overheid uitgegeven, die daarmee de "Trust Anchor" voor het DDAS-stelsel wordt.</p>
 </li>
-<li><p>PKIoverheid certificaten worden door Logius (namens de rijksoverheid) uitgegeven en beheerd. Er is daarom geen organisatie nodig om certificaten voor het DDAS stelsel te beheren.</p>
-</li>
-<li><p>PKIoverheid certificaten kunnen voor veel diensten binnen de overheid gebruikt worden. De investering is daarom niet alleen voor DDAS, maar ook voor eventuele andere diensten die de deelnemer afneemt.</p>
+<li><p>PKIoverheid certificaten worden door Logius (namens de rijksoverheid) via <a href="https://www.logius.nl/domeinen/toegang/pkioverheid/pkioverheidcertificaat-aanvragen">Logius geautoriseerde aanbieders</a> uitgegeven en beheerd. Er is daarom geen organisatie nodig om certificaten voor het DDAS-stelsel te beheren.</p>
 </li>
 </ul>
 <p>  <em>Implicaties</em></p>
 <ul>
-<li>Alle deelnemers moeten een PKIoverheid certificaat hebben of krijgen. NB: Het is niet altijd mogelijk om een PKIoverheid certificaat dat al in gebruik is, te hergebruiken. Zo moet voor versleutelen een ander certificaat gebruikt worden dan voor ondertekenen van een bericht.</li>
+<li>Alle deelnemers moeten PKIoverheid certificaten hebben of krijgen.
+  NB: er zijn certificaten nodig voor de transportlaag en het ondertekenen van berichten (hiervoor mag niet hetzelfde certificaat gebruikt worden). Mogelijk kunnen bestaande certificaten hergebruikt worden, maar hier moet voorzichtig mee omgegaan worden om beveiligingsniveaus gescheiden te houden.
+  Als berichten met gevoelige gegevens ook versleuteld moeten worden, is een extra certificaat bij CBS vereist. De gegevensleveranciers gebruiken dan de publieke sleutel van dat certificaat om de berichten te versleutelen.</li>
 </ul>
 <p><strong>Beveiligingsniveau BBN2</strong></p>
 <p>  <em>Rationale</em></p>
@@ -461,46 +496,52 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <p>Afnemer: CBS</p>
 <p>Aanbieder: de schuldhulpverlenende organisatie of de gegevensleverancier hiervan</p>
 <p>PKI: <a href="https://nl.wikipedia.org/wiki/Public_key_infrastructure">Public Key Infrastructure</a> - systeem voor het uitgeven en beheren van digitale certificaten</p>
-<p>FSC: <a href="https://commonground.nl/page/view/736309a1-739a-47fc-abfd-67e71f1d9e59/consultatie-fsc">Federatieve Services Connectiviteit</a> - standaard voor het leggen van koppelingen m.b.v. API's</p>
+<p>FSC: <a href="https://fsc-standaard.nl/">Federatieve Services Connectiviteit</a> - standaard voor het leggen van koppelingen m.b.v. API's</p>
 <p>FTV: <a href="https://digilab.overheid.nl/projecten/toegangsverleningmethodiek-api/">Federatieve Toegangsverlening</a> - een standaard voor het inrichten en beheren van gecontroleerde toegang tot gegevensdiensten in een stelsel</p>
 <p>Log: Logging t.b.v. monitoring en verantwoording</p>
 <p>Deze specificatie richt zich primair op de beschrijving van de API (rechtsboven in de figuur bij de aanbieder van gegevens), maar ook de andere componenten worden benoemd.
 Bent u enkele geïnteresseerd in de OpenAPI specificatie van de API? Deze staat onder het kopje "Berichten".</p>
 </section>
   <section id="transport"><div class="header-wrapper"><h2 id="x3-transportlaag"><bdi class="secno">3. </bdi>Transportlaag</h2><a class="self-link" href="#transport" aria-label="Permalink for Section 3."></a></div>
-<p>Hoe ziet de technische uitwisseling van berichten eruit.&nbsp;</p>
+<p>Het transport van de berichten verloopt volgens de <a href="https://fsc-standaard.nl/">FSC-standaard</a>. De belangrijkste aspecten van deze standaard zijn:</p>
 <ul>
-<li><p>Dubbelzijdig TLS. NB: Dit vereist een certificaat dat door alle betrokken partijen vertrouwd wordt (zie ook "Vragen")</p>
+<li><p>Dubbelzijdig TLS. NB: Dit vereist een certificaat dat door alle betrokken partijen vertrouwd wordt.</p>
 </li>
-<li><p>Berichten lopen via FSC-componenten "outway gateway" van de afnemer (CBS) en "inway gateway" van de gegevensleverancier met de API</p>
+<li><p>Gebruik van PKIo certificaten voor authenticatie op basis van het <a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/">Nederlandse profiel van OAuth</a>. Deze zijn aan te vragen bij door <a href="https://www.logius.nl/domeinen/toegang/pkioverheid/pkioverheidcertificaat-aanvragen">Logius geautoriseerde aanbieders</a> - er is een "services" certificaat nodig met EKU (Extended Key Usage) "TLS Web Client Authentication".</p>
 </li>
-<li><p>De "directory" van FSC waarin alle endpoints van de gegevensleveranciers staan wordt beheerd door CBS</p>
+<li><p>Berichten lopen via FSC-componenten "outway gateway" van de afnemer (CBS) en "inway gateway" van de gegevensleverancier met de API.</p>
 </li>
-</ul>
-<p>Vragen:&nbsp;</p>
-<ul>
-<li><p>Gebruik van Diginetwerk? Kunnen alle organisaties die gegevens gaan leveren hierop aansluiten?&nbsp;Wordt waarschijnlijk niet mogelijk... Dan via “open” internet: vereist mogelijk extra maatregelen, zoals versleuteling van de gegevens.</p>
+<li><p>De "directory" van FSC waarin alle endpoints van de gegevensleveranciers staan wordt beheerd door CBS.</p>
 </li>
-<li><p>Gebruik van PKIo certificaten voor authenticatie op basis van het <a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/">Nederlandse profiel van OAuth</a>?&nbsp;Het is de vraag of alle partijen een PKIo certificaat mogen aanvragen. Als dit niet mogelijk is, moet een “trust anchor” gevonden worden: de autoriteit die certificaten kan uitgeven en beheren, en die door alle betrokken partijen vertrouwd wordt.</p>
+<li><p>Geen gebruik van Diginetwerk - de betrokken organisaties zijn daar niet op aangesloten. Transport gaat via het “open” internet.</p>
 </li>
 </ul>
 </section>
   <section id="iam"><div class="header-wrapper"><h2 id="x4-identificatie-authenticatie-en-autorisatie"><bdi class="secno">4. </bdi>Identificatie, Authenticatie en Autorisatie</h2><a class="self-link" href="#iam" aria-label="Permalink for Section 4."></a></div>
-<p>Het bijhouden van de deelnemers in het DDAS stelsel gebeurt door CBS in een directory die door FSC gebruikt wordt. Alle deelnemers gebruiken deze directory bij het uitwisselen van berichten.</p>
-<p>Hoe worden de schuldhulpverleners (gegevensleveranciers) geïdentificeerd? (o.b.v. (sub)OIN?) Als niet alle betrokken partijen een (sub)OIN kunnen krijgen, moet een systematiek gevonden worden om alle partijen uniek te kunnen identificeren.&nbsp;</p>
-<p>Hoe worden systemen geauthenticeerd? (obv PKIo certificaten? Als dat niet kan: wie wordt de “Trust Anchor” – de autoriteit die door alle partijen vertrouwd wordt?)&nbsp;</p>
-<p>Autorisatie lijkt niet heel spannend: er zal waarschijnlijk maar één service komen met een vaste set gegevens, waar maar één partij (CBS) toegang toe zal krijgen.
-Als fijnmaziger autorisatie nodig is, dan bestaat er een voorkeur voor PBAC (Policy Base Authorisation Control). De autorisatie wordt dan bepaald op basis van beleidsregels, zoals “organisatie X krijgt toegang tot gegeven G als de organisatie overeenkomst O getekend heeft en het gegeven is vrijgegeven door autoriteit A”. Dan is de vraag wie deze beleidsregels vaststelt en wie ze beheert.</p>
-</section>
+<p>Het bijhouden van de deelnemers in het DDAS-stelsel gebeurt door CBS in een directory die door FSC gebruikt wordt. Alle deelnemers gebruiken deze directory bij het uitwisselen van berichten.</p>
+<section id="identificatie"><div class="header-wrapper"><h3 id="x4-1-identificatie"><bdi class="secno">4.1 </bdi>Identificatie</h3><a class="self-link" href="#identificatie" aria-label="Permalink for Section 4.1"></a></div>
+<ul>
+<li>Hoe worden de gegevensleveranciers geïdentificeerd? Als het mogelijk is wordt hiervoor het (sub)OIN van de gegevensleverancier gebruikt. Als de gegevensleverancier geen (sub)OIN heeft, dan moet een unieke identifier gekozen worden, waarmee ook het PKIo certificaat aangevraagd kan worden (vermoedelijk het KvK-nummer?).</li>
+</ul>
+</section><section id="authenticatie"><div class="header-wrapper"><h3 id="x4-2-authenticatie"><bdi class="secno">4.2 </bdi>Authenticatie</h3><a class="self-link" href="#authenticatie" aria-label="Permalink for Section 4.2"></a></div>
+<ul>
+<li>Systemen worden geauthenticeerd met behulp van het PKIo certificaat.</li>
+</ul>
+</section><section id="autorisatie"><div class="header-wrapper"><h3 id="x4-3-autorisatie"><bdi class="secno">4.3 </bdi>Autorisatie</h3><a class="self-link" href="#autorisatie" aria-label="Permalink for Section 4.3"></a></div>
+<p>Er is voorlopig maar één service met een vaste set gegevens, waar maar één partij (CBS) toegang toe zal krijgen. Daarom is er geen autorisatie nodig, anders dan het verkrijgen van toegang tot de service. Partijen die toegang hebben tot de service zijn geautoriseerd om gegevens te bevragen. Deze autorisatie ligt vast in de directory van FSC, die door CBS beheerd wordt.</p>
+<p>Als fijnmaziger autorisatie nodig is, dan bestaat er een voorkeur voor PBAC (Policy Base Authorisation Control). De autorisatie wordt dan bepaald op basis van beleidsregels, zoals “organisatie X krijgt toegang tot gegeven G als de organisatie overeenkomst O getekend heeft en het gegeven is vrijgegeven door autoriteit A”. Het is dan nog wel de vraag wie deze beleidsregels vaststelt en wie ze beheert.</p>
+</section></section>
   <section id="sign"><div class="header-wrapper"><h2 id="x5-signing-en-versleuteling"><bdi class="secno">5. </bdi>Signing en Versleuteling</h2><a class="self-link" href="#sign" aria-label="Permalink for Section 5."></a></div>
 <section id="signeren-signing"><div class="header-wrapper"><h3 id="x5-1-signeren-signing"><bdi class="secno">5.1 </bdi>Signeren (Signing)</h3><a class="self-link" href="#signeren-signing" aria-label="Permalink for Section 5.1"></a></div>
-<p>NB: De Digikoppeling standaard voor REST-API heeft (nog) geen standaard voor signing en encryptie vastgesteld. Vanuit het <a href="https://www.geonovum.nl/themas/kennisplatform-apis">Kennisplatform API's</a> zijn wel voorstellen gedaan om hier een standaard voor te kiezen. Er zijn al standaarden uitgewerkt die op basis van JWS en JWE invulling hieraan geven - deze standaarden worden ook hier voorgesteld.</p>
-<p>Voorstel: Signing op basis van <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/">ADR-HTTP Message and payload signing with JAdES</a>.&nbsp;
-Het signeren van het bericht gebeurt met de privé sleutel van de verzender van het bericht, zodat het de controle met de publieke sleutel van de verzender kan gebeuren en in principe iedereen de handtekening kan controleren.</p>
+<p>Alle berichten moeten ge-signed worden om de authenticiteit en onweerlegbaarheid van het berichtenverkeer te garanderen.</p>
+<p>Signing gebeurt op basis van <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/">ADR-HTTP Message and payload signing with JAdES</a> - zie "Uitgangspunten" voor de onderbouwing hiervoor.&nbsp;
+Het signeren van het bericht gebeurt met de privé sleutel van de verzender van het bericht, zodat de controle met de publieke sleutel van de verzender kan gebeuren en in principe iedereen de handtekening kan controleren. Iedere deelnemer van het DDAS-stelsel heeft dus een certificaat nodig voor het ondertekenen van de berichten. Dit moet een ander certificaat zijn dan welke voor het transport gebruikt wordt! Ook dit certificaat is een "services" certificaat, maar met EKU (Extended Key Usage) "Digital Signature".</p>
 </section><section id="versleuteling-encryptie"><div class="header-wrapper"><h3 id="x5-2-versleuteling-encryptie"><bdi class="secno">5.2 </bdi>Versleuteling (Encryptie)</h3><a class="self-link" href="#versleuteling-encryptie" aria-label="Permalink for Section 5.2"></a></div>
-<p>Is versleuteling nodig? Er lijken geen routeervoorzieningen nodig te zijn waar berichten mogelijk gelezen kunnen worden, en als het kan gaan de berichten over het Diginetwerk van de overheid. Maar het is nog niet bekend of dit inderdaad kan en om voorbereid te zijn op eventuele toepassingen met routeervoorzieningen, is versleuteling nog een discussiepunt.</p>
-<p>Voorstel: Geen versleuteling.
-Als dit toch vereist wordt, dan versleuteling op basis van <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a>. De versleuteling gebeurt met de publieke sleutel van de ontvanger (in dit geval CBS), zodat alleen de ontvanger het bericht kan ontsleutelen.</p>
+<p>Is versleuteling nodig? Er zijn vooralsnog geen routeervoorzieningen nodig berichten mogelijk gelezen kunnen worden, en het transport is dubbelzijdig versleuteld. Het transport loopt wel over het "open" internet.</p>
+<p>Voorstel: Geen versleuteling.</p>
+<p>Als versleuteling toch vereist wordt, dan versleuteling op basis van <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a>.
+De versleuteling gebeurt met de publieke sleutel van de ontvanger, zodat alleen de ontvanger het bericht kan ontsleutelen. De sleutel mag niet dezelfde zijn als die voor signing of TLS wordt gebruikt; er is dus een extra certificaat nodig voor versleutelen.
+Alleen de berichten met gevoelige (persoons)gegevens moeten versleuteld worden. Dit zijn de response-berichten van de gegevensleveranciers - in de request-berichten van CBS zitten geen gevoelige gegevens. Dit betekent dat er voor versleuteling één extra certificaat nodig is: bij CBS.</p>
 </section></section>
   <section id="messages"><div class="header-wrapper"><h2 id="x6-berichten"><bdi class="secno">6. </bdi>Berichten</h2><a class="self-link" href="#messages" aria-label="Permalink for Section 6."></a></div>
 <p>De technische beschrijving van de API is het volgende OAS3-bestand beschreven.</p>
@@ -525,7 +566,7 @@ Als dit toch vereist wordt, dan versleuteling op basis van <a href="https://geon
 </section><section id="antwoordbericht-response"><div class="header-wrapper"><h3 id="x6-3-antwoordbericht-response"><bdi class="secno">6.3 </bdi>Antwoordbericht (response)</h3><a class="self-link" href="#antwoordbericht-response" aria-label="Permalink for Section 6.3"></a></div>
 <p>Dit is het antwoordbericht van de gegevensbeheerder (systeem dat de bron beheert) met de gewenste gegevens in JSON formaat.</p>
 <p>Ook dit bericht wordt ondertekend met <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/">JAdES</a> met gebruik van de eigen private sleutel.</p>
-<p>Als versleutelen nodig is, wordt het bericht versleuteld conform <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a> met de publieke sleutel van de afnemer waar het antwoordbericht naartoe gaat (in dit geval altijd CBS). Of dit noodzakelijk is, is nog een punt van dicussie - vooralsnog wordt ervan uitgegaan dat dit niet nodig is.
+<p>Als versleutelen nodig is (vooralsnog wordt ervan uitgegaan dat dit niet nodig is), wordt het bericht versleuteld conform <a href="https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/">ADR-HTTP Payload encryption</a> met de publieke sleutel van de afnemer waar het antwoordbericht naartoe gaat (in dit geval altijd CBS). Of dit noodzakelijk is, is nog een punt van dicussie - vooralsnog wordt ervan uitgegaan dat dit niet nodig is.
 In de OAS3.1 specificatie is alleen signing opgenomen, geen versleuteling. Mocht versleutelen vereist zijn, dan wordt de API als volgt beschreven: <a href="https://github.com/Govert-Claus/DDAS-API/blob/main/v0.1/DDAS-API_v0.1.2.yaml">OAS3.1 specificatie met versleuteling</a>.</p>
 <p>Payload is gebaseerd op <a href="https://vng-realisatie.github.io/ddas/v1.0/uitwisselspecificatie/">uitwisselspecificatie</a>!</p>
 <p>Mogelijke responses:</p>
@@ -544,24 +585,25 @@ In de OAS3.1 specificatie is alleen signing opgenomen, geen versleuteling. Mocht
 <p>Geen afhankelijkheden in het primaire proces: geen hoge performance vereist.&nbsp;</p>
 <p>Wordt gebruik van cache toegestaan (volgens mij moet dat kunnen)? Onder welke voorwaarden?&nbsp;</p>
 </section><section id="logging-en-monitoring"><div class="header-wrapper"><h3 id="x7-3-logging-en-monitoring"><bdi class="secno">7.3 </bdi>Logging en Monitoring</h3><a class="self-link" href="#logging-en-monitoring" aria-label="Permalink for Section 7.3"></a></div>
-<p>Verantwoordelijkheid voor monitoring ligt bij partij die verantwoording hierover moet afleggen. Omdat er persoonsgegevens verwerkt worden, moet in elk geval rekening gehouden worden met de AVG. Daarom moet gelogd worden welke BSN's met wie uitgewisseld worden.
-Welke verantwoording verwacht het programma of SZW?&nbsp;</p>
+<p>Verantwoordelijkheid voor monitoring ligt bij partij die verantwoording hierover moet afleggen. Omdat er persoonsgegevens verwerkt worden, moet in elk geval rekening gehouden worden met de AVG. Daarom moet gelogd worden welke BSN's met wie uitgewisseld worden. Hierover moet ook gerapporteerd kunnen worden naar de betrokken burgers.</p>
+<p>Vraag: Welke verantwoording verwacht het programma of SZW?&nbsp;</p>
 <p>Voor gemeenten (suggestie):&nbsp;</p>
 <ul>
-<li><p>Aantal bevragingen naar datum en afzender (altijd CBS?)&nbsp;</p>
+<li><p>Aantal bevragingen naar datum en afzender (dat zou altijd CBS moeten zijn).</p>
 </li>
-<li><p>Aantal en soort foute bevragingen&nbsp;</p>
+<li><p>Aantal en soort foute bevragingen.</p>
 </li>
-<li><p>Aantal en soort meegestuurde parameters&nbsp;</p>
+<li><p>Aantal en soort meegestuurde parameters.</p>
 </li>
-<li><p>Uitgewisselde BSN's met afnemer (altijd CBS?), zodat een burger inzicht kan krijgen in wie wanneer zijn gegevens heeft opgevraagd</p>
+<li><p>Uitgewisselde BSN's met afnemer (altijd CBS?), zodat een burger inzicht kan krijgen in wie wanneer zijn gegevens heeft opgevraagd.
+NB: BSN's zijn persoonsgegevens. Als deze in de logging worden vastgelegd, moeten de privacy van die gegevens gegarandeerd worden. In de DPIA moet vastgelegd worden welke maatregelen hiervoor getroffen worden.</p>
 </li>
 </ul>
-<p>Voor CBS:&nbsp;</p>
+<p>Voor CBS (suggestie):&nbsp;</p>
 <ul>
-<li><p>Aantal bevragingen naar datum en schuldhulpverlener&nbsp;</p>
+<li><p>Aantal bevragingen naar datum en schuldhulpverlener.</p>
 </li>
-<li><p>Aantal en soort (evt foutcodes) responses</p>
+<li><p>Aantal en soort (evt foutcodes) responses.</p>
 </li>
 </ul>
 </section></section>

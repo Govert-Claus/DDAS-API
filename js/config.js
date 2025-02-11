@@ -10,13 +10,13 @@ let respecConfig = {
 
   // Zie de globale property 'localizationStrings/nl' voor de lijst met toegestane specificatie-statussen
   specStatus: "IO",
-  publishDate: "2025-01-20",
-  publishVersion: "",
+  publishDate: "2025-01-24",
+  publishVersion: "0.2",
 
   // Zie de globale property 'localizationStrings/nl' voor de lijst met toegestane maturities
   //previousMaturity: "IO",
-  //previousPublishDate: "2022-06-24",
-  //previousPublishVersion: "0.0.4",
+  //previousPublishDate: "2024-10-22",
+  //previousPublishVersion: "0.1",
 
   title: "DDAS API Koppelvlakspecificatie",
   subtitle: "Koppelvlakspecificatie voor het beschikbaarstellen van DDAS-gegevens aan het CBS",

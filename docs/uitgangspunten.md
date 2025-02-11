@@ -36,6 +36,8 @@ De volgende keuzes zijn gemaakt: 
 
   - Alle gegevensleveranciers moeten een API beschikbaar stellen waar de DDAS-gegevens opgevraagd kunnen worden.
 
+  - De API moet voldoende beschikbaar zijn om CBS op de gewenste momenten te faciliteren.
+
 
 **Gebruik [Digikoppeling](https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling) REST profiel**
 
@@ -95,9 +97,11 @@ De volgende keuzes zijn gemaakt: 
 
   *Rationale*
 
-  - Deze architectuur is de standaard voor 1-op-1 koppelingen voor gemeenten. Hoewel de standaard nog niet heel breed gebruikt wordt, is dit wel de standaard voor de toekomst.
+  - Deze standaard is verplicht als het REST profiel van Digikoppeling wordt gebruikt.
 
-  - Er bestaat een referentie implementatie die de inrichting en het gebruik van de API sterk vereenvoudigt. Verder is er bij VNG Realisatie (waar de standaard is ontwikkeld) kennis die gebruikt kan worden.
+  - Door te kiezen voor een standaard, vereenvoudigt de complexiteit waar gemeenten met veel koppelingen mee te maken hebben.
+
+  - Er bestaat een referentie implementatie die de inrichting en het gebruik van de API sterk vereenvoudigt. Verder is er bij VNG Realisatie (waar de standaard is ontwikkeld), het Federatief Datastelsel en RINIS kennis die gebruikt kan worden.
 
   *Implicaties*
 
@@ -105,6 +109,29 @@ De volgende keuzes zijn gemaakt: 
 
   - FSC gaat uit van dubbelzijdig versleuteld transport (TLS). Hiervoor hebben alle deelnemers van het DDAS-stelsel een certificaat nodig dat vertrouwd wordt.
 
+
+**Gebruik van FSC directory van RINIS**
+
+  *Rationale*
+
+  - RINIS biedt een FSC directory aan voor alle overheidspartijen die de Digikoppeling standaard voor REST API's toepassen. Ook het DDAS stelsel mag daar gebruik van maken.
+
+  - Door gebruik te maken van de directory bij RINIS is er geen beheer nodig voor de centrale directory.
+
+  - RINIS wordt gezien als onafhankelijke partner, die door alle deelnemers vertrouwd wordt.
+
+  - Door gebruik te maken van de directory van RINIS zijn de services (in principe) makkelijk te hergebruiken voor andere diensten binnen de overheid.
+
+  - RINIS biedt de mogelijkheid om een eigen omgeving voor het DDAS stelsel te gebruiken, waar eigen voorwaarden voor deelname aan gekoppeld kunnen worden. *NB: er wordt nog overwogen of dit nodig is en meer voor- dan nadelen biedt*
+
+
+  *Implicaties*
+
+  - Het koppelvlak moet voldoen aan het REST profiel van de Digikoppeling standaard en gebruik maken van PKIo certificaten (dit is een voorwaarde om gebruik te maken van de voorziening van RINIS).
+
+  - Alle deelnemers moeten hun endpoint (laten) registreren bij RINIS. Dit gebeurt als onderdeel van het aansluitprotocol en wordt gefaciliteerd door CBS of het programma DDAS.
+
+  - Voor het ophalen van de gegevens, moet CBS de directory van RINIS bevragen om de lijst endpoints op te halen.
 
 
 **[JSON formaat](https://json-schema.org/draft/2020-12/json-schema-validation) voor berichten**
@@ -149,7 +176,7 @@ De volgende keuzes zijn gemaakt: 
 
   *Rationale*
 
-  - Voor identicatie, authenticatie, signen en encryptie is een middel nodig dat door het stelsel vertrouwd wordt. PKIoverheid certificaten worden door de Nederlandse overheid uitgegeven, die daarmee de "Trust Anchor" voor het DDAS-stelsel wordt.
+  - Voor identicatie, authenticatie, signen en encryptie is een middel nodig dat door alle deelnemers van het stelsel vertrouwd wordt. PKIoverheid certificaten worden door de Nederlandse overheid uitgegeven, die daarmee de "Trust Anchor" voor het DDAS-stelsel wordt.
 
   - PKIoverheid certificaten worden door Logius (namens de rijksoverheid) via [Logius geautoriseerde aanbieders](https://www.logius.nl/domeinen/toegang/pkioverheid/pkioverheidcertificaat-aanvragen) uitgegeven en beheerd. Er is daarom geen organisatie nodig om certificaten voor het DDAS-stelsel te beheren.
 

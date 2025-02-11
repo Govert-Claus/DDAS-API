@@ -30,7 +30,7 @@ De stappen die de deelnemer moet doorlopen, zijn:
 
 - Indien er geen blokkerende bevindingen zijn, krijgt de deelnemer vrijgave van de stelselbeheer (DDAS?) en wordt de API in de productieomgeving ingericht en beschikbaar gesteld.
 
-- CBS voert de deelnemer op in de management module van FSC, zodat de API beschikbaar komt in het stelsel en bevraagd kan worden bij het ophalen van alle gegevens.
+- CBS laat de deelnemer opvoeren in de FSC management module van RINIS, zodat de API beschikbaar komt in het stelsel en bevraagd kan worden bij het ophalen van alle gegevens.
 
 Ten behoeve van de testen stelt DDAS een set testgegevens beschikbaar *[wie maakt deze set? waar komt dit te staan?]*.
 

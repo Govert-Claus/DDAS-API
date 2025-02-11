@@ -2,7 +2,9 @@
 
 Stappen bij het aanleveren van gegevens: 
 
-- CBS roept via FSC de API van de gegevensleverancier aan (eventueel met parameters) met requestbericht dat gesigneerd is met privé sleutel van CBS
+- CBS bevraagt de FSC directory bij RINIS om de endpoints van de gegevensleveranciers op te halen
+
+- CBS roept via de FSC-outway de FSC-inway en daarmee de API van de gegevensleverancier aan (eventueel met parameters) met een requestbericht dat gesigneerd is met privé sleutel van CBS
 
 - De gegevensleverancier controleert de signatuur met de publieke sleutel van CBS
 
@@ -12,15 +14,11 @@ Stappen bij het aanleveren van gegevens: 
 
 - CBS controleert response functioneel/ inhoudelijk (relatie tussen velden, vreemde waarden, etc.)
 
-- CBS stuurt een verwerkingsverslag ("op orde bericht") naar de gegevensleverancier [nog ter discussie hoe dit het beste kan]
+- CBS stuurt een verwerkingsverslag ("op orde bericht") naar de gegevensleverancier *[nog ter discussie hoe dit het beste kan]*
 
 - Indien OK, dan worden de gegevens bij CBS ingelezen in de database 
 
-- CBS loopt alle gerapporteerde trajecten af en combineert trajecten van dezelfde BSN tot één “traject” 
-
-[nog ter discussie:
-- Bij het combineren wordt de volledigheid en kwaliteit van de gegevens gecontroleerd – op basis daarvan krijgt het traject een "betrouwbaarheidsindicator"" 
-]
+- CBS loopt alle gerapporteerde trajecten af en combineert trajecten van dezelfde BSN bij dezelfde gemeente tot één “traject”
 
 - CBS genereert de gewenste statistieken 
 

@@ -358,7 +358,10 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 </ul>
 <p>  <em>Implicaties</em></p>
 <ul>
-<li>Alle gegevensleveranciers moeten een API beschikbaar stellen waar de DDAS-gegevens opgevraagd kunnen worden.</li>
+<li><p>Alle gegevensleveranciers moeten een API beschikbaar stellen waar de DDAS-gegevens opgevraagd kunnen worden.</p>
+</li>
+<li><p>De API moet voldoende beschikbaar zijn om CBS op de gewenste momenten te faciliteren.</p>
+</li>
 </ul>
 <p><strong>Gebruik <a href="https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling">Digikoppeling</a> REST profiel</strong></p>
 <p>  <em>Rationale</em></p>
@@ -413,9 +416,11 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <p><strong>Federatieve Services Connectiviteit voor de connectiviteit - <a href="https://docs.fsc.nlx.io/introduction">FSC</a></strong></p>
 <p>  <em>Rationale</em></p>
 <ul>
-<li><p>Deze architectuur is de standaard voor 1-op-1 koppelingen voor gemeenten. Hoewel de standaard nog niet heel breed gebruikt wordt, is dit wel de standaard voor de toekomst.</p>
+<li><p>Deze standaard is verplicht als het REST profiel van Digikoppeling wordt gebruikt.</p>
 </li>
-<li><p>Er bestaat een referentie implementatie die de inrichting en het gebruik van de API sterk vereenvoudigt. Verder is er bij VNG Realisatie (waar de standaard is ontwikkeld) kennis die gebruikt kan worden.</p>
+<li><p>Door te kiezen voor een standaard, vereenvoudigt de complexiteit waar gemeenten met veel koppelingen mee te maken hebben.</p>
+</li>
+<li><p>Er bestaat een referentie implementatie die de inrichting en het gebruik van de API sterk vereenvoudigt. Verder is er bij VNG Realisatie (waar de standaard is ontwikkeld), het Federatief Datastelsel en RINIS kennis die gebruikt kan worden.</p>
 </li>
 </ul>
 <p>  <em>Implicaties</em></p>
@@ -423,6 +428,29 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <li><p>Alle deelnemers dienen de FSC componenten te installeren en in te richten. Er bestaat een algemene referentie implementatie, die waarschijnlijk zo ingezet kan worden. Als deze niet voldoet, kan overwogen worden om een specifieke referentie implementatie voor DDAS beschikbaar te stellen.</p>
 </li>
 <li><p>FSC gaat uit van dubbelzijdig versleuteld transport (TLS). Hiervoor hebben alle deelnemers van het DDAS-stelsel een certificaat nodig dat vertrouwd wordt.</p>
+</li>
+</ul>
+<p><strong>Gebruik van FSC directory van RINIS</strong></p>
+<p>  <em>Rationale</em></p>
+<ul>
+<li><p>RINIS biedt een FSC directory aan voor alle overheidspartijen die de Digikoppeling standaard voor REST API's toepassen. Ook het DDAS stelsel mag daar gebruik van maken.</p>
+</li>
+<li><p>Door gebruik te maken van de directory bij RINIS is er geen beheer nodig voor de centrale directory.</p>
+</li>
+<li><p>RINIS wordt gezien als onafhankelijke partner, die door alle deelnemers vertrouwd wordt.</p>
+</li>
+<li><p>Door gebruik te maken van de directory van RINIS zijn de services (in principe) makkelijk te hergebruiken voor andere diensten binnen de overheid.</p>
+</li>
+<li><p>RINIS biedt de mogelijkheid om een eigen omgeving voor het DDAS stelsel te gebruiken, waar eigen voorwaarden voor deelname aan gekoppeld kunnen worden. <em>NB: er wordt nog overwogen of dit nodig is en meer voor- dan nadelen biedt</em></p>
+</li>
+</ul>
+<p>  <em>Implicaties</em></p>
+<ul>
+<li><p>Het koppelvlak moet voldoen aan het REST profiel van de Digikoppeling standaard en gebruik maken van PKIo certificaten (dit is een voorwaarde om gebruik te maken van de voorziening van RINIS).</p>
+</li>
+<li><p>Alle deelnemers moeten hun endpoint (laten) registreren bij RINIS. Dit gebeurt als onderdeel van het aansluitprotocol en wordt gefaciliteerd door CBS of het programma DDAS.</p>
+</li>
+<li><p>Voor het ophalen van de gegevens, moet CBS de directory van RINIS bevragen om de lijst endpoints op te halen.</p>
 </li>
 </ul>
 <p><strong><a href="https://json-schema.org/draft/2020-12/json-schema-validation">JSON formaat</a> voor berichten</strong></p>
@@ -463,7 +491,7 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <p><strong>Gebruik <a href="https://www.logius.nl/domeinen/toegang/pkioverheid">PKIoverheid certificaten</a>&nbsp;voor authenticatie, signing en encryptie</strong></p>
 <p>  <em>Rationale</em></p>
 <ul>
-<li><p>Voor identicatie, authenticatie, signen en encryptie is een middel nodig dat door het stelsel vertrouwd wordt. PKIoverheid certificaten worden door de Nederlandse overheid uitgegeven, die daarmee de "Trust Anchor" voor het DDAS-stelsel wordt.</p>
+<li><p>Voor identicatie, authenticatie, signen en encryptie is een middel nodig dat door alle deelnemers van het stelsel vertrouwd wordt. PKIoverheid certificaten worden door de Nederlandse overheid uitgegeven, die daarmee de "Trust Anchor" voor het DDAS-stelsel wordt.</p>
 </li>
 <li><p>PKIoverheid certificaten worden door Logius (namens de rijksoverheid) via <a href="https://www.logius.nl/domeinen/toegang/pkioverheid/pkioverheidcertificaat-aanvragen">Logius geautoriseerde aanbieders</a> uitgegeven en beheerd. Er is daarom geen organisatie nodig om certificaten voor het DDAS-stelsel te beheren.</p>
 </li>
@@ -511,7 +539,7 @@ Bent u enkele geïnteresseerd in de OpenAPI specificatie van de API? Deze staat 
 </li>
 <li><p>Berichten lopen via FSC-componenten "outway gateway" van de afnemer (CBS) en "inway gateway" van de gegevensleverancier met de API.</p>
 </li>
-<li><p>De "directory" van FSC waarin alle endpoints van de gegevensleveranciers staan wordt beheerd door CBS.</p>
+<li><p>De "directory" van FSC waarin alle endpoints van de gegevensleveranciers staan wordt beheerd door <a href="https://www.rinis.nl/nl/">RINIS</a>.</p>
 </li>
 <li><p>Geen gebruik van Diginetwerk - de betrokken organisaties zijn daar niet op aangesloten. Transport gaat via het “open” internet.</p>
 </li>
@@ -610,7 +638,9 @@ NB: BSN's zijn persoonsgegevens. Als deze in de logging worden vastgelegd, moete
   <section id="aanlever"><div class="header-wrapper"><h2 id="x8-aanleverprotocol"><bdi class="secno">8. </bdi>Aanleverprotocol</h2><a class="self-link" href="#aanlever" aria-label="Permalink for Section 8."></a></div>
 <p>Stappen bij het aanleveren van gegevens:&nbsp;</p>
 <ul>
-<li><p>CBS roept via FSC de API van de gegevensleverancier aan (eventueel met parameters)&nbsp;met requestbericht dat gesigneerd is met privé sleutel van CBS</p>
+<li><p>CBS bevraagt de FSC directory bij RINIS om de endpoints van de gegevensleveranciers op te halen</p>
+</li>
+<li><p>CBS roept via de FSC-outway de FSC-inway en daarmee de API van de gegevensleverancier aan (eventueel met parameters)&nbsp;met een requestbericht dat gesigneerd is met privé sleutel van CBS</p>
 </li>
 <li><p>De gegevensleverancier controleert de signatuur met de publieke sleutel van CBS</p>
 </li>
@@ -620,18 +650,11 @@ NB: BSN's zijn persoonsgegevens. Als deze in de logging worden vastgelegd, moete
 </li>
 <li><p>CBS controleert response functioneel/ inhoudelijk (relatie tussen velden, vreemde waarden, etc.)</p>
 </li>
-<li><p>CBS stuurt een verwerkingsverslag ("op orde bericht") naar de gegevensleverancier [nog ter discussie hoe dit het beste kan]</p>
+<li><p>CBS stuurt een verwerkingsverslag ("op orde bericht") naar de gegevensleverancier <em>[nog ter discussie hoe dit het beste kan]</em></p>
 </li>
 <li><p>Indien OK, dan worden de gegevens bij CBS ingelezen in de database&nbsp;</p>
 </li>
-<li><p>CBS loopt alle gerapporteerde trajecten af en combineert trajecten van dezelfde BSN tot één “traject”</p>
-</li>
-</ul>
-<p>&nbsp;</p>
-<p>[nog ter discussie:</p>
-<ul>
-<li><p>Bij het combineren wordt de volledigheid en kwaliteit van de gegevens gecontroleerd – op basis daarvan krijgt het traject een "betrouwbaarheidsindicator""&nbsp;
-]</p>
+<li><p>CBS loopt alle gerapporteerde trajecten af en combineert trajecten van dezelfde BSN bij dezelfde gemeente tot één “traject”</p>
 </li>
 <li><p>CBS genereert de gewenste statistieken</p>
 </li>
@@ -670,7 +693,7 @@ NB: BSN's zijn persoonsgegevens. Als deze in de logging worden vastgelegd, moete
 </li>
 <li><p>Indien er geen blokkerende bevindingen zijn, krijgt de deelnemer vrijgave van de stelselbeheer (DDAS?) en wordt de API in de productieomgeving ingericht en beschikbaar gesteld.</p>
 </li>
-<li><p>CBS voert de deelnemer op in de management module van FSC, zodat de API beschikbaar komt in het stelsel en bevraagd kan worden bij het ophalen van alle gegevens.</p>
+<li><p>CBS laat de deelnemer opvoeren in de FSC management module van RINIS, zodat de API beschikbaar komt in het stelsel en bevraagd kan worden bij het ophalen van alle gegevens.</p>
 </li>
 </ul>
 <p>Ten behoeve van de testen stelt DDAS een set testgegevens beschikbaar <em>[wie maakt deze set? waar komt dit te staan?]</em>.</p>

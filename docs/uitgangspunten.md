@@ -32,6 +32,8 @@ De volgende keuzes zijn gemaakt: 
 
   - De API waarmee gegevens beschikbaar gesteld worden, kan hergebruikt worden voor andere toepassingen.
 
+  - Dit patroon is besproken in de stuurgroep van 16 december 2024 en als voorkeurspatroon geaccepteerd (rekening houdend met de kanttekeningen die in de besproken beslisnotitie zijn meegegeven).
+
   *Implicaties*
 
   - Alle gegevensleveranciers moeten een API beschikbaar stellen waar de DDAS-gegevens opgevraagd kunnen worden.

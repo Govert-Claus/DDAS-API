@@ -28,7 +28,7 @@ De volgende keuzes zijn gemaakt: 
 
   - Dit uitwisselpatroon past het best bij het [Federatief Datastelsel](https://realisatieibds.nl/page/view/564cc96c-115e-4e81-b5e6-01c99b1814ec/de-ontwikkeling-van-het-federatief-datastelsel).
 
-  - Gegevens blijven in de bron en worden bevraagd als ze nodig.
+  - Gegevens blijven in de bron en worden bevraagd als ze nodig zijn.
 
   - De API waarmee gegevens beschikbaar gesteld worden, kan hergebruikt worden voor andere toepassingen.
 
@@ -91,7 +91,7 @@ De volgende keuzes zijn gemaakt: 
 
   - Alle berichten worden versleuteld door de partij die het bericht verstuurd.
 
-  - Voor ondertekenen is een tweede certificaat nodig; dit moet een ander certificaat zijn dan het certificaat dat voor het ondertekenen gebruikt wordt. Omdat alleen de responses versleuteld worden, volstaat één extra certificaat bij CBS: het bericht wordt versleuteld met de publieke sleutel van de ontvanger (zie ook "Signing en Versleuteling").
+  - Voor het versleutelen is een extra certificaat nodig; dit moet een ander certificaat zijn als de certificaten die voor het ondertekenen en de mTLS verbinding gebruikt worden. NB: Omdat alleen de responses versleuteld worden, volstaat één extra certificaat bij CBS: het bericht wordt versleuteld met de publieke sleutel van de ontvanger (zie ook "Signing en Versleuteling").
 
 
 

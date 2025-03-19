@@ -20,8 +20,6 @@ De stappen die de deelnemer moet doorlopen, zijn:
 
   - Eventuele verzoeken om de aansluiting tot stand te krijgen, zoals een gewenste publicatiedatum, specifieke testdata of specifieke beschikbaarheid
 
-- *Indien PKIo certificaten niet mogelijk zijn: de stelselbeheerder (DDAS of CBS?) genereert een certificaat voor de TLS verbinding, signing en encryptie, en levert deze aan de deelnemer.*
-
 - De deelnemer richt in de testomgeving de API, conform de [AOS documentatie](../v0.1/DDAS-API_v0.1.1.yaml) in. Voor de installatie van FSC komt een handleiding en een referentie implementatie beschikbaar.
 
 - De deelnemer voert CBS op in de management module van FSC, om toegang te verlenen.
@@ -30,7 +28,7 @@ De stappen die de deelnemer moet doorlopen, zijn:
 
 - Indien er geen blokkerende bevindingen zijn, krijgt de deelnemer vrijgave van de stelselbeheer (DDAS?) en wordt de API in de productieomgeving ingericht en beschikbaar gesteld.
 
-- CBS laat de deelnemer opvoeren in de FSC management module van RINIS, zodat de API beschikbaar komt in het stelsel en bevraagd kan worden bij het ophalen van alle gegevens.
+- De stelselbeheerder laat de deelnemer opvoeren in de FSC management module van RINIS, zodat de API beschikbaar komt in het stelsel en bevraagd kan worden bij het ophalen van alle gegevens.
 
 Ten behoeve van de testen stelt DDAS een set testgegevens beschikbaar *[wie maakt deze set? waar komt dit te staan?]*.
 

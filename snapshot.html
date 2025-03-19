@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="nl"><head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta content="text/html; charset=utf-8" http-equiv="content-type">
-<meta name="generator" content="ReSpec 35.1.1">
+<meta name="generator" content="ReSpec 35.2.2">
 <style>
 dfn{cursor:pointer}
 .dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
@@ -91,8 +91,9 @@ dd{margin-left:0}
 }
 </style>
 <style id="respec-nlgov">
-img.license{float:left;padding-right:5px}
+img.license{float:left;padding-right:5px;background:0 0}
 </style>
+<meta name="color-scheme" content="light">
 <meta name="description" content="Dit is de koppelvlakspecificatie voor de API waarmee schuldhulporganisaties gegevens beschikbaarstellen aan het CBS.
 Dit is een product van het programma DDAS. De API is gebaseerd op het informatie- en uitwisselmodel.">
 <style>
@@ -313,9 +314,9 @@ Dit is een product van het programma DDAS. De API is gebaseerd op het informatie
           <a rel="alternate" href="DDAS-API-Koppelvlakspecificatie.pdf">pdf</a>
         </p>
     <p class="copyright">
-          Dit document valt onder de volgende licentie: 
-          <a rel="license" href="https://eupl.eu/" class="subfoot"><img class="license" src="https://eupl.eu/eu.png" alt="Logo EUROPEAN UNION PUBLIC LICENCE v. 1.2"><br> EUROPEAN UNION PUBLIC LICENCE v. 1.2</a>
-        </p>
+            Dit document valt onder de volgende licentie: 
+            <a rel="license" href="https://eupl.eu/" class="subfoot"><img class="license" src="https://eupl.eu/eu.png" alt="Logo EUROPEAN UNION PUBLIC LICENCE v. 1.2"><br> EUROPEAN UNION PUBLIC LICENCE v. 1.2</a>
+          </p>
     <hr title="Separator for header">
   </div>
   <section id="abstract" class="introductory"><h2>Samenvatting</h2><p>Dit is de koppelvlakspecificatie voor de API waarmee schuldhulporganisaties gegevens beschikbaarstellen aan het CBS.
@@ -351,7 +352,7 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <ul>
 <li><p>Dit uitwisselpatroon past het best bij het <a href="https://realisatieibds.nl/page/view/564cc96c-115e-4e81-b5e6-01c99b1814ec/de-ontwikkeling-van-het-federatief-datastelsel">Federatief Datastelsel</a>.</p>
 </li>
-<li><p>Gegevens blijven in de bron en worden bevraagd als ze nodig.</p>
+<li><p>Gegevens blijven in de bron en worden bevraagd als ze nodig zijn.</p>
 </li>
 <li><p>De API waarmee gegevens beschikbaar gesteld worden, kan hergebruikt worden voor andere toepassingen.</p>
 </li>
@@ -412,7 +413,7 @@ Dit is een product van het <a href="https://www.divosa.nl/projecten/data-delen-o
 <ul>
 <li><p>Alle berichten worden versleuteld door de partij die het bericht verstuurd.</p>
 </li>
-<li><p>Voor ondertekenen is een tweede certificaat nodig; dit moet een ander certificaat zijn dan het certificaat dat voor het ondertekenen gebruikt wordt. Omdat alleen de responses versleuteld worden, volstaat één extra certificaat bij CBS: het bericht wordt versleuteld met de publieke sleutel van de ontvanger (zie ook "Signing en Versleuteling").</p>
+<li><p>Voor het versleutelen is een extra certificaat nodig; dit moet een ander certificaat zijn als de certificaten die voor het ondertekenen en de mTLS verbinding gebruikt worden. NB: Omdat alleen de responses versleuteld worden, volstaat één extra certificaat bij CBS: het bericht wordt versleuteld met de publieke sleutel van de ontvanger (zie ook "Signing en Versleuteling").</p>
 </li>
 </ul>
 <p><strong>Federatieve Services Connectiviteit voor de connectiviteit - <a href="https://docs.fsc.nlx.io/introduction">FSC</a></strong></p>
@@ -537,7 +538,9 @@ Bent u enkele geïnteresseerd in de OpenAPI specificatie van de API? Deze staat 
 <ul>
 <li><p>Dubbelzijdig TLS. NB: Dit vereist een certificaat dat door alle betrokken partijen vertrouwd wordt.</p>
 </li>
-<li><p>Gebruik van PKIo certificaten voor authenticatie op basis van het <a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/">Nederlandse profiel van OAuth</a>. Deze zijn aan te vragen bij door <a href="https://www.logius.nl/domeinen/toegang/pkioverheid/pkioverheidcertificaat-aanvragen">Logius geautoriseerde aanbieders</a> - er is een "services" certificaat nodig met EKU (Extended Key Usage) "TLS Web Client Authentication".</p>
+<li><p>Gebruik van PKIo certificaten. Deze zijn aan te vragen bij door <a href="https://www.logius.nl/domeinen/toegang/pkioverheid/pkioverheidcertificaat-aanvragen">Logius geautoriseerde aanbieders</a>.</p>
+</li>
+<li><p>De autorisatie van verbindingen wordt gedaan met een client credentials flow die voldoet aan het <a href="https://gitdocumentatie.logius.nl/publicatie/api/oauth/">Nederlandse profiel van OAuth</a>.</p>
 </li>
 <li><p>Berichten lopen via FSC-componenten "outway gateway" van de afnemer (CBS) en "inway gateway" van de gegevensleverancier met de API.</p>
 </li>
@@ -548,7 +551,7 @@ Bent u enkele geïnteresseerd in de OpenAPI specificatie van de API? Deze staat 
 </ul>
 </section>
   <section id="iam"><div class="header-wrapper"><h2 id="x4-identificatie-authenticatie-en-autorisatie"><bdi class="secno">4. </bdi>Identificatie, Authenticatie en Autorisatie</h2><a class="self-link" href="#iam" aria-label="Permalink for Section 4."></a></div>
-<p>Het bijhouden van de deelnemers in het DDAS-stelsel gebeurt door CBS in een directory die door FSC gebruikt wordt. Alle deelnemers gebruiken deze directory bij het uitwisselen van berichten.</p>
+<p>Het bijhouden van de deelnemers in het DDAS-stelsel gebeurt door RINIS in een directory die door FSC gebruikt wordt. Alle deelnemers gebruiken deze directory bij het uitwisselen van berichten.</p>
 <section id="identificatie"><div class="header-wrapper"><h3 id="x4-1-identificatie"><bdi class="secno">4.1 </bdi>Identificatie</h3><a class="self-link" href="#identificatie" aria-label="Permalink for Section 4.1"></a></div>
 <ul>
 <li>Hoe worden de gegevensleveranciers geïdentificeerd? Als het mogelijk is wordt hiervoor het (sub)OIN van de gegevensleverancier gebruikt. Als de gegevensleverancier geen (sub)OIN heeft, dan moet een unieke identifier gekozen worden, waarmee ook het PKIo certificaat aangevraagd kan worden (vermoedelijk het KvK-nummer?).</li>
@@ -558,7 +561,8 @@ Bent u enkele geïnteresseerd in de OpenAPI specificatie van de API? Deze staat 
 <li>Systemen worden geauthenticeerd met behulp van het PKIo certificaat.</li>
 </ul>
 </section><section id="autorisatie"><div class="header-wrapper"><h3 id="x4-3-autorisatie"><bdi class="secno">4.3 </bdi>Autorisatie</h3><a class="self-link" href="#autorisatie" aria-label="Permalink for Section 4.3"></a></div>
-<p>Er is voorlopig maar één service met een vaste set gegevens, waar maar één partij (CBS) toegang toe zal krijgen. Daarom is er geen autorisatie nodig, anders dan het verkrijgen van toegang tot de service. Partijen die toegang hebben tot de service zijn geautoriseerd om gegevens te bevragen. Deze autorisatie ligt vast in de directory van FSC, die door CBS beheerd wordt.</p>
+<p>De autorisatie voor toegang wordt vastgelegd in een FSC Contract tussen aanbieder en afnemer.
+Er is voorlopig maar één service met een vaste set gegevens, waar maar één partij (CBS) toegang toe zal krijgen. Daarom is er geen fijnmazige autorisatie nodig: partijen die toegang hebben tot de service zijn geautoriseerd om gegevens te bevragen.</p>
 <p>Als fijnmaziger autorisatie nodig is, dan bestaat er een voorkeur voor PBAC (Policy Base Authorisation Control). De autorisatie wordt dan bepaald op basis van beleidsregels, zoals “organisatie X krijgt toegang tot gegeven G als de organisatie overeenkomst O getekend heeft en het gegeven is vrijgegeven door autoriteit A”. Het is dan nog wel de vraag wie deze beleidsregels vaststelt en wie ze beheert.</p>
 </section></section>
   <section id="sign"><div class="header-wrapper"><h2 id="x5-signing-en-versleuteling"><bdi class="secno">5. </bdi>Signing en Versleuteling</h2><a class="self-link" href="#sign" aria-label="Permalink for Section 5."></a></div>
@@ -685,8 +689,6 @@ NB: BSN's zijn persoonsgegevens. Als deze in de logging worden vastgelegd, moete
 </li>
 </ul>
 </li>
-<li><p><em>Indien PKIo certificaten niet mogelijk zijn: de stelselbeheerder (DDAS of CBS?) genereert een certificaat voor de TLS verbinding, signing en encryptie, en levert deze aan de deelnemer.</em></p>
-</li>
 <li><p>De deelnemer richt in de testomgeving de API, conform de <a href="../v0.1/DDAS-API_v0.1.1.yaml">AOS documentatie</a> in. Voor de installatie van FSC komt een handleiding en een referentie implementatie beschikbaar.</p>
 </li>
 <li><p>De deelnemer voert CBS op in de management module van FSC, om toegang te verlenen.</p>
@@ -695,7 +697,7 @@ NB: BSN's zijn persoonsgegevens. Als deze in de logging worden vastgelegd, moete
 </li>
 <li><p>Indien er geen blokkerende bevindingen zijn, krijgt de deelnemer vrijgave van de stelselbeheer (DDAS?) en wordt de API in de productieomgeving ingericht en beschikbaar gesteld.</p>
 </li>
-<li><p>CBS laat de deelnemer opvoeren in de FSC management module van RINIS, zodat de API beschikbaar komt in het stelsel en bevraagd kan worden bij het ophalen van alle gegevens.</p>
+<li><p>De stelselbeheerder laat de deelnemer opvoeren in de FSC management module van RINIS, zodat de API beschikbaar komt in het stelsel en bevraagd kan worden bij het ophalen van alle gegevens.</p>
 </li>
 </ul>
 <p>Ten behoeve van de testen stelt DDAS een set testgegevens beschikbaar <em>[wie maakt deze set? waar komt dit te staan?]</em>.</p>

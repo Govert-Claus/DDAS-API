@@ -32,7 +32,7 @@ De volgende keuzes zijn gemaakt: 
 
   - De API waarmee gegevens beschikbaar gesteld worden, kan hergebruikt worden voor andere toepassingen.
 
-  - Dit patroon is besproken in de stuurgroep van 16 december 2024 en als voorkeurspatroon geaccepteerd (rekening houdend met de kanttekeningen die in de besproken beslisnotitie zijn meegegeven).
+  - Dit patroon is besproken in de stuurgroep van 17 maart 2025 en als voorkeurspatroon geaccepteerd (rekening houdend met de risico's en maatregelen die in de besproken beslisnotitie zijn meegegeven).
 
   *Implicaties*
 
@@ -40,18 +40,23 @@ De volgende keuzes zijn gemaakt: 
 
   - De API moet voldoende beschikbaar zijn om CBS op de gewenste momenten te faciliteren.
 
+  - Er is geen centrale routeervoorziening of gegevensopslag nodig.
+
+
 
 **Gebruik [Digikoppeling](https://www.logius.nl/domeinen/gegevensuitwisseling/digikoppeling) REST profiel**
 
   *Rationale*
 
-  - Dit profiel is het minst complexe profiel voor API's en past het beste bij een stelsel waar veel partijen aan deelnemen en in eigen tempo kunnen aansluiten.
+  - De Digikoppeling standaard is de overheidsstandaard voor gegevensuitwisseling.
+
+  - Het REST profiel is het minst complexe profiel voor API's en past het beste bij een stelsel waar veel partijen aan deelnemen en in eigen tempo kunnen aansluiten.
 
   *Implicaties*
 
   - Alle leverende deelnemers dienen een API conform het REST profiel beschikbaar te stellen.
 
-  - Omdat het Digikoppeling REST profiel nog geen keuze heeft gemaakt voor signing en encryptie, moet hier expliciet een keuze in gemaakt worden.
+  - Het REST profiel stelt de FSC standaard als verplicht voor de inrichting van het koppelvlak - hier moet dus ook aan voldaan worden.
 
 
 
@@ -75,23 +80,17 @@ De volgende keuzes zijn gemaakt: 
 
 
 
-**Gebruik [ADR-HTTP Payload encryption](https://geonovum.github.io/KP-APIs/API-strategie-modules/encryption/) voor encryptie *(NB: als encryptie vereist is - de verwachting is dat dit NIET nodig is)***
+**Berichten worden niet versleuteld***
 
   *Rationale*
 
-  - Het [REST profiel van Digikopeling](https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-REST-API/#encryptie) stelt het gebruik van ADR-HTTP Payload Encryption verplicht als berichten versleuteld worden.
+  - Omdat het berichtenverkeer rechtstreeks tussen aanbieder en afnemer verloopt, is een "Man-in-the-Middle" aanval niet waarschijnlijk.
 
-  - De "payload encryption" is als standaard voorgesteld door het [Kennisplatform API's](https://www.geonovum.nl/themas/kennisplatform-apis).
-
-  - De "payload encryption" standaard is gebaseerd op [JWE](https://datatracker.ietf.org/doc/html/rfc7516), de internationale standaard voor encryptie die breed toegepast wordt.
-
-  - Als versleutelen nodig is, hoeven alleen de berichten waarin persoonsgegevens zitten versleuteld te worden. Dat zijn de responses van de gegevensleveranciers.
+  - De transportlaag wordt "end-to-end" versleuteld. Dit levert voldoende zekerheid dat de gegevens niet door ongeautoriseerde partijen gelezen kunnen worden.
 
   *Implicaties*
 
-  - Alle berichten worden versleuteld door de partij die het bericht verstuurd.
-
-  - Voor het versleutelen is een extra certificaat nodig; dit moet een ander certificaat zijn als de certificaten die voor het ondertekenen en de mTLS verbinding gebruikt worden. NB: Omdat alleen de responses versleuteld worden, volstaat één extra certificaat bij CBS: het bericht wordt versleuteld met de publieke sleutel van de ontvanger (zie ook "Signing en Versleuteling").
+  - Berichten hoeven niet versleuteld en ontsleuteld te worden.
 
 
 
@@ -110,6 +109,7 @@ De volgende keuzes zijn gemaakt: 
   - Alle deelnemers dienen de FSC componenten te installeren en in te richten. Deze componenten zijn onder de naam [OpenFSC](https://gitlab.com/commonground/fsc/open-fsc) als Open Source beschikbaar. Als deze componenten niet voldoen voor DDAS, kan een wijziging aangevraagd worden bij de Klankbordgroep OpenFSC.
 
   - FSC gaat uit van dubbelzijdig versleuteld transport (TLS). Hiervoor hebben alle deelnemers van het DDAS-stelsel een certificaat nodig dat vertrouwd wordt.
+
 
 
 **Gebruik van FSC directory van RINIS**
@@ -131,9 +131,10 @@ De volgende keuzes zijn gemaakt: 
 
   - Het koppelvlak moet voldoen aan het REST profiel van de Digikoppeling standaard en gebruik maken van PKIo certificaten (dit is een voorwaarde om gebruik te maken van de voorziening van RINIS).
 
-  - Alle deelnemers moeten hun endpoint (laten) registreren bij RINIS. Dit gebeurt als onderdeel van het aansluitprotocol en wordt gefaciliteerd door CBS of het programma DDAS.
+  - Alle deelnemers moeten hun endpoint (laten) registreren bij RINIS. Dit gebeurt als onderdeel van het aansluitprotocol en wordt gefaciliteerd door de stelselbeheerder (gedurende het programma is dit het programma DDAS).
 
   - Voor het ophalen van de gegevens, moet CBS de directory van RINIS bevragen om de lijst endpoints op te halen.
+
 
 
 **[JSON formaat](https://json-schema.org/draft/2020-12/json-schema-validation) voor berichten**
@@ -178,7 +179,9 @@ De volgende keuzes zijn gemaakt: 
 
   *Rationale*
 
-  - Voor identicatie, authenticatie, signen en encryptie is een middel nodig dat door alle deelnemers van het stelsel vertrouwd wordt. PKIoverheid certificaten worden door de Nederlandse overheid uitgegeven, die daarmee de "Trust Anchor" voor het DDAS-stelsel wordt.
+  - Voor identicatie, authenticatie, signen en encryptie is een middel nodig dat door alle deelnemers van het stelsel vertrouwd wordt.
+
+  - PKIoverheid certificaten worden door de Nederlandse overheid uitgegeven, die daarmee de "Trust Anchor" voor het DDAS-stelsel wordt.
 
   - PKIoverheid certificaten worden door Logius (namens de rijksoverheid) via [Logius geautoriseerde aanbieders](https://www.logius.nl/domeinen/toegang/pkioverheid/pkioverheidcertificaat-aanvragen) uitgegeven en beheerd. Er is daarom geen organisatie nodig om certificaten voor het DDAS-stelsel te beheren.
 
@@ -186,7 +189,6 @@ De volgende keuzes zijn gemaakt: 
 
   - Alle deelnemers moeten PKIoverheid certificaten hebben of krijgen.
   NB: er zijn certificaten nodig voor de transportlaag en het ondertekenen van berichten (hiervoor mag niet hetzelfde certificaat gebruikt worden). Mogelijk kunnen bestaande certificaten hergebruikt worden, maar hier moet voorzichtig mee omgegaan worden om beveiligingsniveaus gescheiden te houden.
-  Als berichten met gevoelige gegevens ook versleuteld moeten worden, is een extra certificaat bij CBS vereist. De gegevensleveranciers gebruiken dan de publieke sleutel van dat certificaat om de berichten te versleutelen.
 
 
 
@@ -194,8 +196,8 @@ De volgende keuzes zijn gemaakt: 
 
   *Rationale*
 
-  - BBN2 is het niveau dat volgens GEMMA geldt voor gegevensverwerkingen in de schuldhulpverlening.
+  - BBN2 is het niveau dat volgens [GEMMA](https://www.gemmaonline.nl/wiki/Basisbeveiligingsniveau_van_referentiecomponenten) geldt voor gegevensverwerkingen in de schuldhulpverlening.
 
   *Implicaties*
 
-  - De BIO maatregelen moeten gericht zijn op het behalen van het beveiligingsniveau BBN2.
+  - De [BIO maatregelen](https://www.bio-overheid.nl/handreiking-indeling-bio-v104zv-aan-isoiec-270022022/) moeten gericht zijn op het behalen van het beveiligingsniveau BBN2.

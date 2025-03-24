@@ -59,7 +59,7 @@ De volgende keuzes zijn gemaakt: 
 
   *Rationale*
 
-  - Omdat het REST profiel van Digikopeling (nog) geen standaard voor signen heeft vastgesteld, moet er een gekozen worden.
+  - Het [REST profiel van Digikopeling](https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-REST-API/#signing) stelt JAdES verplicht als de inhoud of de header van een bericht gesigned wordt.
 
   - JAdES is als standaard voorgesteld door het [Kennisplatform API's](https://www.geonovum.nl/themas/kennisplatform-apis).
 
@@ -79,7 +79,7 @@ De volgende keuzes zijn gemaakt: 
 
   *Rationale*
 
-  - Omdat het REST profiel van Digikopeling (nog) geen standaard voor encryptie heeft vastgesteld, moet er eentje gekozen worden.
+  - Het [REST profiel van Digikopeling](https://logius-standaarden.github.io/Digikoppeling-Koppelvlakstandaard-REST-API/#encryptie) stelt het gebruik van ADR-HTTP Payload Encryption verplicht als berichten versleuteld worden.
 
   - De "payload encryption" is als standaard voorgesteld door het [Kennisplatform API's](https://www.geonovum.nl/themas/kennisplatform-apis).
 
@@ -107,7 +107,7 @@ De volgende keuzes zijn gemaakt: 
 
   *Implicaties*
 
-  - Alle deelnemers dienen de FSC componenten te installeren en in te richten. Er bestaat een algemene referentie implementatie, die waarschijnlijk zo ingezet kan worden. Als deze niet voldoet, kan overwogen worden om een specifieke referentie implementatie voor DDAS beschikbaar te stellen.
+  - Alle deelnemers dienen de FSC componenten te installeren en in te richten. Deze componenten zijn onder de naam [OpenFSC](https://gitlab.com/commonground/fsc/open-fsc) als Open Source beschikbaar. Als deze componenten niet voldoen voor DDAS, kan een wijziging aangevraagd worden bij de Klankbordgroep OpenFSC.
 
   - FSC gaat uit van dubbelzijdig versleuteld transport (TLS). Hiervoor hebben alle deelnemers van het DDAS-stelsel een certificaat nodig dat vertrouwd wordt.
 

@@ -22,13 +22,22 @@ De stappen die de deelnemer moet doorlopen, zijn:
 
 - De deelnemer richt in de testomgeving de API, conform de [AOS documentatie](../v0.1/DDAS-API_v0.1.1.yaml) in. Voor de installatie van FSC komt een handleiding en een referentie implementatie beschikbaar.
 
-- De deelnemer voert CBS op in de management module van FSC, om toegang te verlenen.
+- De stelselbeheerder laat de deelnemer opvoeren in de acceptatieomgeving van RINIS.
 
-- CBS voert enkele bevragingen uit in de testomgeving en beoordeelt de kwaliteit van de gegevens. Op basis van de bevindingen wordt de API aangepast.
+- CBS doet met een Service Connection Grant een verzoek om gegegens van de deelnemer in de acceptatieomgeving te mogen benaderen.
 
-- Indien er geen blokkerende bevindingen zijn, krijgt de deelnemer vrijgave van de stelselbeheer (DDAS?) en wordt de API in de productieomgeving ingericht en beschikbaar gesteld.
+- De deelnemer accepteert het verzoek van CBS in de acceptatieomgeving.
 
-- De stelselbeheerder laat de deelnemer opvoeren in de FSC management module van RINIS, zodat de API beschikbaar komt in het stelsel en bevraagd kan worden bij het ophalen van alle gegevens.
+- CBS voert enkele bevragingen uit in de acceptatieomgeving en beoordeelt de kwaliteit van de gegevens. Op basis van de bevindingen wordt de API eventueel aangepast.
+
+- Indien er geen blokkerende bevindingen zijn, krijgt de deelnemer vrijgave van de stelselbeheerder en wordt de API in de productieomgeving ingericht en beschikbaar gesteld.
+
+- De stelselbeheerder laat de deelnemer opvoeren in de productieomgeving van RINIS.
+
+- CBS doet met een Service Connection Grant een verzoek om gegevens van de deelnemer in de productieomgeving te mogen benaderen.
+
+- De deelnemer accepteert het verzoek van CBS in de productieomgeving. NB: als de deelnemer niet de eigenaar van de gegevens is (maar bv. een leverancier) dan moet ook de gegevensverantwoordelijke de Service Connection Grant accepteren.
+
 
 Ten behoeve van de testen stelt DDAS een set testgegevens beschikbaar *[wie maakt deze set? waar komt dit te staan?]*.
 

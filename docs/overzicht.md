@@ -21,7 +21,7 @@ PKI: [Public Key Infrastructure](https://nl.wikipedia.org/wiki/Public_key_infras
 
 FSC: [Federatieve Services Connectiviteit](https://fsc-standaard.nl/) - standaard voor het leggen van koppelingen m.b.v. API's
 
-FTV: [Federatieve Toegangsverlening](https://digilab.overheid.nl/projecten/toegangsverleningmethodiek-api/) - een standaard voor het inrichten en beheren van gecontroleerde toegang tot gegevensdiensten in een stelsel
+FTV: [Federatieve Toegangsverlening](https://digilab.overheid.nl/projecten/toegangsverleningmethodiek-api/) (hier niet relevant, maar kan bij meer complexe toegangsverlening kan deze standaard gebruikt worden)
 
 Log: Logging t.b.v. monitoring en verantwoording
 

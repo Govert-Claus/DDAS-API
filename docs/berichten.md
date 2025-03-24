@@ -11,7 +11,7 @@ Hieronder worden de berichten die in het OAS-bestand technisch beschreven zijn, 
 
 ## Encoding
 
-Conform de [uitwisselspecificatie](https://vng-realisatie.github.io/ddas/v1.0/uitwisselspecificatie/) die voor de bestandsuitwisseling gebruikt wordt, is de encoding van de berichten UTF-8.
+Conform de [uitwisselspecificatie](https://vng-realisatie.github.io/ddas/v1.0/uitwisselspecificatie/) die voor de bestandsuitwisseling van DDAS-gegevens gebruikt wordt, is de encoding van de berichten UTF-8.
 
 
 ## Vraagbericht (request)
@@ -44,4 +44,4 @@ Mogelijke responses:
 
 - 200: bericht goed verwerkt (met versleutelde en gesigneerde payload)
 
-- Foutberichten moeten nog bepaald worden - nu zijn 400 (ongeldig verzoek) en 401 (Ongeautoriseerd, OAuth2-token vereist) opgenomen
+- Foutberichten moeten nog bepaald worden (houd hierbij rekening met foutcodes die de [FSC Manager](https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/#codes), de [gekozen methode van FSC](https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/#codes-0) en [de FSC Inway](https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/#codes-1) kunnen genereren)

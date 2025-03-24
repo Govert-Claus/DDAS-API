@@ -4,6 +4,8 @@ Stappen bij het aanleveren van gegevens: 
 
 - CBS bevraagt de FSC directory bij RINIS om de endpoints van de gegevensleveranciers op te halen
 
+- CBS haalt via de FSC Manager een token op bij de deelnemer
+
 - CBS roept via de FSC-outway de FSC-inway en daarmee de API van de gegevensleverancier aan (eventueel met parameters) met een requestbericht dat gesigneerd is met privé sleutel van CBS
 
 - De gegevensleverancier controleert de signatuur met de publieke sleutel van CBS

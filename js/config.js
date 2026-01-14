@@ -10,8 +10,8 @@ let respecConfig = {
 
   // Zie de globale property 'localizationStrings/nl' voor de lijst met toegestane specificatie-statussen
   specStatus: "IO",
-  publishDate: "2025-03-24",
-  publishVersion: "0.23",
+  publishDate: "2026-01-14",
+  publishVersion: "2026.01",
 
   // Zie de globale property 'localizationStrings/nl' voor de lijst met toegestane maturities
   //previousMaturity: "IO",
@@ -34,7 +34,7 @@ let respecConfig = {
       {
         name: "Govert Claus",
         company: "Programma DDAS",
-        companyURL: "https://www.divosa.nl/projecten/data-delen-armoede-en-schulden",
+        companyURL: "https://www.divosa.nl/ddas",
       }
     ],
   github: "https://github.com/Govert-Claus/DDAS-API",

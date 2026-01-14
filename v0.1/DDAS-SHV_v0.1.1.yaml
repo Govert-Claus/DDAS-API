@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
-  title: DDAS Gegevens Uitwissel API
-  description: API om DDAS-gegevens beschikbaar te stellen aan CBS, beveiligd met OAuth2.0 en berichten gesigned met JAdES.
+  title: DDAS Gegevens Uitwissel API - SHV
+  description: API om Schuldhulpverleningsgegevens beschikbaar te stellen aan CBS, beveiligd met OAuth2.0 en berichten gesigned met JAdES.
   version: 0.1.1
 servers:
   - url: https://api.gegevensuitwissel.com/v1
@@ -30,7 +30,7 @@ components:
 paths:
   /gegevens:
     post:
-      summary: Verstrek DDAS-gegevens aan CBS
+      summary: Verstrek SHV-gegevens aan CBS
       operationId: postGegevens
       security:
         - OAuth2: []

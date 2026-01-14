@@ -36,11 +36,11 @@ De volgende keuzes zijn gemaakt: 
 
   *Implicaties*
 
-  - Alle gegevensleveranciers moeten een API beschikbaar stellen waar de DDAS-gegevens opgevraagd kunnen worden.
+  - Alle gegevensleveranciers moeten een API als service beschikbaar stellen waar de DDAS-gegevens opgevraagd kunnen worden.
 
-  - De API moet voldoende beschikbaar zijn om CBS op de gewenste momenten te faciliteren.
+  - De service moet voldoende beschikbaar zijn om CBS op de afgesproken momenten te faciliteren.
 
-  - Er is geen centrale routeervoorziening of gegevensopslag nodig.
+  - Er is geen centrale routeervoorziening of gegevensopslag nodig. Wel is een centrale "directory" nodig waar de services gepubliceerd worden, waarmee CBS de gegevens kan ophalen. Er moet een keuze gemaakt worden waar deze directory belegd wordt.
 
 
 
@@ -94,7 +94,7 @@ De volgende keuzes zijn gemaakt: 
 
 
 
-**Federatieve Services Connectiviteit voor de connectiviteit - [FSC](https://docs.fsc.nlx.io/introduction)**
+**Federatieve Services Connectiviteit voor de connectiviteit - [FSC](https://gitdocumentatie.logius.nl/publicatie/fsc/core/1.0.0/)**
 
   *Rationale*
 
@@ -106,7 +106,7 @@ De volgende keuzes zijn gemaakt: 
 
   *Implicaties*
 
-  - Alle deelnemers dienen de FSC componenten te installeren en in te richten. Deze componenten zijn onder de naam [OpenFSC](https://gitlab.com/commonground/fsc/open-fsc) als Open Source beschikbaar. Als deze componenten niet voldoen voor DDAS, kan een wijziging aangevraagd worden bij de Klankbordgroep OpenFSC.
+  - Alle deelnemers dienen de FSC componenten te installeren en in te richten. Deze componenten zijn onder de naam [OpenFSC](https://gitlab.com/commonground/fsc/open-fsc) als Open Source beschikbaar.
 
   - FSC gaat uit van dubbelzijdig versleuteld transport (TLS). Hiervoor hebben alle deelnemers van het DDAS-stelsel een certificaat nodig dat vertrouwd wordt.
 
@@ -116,6 +116,8 @@ De volgende keuzes zijn gemaakt: 
 
   *Rationale*
 
+  - Er is een centrale directory nodig waar gegevensleveranciers hun services kunnen publiceren en waar met CBS een contract afgesloten kan worden.
+
   - RINIS biedt een FSC directory aan voor alle overheidspartijen die de Digikoppeling standaard voor REST API's toepassen. Ook het DDAS stelsel mag daar gebruik van maken.
 
   - Door gebruik te maken van de directory bij RINIS is er geen beheer nodig voor de centrale directory.
@@ -124,7 +126,7 @@ De volgende keuzes zijn gemaakt: 
 
   - Door gebruik te maken van de directory van RINIS zijn de services (in principe) makkelijk te hergebruiken voor andere diensten binnen de overheid.
 
-  - RINIS biedt de mogelijkheid om een eigen omgeving voor het DDAS stelsel te gebruiken, waar eigen voorwaarden voor deelname aan gekoppeld kunnen worden. *NB: er wordt nog overwogen of dit nodig is en meer voor- dan nadelen biedt*
+  - RINIS biedt de mogelijkheid om een eigen omgeving voor het DDAS stelsel te gebruiken, waar eigen voorwaarden voor deelname aan gekoppeld kunnen worden. Vooralsnog is dit niet nodig en wordt de algemene omgeving van RINIS gebruikt.
 
 
   *Implicaties*
@@ -133,7 +135,7 @@ De volgende keuzes zijn gemaakt: 
 
   - Alle deelnemers moeten hun endpoint (laten) registreren bij RINIS. Dit gebeurt als onderdeel van het aansluitprotocol en wordt gefaciliteerd door de stelselbeheerder (gedurende het programma is dit het programma DDAS).
 
-  - Voor het ophalen van de gegevens, moet CBS de directory van RINIS bevragen om de lijst endpoints op te halen.
+  - Voor het ophalen van de gegevens, moet CBS de directory van RINIS bevragen om een contract af te sluiten met de leverancier van gegevens. Daarmee krijgt CBS toegang tot de service die de gegevens ontsluit.
 
 
 
@@ -163,7 +165,7 @@ De volgende keuzes zijn gemaakt: 
 
   - Het transport wordt met dubbelzijdig TLS versleuteld, wat voldoende beveiliging geeft.
 
-  - Middels de directory van FSC worden alleen vertrouwde endpoints aangeroepen.
+  - Middels de directory van RINIS worden alleen vertrouwde endpoints aangeroepen en krijgen alleen vertrouwde consumers (in dit geval enkel CBS) toegang tot de services.
 
   *Implicaties*
 
@@ -171,7 +173,7 @@ De volgende keuzes zijn gemaakt: 
 
   - Het transport moet met dubbelzijdig TLS beveiligd worden.
 
-  - Alleen endpoints die in de directory van FSC zijn vastgelegd, worden bevraagd.
+  - Alleen endpoints die in de directory van FSC zijn vastgelegd en waarvoor een contract is afgesloten tussen CBS en gegevensleverancier, worden bevraagd.
 
 
 

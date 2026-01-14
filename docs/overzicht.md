@@ -5,9 +5,9 @@ In de onderstaande figuur staan de componenten geschetst die in het API berichte
 <!--- NB: bij MKDocs wordt dit --->
 ![overzicht API componenten](overzicht.png)
 <!--- --->
-<!--- NB: bij Respec wordt dit
+<!--- NB: bij Respec wordt dit --->
 ![overzicht API componenten](./docs/overzicht.png)
---->
+<!--- --->
 
 In deze figuur betekent:
 

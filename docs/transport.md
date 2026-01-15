@@ -17,7 +17,7 @@ Het transport van de berichten verloopt volgens de [FSC-standaard](https://fsc-s
 
 De inrichting van de transportlaag volgt de stappen die in de [FSC standaard](https://fsc-standaard.nl/adoptie) genoemd worden:
 
-- Ontwerp, bouw en implementatie van de API die beschikbaar gesteld gaat worden.
+- Ontwerp, bouw en implementatie van de API die beschikbaar gesteld gaat worden, conform de [OAS3 beschrijving](#messages).
 
 - Keuze inrichting en implementatie van FSC componenten in de eigen omgeving. Hiervoor kan gebruik gemaakt worden van de [documentatie]((https://docs.open-fsc.nl/introduction/)) en de [referentie-implementatie](https://gitlab.com/rinis-oss/fsc/open-fsc) van FSC.
 

@@ -21,7 +21,7 @@ De inrichting van de transportlaag volgt de stappen die in de [FSC standaard](ht
 
 - Keuze inrichting en implementatie van FSC componenten in de eigen omgeving. Hiervoor kan gebruik gemaakt worden van de [documentatie]((https://docs.open-fsc.nl/introduction/)) en de [referentie-implementatie](https://gitlab.com/rinis-oss/fsc/open-fsc) van FSC.
 
-- Aanmelden bij [Demo groep](https://fsc-standaard.nl/groepen#demo) van RINIS en testen verbinding en FSC componenten. NB: hiervoor zijn geen PKIo certificaten nodig.
+Bij het inrichten en testen van de FSC componenten kan het helpen om aan te sluiten op de [Demo groep](https://fsc-standaard.nl/groepen#demo) van VNG-Realisatie. Hiervoor zijn geen PKIo certificaten nodig.
 
 - Aanmelden bij [Acceptatie groep](https://fsc-standaard.nl/groepen#digikoppeling-acceptatie) van RINIS en publiceren van acceptatie versie van de service. NB: hiervoor zijn geen PKIo certificaten nodig.
 

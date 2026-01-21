@@ -28,7 +28,6 @@ De inrichting van de transportlaag volgt de stappen die in de [FSC standaard](ht
 *LET OP*: de naamgeving van de RINIS omgevingen is eind januari 2026 aangepast. De juiste instellingen voor de acceptatieomgeving zijn:
 
 | Directory URL | https://acc-digikoppeling.fsc-directory.nl:8443 |
-| ----------------- | ----------------------------------------------- |
 | Peer ID | 01765373141930780586 |
 | Directory UI | https://index.acc-digikoppeling.fsc-directory.nl/ |
 | Groepsnaam | acc-digikoppeling |
@@ -40,7 +39,6 @@ De inrichting van de transportlaag volgt de stappen die in de [FSC standaard](ht
 *LET OP*: de naamgeving van de RINIS omgevingen is eind januari 2026 aangepast. De juiste instellingen voor de productieomgeving zijn:
 
 | Directory URL | https://digikoppeling.fsc-directory.nl |
-| ----------------- | ----------------------------------------------- |
 | Peer ID | 00000001805544434000 |
 | Directory UI | https://index.digikoppeling.fsc-directory.nl/ |
 | Groepsnaam | digikoppeling |

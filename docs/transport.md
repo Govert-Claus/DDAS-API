@@ -25,19 +25,19 @@ De inrichting van de transportlaag volgt de stappen die in de [FSC standaard](ht
 
 - Aanmelden bij [Acceptatie groep](https://fsc-standaard.nl/groepen#digikoppeling-acceptatie) van RINIS en publiceren van acceptatie versie van de service. NB: hiervoor zijn geen PKIo certificaten nodig.
 
-*LET OP*: de naamgeving voor de acceptatieomgeving van RINIS is eind januari 2026 aangepast. De juiste instellingen zijn:
+*LET OP*: de naamgeving van de RINIS omgevingen is eind januari 2026 aangepast. De juiste instellingen voor de acceptatieomgeving zijn:
 
-| Directory manager | https://acc-digikoppeling.fsc-directory.nl:8443 |
+| Directory URL | https://acc-digikoppeling.fsc-directory.nl:8443 |
 | ----------------- | ----------------------------------------------- |
 | Peer ID | 01765373141930780586 |
-| Directory UI | AfbeeldingOpenFSC Directory |
+| Directory UI | https://index.acc-digikoppeling.fsc-directory.nl/ |
 | Groepsnaam | acc-digikoppeling |
 
 - Testen van verbinding en service in overleg met CBS. In deze stap kan de API ook inhoudelijk getest worden: worden de juiste gegevens in het juiste formaat beschikbaar gesteld?
 
 - Als de testen het gewenste resultaat leveren, aanmelden bij [Productie groep](https://fsc-standaard.nl/groepen#digikoppeling-productie) van RINIS. NB: hiervoor is een PKIo certificaat nodig.
 
-*LET OP*: de naamgeving voor de productieomgeving van RINIS is eind januari 2026 aangepast. De juiste instellingen zijn:
+*LET OP*: de naamgeving van de RINIS omgevingen is eind januari 2026 aangepast. De juiste instellingen voor de productieomgeving zijn:
 
 | Directory URL | https://digikoppeling.fsc-directory.nl |
 | ----------------- | ----------------------------------------------- |

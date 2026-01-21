@@ -27,13 +27,11 @@ De inrichting van de transportlaag volgt de stappen die in de [FSC standaard](ht
 
 *LET OP*: de naamgeving voor de acceptatieomgeving van RINIS is eind januari 2026 aangepast. De juiste instellingen zijn:
 
-Directory manager: https://acc-digikoppeling.fsc-directory.nl:8443
-
-Peer ID: 01765373141930780586
-
-Directory UI: AfbeeldingOpenFSC Directory
-
-Groepsnaam: acc-digikoppeling
+| Directory manager | https://acc-digikoppeling.fsc-directory.nl:8443 |
+| ----------------- | ----------------------------------------------- |
+| Peer ID | 01765373141930780586 |
+| Directory UI | AfbeeldingOpenFSC Directory |
+| Groepsnaam | acc-digikoppeling |
 
 - Testen van verbinding en service in overleg met CBS. In deze stap kan de API ook inhoudelijk getest worden: worden de juiste gegevens in het juiste formaat beschikbaar gesteld?
 
@@ -41,12 +39,10 @@ Groepsnaam: acc-digikoppeling
 
 *LET OP*: de naamgeving voor de productieomgeving van RINIS is eind januari 2026 aangepast. De juiste instellingen zijn:
 
-Directory URL: https://digikoppeling.fsc-directory.nll
-
-Peer ID: 00000001805544434000
-
-Directory UI: https://index.digikoppeling.fsc-directory.nl/
-
-Groepsnaam: digikoppeling
+| Directory URL | https://digikoppeling.fsc-directory.nl |
+| ----------------- | ----------------------------------------------- |
+| Peer ID | 00000001805544434000 |
+| Directory UI | https://index.digikoppeling.fsc-directory.nl/ |
+| Groepsnaam | digikoppeling |
 
 - Publiceren van de productieversie van de service en afsluiten van een contract met de consumer (CBS).

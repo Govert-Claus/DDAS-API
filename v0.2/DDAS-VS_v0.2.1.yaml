@@ -1,8 +1,8 @@
 openapi: 3.1.0
 info:
-  title: DDAS Gegevens Uitwissel API - SHV
+  title: DDAS Gegevens Uitwissel API - VS
   description: |
-    API voor het uitwisselen van Schuldhulpverleningsgegevens (SHV) met het CBS.
+    API voor het uitwisselen van Vroegsignaleringsgegevens (VS) met het CBS.
     Beveiligd met OAuth 2.0 Client Credentials Grant.
     Payload-integriteit en authenticiteit via JAdES payload signing conform Geonovum
     KP-APIs signing-jades module (header: nlgov-adr-payload-sig, PS256, detached,
@@ -32,7 +32,7 @@ components:
         clientCredentials:
           tokenUrl: https://auth.gegevensuitwissel.com/token
           scopes:
-            read: Toegang om SHV-gegevens op te halen
+            read: Toegang om VS-gegevens op te halen
 
   headers:
     Digest:
@@ -115,10 +115,10 @@ components:
 paths:
   /gegevens:
     post:
-      summary: Aanvragen en ontvangen van SHV-gegevens
+      summary: Aanvragen en ontvangen van VS-gegevens
       operationId: postGegevens
       description: |
-        Stuurt een verzoek om SHV-gegevens over een bepaalde periode / organisatie.
+        Stuurt een verzoek om VS-gegevens over een bepaalde periode / organisatie.
         Het verzoek én het antwoord worden beschermd met een nlgov-adr-payload-sig
         header (JAdES payload signing, PS256, alleen digest getekend).
       security:
@@ -131,7 +131,7 @@ paths:
               $ref: '#/components/schemas/GegevensRequest'
       responses:
         '200':
-          description: Succesvol antwoord met de gevraagde SHV-gegevens
+          description: Succesvol antwoord met de gevraagde VS-gegevens
           headers:
             Digest:
               $ref: '#/components/headers/Digest'

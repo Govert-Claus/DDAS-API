@@ -20,7 +20,7 @@ De stappen die de deelnemer moet doorlopen, zijn:
 
   - Eventuele verzoeken om de aansluiting tot stand te krijgen, zoals een gewenste publicatiedatum, specifieke testdata of specifieke beschikbaarheid
 
-- De deelnemer richt in de testomgeving de API, conform de [AOS documentatie](../v0.1/DDAS-API_v0.1.1.yaml) in. Voor de installatie van FSC komt een handleiding en een referentie implementatie beschikbaar.
+- De deelnemer richt in de testomgeving de API, conform de [AOS documentatie](../v0.1/DDAS-API_v0.2.2.yaml) in. Voor de installatie van FSC komt een handleiding en een referentie implementatie beschikbaar.
 
 - De stelselbeheerder laat de deelnemer opvoeren in de acceptatieomgeving van RINIS.
 

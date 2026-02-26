@@ -4,17 +4,17 @@
 
 De technische beschrijving van de API is in het volgende OAS3-bestand beschreven.
 ```
-{!../v0.1/DDAS-SHV_v0.1.1.yaml!}
+{!../v0.2/DDAS-SHV_v0.2.2.yaml!}
 ```
-Hiervan is ook een [downloadbare versie](https://raw.githubusercontent.com/Govert-Claus/DDAS-API/refs/heads/main/v0.1/DDAS-SHV_v0.1.1.yaml) van.
+Hiervan is ook een [downloadbare versie](https://raw.githubusercontent.com/Govert-Claus/DDAS-API/refs/heads/main/v0.2/DDAS-SHV_v0.2.2.yaml) van.
 
 ## Vroegsignaleringsgegevens
 
 De technische beschrijving van de API is in het volgende OAS3-bestand beschreven.
 ```
-{!../v0.1/DDAS-VS_v0.1.1.yaml!}
+{!../v0.2/DDAS-VS_v0.2.2.yaml!}
 ```
-Hiervan is ook een [downloadbare versie](https://raw.githubusercontent.com/Govert-Claus/DDAS-API/refs/heads/main/v0.1/DDAS-VS_v0.1.1.yaml) van.
+Hiervan is ook een [downloadbare versie](https://raw.githubusercontent.com/Govert-Claus/DDAS-API/refs/heads/main/v0.2/DDAS-VS_v0.2.2.yaml) van.
 
 
 Hieronder worden de berichten die in het OAS-bestand technisch beschreven zijn, toegelicht.
@@ -22,7 +22,7 @@ Hieronder worden de berichten die in het OAS-bestand technisch beschreven zijn, 
 
 ## Encoding
 
-Conform de [uitwisselspecificatie](https://vng-realisatie.github.io/ddas/v1.0/uitwisselspecificatie/) die voor de bestandsuitwisseling van DDAS-gegevens gebruikt wordt, is de encoding van de berichten UTF-8.
+Conform de specificaties voor de bestandsuitwisseling voor [schuldhulpverlening](https://vng-realisatie.github.io/ddas/v1.0/uitwisselspecificatie/) en [vroegsignalering](https://vng-realisatie.github.io/ddas-vroegsignalering/v1.0/uitwisselspecificatie/), is de encoding van de berichten UTF-8.
 
 
 ## Vraagbericht (request)
@@ -37,7 +37,7 @@ Parameters die meegestuurd kunnen worden (allemaal optioneel):
 
 - Aanleverende_organisatie (string, default alle – alleen relevant als over meer dan 1 organisatie (gemeente/ schuldhulpverlener) gegevens aangeleverd worden)
 
-Het bericht wordt met [JAdES](https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/) ondertekend met de private sleutel van de verzender van het vraagbericht - in dit geval CBS.
+Het bericht wordt met [JAdES](https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/) ondertekend met de private sleutel van de verzender van het vraagbericht - in dit geval CBS. Zie het hoofdstuk [Signing en Versleuteling]() voor de specificaties van de ondertekening.
 
 
 ## Antwoordbericht (response)

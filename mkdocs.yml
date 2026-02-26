@@ -21,10 +21,7 @@ nav:
     - Identificatie en autorisatie: iam.md
     - Signeren en versleutelen: signing-encryptie.md
     - Berichten: berichten.md
-    - Aanleverprotocol: aanleverprotocol.md
     - Niet functionele eisen: non-functionals.md
-    - Aansluitprotocol: aansluitprotocol.md
-    - Beheer: beheer-specificatie.md
   - Achtergrond DDAS: rapport_0.md
 
 markdown_extensions:

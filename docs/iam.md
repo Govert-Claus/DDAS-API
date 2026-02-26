@@ -1,14 +1,14 @@
 # Identificatie, Authenticatie en Autorisatie
 
-Het bijhouden van de deelnemers in het DDAS-stelsel gebeurt door RINIS in een directory die door FSC gebruikt wordt. Alle deelnemers gebruiken deze directory bij het uitwisselen van berichten.
+Het bijhouden van de deelnemers in het DDAS-stelsel gebeurt door RINIS in een directory die door FSC gebruikt wordt. Alle deelnemers gebruiken deze directory bij het uitwisselen van berichten. Zie het hoofdstuk [transport](#transport) voor aansluitspecificaties.
 
 ## Identificatie
 
-- Identificatie gebeurt op basis van het (sub)OIN van de deelnemer. Dit (sub)OIN wordt bij PKIo certificaten geplaatst in het SerialNumber veld van het Subject. Als de deelnemer geen (sub)OIN heeft, dan wordt het handelregisternummer hiervoor gebruikt.
+Identificatie gebeurt op basis van het (sub)OIN van de deelnemer. Dit (sub)OIN wordt bij PKIo certificaten geplaatst in het SerialNumber veld van het Subject. Als de deelnemer geen (sub)OIN heeft, dan wordt het handelregisternummer hiervoor gebruikt.
 
 ## Authenticatie
 
-- Systemen worden geauthenticeerd met behulp van het PKIo certificaat.
+Systemen worden geauthenticeerd met behulp van het PKIo certificaat.
 
 ## Autorisatie
 

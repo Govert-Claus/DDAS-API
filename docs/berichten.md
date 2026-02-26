@@ -37,7 +37,7 @@ Parameters die meegestuurd kunnen worden (allemaal optioneel):
 
 - Aanleverende_organisatie (string, default alle – alleen relevant als over meer dan 1 organisatie (gemeente/ schuldhulpverlener) gegevens aangeleverd worden)
 
-Het bericht wordt met [JAdES](https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/) ondertekend met de private sleutel van de verzender van het vraagbericht - in dit geval CBS. Zie het hoofdstuk [Signing en Versleuteling]() voor de specificaties van de ondertekening.
+Het bericht wordt met [JAdES](https://geonovum.github.io/KP-APIs/API-strategie-modules/signing-jades/) ondertekend met de private sleutel van de verzender van het vraagbericht - in dit geval CBS. Zie het hoofdstuk [Signing en Versleuteling](#signing-encryptie) voor de specificaties van de ondertekening.
 
 
 ## Antwoordbericht (response)

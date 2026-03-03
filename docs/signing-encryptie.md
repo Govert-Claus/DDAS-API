@@ -26,18 +26,19 @@ Waarin *JWS Compact Serialization* de base64url-gecodeerde waarden conform [RFC 
 
 De header bevat in elk geval de volgende velden:
 
-> {
-  "alg": "PS256",
-  "typ": "JOSE",
-  "kid": "*Key identifer*",
-  "x5c": [
-    "*end-entity-cert-base64-der*",
-    "*intermediate-cert-base64-der*"
-  ],
-  "x5t#S256": "*sha256-thumbprint*"
+> {  
+  "alg": "PS256",  
+  "typ": "JOSE",  
+  "kid": "*Key identifer*",  
+  "x5c": [  
+    "*end-entity-cert-base64-der*",  
+    "*intermediate-cert-base64-der*"  
+  ],  
+  "x5t#S256": "*sha256-thumbprint*"  
 }
 
 *(Het veld x5t#S256 is niet verplicht, maar wordt wel aanbevolen)*
+
 
 
 Bij ontvangst moet de ontvanger het volgende doen om de ondertekening te controleren:

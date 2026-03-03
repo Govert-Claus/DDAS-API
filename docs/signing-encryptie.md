@@ -16,9 +16,9 @@ Er is gekozen voor het **JAdES-B** profiel van ondertekenen. JAdES-B betekent da
 De publieke sleutel om de ondertekening te controleren wordt meegestuurd in de header van het bericht via het veld x5c. De hele X.509 certificaatketen wordt meegestuurd, waarbij de eerste waarde gebruikt wordt voor de controle van de ondertekening.
 In de header komen dus het volgende te staan:
 
-> nlgov-adr-payload-sig: <JWS Compact Serialization>
+> nlgov-adr-payload-sig: *JWS Compact Serialization*
 
-Waarin <JWS Compact Serialization> de base64url-gecodeerde waarden conform [RFC 7515](https://www.rfc-editor.org/rfc/rfc7515) van de header en de ondertekening bevatten:
+Waarin *JWS Compact Serialization* de base64url-gecodeerde waarden conform [RFC 7515](https://www.rfc-editor.org/rfc/rfc7515) van de header en de ondertekening bevatten:
 
 > BASE64URL(ProtectedHeader)..BASE64URL(Signature)
 
@@ -29,12 +29,12 @@ De header bevat in elk geval de volgende velden:
 > {
   "alg": "PS256",
   "typ": "JOSE",
-  "kid": "shv-cert-2026",
+  "kid": "*Key identifer*",
   "x5c": [
-    "<end-entity-cert-base64-der>",
-    "<intermediate-cert-base64-der>"
+    "*end-entity-cert-base64-der*",
+    "*intermediate-cert-base64-der*"
   ],
-  "x5t#S256": "<sha256-thumbprint>"
+  "x5t#S256": "*sha256-thumbprint*"
 }
 
 *(Het veld x5t#S256 is niet verplicht, maar wordt wel aanbevolen)*

@@ -64,11 +64,11 @@ Om gebruik te maken van de directory moeten de volgende stappen doorlopen worden
 Gebruik voor het publiceren van services een duidelijke naam, die de functie en afzender van de services bevat. De afspraak is als volgt:
 
 - Voor schuldhulpverleningsgegevens: DDAS-schuldhulpverlening-ophaal-[gegevensleverancier]-[versie]  
-  [gegevensleverancier] is de naam van de leverancier van gegevens  
+  [gegevensleverancier] is de naam van de leverancier van gegevens (om er zeker van te zijn dat dit tot een unieke naam leidt, is het verstandig dit met het programma DDAS af te stemmen)  
   [versie] is het versienummer van de service  
 
 - Voor vroegsignaleringsgegevens: DDAS-vroegsignalering-ophaal-[gegevensleverancier]-[versie]  
-  [gegevensleverancier] is de naam van de leverancier van gegevens  
+  [gegevensleverancier] is de naam van de leverancier van gegevens (om er zeker van te zijn dat dit tot een unieke naam leidt, is het verstandig dit met het programma DDAS af te stemmen)  
   [versie] is het versienummer van de service  
 
 NB: als het versienummer verandert, stem dan met CBS af welke versie wanneer gebruikt moet worden!  

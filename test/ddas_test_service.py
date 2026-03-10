@@ -16,6 +16,13 @@ from authlib.jose import JsonWebSignature
 from cryptography import x509
 from cryptography.hazmat.primitives import serialization
 
+import socket
+import ssl
+from urllib.parse import urlparse
+
+import urllib3
+urllib3.disable_warnings()
+
 LOGGER = logging.getLogger(__name__)
 
 HEADER_NAME = "nlgov-adr-payload-sig"
@@ -198,6 +205,134 @@ def print_http_request(url, payload, detached_jws):
 
     print(curl)
 
+# ------------------------------------------------------------
+# DNS check
+# ------------------------------------------------------------
+
+def check_dns(host):
+
+    print("\n==============================")
+    print("DNS CHECK")
+    print("==============================")
+
+    try:
+        ip = socket.gethostbyname(host)
+        print(f"✔ Host gevonden: {host} → {ip}")
+        return True
+    except socket.gaierror:
+        print(f"❌ DNS lookup mislukt voor host: {host}")
+        return False
+
+# ------------------------------------------------------------
+# TCP CONNECTIVITY CHECK
+# ------------------------------------------------------------
+
+def check_tcp(host, port):
+
+    print("\n==============================")
+    print("TCP CONNECTIVITY CHECK")
+    print("==============================")
+
+    try:
+        sock = socket.create_connection((host, port), timeout=5)
+        sock.close()
+        print(f"✔ TCP verbinding mogelijk met {host}:{port}")
+        return True
+
+    except Exception:
+        print(f"❌ Kan geen TCP verbinding maken met {host}:{port}")
+        return False
+
+
+# ------------------------------------------------------------
+# TLS HANDSHAKE CHECK
+# ------------------------------------------------------------
+
+def check_tls(host, port):
+
+    print("\n==============================")
+    print("TLS HANDSHAKE CHECK")
+    print("==============================")
+
+    try:
+
+        context = ssl.create_default_context()
+
+        with socket.create_connection((host, port), timeout=5) as sock:
+            with context.wrap_socket(sock, server_hostname=host) as ssock:
+
+                cert = ssock.getpeercert()
+
+                print("✔ TLS handshake succesvol")
+
+                subject = dict(x[0] for x in cert["subject"])
+                print("Server CN:", subject.get("commonName"))
+
+        return True
+
+    except ssl.SSLError as e:
+
+        print("❌ TLS handshake mislukt")
+        print(str(e))
+
+        return False
+
+    except Exception as e:
+
+        print("❌ TLS verbinding mislukt")
+        print(str(e))
+
+        return False
+
+# ------------------------------------------------------------
+# HTTP ENDPOINT CHECK
+# ------------------------------------------------------------
+
+def check_http_endpoint(url):
+
+    print("\n==============================")
+    print("HTTP ENDPOINT CHECK")
+    print("==============================")
+
+    try:
+
+        r = requests.head(url, timeout=5)
+
+        print("✔ Server reageert")
+        print("HTTP status:", r.status_code)
+
+        return True
+
+    except requests.exceptions.RequestException:
+
+        print("❌ Server reageert niet op HTTP")
+
+        return False
+
+
+# ------------------------------------------------------------
+# Preflight checks
+# ------------------------------------------------------------
+
+def preflight_checks(url):
+
+    parsed = urlparse(url)
+
+    host = parsed.hostname
+    port = parsed.port or 443
+
+    if not check_dns(host):
+        return False
+
+    if not check_tcp(host, port):
+        return False
+
+    if not check_tls(host, port):
+        return False
+
+    check_http_endpoint(url)
+
+    return True
 
 # ------------------------------------------------------------
 # HTTP send
@@ -307,6 +442,12 @@ def parse_args():
         action="store_true"
     )
 
+    parser.add_argument(
+        "--preflight",
+        action="store_true",
+        help="Voer netwerk- en endpoint checks uit voordat request verstuurd wordt"
+    )
+
     return parser.parse_args()
 
 
@@ -348,6 +489,12 @@ def main():
 
     if args.dry_run:
         return
+
+    if args.preflight:
+        ok = preflight_checks(args.url)
+        if not ok:
+            print("\n❌ Preflight checks gefaald — request niet verstuurd.")
+            return
 
     send_request(args.url, payload, detached_jws)
 

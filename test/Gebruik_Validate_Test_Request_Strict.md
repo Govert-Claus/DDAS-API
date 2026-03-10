@@ -4,10 +4,10 @@ Haal de header (als detached_jws.txt) en de payload (als payload.json) uit het b
 
 Voorbeeldgebruik:  
 
-python validate_test_request_strict.py \  
-  --header-file detached_jws.txt \  
-  --body-file payload.json \  
-  --expected-kid test-key-2026  
+  python validate_test_request_strict.py \  
+    --header-file detached_jws.txt \  
+    --body-file payload.json \  
+    --expected-kid test-key-2026  
 
 Het script valideert in deze volgorde:
 

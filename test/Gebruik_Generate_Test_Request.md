@@ -1,24 +1,37 @@
-# Hoe je Generate_Test_Request.js gebruikt
+# Hoe je Generate_Test_Request.py gebruikt
 
-1- Vervang de certBase64Der en privateKeyPem met je eigen gegenereerde test-sleutels.
+Gebruik van het script:
 
-2- Voer het script uit om de detachedJws string te genereren.
+python Generate_Test_Request.py \
+  --url https://api.test.example.nl/ddas/endpoint \
+  --private-key private_key.pem \
+  --certificate certificate.crt \
+  --payload payload.json
 
-3- Stuur een POST-request naar je API (bijvoorbeeld via Postman of curl):
+Alleen de request genereren (niet versturen):
 
-  - Method: POST
+python Generate_Test_Request.py \
+  --url https://api.test.example.nl/ddas/endpoint \
+  --dry-run
 
-  - Body: De JSON uit het script
+Wat het script automatisch doet:
 
-  - Header: Voeg nlgov-adr-payload-sig toe met de gegenereerde waarde.
+- payload laden
 
+- payload canonical JSON maken
 
-Wat je API moet doen bij ontvangst :
+- JWS signeren
 
-Stap 1: Decodeer de header (het deel vóór de ..) om het certificaat uit de x5c lijst te halen .
+- detached signature maken
 
-Stap 2: Valideer of het certificaat vertrouwd is (in jouw test moet je je eigen self-signed cert dus even als 'trusted' markeren).
+- HTTP request bouwen:
 
-Stap 3: Construeer de volledige JWS string weer door de ontvangen HTTP body tussen de twee punten te plaatsen: Header.[BASE64URL(BODY)].Signature.
+  POST /endpoint
+  Content-Type: application/json
+  nlgov-adr-payload-sig: <detached_jws>
 
-Stap 4: Gebruik een crypto-bibliotheek om de signature te verifiëren over de body.
+- payload in de body zetten
+
+- request versturen
+
+- response printen

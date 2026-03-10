@@ -175,6 +175,52 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def print_http_request(url: str, payload_dict: dict, detached_jws: str):
+
+    body = json.dumps(payload_dict, indent=2, ensure_ascii=False)
+
+    headers = {
+        "Content-Type": "application/json",
+        "nlgov-adr-payload-sig": detached_jws
+    }
+
+    print("\n==============================")
+    print("HTTP HEADERS")
+    print("==============================")
+
+    for k, v in headers.items():
+        print(f"{k}: {v}")
+
+    print("\n==============================")
+    print("HTTP BODY")
+    print("==============================")
+    print(body)
+
+    print("\n==============================")
+    print("COMPLETE HTTP REQUEST")
+    print("==============================")
+
+    print(f"POST {url} HTTP/1.1")
+
+    for k, v in headers.items():
+        print(f"{k}: {v}")
+
+    print("")
+    print(body)
+
+    print("\n==============================")
+    print("CURL TEST COMMAND")
+    print("==============================")
+
+    curl = (
+        f"curl -X POST '{url}' "
+        f"-H 'Content-Type: application/json' "
+        f"-H 'nlgov-adr-payload-sig: {detached_jws}' "
+        f"-d '{json.dumps(payload_dict, ensure_ascii=False)}'"
+    )
+
+    print(curl)
+
 def main() -> int:
     args = parse_args()
 
@@ -187,19 +233,20 @@ def main() -> int:
         payload_bytes = serialize_payload(payload_dict)
         protected_header = create_protected_header(args.kid, cert_b64)
         detached_jws = create_detached_jws(private_key, payload_bytes, protected_header)
+        print_http_request(args.url, payload_dict, detached_jws)
         request = build_http_request(args.url, payload_dict, detached_jws)
 
     except Exception as exc:
         LOGGER.error("Fout: %s", exc)
         return 1
 
-    print("\n=== HTTP REQUEST ===")
-    print("POST", args.url)
-    print("Header:", HEADER_NAME)
-    print("Signature:", detached_jws)
+#    print("\n=== HTTP REQUEST ===")
+#    print("POST", args.url)
+#    print("Header:", HEADER_NAME)
+#    print("Signature:", detached_jws)
 
-    print("\nBody:")
-    print(json.dumps(payload_dict, indent=2, ensure_ascii=False))
+#    print("\nBody:")
+#    print(json.dumps(payload_dict, indent=2, ensure_ascii=False))
 
     if args.dry_run:
         LOGGER.info("Dry run — request niet verzonden")

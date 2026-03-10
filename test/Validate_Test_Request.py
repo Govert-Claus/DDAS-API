@@ -1,6 +1,4 @@
-from pathlib import Path
-
-code = r'''import argparse
+import argparse
 import base64
 import json
 import logging
@@ -180,7 +178,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-'''
-path = Path('/mnt/data/validate_test_request_improved.py')
-path.write_text(code, encoding='utf-8')
-print(path)

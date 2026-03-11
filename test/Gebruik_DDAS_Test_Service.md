@@ -61,10 +61,11 @@ Mogelijke parameters:
       --url https://api.test.nl/ddas \
       --dry-run
 
-### Request versturen:
+### Request versturen met preflight checks:
 
     python ddas_test_service.py \
-      --url https://api.test.nl/ddas
+      --url https://api.test.nl/ddas \
+      --preflight
 
 ### Met payload file:
 

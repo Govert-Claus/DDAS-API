@@ -75,8 +75,8 @@ def load_payload(path: Path | None):
     if path is None:
         return {
             "startdatum": "2026-01-01",
-            "einddatum": "2026-02-28",
-            "aanleverende_organisatie": "Gemeente Test"
+            "einddatum": "2026-05-30",
+            "aanleverende_organisatie": "GM0001"
         }
 
     return json.loads(path.read_text())

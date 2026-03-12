@@ -10,9 +10,9 @@ on:
 permissions:
   contents: write
 jobs:
-  with:
-    source: docs
   build:
+    with:
+      source: docs
     name: Build
     uses: Logius-standaarden/Automatisering/.github/workflows/build.yml@snapshot-in-repo
   check:

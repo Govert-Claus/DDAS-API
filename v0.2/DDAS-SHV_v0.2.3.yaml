@@ -1,0 +1,282 @@
+openapi: 3.1.0
+
+info:
+  title: DDAS Gegevens Uitwissel API - SHV
+  version: 0.2.3
+  description: |
+    API voor het uitwisselen van schuldhulpverleningsgegevens (SHV) met het CBS.
+
+    Beveiliging:
+    - OAuth2 Client Credentials
+    - TLS transportbeveiliging
+    - Payload signing via JAdES conform Geonovum ADR signing-jades module
+      (header: nlgov-adr-payload-sig, algoritme PS256, detached JWS waarbij
+      de SHA-256 digest van de payload wordt ondertekend).
+
+    Error handling is compatibel met Logius FSC Core 1.1.2.
+    Bij FSC-gerelateerde fouten wordt de header `Fsc-Error-Code` meegegeven.
+
+  contact:
+    name: DDAS-beheer
+    url: https://github.com/Govert-Claus/DDAS-API
+
+servers:
+  - url: https://api.gegevensuitwissel.com/v1
+    description: Productieomgeving
+  - url: https://api-test.gegevensuitwissel.com/v1
+    description: Acceptatie-/testomgeving
+
+security:
+  - OAuth2: [read]
+
+components:
+
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://auth.gegevensuitwissel.com/token
+          scopes:
+            read: Toegang om SHV-gegevens op te halen
+
+  headers:
+
+    Digest:
+      description: SHA-256 digest van de payload (RFC 3230)
+      schema:
+        type: string
+        pattern: '^SHA-256=[A-Za-z0-9+/=]{43,44}$'
+      required: true
+
+    NlgovAdrPayloadSig:
+      description: |
+        Detached JAdES payload signature conform Geonovum ADR signing-jades module.
+      required: true
+      schema:
+        type: string
+        format: jws-compact-detached
+        pattern: '^[A-Za-z0-9_-]+\.\.[A-Za-z0-9_-]+$'
+
+    Fsc-Error-Code:
+      description: |
+        FSC foutcode conform Logius FSC Core 1.1.2.
+      required: true
+      schema:
+        type: string
+        enum:
+          - ERROR_CODE_ACCESS_TOKEN_MISSING
+          - ERROR_CODE_ACCESS_TOKEN_INVALID
+          - ERROR_CODE_ACCESS_TOKEN_EXPIRED
+          - ERROR_CODE_WRONG_GROUP_ID_IN_TOKEN
+          - ERROR_CODE_SERVICE_NOT_FOUND
+          - ERROR_CODE_SERVICE_UNREACHABLE
+          - ERROR_CODE_METHOD_UNSUPPORTED
+          - ERROR_CODE_PEER_CERTIFICATE_VERIFICATION_FAILED
+          - ERROR_CODE_PEER_ID_SIGNATURE_MISMATCH
+          - ERROR_CODE_SIGNATURE_VERIFICATION_FAILED
+          - ERROR_CODE_GRANT_COMBINATION_NOT_ALLOWED
+          - ERROR_CODE_URL_PATH_CONTENT_HASH_MISMATCH
+          - ERROR_CODE_UNKNOWN_HASH_ALGORITHM_HASH
+          - ERROR_CODE_UNKNOWN_ALGORITHM_SIGNATURE
+          - ERROR_CODE_UNKNOWN_FSC_VERSION
+        x-extensible-enum: true
+      examples:
+        accessTokenInvalid:
+          value: ERROR_CODE_ACCESS_TOKEN_INVALID
+
+  schemas:
+
+    Uitwisselmodel:
+      $ref: "https://raw.githubusercontent.com/VNG-Realisatie/ddas-vroegsignalering/refs/heads/main/v1.0/json_schema_Uitwisselmodel.json"
+
+    GegevensRequest:
+      type: object
+      properties:
+
+        aanleverperiodeStartdatum:
+          type: string
+          format: date
+          examples:
+            - "2025-01-01"
+
+        aanleverperiodeEinddatum:
+          type: string
+          format: date
+          examples:
+            - "2025-12-31"
+
+        aanleverende_organisatie:
+          type: string
+          examples:
+            - "GM0001"
+
+      additionalProperties: false
+
+    FscError:
+      type: object
+      required:
+        - code
+        - domain
+      properties:
+
+        type:
+          type: string
+          format: uri
+          description: URI die het fouttype identificeert
+          examples:
+            - https://ddas.example/errors/access-token-invalid
+
+        code:
+          type: string
+          enum:
+            - ERROR_CODE_ACCESS_TOKEN_MISSING
+            - ERROR_CODE_ACCESS_TOKEN_INVALID
+            - ERROR_CODE_ACCESS_TOKEN_EXPIRED
+            - ERROR_CODE_WRONG_GROUP_ID_IN_TOKEN
+            - ERROR_CODE_SERVICE_NOT_FOUND
+            - ERROR_CODE_SERVICE_UNREACHABLE
+            - ERROR_CODE_METHOD_UNSUPPORTED
+            - ERROR_CODE_PEER_CERTIFICATE_VERIFICATION_FAILED
+            - ERROR_CODE_PEER_ID_SIGNATURE_MISMATCH
+            - ERROR_CODE_SIGNATURE_VERIFICATION_FAILED
+            - ERROR_CODE_GRANT_COMBINATION_NOT_ALLOWED
+            - ERROR_CODE_URL_PATH_CONTENT_HASH_MISMATCH
+            - ERROR_CODE_UNKNOWN_HASH_ALGORITHM_HASH
+            - ERROR_CODE_UNKNOWN_ALGORITHM_SIGNATURE
+            - ERROR_CODE_UNKNOWN_FSC_VERSION
+          x-extensible-enum: true
+          examples:
+            - ERROR_CODE_ACCESS_TOKEN_INVALID
+
+        domain:
+          type: string
+          enum:
+            - ERROR_DOMAIN_INWAY
+            - ERROR_DOMAIN_OUTWAY
+          examples:
+            - ERROR_DOMAIN_INWAY
+
+        title:
+          type: string
+          examples:
+            - Ongeldige access token
+
+        detail:
+          type: string
+          examples:
+            - De meegegeven access token is ongeldig of verlopen
+
+        status:
+          type: integer
+          examples:
+            - 401
+
+        instance:
+          type: string
+          format: uri
+          description: URI van het specifieke foutincident
+
+
+paths:
+
+  /gegevens:
+    post:
+
+      summary: Aanvragen en ontvangen van SHV-gegevens
+      operationId: postGegevens
+      tags:
+        - gegevens
+
+      description: |
+        Stuurt een verzoek om SHV-gegevens over een bepaalde periode of organisatie.
+
+      security:
+        - OAuth2: [read]
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GegevensRequest'
+
+      responses:
+
+        "200":
+          description: Succesvol antwoord met de gevraagde SHV-gegevens
+          headers:
+            Digest:
+              $ref: '#/components/headers/Digest'
+            nlgov-adr-payload-sig:
+              $ref: '#/components/headers/NlgovAdrPayloadSig'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Uitwisselmodel'
+
+        "400":
+          description: Ongeldig verzoek
+          headers:
+            Fsc-Error-Code:
+              $ref: '#/components/headers/Fsc-Error-Code'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FscError'
+
+        "401":
+          description: Geen of ongeldige authenticatie
+          headers:
+            Fsc-Error-Code:
+              $ref: '#/components/headers/Fsc-Error-Code'
+            WWW-Authenticate:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FscError'
+
+        "403":
+          description: Toegang geweigerd
+          headers:
+            Fsc-Error-Code:
+              $ref: '#/components/headers/Fsc-Error-Code'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FscError'
+
+        "404":
+          description: Service of resource niet gevonden
+          headers:
+            Fsc-Error-Code:
+              $ref: '#/components/headers/Fsc-Error-Code'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FscError'
+
+        "405":
+          description: Niet ondersteunde HTTP methode
+          headers:
+            Fsc-Error-Code:
+              $ref: '#/components/headers/Fsc-Error-Code'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FscError'
+
+        "429":
+          description: Rate limit overschreden
+
+        "502":
+          description: Service niet bereikbaar
+          headers:
+            Fsc-Error-Code:
+              $ref: '#/components/headers/Fsc-Error-Code'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FscError'

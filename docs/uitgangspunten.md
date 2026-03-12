@@ -40,7 +40,7 @@ De volgende keuzes zijn gemaakt: 
 
   - De service moet voldoende beschikbaar zijn om CBS op de afgesproken momenten te faciliteren.
 
-  - Er is geen centrale routeervoorziening of gegevensopslag nodig. Wel is een centrale "directory" nodig waar de services gepubliceerd worden, waarmee CBS de gegevens kan ophalen. Er moet een keuze gemaakt worden waar deze directory belegd wordt.
+  - Er is geen centrale routeervoorziening of gegevensopslag nodig. Wel is een centrale "directory" nodig waar de services gepubliceerd worden, waarmee CBS de gegevens kan ophalen. Hiervoor wordt de directory van RINIS gebruikt (zie de keuze "Gebruik van FSC directory van RINIS" voor de onderbouwing daarvan).
 
 
 
@@ -76,7 +76,8 @@ De volgende keuzes zijn gemaakt: 
 
   - Alle berichten krijgen een ondertekening door de partij die het bericht verstuurd.
 
-  - Voor ondertekenen is een certificaat nodig; alle deelnemers moeten een certificaat hebben dat vertrouwd wordt. NB: dit moet een ander certificaat zijn dan diegene die nodig is voor dubbelzijdig versleuteld transport (TLS).
+  - Voor ondertekenen is een certificaat nodig; alle deelnemers moeten een certificaat hebben dat vertrouwd wordt.  
+    NB: dit moet een ander certificaat zijn dan diegene die nodig is voor dubbelzijdig versleuteld transport (mTLS). Dit zijn immers verschillende functies die elkaar niet mogen beïnvloeden; het beheer gebeurt gescheiden en eventuele problemen met de ene mogen geen impact hebben op de andere.
 
 
 
@@ -104,11 +105,16 @@ De volgende keuzes zijn gemaakt: 
 
   - Er bestaat een referentie implementatie die de inrichting en het gebruik van de API sterk vereenvoudigt. Verder is er bij VNG Realisatie (waar de standaard is ontwikkeld), het Federatief Datastelsel en RINIS kennis die gebruikt kan worden.
 
+  - FSC is onderdeel van het Federatief Datastelsel, het stelsel dat door het [OBDO vastgesteld is](https://www.digitaleoverheid.nl/nieuws/obdo-stelt-afsprakenstelsel-federatief-datastelsel-vast/) als basis om data overheidsbreed te vinden, delen en verantwoord te gebruiken.
+
   *Implicaties*
 
-  - Alle deelnemers dienen de FSC componenten te installeren en in te richten. Deze componenten zijn onder de naam [OpenFSC](https://gitlab.com/commonground/fsc/open-fsc) als Open Source beschikbaar.
+  - Alle deelnemers dienen de FSC componenten te installeren en in te richten. Deze componenten zijn onder de naam [OpenFSC](https://gitlab.com/commonground/fsc/open-fsc) als Open Source beschikbaar (maar de deelnemers mogen deze componenten ook zelf inrichten, als ze zich aan de standaard houden).
 
-  - FSC gaat uit van dubbelzijdig versleuteld transport (TLS). Hiervoor hebben alle deelnemers van het DDAS-stelsel een certificaat nodig dat vertrouwd wordt.
+  - Alle deelnemers moeten een domein via het internet bereikbaar maken voor hun manager (bv. manager.organisatie.nl) en hun inway (bv. inway.organisatie.nl) en/of outway (bv. outway.organisatie.nl) componenten.
+
+  - FSC gaat uit van dubbelzijdig versleuteld transport (mTLS). Hiervoor hebben alle deelnemers van het DDAS-stelsel een certificaat nodig dat vertrouwd wordt.  
+  Er is een certificaat voor ieder domein dat via het internet beschikbaar komt: de manager en de inway en/of outway . NB: voor de verschillende domeinen kan hetzelfde certificaat gebruikt worden.
 
 
 
@@ -116,7 +122,7 @@ De volgende keuzes zijn gemaakt: 
 
   *Rationale*
 
-  - Er is een centrale directory nodig waar gegevensleveranciers hun services kunnen publiceren en waar met CBS een contract afgesloten kan worden.
+  - Er is een centrale directory nodig waar gegevensleveranciers hun services kunnen publiceren, zodat deze vindbaar zijn.
 
   - RINIS biedt een FSC directory aan voor alle overheidspartijen die de Digikoppeling standaard voor REST API's toepassen. Ook het DDAS stelsel mag daar gebruik van maken.
 
@@ -126,16 +132,16 @@ De volgende keuzes zijn gemaakt: 
 
   - Door gebruik te maken van de directory van RINIS zijn de services (in principe) makkelijk te hergebruiken voor andere diensten binnen de overheid.
 
-  - RINIS biedt de mogelijkheid om een eigen omgeving voor het DDAS stelsel te gebruiken, waar eigen voorwaarden voor deelname aan gekoppeld kunnen worden. Vooralsnog is dit niet nodig en wordt de algemene omgeving van RINIS gebruikt.
-
 
   *Implicaties*
 
-  - Het koppelvlak moet voldoen aan het REST profiel van de Digikoppeling standaard en gebruik maken van PKIo certificaten (dit is een voorwaarde om gebruik te maken van de voorziening van RINIS).
+  - Het koppelvlak moet voldoen aan het REST profiel van de Digikoppeling standaard en gebruik maken van PKIo certificaten. De voorziening van RINIS volgt deze standaard en dwingt dit daarom af.
 
   - Alle deelnemers moeten hun endpoint (laten) registreren bij RINIS. Dit gebeurt als onderdeel van het aansluitprotocol en wordt gefaciliteerd door de stelselbeheerder (gedurende het programma is dit het programma DDAS).
 
-  - Voor het ophalen van de gegevens, moet CBS de directory van RINIS bevragen om een contract af te sluiten met de leverancier van gegevens. Daarmee krijgt CBS toegang tot de service die de gegevens ontsluit.
+  - Omdat de directory door alle overheidspartijen gebruikt mag worden, is het belangrijk afspraken te maken over de naamgeving van de services, zodat deze eenvoudig vindbaar zijn. Zie [paragraaf 3.4](https://govert-claus.github.io/DDAS-API/#naamsconventie) hiervoor.
+
+  - Voor het ophalen van de gegevens, moet CBS de directory van RINIS bevragen om de services van de gegevensleveranciers te vinden. Daarmee sluit CBS een contract af met de gegevensleverancier om toegang te krijgen tot de service en de gegevens.
 
 
 
@@ -163,15 +169,20 @@ De volgende keuzes zijn gemaakt: 
 
   - Er zijn geen routeervoorzieningen of andere "tussenstations" in het stelsel voorzien, waardoor "Man in the Middle" aanvallen onwaarschijnlijk zijn.
 
-  - Het transport wordt met dubbelzijdig TLS versleuteld, wat voldoende beveiliging geeft.
+  - Het transport wordt met dubbelzijdig mTLS versleuteld, wat voldoende beveiliging geeft.
 
   - Middels de directory van RINIS worden alleen vertrouwde endpoints aangeroepen en krijgen alleen vertrouwde consumers (in dit geval enkel CBS) toegang tot de services.
+
+  - Alleen afnemers die een contract hebben voor een specifieke API (in ons geval CBS) kunnen de mTLS verbinding opzetten met de Inway (een afnemer krijgt alleen een token met een geldig contract).
+
+  - Het certificaat waarmee het contract is getekend moet hetzelfde zijn als het certificaat waarmee het contract is opgezet.
+
 
   *Implicaties*
 
   - Aansluiten op het stelsel vereist geen toegang tot een gesloten netwerk.
 
-  - Het transport moet met dubbelzijdig TLS beveiligd worden.
+  - Het transport moet met dubbelzijdig versleuteling (mTLS) beveiligd worden.
 
   - Alleen endpoints die in de directory van FSC zijn vastgelegd en waarvoor een contract is afgesloten tussen CBS en gegevensleverancier, worden bevraagd.
 

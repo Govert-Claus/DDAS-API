@@ -1,0 +1,15 @@
+source: docs
+destination: _site
+
+exclude:
+  - test
+  - tests
+  - scripts
+  - node_modules
+  - vendor
+
+markdown: kramdown
+theme: jekyll-theme-primer
+relative_links:
+  enabled: true
+  collections: true

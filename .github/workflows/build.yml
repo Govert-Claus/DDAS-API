@@ -17,69 +17,20 @@ permissions:
   contents: read
 
 jobs:
-
   build:
-    name: Build documentation
-    runs-on: ubuntu-latest
+    name: Build
+    uses: Logius-standaarden/Automatisering/.github/workflows/build.yml@snapshot-in-repo
 
-    steps:
-
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install markdown tools
-        run: |
-          npm install -g markdownlint-cli
-          npm install -g @stoplight/spectral-cli
-
-      - name: Lint Markdown
-        run: |
-          markdownlint docs/**/*.md
-
-      - name: Validate OpenAPI
-        run: |
-          if ls docs/**/*.yaml 1> /dev/null 2>&1; then
-            spectral lint docs/**/*.yaml
-          fi
-
-  check-links:
-    name: Check documentation links
-    runs-on: ubuntu-latest
+  check:
     needs: build
-
-    steps:
-
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Link checker
-        uses: lycheeverse/lychee-action@v1
-        with:
-          args: >
-            docs/**/*.md
-            --no-progress
-            --exclude-mail
+    name: Check
+    uses: Logius-standaarden/Automatisering/.github/workflows/check.yml@main
 
   publish:
-    name: Publish GitBook
-    runs-on: ubuntu-latest
-    needs: [build, check-links]
-
-    if: github.ref == 'refs/heads/main'
-
-    permissions:
-      contents: write
-
-    steps:
-
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Publish docs to GitBook
-        uses: Logius-standaarden/Automatisering/.github/workflows/publish.yml@main
-        secrets: inherit
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs:
+      - build
+      - check
+    name: Publish
+    uses: Logius-standaarden/Automatisering/.github/workflows/publish.yml@main
+    secrets: inherit

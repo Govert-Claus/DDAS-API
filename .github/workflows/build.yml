@@ -2,12 +2,16 @@ name: Build and Check
 on:
   workflow_dispatch:
   pull_request:
+    paths:
+      - 'docs/**'
   push:
     branches:
       - main
 permissions:
   contents: write
 jobs:
+  with:
+    source: docs
   build:
     name: Build
     uses: Logius-standaarden/Automatisering/.github/workflows/build.yml@snapshot-in-repo

@@ -1,7 +1,6 @@
-# Signing en Versleuteling
+# Ondertekenen en Versleuteling
 
-
-## Signeren (Signing)
+## Ondertekenen (Signing)
 
 Alle berichten moeten ge-signed worden om de authenticiteit, integriteit en bewijsbaarheid van herkomst van het berichtenverkeer te garanderen.
 

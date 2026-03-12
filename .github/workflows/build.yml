@@ -19,7 +19,7 @@ permissions:
 jobs:
   build:
     name: Build
-    uses: Logius-standaarden/Automatisering/.github/workflows/build.yml@snapshot-in-repo
+    uses: Logius-standaarden/Automatisering/.github/workflows/build.yml@main
 
   check:
     needs: build
@@ -27,10 +27,9 @@ jobs:
     uses: Logius-standaarden/Automatisering/.github/workflows/check.yml@main
 
   publish:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs:
       - build
       - check
-    name: Publish
+    name: Publish (Logius)
     uses: Logius-standaarden/Automatisering/.github/workflows/publish.yml@main
     secrets: inherit

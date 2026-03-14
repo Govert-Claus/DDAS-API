@@ -46,7 +46,12 @@
   </script>
   <section id='tof'></section>
   <script>
-  document.addEventListener("respecDone", () => { window.respecReady = true; });
+    document.querySelectorAll("pre[data-include]").forEach(async el => {
+      const url = el.getAttribute("data-include");
+      const txt = await fetch(url).then(r => r.text());
+      el.textContent = txt;
+    });
+    document.addEventListener("respecDone", () => { window.respecReady = true; });
   </script>
 
 </body>

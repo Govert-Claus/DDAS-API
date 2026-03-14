@@ -19,8 +19,6 @@ permissions:
   id-token: write
 
 jobs:
-
-jobs:
   build:
     name: Build
     uses: Logius-standaarden/Automatisering/.github/workflows/build.yml@main

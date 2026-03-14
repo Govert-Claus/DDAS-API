@@ -13,12 +13,14 @@ let respecConfig = {
   publishDate: "2026-03-15",
   publishVersion: "2026.03",
 
+  // Zie de globale property 'localizationStrings/nl' voor de lijst met toegestane maturities
+  previousMaturity: "IO",
+  previousPublishDate: "2026-02-26",
   previousPublishVersion: "2026.02",
   previousPublishUri: "https://govert-claus.github.io/DDAS-API/",
-  // Zie de globale property 'localizationStrings/nl' voor de lijst met toegestane maturities
-  //previousMaturity: "IO",
-  //previousPublishDate: "2024-10-22",
-  //previousPublishVersion: "0.1",
+
+  thisVersion: "https://govert-claus.github.io/DDAS-API/",
+  latestVersion: "https://govert-claus.github.io/DDAS-API/",
 
   title: "DDAS API Koppelvlakspecificatie",
   subtitle: "Koppelvlakspecificatie voor het beschikbaarstellen van DDAS-gegevens aan het CBS",

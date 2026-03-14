@@ -10,9 +10,11 @@ let respecConfig = {
 
   // Zie de globale property 'localizationStrings/nl' voor de lijst met toegestane specificatie-statussen
   specStatus: "IO",
-  publishDate: "2026-02-26",
-  publishVersion: "2026.02",
+  publishDate: "2026-03-15",
+  publishVersion: "2026.03",
 
+  previousPublishVersion: "2026.02",
+  previousPublishUri: "https://govert-claus.github.io/DDAS-API/",
   // Zie de globale property 'localizationStrings/nl' voor de lijst met toegestane maturities
   //previousMaturity: "IO",
   //previousPublishDate: "2024-10-22",

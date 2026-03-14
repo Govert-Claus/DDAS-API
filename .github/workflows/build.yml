@@ -43,10 +43,24 @@ jobs:
           name: static
           path: static
 
-      - name: Copy PDF to site root
+      - name: Install puppeteer
         run: |
-          cp static/*.pdf static/index.html .
-          cp static/*.pdf static/
+          npm init -y
+          npm install puppeteer
+
+      - name: Download Logius PDF script
+        run: |
+          wget https://raw.githubusercontent.com/Logius-standaarden/Automatisering/main/scripts/pdf.js
+
+      - name: Generate PDF
+        run: |
+          python3 -m http.server 8080 &
+          sleep 5
+          node pdf.js http://localhost:8080/static/index.html
+
+      - name: Move PDF into site
+        run: |
+          mv *.pdf static/
 
       - name: Upload updated artifact
         uses: actions/upload-artifact@v4

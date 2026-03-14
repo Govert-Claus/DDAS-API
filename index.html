@@ -8,10 +8,13 @@
   <script src="https://vng-realisatie.github.io/VNG-R-Respec-Organization-configurations/js/organisation-config.js" class="remove"></script>
   <script src="js/config.js" class="remove"></script>
   <script class="remove"> respecConfig = {...organisationConfig, ...respecConfig}</script>
-  <script>document.title = respecConfig.title</script>
   <title>Default</title>
-  <link rel="shortcut icon" type="image/x-icon" href="https://vng-realisatie.github.io/VNG-R-Respec-Organization-configurations/media/logo-VNG-Realisatie.ico" />
-  <script src="https://gitdocumentatie.logius.nl/publicatie/respec/builds/respec-nlgov.js" class="remove" async></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.respecConfig) document.title = respecConfig.title;
+  });
+  </script>  <link rel="shortcut icon" type="image/x-icon" href="https://vng-realisatie.github.io/VNG-R-Respec-Organization-configurations/media/logo-VNG-Realisatie.ico" />
+  <script src="https://gitdocumentatie.logius.nl/publicatie/respec/builds/respec-nlgov.js" class="remove"></script>
   <!-- De volgende style is noodzakelijk voor de werking van imagemaps. -->
   <style>
 	.figure img,    .sidefigure img,    figure img,

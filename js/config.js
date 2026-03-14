@@ -19,9 +19,9 @@ let respecConfig = {
   previousPublishVersion: "2026.02",
   previousPublishUri: "https://govert-claus.github.io/DDAS-API/",
 
-  thisVersion: "https://govert-claus.github.io/DDAS-API/2026.03/",
+  thisVersion: "https://govert-claus.github.io/DDAS-API/",
   latestVersion: "https://govert-claus.github.io/DDAS-API/",
-  
+
   title: "DDAS API Koppelvlakspecificatie",
   subtitle: "Koppelvlakspecificatie voor het beschikbaarstellen van DDAS-gegevens aan het CBS",
 //  content: {"mermaid": "", "ch01": "informative", "ch02": ""},

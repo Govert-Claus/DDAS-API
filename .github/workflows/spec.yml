@@ -44,18 +44,23 @@ jobs:
           npm init -y
           npm install puppeteer
 
+      - name: Install Google Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
       - name: Download Logius PDF script
         run: |
           wget https://raw.githubusercontent.com/Logius-standaarden/Automatisering/main/scripts/pdf.js
 
-      - name: Start local server
+      - name: Start server
         run: |
-          python3 -m http.server 8080 &
+          python3 -m http.server 8080 --directory _site &
           sleep 5
 
       - name: Generate PDF
         run: |
-          export PUPPETEER_ARGS="--no-sandbox --disable-setuid-sandbox"
+          export PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome
           node pdf.js http://localhost:8080/
 
       - name: Move PDF into site

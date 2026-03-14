@@ -28,6 +28,14 @@ jobs:
     name: Check
     uses: Logius-standaarden/Automatisering/.github/workflows/check.yml@main
 
+
+  publish:
+    needs:
+      - prepare-pdf
+    name: Publish (Logius)
+    uses: Logius-standaarden/Automatisering/.github/workflows/publish.yml@main
+    secrets: inherit
+
   prepare-pdf:
     needs:
       - build
@@ -67,10 +75,3 @@ jobs:
         with:
           name: static
           path: static
-
-  publish:
-    needs:
-      - prepare-pdf
-    name: Publish (Logius)
-    uses: Logius-standaarden/Automatisering/.github/workflows/publish.yml@main
-    secrets: inherit

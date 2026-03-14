@@ -2,20 +2,16 @@
 
 ## Schuldhulpverleningsgegevens
 
-De technische beschrijving van de API is in het volgende OAS3-bestand beschreven.
+De technische beschrijving van de API is in het volgende OAS3-bestand beschreven:
 
-<div id="swagger-shv"></div>
-
-Hiervan is ook een [downloadbare versie](docs/api/v0.2/DDAS-SHV_v0.2.3.yaml) beschikbaar.  
+- [Download OAS](docs/api/v0.2/DDAS-SHV_v0.2.3.yaml)  
 
 
 ## Vroegsignaleringsgegevens
 
-De technische beschrijving van de API is in het volgende OAS3-bestand beschreven.
+De technische beschrijving van de API is in het volgende OAS3-bestand beschreven:
 
-<div id="swagger-vs"></div>
-
-Hiervan is ook een [downloadbare versie](docs/api/v0.2/DDAS-VS_v0.2.3.yaml) beschikbaar.  
+- [Download OAS](docs/api/v0.2/DDAS-VS_v0.2.3.yaml)  
 
 
 Hieronder worden de berichten die in het OAS-bestand technisch beschreven zijn, toegelicht.

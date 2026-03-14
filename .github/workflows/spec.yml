@@ -61,7 +61,7 @@ jobs:
       - name: Generate PDF
         run: |
           export PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome
-          node pdf.js http://localhost:8080/
+          node pdf.js http://localhost:8080/docs/
 
       - name: Move PDF into site
         run: |

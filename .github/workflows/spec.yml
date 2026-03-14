@@ -46,6 +46,10 @@ jobs:
           export PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome
           node js/pdf.js http://localhost:8080/docs/index.html
 
+      - name: Fix permissions
+        run: |
+          sudo chmod -R 777 _site
+
       - name: Move PDF into site
         run: |
           mv *.pdf _site/

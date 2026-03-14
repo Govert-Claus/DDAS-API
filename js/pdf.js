@@ -41,10 +41,20 @@ const puppeteer = require("puppeteer");
     document.querySelector("h1").innerText
   );
 
-  const filename =
-    title.replace(/[^\w\s-]/g, "")
-         .replace(/\s+/g, "-") +
-    ".pdf";
+  const filename = await page.evaluate(() => {
+
+    // zoek de PDF link die Respec genereert
+    const link = document.querySelector('a[href$=".pdf"]');
+
+    if (link) {
+      const parts = link.getAttribute("href").split("/");
+      return parts[parts.length - 1];
+    }
+
+    // fallback
+    const title = document.querySelector("h1").innerText;
+    return title.replace(/\s+/g, "-") + ".pdf";
+  });
 
   console.log("Generating PDF:", filename);
 

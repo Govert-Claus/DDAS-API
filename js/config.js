@@ -19,9 +19,9 @@ let respecConfig = {
   previousPublishVersion: "2026.02",
   previousPublishUri: "https://govert-claus.github.io/DDAS-API/",
 
-  thisVersion: "https://govert-claus.github.io/DDAS-API/",
+  thisVersion: "https://govert-claus.github.io/DDAS-API/2026.03/",
   latestVersion: "https://govert-claus.github.io/DDAS-API/",
-
+  
   title: "DDAS API Koppelvlakspecificatie",
   subtitle: "Koppelvlakspecificatie voor het beschikbaarstellen van DDAS-gegevens aan het CBS",
 //  content: {"mermaid": "", "ch01": "informative", "ch02": ""},
@@ -41,7 +41,7 @@ let respecConfig = {
         companyURL: "https://www.divosa.nl/ddas",
       }
     ],
-  github: "https://github.com/Govert-Claus/DDAS-API",
+  github: "Govert-Claus/DDAS-API",
 
   //  maxTocLevel: 2,
 

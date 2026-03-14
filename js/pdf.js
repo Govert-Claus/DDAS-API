@@ -27,15 +27,15 @@ const puppeteer = require("puppeteer");
     waitUntil: "networkidle0"
   });
 
-  console.log("Waiting for ReSpec...");
+//  console.log("Waiting for ReSpec...");
 
-  await page.waitForFunction(() => {
-    return document.respec && document.respec.ready;
-  });
+//  await page.waitForFunction(() => {
+//    return document.respec && document.respec.ready;
+//  });
 
   console.log("Waiting for title...");
 
-  await page.waitForSelector("h1");
+  await page.waitForSelector("h1", { timeout: 60000 });
 
   const title = await page.evaluate(() =>
     document.querySelector("h1").innerText

@@ -27,11 +27,11 @@ const puppeteer = require("puppeteer");
     waitUntil: "networkidle0"
   });
 
-//  console.log("Waiting for ReSpec...");
+  console.log("Waiting for ReSpec build...");
 
-//  await page.waitForFunction(() => {
-//    return document.respec && document.respec.ready;
-//  });
+  await page.waitForFunction(() => window.respecReady === true, {
+    timeout: 120000
+  });
 
   console.log("Waiting for title...");
 

@@ -4,11 +4,12 @@
 
 Het transport van de berichten verloopt volgens de [FSC-standaard](https://fsc-standaard.nl/). De belangrijkste aspecten van deze standaard zijn:
 
-- Dubbelzijdig versleuteling van het transport (mTLS). NB: Dit vereist een certificaat dat door alle betrokken partijen vertrouwd wordt.
+- Dubbelzijdig versleuteling van het transport (mTLS). NB: Dit vereist aan beide zijden van het transport certificaten die door alle betrokken partijen vertrouwd worden.
 
 - Gebruik van PKIo certificaten. Deze zijn aan te vragen bij door [Logius geautoriseerde aanbieders](https://www.logius.nl/domeinen/toegang/pkioverheid/pkioverheidcertificaat-aanvragen).
 
-- De autorisatie van verbindingen wordt gedaan met een specifieke FSC-header: Fsc-Authorization. Hierin is een aantal componenten opgenomen die specifiek zijn voor FSC (o.a. de grant hash die in de transactielogging opgenomen wordt). Deze specifieke header geeft de ruimte om eventueel een extra autorisatie toe te voegen bijvoorbeeld op basis van een ingelogde gebruiker.
+- De autorisatie van verbindingen wordt gedaan met een specifieke FSC-header: Fsc-Authorization. Hierin is een aantal componenten opgenomen die specifiek zijn voor FSC (o.a. de grant hash die in de transactielogging opgenomen wordt).  
+Deze specifieke header geeft de ruimte om eventueel een extra autorisatie toe te voegen bijvoorbeeld op basis van een ingelogde gebruiker.
 
 - Berichten lopen via FSC-componenten "outway" van de afnemer (CBS) en "inway" van de gegevensleverancier met de API.
 

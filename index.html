@@ -11,6 +11,7 @@
   <script>document.title = respecConfig.title</script>
   <title>Default</title>
   <link rel="shortcut icon" type="image/x-icon" href="https://vng-realisatie.github.io/VNG-R-Respec-Organization-configurations/media/logo-VNG-Realisatie.ico" />
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css">
   <script src="https://gitdocumentatie.logius.nl/publicatie/respec/builds/respec-nlgov.js" class="remove"></script>
   <!-- De volgende style is noodzakelijk voor de werking van imagemaps. -->
   <style>
@@ -45,13 +46,42 @@
     document.getElementById("probl").insertAdjacentHTML('afterend', content);
   </script>
   <section id='tof'></section>
+
+  <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
+  <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-standalone-preset.js"></script>
+
   <script>
-    document.querySelectorAll("pre[data-include]").forEach(async el => {
-      const url = el.getAttribute("data-include");
-      const txt = await fetch(url).then(r => r.text());
-      el.textContent = txt;
-    });
-    document.addEventListener("respecDone", () => { window.respecReady = true; });
+  document.addEventListener("respecDone", () => {
+    window.respecReady = true;
+
+    const shv = document.getElementById("swagger-shv");
+    if (shv) {
+      SwaggerUIBundle({
+        url: "docs/api/v0.2/DDAS-SHV_v0.2.3.yaml",
+        domNode: shv,
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        layout: "BaseLayout"
+      });
+    }
+
+    const vs = document.getElementById("swagger-vs");
+    if (vs) {
+      SwaggerUIBundle({
+        url: "docs/api/v0.2/DDAS-VS_v0.2.3.yaml",
+        domNode: vs,
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        layout: "BaseLayout"
+      });
+    }
+  });
   </script>
 
 </body>

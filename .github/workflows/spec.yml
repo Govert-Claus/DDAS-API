@@ -56,12 +56,12 @@ jobs:
       - name: Start server
         run: |
           python3 -m http.server 8080 --directory _site &
-          sleep 5
+          sleep 10
 
       - name: Generate PDF
         run: |
           export PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome
-          node pdf.js http://localhost:8080/docs/
+          node pdf.js http://localhost:8080/docs/index.html
 
       - name: Move PDF into site
         run: |

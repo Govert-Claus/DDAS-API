@@ -2,19 +2,16 @@
 
 ## Schuldhulpverleningsgegevens
 
-De technische beschrijving van de API is in het volgende OAS3-bestand beschreven.  
+De technische beschrijving van de API is in het volgende OAS3-bestand beschreven:  
 
-<pre data-include="../api/v0.2/DDAS-SHV_v0.2.3.yaml"></pre>  
+- [Download OAS](../api/v0.2/DDAS-SHV_v0.2.3.yaml)
 
-Hiervan is ook een [downloadbare versie](https://raw.githubusercontent.com/Govert-Claus/DDAS-API/refs/heads/main/docs/api/v0.2/DDAS-SHV_v0.2.3.yaml) van.
 
 ## Vroegsignaleringsgegevens
 
-De technische beschrijving van de API is in het volgende OAS3-bestand beschreven.  
+De technische beschrijving van de API is in het volgende OAS3-bestand beschreven:  
 
-<pre data-include="../api/v0.2/DDAS-VS_v0.2.3.yaml"></pre>  
-
-Hiervan is ook een [downloadbare versie](https://raw.githubusercontent.com/Govert-Claus/DDAS-API/refs/heads/main/docs/api/v0.2/DDAS-VS_v0.2.3.yaml) van.
+- [Download OAS](../api/v0.2/DDAS-VS_v0.2.3.yaml)
 
 
 Hieronder worden de berichten die in het OAS-bestand technisch beschreven zijn, toegelicht.

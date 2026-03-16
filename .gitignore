@@ -1,7 +1,2 @@
 .DS_Store
-.github/.DS_Store
-docs/.DS_Store
-docs/api/.DS_Store
-js/.DS_Store
-simulatie/.DS_Store
-test/.DS_Store
+**/.DS_Store

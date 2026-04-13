@@ -1,0 +1,39 @@
+name: Deploy PR previews
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+concurrency: preview-${{ github.ref }}
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        if: github.event.action != 'closed'
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: Install MkDocs
+        if: github.event.action != 'closed'
+        run: pip install mkdocs-material  # of: pip install -r requirements.txt
+
+      - name: Build MkDocs site
+        if: github.event.action != 'closed'
+        run: mkdocs build
+
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./site/       # MkDocs bouwt standaard naar ./site/
+          preview-branch: gh-pages  # branch waar je Pages op draait
+          qr-code: true

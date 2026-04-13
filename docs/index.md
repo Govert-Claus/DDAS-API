@@ -3,4 +3,6 @@ Dit is een product van het [programma DDAS](https://www.divosa.nl/projecten/data
 
 Naast de uitgangspunten en de technische specificatie bevat dit document een beschrijving van de niet-functionele eisen (beschikbaarheid, performance).
 
+Deze tekst moet nog aangepast worden!
+
 ***De huidige versie is nog in ontwikkeling. De eerste vastgestelde versie zal in april 2026 beschikbaar komen, na vaststelling door de stuurgroep DDAS.***

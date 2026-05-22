@@ -1,0 +1,78 @@
+{
+  "codeGegevensleverancier": "SOFTLEVERANCIER-XYZ",
+  "startdatumLevering": "2025-01-01",
+  "einddatumLevering": "2025-01-31",
+  "aanleverdatumEnTijd": "2025-02-05T10:15:30Z",
+  "leveringen": [
+    {
+      "teller": 1,
+      "gemeentecode": "0344",
+      "aanleverende_organisatie": {
+        "naam": "Gemeente Voorbeeldstad",
+        "kvk-nummer": "12345678",
+        "contactpersoonen": [
+          {
+            "naam": "Jan Jansen",
+            "telefoonnummer": "0612345678",
+            "email": "jan.jansen@gemeentevoorbeeldstad.nl",
+            "functietitel": "Beleidsmedewerker Schuldhulpverlening"
+          }
+        ]
+      },
+      "vroegsignalen": [
+        {
+          "ID": "VS-2025-0001",
+          "crisissignaal": false,
+          "warmeOverdracht": true,
+          "bedrag": 450,
+          "ontstaansdatum": "2024-12-15",
+          "signaaldatum": "2025-01-10",
+          "status": "Nog niet opgepakt",
+          "signaalpartner": {
+            "type": "Energie"
+          },
+          "client": {
+            "Burgerservicenummer": "123456789",
+            "Voorletters": "A.B.",
+            "Voorvoegsel": "van",
+            "Achternaam": "Dijk",
+            "Geboortedatum": "1985-06-12",
+            "Straatnaam": "Voorbeeldstraat",
+            "Postcode": "1234AB",
+            "Huisnummer": "10",
+            "Huisnummertoevoeging": "A",
+            "Plaatsnaam": "Voorbeeldstad"
+          }
+        }
+      ],
+      "vroegsignaalzaken": [
+        {
+          "resultaat": "(Budget)advies en/of quick fix",
+          "matchingsdatum": "2025-01-12",
+          "startdatum_matchtingperiode": "2025-01-01",
+          "einddatum_matchingperiode": "2025-01-31",
+          "datum_opgepakt": "2025-01-15",
+          "vroegsignalen": [
+            {
+              "ID": "VS-2025-0001"
+            }
+          ],
+          "contactpogingen": [
+            {
+              "soort": "Telefoon",
+              "bereikt": false,
+              "datum": "2025-01-16",
+              "dagdeel": "Middag"
+            },
+            {
+              "soort": "Huisbezoek",
+              "bereikt": true,
+              "datum": "2025-01-20",
+              "dagdeel": "Avond"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

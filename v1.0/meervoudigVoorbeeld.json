@@ -1,0 +1,197 @@
+{
+  "codeGegevensleverancier": "SOFTLEVERANCIER-XYZ",
+  "startdatumLevering": "2025-01-01",
+  "einddatumLevering": "2025-01-31",
+  "aanleverdatumEnTijd": "2025-02-05T10:15:30Z",
+  "leveringen": [
+    {
+      "teller": 1,
+      "gemeentecode": "0344",
+      "aanleverende_organisatie": {
+        "naam": "Gemeente Voorbeeldstad",
+        "kvk-nummer": "12345678",
+        "contactpersoonen": [
+          {
+            "naam": "Jan Jansen",
+            "telefoonnummer": "0612345678",
+            "email": "jan.jansen@gemeentevoorbeeldstad.nl",
+            "functietitel": "Beleidsmedewerker Schuldhulpverlening"
+          },
+          {
+            "naam": "Sara Smit",
+            "telefoonnummer": "0623456789",
+            "email": "sara.smit@gemeentevoorbeeldstad.nl",
+            "functietitel": "Casusregisseur Vroegsignalering"
+          }
+        ]
+      },
+      "vroegsignalen": [
+        {
+          "ID": "VS-2025-0001",
+          "crisissignaal": false,
+          "warmeOverdracht": false,
+          "bedrag": 350,
+          "ontstaansdatum": "2024-12-20",
+          "signaaldatum": "2025-01-06",
+          "status": "Nog niet opgepakt",
+          "signaalpartner": { "type": "Energie" },
+          "client": {
+            "Burgerservicenummer": "111111111",
+            "Voorletters": "A.",
+            "Voorvoegsel": "de",
+            "Achternaam": "Vries",
+            "Geboortedatum": "1982-03-14",
+            "Straatnaam": "Energielaan",
+            "Postcode": "1234AB",
+            "Huisnummer": "12",
+            "Huisnummertoevoeging": "",
+            "Plaatsnaam": "Voorbeeldstad"
+          }
+        },
+        {
+          "ID": "VS-2025-0002",
+          "crisissignaal": true,
+          "warmeOverdracht": true,
+          "bedrag": 980,
+          "ontstaansdatum": "2024-12-05",
+          "signaaldatum": "2025-01-08",
+          "status": "Nog niet opgepakt",
+          "signaalpartner": { "type": "Water" },
+          "client": {
+            "Burgerservicenummer": "111111111",
+            "Voorletters": "A.",
+            "Voorvoegsel": "de",
+            "Achternaam": "Vries",
+            "Geboortedatum": "1982-03-14",
+            "Straatnaam": "Energielaan",
+            "Postcode": "1234AB",
+            "Huisnummer": "12",
+            "Huisnummertoevoeging": "",
+            "Plaatsnaam": "Voorbeeldstad"
+          }
+        }
+      ],
+      "vroegsignaalzaken": [
+        {
+          "resultaat": "Vervolghulp en/of verwijzing financieel",
+          "matchingsdatum": "2025-01-10",
+          "startdatum_matchtingperiode": "2025-01-01",
+          "einddatum_matchingperiode": "2025-01-31",
+          "datum_opgepakt": "2025-01-11",
+          "vroegsignalen": [
+            { "ID": "VS-2025-0001" },
+            { "ID": "VS-2025-0002" }
+          ],
+          "contactpogingen": [
+            {
+              "soort": "Telefoon",
+              "bereikt": false,
+              "datum": "2025-01-12",
+              "dagdeel": "Ochtend"
+            },
+            {
+              "soort": "Brief",
+              "bereikt": false,
+              "datum": "2025-01-13",
+              "dagdeel": "Middag"
+            },
+            {
+              "soort": "Huisbezoek",
+              "bereikt": true,
+              "datum": "2025-01-16",
+              "dagdeel": "Avond"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "teller": 2,
+      "gemeentecode": "0363",
+      "aanleverende_organisatie": {
+        "naam": "Gemeente Tweedeplaats",
+        "kvk-nummer": "87654321",
+        "contactpersoonen": [
+          {
+            "naam": "Pieter Post",
+            "telefoonnummer": "0633333333",
+            "email": "pieter.post@gemeentetweedeplaats.nl",
+            "functietitel": "Coördinator Vroegsignalering"
+          }
+        ]
+      },
+      "vroegsignalen": [
+        {
+          "ID": "VS-2025-0101",
+          "crisissignaal": false,
+          "warmeOverdracht": false,
+          "bedrag": 210,
+          "ontstaansdatum": "2025-01-03",
+          "signaaldatum": "2025-01-18",
+          "status": "Niet opgepakt: herhaalde melding",
+          "signaalpartner": { "type": "Huur" },
+          "client": {
+            "Burgerservicenummer": "222222222",
+            "Voorletters": "M.",
+            "Voorvoegsel": "",
+            "Achternaam": "Bakker",
+            "Geboortedatum": "1990-11-02",
+            "Straatnaam": "Huurdersplein",
+            "Postcode": "5678CD",
+            "Huisnummer": "5",
+            "Huisnummertoevoeging": "bis",
+            "Plaatsnaam": "Tweedeplaats"
+          }
+        },
+        {
+          "ID": "VS-2025-0102",
+          "crisissignaal": false,
+          "warmeOverdracht": false,
+          "bedrag": 130,
+          "ontstaansdatum": "2025-01-07",
+          "signaaldatum": "2025-01-22",
+          "status": "Nog niet opgepakt",
+          "signaalpartner": { "type": "Zorg" },
+          "client": {
+            "Burgerservicenummer": "333333333",
+            "Voorletters": "S.",
+            "Voorvoegsel": "van",
+            "Achternaam": "Leeuwen",
+            "Geboortedatum": "1976-09-29",
+            "Straatnaam": "Zorgpad",
+            "Postcode": "5678CD",
+            "Huisnummer": "18",
+            "Huisnummertoevoeging": "",
+            "Plaatsnaam": "Tweedeplaats"
+          }
+        }
+      ],
+      "vroegsignaalzaken": [
+        {
+          "resultaat": "Definitief geen contact kunnen krijgen",
+          "matchingsdatum": "2025-01-23",
+          "startdatum_matchtingperiode": "2025-01-15",
+          "einddatum_matchingperiode": "2025-01-31",
+          "datum_opgepakt": "2025-01-24",
+          "vroegsignalen": [
+            { "ID": "VS-2025-0102" }
+          ],
+          "contactpogingen": [
+            {
+              "soort": "SMS/Whatsapp",
+              "bereikt": false,
+              "datum": "2025-01-24",
+              "dagdeel": "Middag"
+            },
+            {
+              "soort": "Telefoon",
+              "bereikt": false,
+              "datum": "2025-01-27",
+              "dagdeel": "Avond"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

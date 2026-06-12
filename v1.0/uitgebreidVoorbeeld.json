@@ -1,0 +1,759 @@
+{
+  "codeGegevensleverancier": "SOFTLEV-2025-ABC",
+  "startdatumLevering": "2025-04-01",
+  "einddatumLevering": "2025-06-30",
+  "aanleverdatumEnTijd": "2025-07-08T09:30:00Z",
+  "leveringen": [
+    {
+      "teller": 1,
+      "gemeentecode": "0599",
+      "aanleverende_organisatie": {
+        "naam": "Gemeente Rotterdam",
+        "kvk-nummer": "24483298",
+        "contactpersoonen": [
+          {
+            "naam": "Linda de Groot",
+            "telefoonnummer": "0612345678",
+            "email": "l.degroot@rotterdam.nl",
+            "functietitel": "Teamleider Vroegsignalering"
+          },
+          {
+            "naam": "Ahmed Yilmaz",
+            "telefoonnummer": "0623456789",
+            "email": "a.yilmaz@rotterdam.nl",
+            "functietitel": "Dataanalist Schuldhulpverlening"
+          }
+        ]
+      },
+      "vroegsignalen": [
+        {
+          "ID": "VS-RTD-2025-0001",
+          "crisissignaal": false,
+          "warmeOverdracht": false,
+          "bedrag": 275,
+          "ontstaansdatum": "2025-03-10",
+          "signaaldatum": "2025-04-05",
+          "status": "Nog niet opgepakt",
+          "signaalpartner": { "type": "Energie" },
+          "client": {
+            "Burgerservicenummer": "999012345",
+            "Voorletters": "J.P.",
+            "Voorvoegsel": "van der",
+            "Achternaam": "Berg",
+            "Geboortedatum": "1978-02-14",
+            "Straatnaam": "Coolsingel",
+            "Postcode": "3011AD",
+            "Huisnummer": "40",
+            "Huisnummertoevoeging": "",
+            "Plaatsnaam": "Rotterdam"
+          }
+        },
+        {
+          "ID": "VS-RTD-2025-0002",
+          "crisissignaal": false,
+          "warmeOverdracht": false,
+          "bedrag": 620,
+          "ontstaansdatum": "2025-02-28",
+          "signaaldatum": "2025-04-05",
+          "status": "Nog niet opgepakt",
+          "signaalpartner": { "type": "Huur" },
+          "client": {
+            "Burgerservicenummer": "999012345",
+            "Voorletters": "J.P.",
+            "Voorvoegsel": "van der",
+            "Achternaam": "Berg",
+            "Geboortedatum": "1978-02-14",
+            "Straatnaam": "Coolsingel",
+            "Postcode": "3011AD",
+            "Huisnummer": "40",
+            "Huisnummertoevoeging": "",
+            "Plaatsnaam": "Rotterdam"
+          }
+        },
+        {
+          "ID": "VS-RTD-2025-0003",
+          "crisissignaal": true,
+          "warmeOverdracht": true,
+          "bedrag": 1450,
+          "ontstaansdatum": "2025-01-15",
+          "signaaldatum": "2025-04-12",
+          "status": "Nog niet opgepakt",
+          "signaalpartner": { "type": "CAK Zorgverzekeringen" },
+          "client": {
+            "Burgerservicenummer": "998877665",
+            "Voorletters": "F.M.",
+            "Achternaam": "Osman",
+            "Geboortedatum": "1992-08-03",
+            "Straatnaam": "Blaak",
+            "Postcode": "3011TA",
+            "Huisnummer": "7",
+            "Huisnummertoevoeging": "B",
+            "Plaatsnaam": "Rotterdam"
+          }
+        },
+        {
+          "ID": "VS-RTD-2025-0004",
+          "crisissignaal": false,
+          "warmeOverdracht": false,
+          "bedrag": 180,
+          "ontstaansdatum": "2025-03-22",
+          "signaaldatum": "2025-04-18",
+          "status": "Niet opgepakt: herhaalde melding",
+          "signaalpartner": { "type": "Water" },
+          "client": {
+            "Burgerservicenummer": "887766554",
+            "Voorletters": "R.",
+            "Voorvoegsel": "de",
+            "Achternaam": "Boer",
+            "Geboortedatum": "1965-11-30",
+            "Straatnaam": "Westersingel",
+            "Postcode": "3015LC",
+            "Huisnummer": "22",
+            "Plaatsnaam": "Rotterdam"
+          }
+        },
+        {
+          "ID": "VS-RTD-2025-0005",
+          "crisissignaal": false,
+          "warmeOverdracht": false,
+          "bedrag": 90,
+          "ontstaansdatum": "2025-04-01",
+          "signaaldatum": "2025-04-25",
+          "status": "Persoon is geen inwoner (meer) in de gemeente",
+          "signaalpartner": { "type": "DUO" },
+          "client": {
+            "Burgerservicenummer": "776655443",
+            "Voorletters": "T.S.",
+            "Achternaam": "Nguyen",
+            "Geboortedatum": "2000-05-19",
+            "Straatnaam": "Lijnbaan",
+            "Postcode": "3012EH",
+            "Huisnummer": "15",
+            "Huisnummertoevoeging": "3h",
+            "Plaatsnaam": "Rotterdam"
+          }
+        },
+        {
+          "ID": "VS-RTD-2025-0006",
+          "crisissignaal": false,
+          "warmeOverdracht": false,
+          "bedrag": 340,
+          "ontstaansdatum": "2025-04-10",
+          "signaaldatum": "2025-05-02",
+          "status": "Nog niet opgepakt",
+          "signaalpartner": { "type": "Belastingdienst" },
+          "client": {
+            "Burgerservicenummer": "665544332",
+            "Voorletters": "M.A.",
+            "Voorvoegsel": "van",
+            "Achternaam": "Dijk",
+            "Geboortedatum": "1988-01-07",
+            "Straatnaam": "Kruiskade",
+            "Postcode": "3012EG",
+            "Huisnummer": "50",
+            "Plaatsnaam": "Rotterdam"
+          }
+        },
+        {
+          "ID": "VS-RTD-2025-0007",
+          "crisissignaal": false,
+          "warmeOverdracht": true,
+          "bedrag": 510,
+          "ontstaansdatum": "2025-04-15",
+          "signaaldatum": "2025-05-10",
+          "status": "Nog niet opgepakt",
+          "signaalpartner": { "type": "Dienst Toeslagen" },
+          "client": {
+            "Burgerservicenummer": "554433221",
+            "Voorletters": "E.",
+            "Voorvoegsel": "ter",
+            "Achternaam": "Horst",
+            "Geboortedatum": "1973-07-22",
+            "Straatnaam": "Schiedamsedijk",
+            "Postcode": "3011ED",
+            "Huisnummer": "8",
+            "Huisnummertoevoeging": "A",
+            "Plaatsnaam": "Rotterdam"
+          }
+        },
+        {
+          "ID": "VS-RTD-2025-0008",
+          "crisissignaal": true,
+          "warmeOverdracht": false,
+          "bedrag": 2100,
+          "ontstaansdatum": "2025-03-01",
+          "signaaldatum": "2025-05-15",
+          "status": "Inwoner is overleden",
+          "signaalpartner": { "type": "Hypotheek" },
+          "client": {
+            "Burgerservicenummer": "443322110",
+            "Voorletters": "W.F.",
+            "Achternaam": "Pietersen",
+            "Geboortedatum": "1950-12-01",
+            "Straatnaam": "Mathenesserlaan",
+            "Postcode": "3014HA",
+            "Huisnummer": "100",
+            "Plaatsnaam": "Rotterdam"
+          }
+        },
+        {
+          "ID": "VS-RTD-2025-0009",
+          "crisissignaal": false,
+          "warmeOverdracht": false,
+          "bedrag": 75,
+          "ontstaansdatum": "2025-05-01",
+          "signaaldatum": "2025-05-20",
+          "status": "Niet opgepakt: andere reden",
+          "signaalpartner": { "type": "CAK Eigen bijdrage" },
+          "client": {
+            "Burgerservicenummer": "332211009",
+            "Voorletters": "G.H.",
+            "Voorvoegsel": "in 't",
+            "Achternaam": "Veld",
+            "Geboortedatum": "1960-04-18",
+            "Straatnaam": "Heemraadssingel",
+            "Postcode": "3021DD",
+            "Huisnummer": "33",
+            "Huisnummertoevoeging": "2",
+            "Plaatsnaam": "Rotterdam"
+          }
+        },
+        {
+          "ID": "VS-RTD-2025-0010",
+          "crisissignaal": false,
+          "warmeOverdracht": false,
+          "bedrag": 420,
+          "ontstaansdatum": "2025-05-10",
+          "signaaldatum": "2025-06-01",
+          "status": "Niet opgepakt: onterecht signaal",
+          "signaalpartner": { "type": "Overige" },
+          "client": {
+            "Burgerservicenummer": "221100998",
+            "Voorletters": "B.",
+            "Achternaam": "Kaplan",
+            "Geboortedatum": "1995-09-14",
+            "Straatnaam": "Nieuwe Binnenweg",
+            "Postcode": "3015BE",
+            "Huisnummer": "120",
+            "Huisnummertoevoeging": "C",
+            "Plaatsnaam": "Rotterdam"
+          }
+        },
+        {
+          "ID": "VS-RTD-2025-0011",
+          "crisissignaal": false,
+          "warmeOverdracht": false,
+          "bedrag": 560,
+          "ontstaansdatum": "2025-05-18",
+          "signaaldatum": "2025-06-10",
+          "status": "Nog niet opgepakt",
+          "signaalpartner": { "type": "Zorg" },
+          "client": {
+            "Burgerservicenummer": "665544332",
+            "Voorletters": "M.A.",
+            "Voorvoegsel": "van",
+            "Achternaam": "Dijk",
+            "Geboortedatum": "1988-01-07",
+            "Straatnaam": "Kruiskade",
+            "Postcode": "3012EG",
+            "Huisnummer": "50",
+            "Plaatsnaam": "Rotterdam"
+          }
+        }
+      ],
+      "vroegsignaalzaken": [
+        {
+          "resultaat": "Vervolghulp en/of verwijzing financieel",
+          "matchingsdatum": "2025-04-08",
+          "startdatum_matchtingperiode": "2025-04-01",
+          "einddatum_matchingperiode": "2025-04-30",
+          "datum_opgepakt": "2025-04-10",
+          "vroegsignalen": [
+            { "ID": "VS-RTD-2025-0001" },
+            { "ID": "VS-RTD-2025-0002" }
+          ],
+          "contactpogingen": [
+            {
+              "soort": "Telefoon",
+              "bereikt": false,
+              "datum": "2025-04-11",
+              "dagdeel": "Ochtend"
+            },
+            {
+              "soort": "SMS/Whatsapp",
+              "bereikt": false,
+              "datum": "2025-04-11",
+              "dagdeel": "Middag"
+            },
+            {
+              "soort": "Brief",
+              "bereikt": false,
+              "datum": "2025-04-14",
+              "dagdeel": "Ochtend"
+            },
+            {
+              "soort": "Huisbezoek",
+              "bereikt": true,
+              "datum": "2025-04-18",
+              "dagdeel": "Avond"
+            }
+          ]
+        },
+        {
+          "resultaat": "(Budget)advies en/of quick fix",
+          "matchingsdatum": "2025-04-15",
+          "startdatum_matchtingperiode": "2025-04-01",
+          "einddatum_matchingperiode": "2025-04-30",
+          "datum_opgepakt": "2025-04-16",
+          "vroegsignalen": [
+            { "ID": "VS-RTD-2025-0003" }
+          ],
+          "contactpogingen": [
+            {
+              "soort": "Telefoon",
+              "bereikt": true,
+              "datum": "2025-04-16",
+              "dagdeel": "Middag"
+            }
+          ]
+        },
+        {
+          "resultaat": "Niet opgepakt: herhaalde melding",
+          "matchingsdatum": "2025-04-20",
+          "startdatum_matchtingperiode": "2025-04-01",
+          "einddatum_matchingperiode": "2025-04-30",
+          "vroegsignalen": [
+            { "ID": "VS-RTD-2025-0004" }
+          ]
+        },
+        {
+          "resultaat": "Persoon is geen inwoner (meer) in de gemeente",
+          "matchingsdatum": "2025-04-28",
+          "startdatum_matchtingperiode": "2025-04-01",
+          "einddatum_matchingperiode": "2025-04-30",
+          "vroegsignalen": [
+            { "ID": "VS-RTD-2025-0005" }
+          ]
+        },
+        {
+          "resultaat": "Inwoner regelt het zelf/hoeft geen hulp vanuit vroegsignalering",
+          "matchingsdatum": "2025-05-05",
+          "startdatum_matchtingperiode": "2025-05-01",
+          "einddatum_matchingperiode": "2025-05-31",
+          "datum_opgepakt": "2025-05-06",
+          "vroegsignalen": [
+            { "ID": "VS-RTD-2025-0006" }
+          ],
+          "contactpogingen": [
+            {
+              "soort": "Mail",
+              "bereikt": true,
+              "datum": "2025-05-06",
+              "dagdeel": "Ochtend"
+            },
+            {
+              "soort": "Afspraak op locatie",
+              "bereikt": true,
+              "datum": "2025-05-12",
+              "dagdeel": "Middag"
+            }
+          ]
+        },
+        {
+          "resultaat": "Verwijzing zonder toestemming",
+          "matchingsdatum": "2025-05-12",
+          "startdatum_matchtingperiode": "2025-05-01",
+          "einddatum_matchingperiode": "2025-05-31",
+          "datum_opgepakt": "2025-05-13",
+          "vroegsignalen": [
+            { "ID": "VS-RTD-2025-0007" }
+          ],
+          "contactpogingen": [
+            {
+              "soort": "Kaartje",
+              "bereikt": false,
+              "datum": "2025-05-13",
+              "dagdeel": "Ochtend"
+            },
+            {
+              "soort": "Telefoon",
+              "bereikt": true,
+              "datum": "2025-05-15",
+              "dagdeel": "Middag"
+            }
+          ]
+        },
+        {
+          "resultaat": "Inwoner is overleden",
+          "matchingsdatum": "2025-05-18",
+          "startdatum_matchtingperiode": "2025-05-01",
+          "einddatum_matchingperiode": "2025-05-31",
+          "vroegsignalen": [
+            { "ID": "VS-RTD-2025-0008" }
+          ]
+        },
+        {
+          "resultaat": "Inwoner al bekend bij schuldhulpverlening",
+          "matchingsdatum": "2025-05-22",
+          "startdatum_matchtingperiode": "2025-05-01",
+          "einddatum_matchingperiode": "2025-05-31",
+          "vroegsignalen": [
+            { "ID": "VS-RTD-2025-0009" }
+          ]
+        },
+        {
+          "resultaat": "Definitief geen contact kunnen krijgen",
+          "matchingsdatum": "2025-06-02",
+          "startdatum_matchtingperiode": "2025-06-01",
+          "einddatum_matchingperiode": "2025-06-30",
+          "datum_opgepakt": "2025-06-03",
+          "vroegsignalen": [
+            { "ID": "VS-RTD-2025-0006" },
+            { "ID": "VS-RTD-2025-0011" }
+          ],
+          "contactpogingen": [
+            {
+              "soort": "Telefoon",
+              "bereikt": false,
+              "datum": "2025-06-03",
+              "dagdeel": "Ochtend"
+            },
+            {
+              "soort": "Administratief",
+              "bereikt": false,
+              "datum": "2025-06-04",
+              "dagdeel": "Ochtend"
+            },
+            {
+              "soort": "SMS/Whatsapp",
+              "bereikt": false,
+              "datum": "2025-06-06",
+              "dagdeel": "Middag"
+            },
+            {
+              "soort": "Huisbezoek",
+              "bereikt": false,
+              "datum": "2025-06-10",
+              "dagdeel": "Avond"
+            },
+            {
+              "soort": "Brief",
+              "bereikt": false,
+              "datum": "2025-06-15",
+              "dagdeel": "Ochtend"
+            }
+          ]
+        },
+        {
+          "resultaat": "Niet opgepakt: onterecht signaal",
+          "matchingsdatum": "2025-06-05",
+          "startdatum_matchtingperiode": "2025-06-01",
+          "einddatum_matchingperiode": "2025-06-30",
+          "vroegsignalen": [
+            { "ID": "VS-RTD-2025-0010" }
+          ]
+        }
+      ]
+    },
+    {
+      "teller": 2,
+      "gemeentecode": "0518",
+      "aanleverende_organisatie": {
+        "naam": "Stichting Schuldhulp Regio Den Haag",
+        "kvk-nummer": "55667788",
+        "contactpersoonen": [
+          {
+            "naam": "Petra Willems",
+            "telefoonnummer": "0701234567",
+            "email": "p.willems@schuldhulpdenhaag.nl",
+            "functietitel": "Manager Vroegsignalering"
+          }
+        ]
+      },
+      "vroegsignalen": [
+        {
+          "ID": "VS-DH-2025-0001",
+          "crisissignaal": false,
+          "warmeOverdracht": false,
+          "bedrag": 310,
+          "ontstaansdatum": "2025-03-20",
+          "signaaldatum": "2025-04-10",
+          "status": "Nog niet opgepakt",
+          "signaalpartner": { "type": "Energie" },
+          "client": {
+            "Burgerservicenummer": "112233445",
+            "Voorletters": "C.L.",
+            "Voorvoegsel": "den",
+            "Achternaam": "Hartog",
+            "Geboortedatum": "1984-06-25",
+            "Straatnaam": "Hofweg",
+            "Postcode": "2511AA",
+            "Huisnummer": "3",
+            "Plaatsnaam": "Den Haag"
+          }
+        },
+        {
+          "ID": "VS-DH-2025-0002",
+          "crisissignaal": true,
+          "warmeOverdracht": true,
+          "bedrag": 1800,
+          "ontstaansdatum": "2025-02-10",
+          "signaaldatum": "2025-04-15",
+          "status": "Nog niet opgepakt",
+          "signaalpartner": { "type": "Huur" },
+          "client": {
+            "Burgerservicenummer": "556677889",
+            "Voorletters": "K.",
+            "Achternaam": "Ibrahim",
+            "Geboortedatum": "1990-03-11",
+            "Straatnaam": "Loosduinsekade",
+            "Postcode": "2571AB",
+            "Huisnummer": "44",
+            "Huisnummertoevoeging": "2",
+            "Plaatsnaam": "Den Haag"
+          }
+        },
+        {
+          "ID": "VS-DH-2025-0003",
+          "crisissignaal": false,
+          "warmeOverdracht": false,
+          "bedrag": 95,
+          "ontstaansdatum": "2025-04-20",
+          "signaaldatum": "2025-05-08",
+          "status": "Nog niet opgepakt",
+          "signaalpartner": { "type": "Water" },
+          "client": {
+            "Burgerservicenummer": "778899001",
+            "Voorletters": "N.J.",
+            "Voorvoegsel": "van",
+            "Achternaam": "Vliet",
+            "Geboortedatum": "1970-12-09",
+            "Straatnaam": "Prins Mauritslaan",
+            "Postcode": "2582LT",
+            "Huisnummer": "17",
+            "Huisnummertoevoeging": "A",
+            "Plaatsnaam": "Den Haag"
+          }
+        },
+        {
+          "ID": "VS-DH-2025-0004",
+          "crisissignaal": false,
+          "warmeOverdracht": false,
+          "bedrag": 750,
+          "ontstaansdatum": "2025-05-01",
+          "signaaldatum": "2025-05-22",
+          "status": "Nog niet opgepakt",
+          "signaalpartner": { "type": "Dienst Toeslagen" },
+          "client": {
+            "Burgerservicenummer": "112233445",
+            "Voorletters": "C.L.",
+            "Voorvoegsel": "den",
+            "Achternaam": "Hartog",
+            "Geboortedatum": "1984-06-25",
+            "Straatnaam": "Hofweg",
+            "Postcode": "2511AA",
+            "Huisnummer": "3",
+            "Plaatsnaam": "Den Haag"
+          }
+        }
+      ],
+      "vroegsignaalzaken": [
+        {
+          "resultaat": "Inwoner heeft zelf al betaald/betalingsregeling getroffen",
+          "matchingsdatum": "2025-04-18",
+          "startdatum_matchtingperiode": "2025-04-01",
+          "einddatum_matchingperiode": "2025-04-30",
+          "datum_opgepakt": "2025-04-19",
+          "vroegsignalen": [
+            { "ID": "VS-DH-2025-0001" }
+          ],
+          "contactpogingen": [
+            {
+              "soort": "Telefoon",
+              "bereikt": true,
+              "datum": "2025-04-19",
+              "dagdeel": "Middag"
+            }
+          ]
+        },
+        {
+          "resultaat": "Vervolghulp en/of verwijzing niet financieel",
+          "matchingsdatum": "2025-04-18",
+          "startdatum_matchtingperiode": "2025-04-01",
+          "einddatum_matchingperiode": "2025-04-30",
+          "datum_opgepakt": "2025-04-20",
+          "vroegsignalen": [
+            { "ID": "VS-DH-2025-0002" }
+          ],
+          "contactpogingen": [
+            {
+              "soort": "Huisbezoek",
+              "bereikt": true,
+              "datum": "2025-04-20",
+              "dagdeel": "Avond"
+            }
+          ]
+        },
+        {
+          "resultaat": "Geen reactie na eerder contact",
+          "matchingsdatum": "2025-05-10",
+          "startdatum_matchtingperiode": "2025-05-01",
+          "einddatum_matchingperiode": "2025-05-31",
+          "datum_opgepakt": "2025-05-11",
+          "vroegsignalen": [
+            { "ID": "VS-DH-2025-0003" }
+          ],
+          "contactpogingen": [
+            {
+              "soort": "Telefoon",
+              "bereikt": true,
+              "datum": "2025-05-11",
+              "dagdeel": "Ochtend"
+            },
+            {
+              "soort": "Mail",
+              "bereikt": false,
+              "datum": "2025-05-14",
+              "dagdeel": "Ochtend"
+            },
+            {
+              "soort": "Telefoon",
+              "bereikt": false,
+              "datum": "2025-05-18",
+              "dagdeel": "Middag"
+            },
+            {
+              "soort": "Kaartje",
+              "bereikt": false,
+              "datum": "2025-05-22",
+              "dagdeel": "Ochtend"
+            }
+          ]
+        },
+        {
+          "resultaat": "Inwoner heeft al een ander lopend traject",
+          "matchingsdatum": "2025-05-25",
+          "startdatum_matchtingperiode": "2025-05-01",
+          "einddatum_matchingperiode": "2025-05-31",
+          "vroegsignalen": [
+            { "ID": "VS-DH-2025-0001" },
+            { "ID": "VS-DH-2025-0004" }
+          ]
+        }
+      ]
+    },
+    {
+      "teller": 3,
+      "gemeentecode": "0034",
+      "aanleverende_organisatie": {
+        "naam": "Gemeente Almere",
+        "kvk-nummer": "32164027",
+        "contactpersoonen": [
+          {
+            "naam": "Dennis Brouwer",
+            "telefoonnummer": "0365493000",
+            "email": "d.brouwer@almere.nl",
+            "functietitel": "Coördinator Vroegsignalering"
+          },
+          {
+            "naam": "Fatima el Amrani",
+            "telefoonnummer": "0365493001",
+            "email": "f.elamrani@almere.nl",
+            "functietitel": "Beleidsadviseur Schuldhulpverlening"
+          },
+          {
+            "naam": "Rob Hendriks",
+            "telefoonnummer": "0365493002",
+            "email": "r.hendriks@almere.nl",
+            "functietitel": "Applicatiebeheerder"
+          }
+        ]
+      },
+      "vroegsignalen": [
+        {
+          "ID": "VS-ALM-2025-0001",
+          "crisissignaal": false,
+          "warmeOverdracht": false,
+          "bedrag": 150,
+          "ontstaansdatum": "2025-04-05",
+          "signaaldatum": "2025-04-28",
+          "status": "Nog niet opgepakt",
+          "signaalpartner": { "type": "Zorg" },
+          "client": {
+            "Burgerservicenummer": "990011223",
+            "Voorletters": "S.W.",
+            "Achternaam": "Mulder",
+            "Geboortedatum": "1998-10-15",
+            "Straatnaam": "Stadhuisplein",
+            "Postcode": "1315HR",
+            "Huisnummer": "1",
+            "Plaatsnaam": "Almere"
+          }
+        },
+        {
+          "ID": "VS-ALM-2025-0002",
+          "crisissignaal": false,
+          "warmeOverdracht": false,
+          "bedrag": 480,
+          "ontstaansdatum": "2025-03-15",
+          "signaaldatum": "2025-05-05",
+          "status": "Nog niet opgepakt",
+          "signaalpartner": { "type": "Hypotheek" },
+          "client": {
+            "Burgerservicenummer": "880022334",
+            "Voorletters": "P.J.",
+            "Voorvoegsel": "van den",
+            "Achternaam": "Broek",
+            "Geboortedatum": "1975-03-28",
+            "Straatnaam": "Grote Markt",
+            "Postcode": "1315JC",
+            "Huisnummer": "88",
+            "Huisnummertoevoeging": "",
+            "Plaatsnaam": "Almere"
+          }
+        }
+      ],
+      "vroegsignaalzaken": [
+        {
+          "resultaat": "Niet opgepakt: andere reden",
+          "matchingsdatum": "2025-05-01",
+          "startdatum_matchtingperiode": "2025-04-15",
+          "einddatum_matchingperiode": "2025-05-15",
+          "vroegsignalen": [
+            { "ID": "VS-ALM-2025-0001" }
+          ]
+        },
+        {
+          "resultaat": "Vervolghulp en/of verwijzing financieel",
+          "matchingsdatum": "2025-05-08",
+          "startdatum_matchtingperiode": "2025-04-15",
+          "einddatum_matchingperiode": "2025-05-15",
+          "datum_opgepakt": "2025-05-09",
+          "vroegsignalen": [
+            { "ID": "VS-ALM-2025-0002" }
+          ],
+          "contactpogingen": [
+            {
+              "soort": "Telefoon",
+              "bereikt": false,
+              "datum": "2025-05-09",
+              "dagdeel": "Ochtend"
+            },
+            {
+              "soort": "Brief",
+              "bereikt": false,
+              "datum": "2025-05-12",
+              "dagdeel": "Ochtend"
+            },
+            {
+              "soort": "Afspraak op locatie",
+              "bereikt": true,
+              "datum": "2025-05-20",
+              "dagdeel": "Middag"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
